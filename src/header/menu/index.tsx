@@ -6,6 +6,7 @@ import styled from 'styled-components'
 const MenuWrapper = styled.nav`
   display: flex;
   justify-content: end;
+  align-items: center;
 `
 
 const PrimaryMenu = styled.ul`
@@ -15,8 +16,7 @@ const PrimaryMenu = styled.ul`
 `
 
 const MenuItem = styled.li`
-  margin: 0 1rem;
-  text-decoration: none;
+  margin: 0 2.5rem;
 `
 
 const Menu = () => {
@@ -39,8 +39,8 @@ const Menu = () => {
   if (!wpMenu?.menuItems?.nodes || wpMenu.menuItems.nodes === 0) return null
 
   return (
-    <MenuWrapper>
-      <PrimaryMenu>
+    <MenuWrapper className="menu-wrapper">
+      <PrimaryMenu className="primary-menu">
         {wpMenu.menuItems?.nodes.map((menuItem, i) => {
           const path = menuItem?.connectedNode?.node?.uri ?? menuItem.url
 
@@ -54,7 +54,7 @@ const Menu = () => {
                 'menu-item menu-item-type-custom menu-item-object-custom menu-item-home ' + itemId
               }
             >
-              <Link to={path} activeClassName={'current-menu-item current_page_item small-letters'}>
+              <Link style={{color: 'white', textDecoration: 'none', textTransform: 'lowercase'}} to={path} activeClassName={'current-menu-item current_page_item small-letters'}>
                 {menuItem.label}
               </Link>
             </MenuItem>
