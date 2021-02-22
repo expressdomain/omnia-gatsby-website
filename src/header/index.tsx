@@ -1,9 +1,13 @@
 import parse from 'html-react-parser'
 import { graphql, Link, useStaticQuery } from 'gatsby'
 import React from 'react'
-import './header.scss'
 import Menu from './menu'
-// import { HeaderNav } from './header-static'
+import styled from 'styled-components'
+
+const GlobalHeader = styled.header`
+  display: flex;
+  flex-flow: row;
+`
 
 const Header = ({ isHomePage = false }) => {
   const {
@@ -21,16 +25,16 @@ const Header = ({ isHomePage = false }) => {
     }
   `)
 
-  // console.log(parse(label))
-  // console.log(id)
   return (
     <div>
-      <header className="global-header">
+      <GlobalHeader>
         <h1 className="main-heading">
           <Link to="/">{parse(title)}</Link>
         </h1>
-      </header>
-      <Menu />
+        <div>
+          <Menu />
+        </div>
+      </GlobalHeader>
     </div>
   )
 }
