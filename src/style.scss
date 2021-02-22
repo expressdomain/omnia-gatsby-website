@@ -560,4 +560,13 @@ body {
 .footer {
 	border-radius: 5px;
 	background-color: hsl(247, 69%, 15%);
+	margin-top: 10%;
+}
+
+.section-inner {
+	margin: 0 auto;
+	max-width: 1230px;
+	display: flex;
+	flex-flow: row;
+	padding: 4rem 0;
 }
