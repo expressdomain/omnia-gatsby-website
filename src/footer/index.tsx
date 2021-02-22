@@ -64,7 +64,7 @@ const Footer = () => {
           <p>John Mollema</p>
           <p>Meerstraat 9</p>
           <p>5473AA Heeswijk-Dinther</p>
-          <FaLinkedin style={{marginTop: '0.5rem'}} size={26} />
+          <a style={{color: 'white'}} href="https://www.linkedin.com/in/johnmollema/"><FaLinkedin style={{ marginTop: '0.5rem' }} size={26} /></a>
         </FooterLeft>
         <FooterRight className="footer-left">
           <p><a href="tel:0031643889974">+31 6 43889974</a></p>

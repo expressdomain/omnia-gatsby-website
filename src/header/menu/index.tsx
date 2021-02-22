@@ -36,6 +36,8 @@ const Menu = () => {
     }
   `)
 
+  console.log(wpMenu)
+
   if (!wpMenu?.menuItems?.nodes || wpMenu.menuItems.nodes === 0) return null
 
   return (
