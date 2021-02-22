@@ -4,6 +4,7 @@ import parse from 'html-react-parser'
 import { SEOContext } from 'gatsby-plugin-wpgraphql-seo'
 import Footer from '../footer'
 import Header from '../header'
+import Menu from '../header/menu'
 
 const Layout = ({ isHomePage = false, children }) => {
   const {

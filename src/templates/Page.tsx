@@ -16,7 +16,6 @@ const PageTemplate = ({ data: { previous, next, post } }) => {
     alt: post.featuredImage?.node?.alt || ``,
   }
 
-
   return (
     <Layout>
       <Seo post={post} />

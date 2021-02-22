@@ -1,30 +1,30 @@
-import { v4 } from "uuid";
-import { isEmpty, remove } from 'lodash';
-import DOMPurify from 'dompurify';
+import { v4 } from 'uuid'
+import { isEmpty, remove } from 'lodash'
+import DOMPurify from 'dompurify'
 
 export const normalizePath = (path) => {
-  const pathStr = path.split("/");
+  const pathStr = path.split('/')
 
   // If the path ends with '/' get the second last item
   if (path?.endsWith(`/`)) {
-    const strIndex = pathStr.length ? pathStr.length - 2 : "";
+    const strIndex = pathStr.length ? pathStr.length - 2 : ''
 
     if (strIndex) {
-      path = `/${pathStr[strIndex]}/`;
+      path = `/${pathStr[strIndex]}/`
     }
   }
 
   // If the path ends with '/' get the second last item.
   if (!path?.endsWith(`/`)) {
-    const strIndex = pathStr.length ? pathStr.length - 1 : "";
+    const strIndex = pathStr.length ? pathStr.length - 1 : ''
 
     if (strIndex) {
-      path = `/${pathStr[strIndex]}/`;
+      path = `/${pathStr[strIndex]}/`
     }
   }
 
-  return path;
-};
+  return path
+}
 /**
  * Get date in format of m-d-y
  *
@@ -34,13 +34,13 @@ export const normalizePath = (path) => {
  */
 export const getFormattedDate = (dateString) => {
   if (!dateString) {
-    return "";
+    return ''
   }
 
-  const date = new Date(dateString);
+  const date = new Date(dateString)
 
-  return `${date.getDate()}-${date.getMonth() + 1}-${date.getFullYear()}`;
-};
+  return `${date.getDate()}-${date.getMonth() + 1}-${date.getFullYear()}`
+}
 
 /**
  * Extracts and returns float value from a string.
@@ -49,11 +49,9 @@ export const getFormattedDate = (dateString) => {
  * @return {any}
  */
 export const getFloatVal = (string) => {
-  let floatValue = string.match(/[+-]?\d+(\.\d+)?/g)[0];
-  return null !== floatValue
-    ? parseFloat(parseFloat(floatValue).toFixed(2))
-    : "";
-};
+  let floatValue = string.match(/[+-]?\d+(\.\d+)?/g)[0]
+  return null !== floatValue ? parseFloat(parseFloat(floatValue).toFixed(2)) : ''
+}
 
 /**
  * Add first product.
@@ -62,21 +60,21 @@ export const getFloatVal = (string) => {
  * @return {{totalProductsCount: number, totalProductsPrice: any, products: Array}}
  */
 export const addFirstProduct = (product) => {
-  let productPrice = getFloatVal(product.price);
+  let productPrice = getFloatVal(product.price)
 
   let newCart = {
     products: [],
     totalProductsCount: 1,
     totalProductsPrice: productPrice,
-  };
+  }
 
-  const newProduct = createNewProduct(product, productPrice, 1);
-  newCart.products.push(newProduct);
+  const newProduct = createNewProduct(product, productPrice, 1)
+  newCart.products.push(newProduct)
 
-  localStorage.setItem("woo-next-cart", JSON.stringify(newCart));
+  localStorage.setItem('woo-next-cart', JSON.stringify(newCart))
 
-  return newCart;
-};
+  return newCart
+}
 
 /**
  * Create a new product object.
@@ -94,8 +92,8 @@ export const createNewProduct = (product, productPrice, qty) => {
     price: productPrice,
     qty,
     totalPrice: parseFloat((productPrice * qty).toFixed(2)),
-  };
-};
+  }
+}
 
 /**
  * Updates the existing cart with new item.
@@ -106,39 +104,29 @@ export const createNewProduct = (product, productPrice, qty) => {
  * @param {Integer} newQty New Qty to be updated.
  * @return {{totalProductsCount: *, totalProductsPrice: *, products: *}}
  */
-export const updateCart = (
-  existingCart,
-  product,
-  qtyToBeAdded,
-  newQty = false
-) => {
-  const updatedProducts = getUpdatedProducts(
-    existingCart.products,
-    product,
-    qtyToBeAdded,
-    newQty
-  );
+export const updateCart = (existingCart, product, qtyToBeAdded, newQty = false) => {
+  const updatedProducts = getUpdatedProducts(existingCart.products, product, qtyToBeAdded, newQty)
 
   const addPrice = (total, item) => {
-    total.totalPrice += item.totalPrice;
-    total.qty += item.qty;
+    total.totalPrice += item.totalPrice
+    total.qty += item.qty
 
-    return total;
-  };
+    return total
+  }
 
   // Loop through the updated product array and add the totalPrice of each item to get the totalPrice
-  let total = updatedProducts.reduce(addPrice, { totalPrice: 0, qty: 0 });
+  let total = updatedProducts.reduce(addPrice, { totalPrice: 0, qty: 0 })
 
   const updatedCart = {
     products: updatedProducts,
     totalProductsCount: parseInt(total.qty),
     totalProductsPrice: parseFloat(total.totalPrice),
-  };
+  }
 
-  localStorage.setItem("woo-next-cart", JSON.stringify(updatedCart));
+  localStorage.setItem('woo-next-cart', JSON.stringify(updatedCart))
 
-  return updatedCart;
-};
+  return updatedCart
+}
 
 /**
  * Get updated products array
@@ -158,34 +146,27 @@ export const getUpdatedProducts = (
   newQty = false
 ) => {
   // Check if the product already exits in the cart.
-  const productExitsIndex = isProductInCart(
-    existingProductsInCart,
-    product.productId
-  );
+  const productExitsIndex = isProductInCart(existingProductsInCart, product.productId)
 
   // If product exits ( index of that product found in the array ), update the product quantity and totalPrice
   if (-1 < productExitsIndex) {
-    let updatedProducts = existingProductsInCart;
-    let updatedProduct = updatedProducts[productExitsIndex];
+    let updatedProducts = existingProductsInCart
+    let updatedProduct = updatedProducts[productExitsIndex]
 
     // If have new qty of the product available, set that else add the qtyToBeAdded
-    updatedProduct.qty = newQty
-      ? parseInt(newQty)
-      : parseInt(updatedProduct.qty + qtyToBeAdded);
-    updatedProduct.totalPrice = parseFloat(
-      (updatedProduct.price * updatedProduct.qty).toFixed(2)
-    );
+    updatedProduct.qty = newQty ? parseInt(newQty) : parseInt(updatedProduct.qty + qtyToBeAdded)
+    updatedProduct.totalPrice = parseFloat((updatedProduct.price * updatedProduct.qty).toFixed(2))
 
-    return updatedProducts;
+    return updatedProducts
   } else {
     // If product not found push the new product to the existing product array.
-    let productPrice = getFloatVal(product.price);
-    const newProduct = createNewProduct(product, productPrice, qtyToBeAdded);
-    existingProductsInCart.push(newProduct);
+    let productPrice = getFloatVal(product.price)
+    const newProduct = createNewProduct(product, productPrice, qtyToBeAdded)
+    existingProductsInCart.push(newProduct)
 
-    return existingProductsInCart;
+    return existingProductsInCart
   }
-};
+}
 
 /**
  * Returns index of the product if it exists.
@@ -197,15 +178,15 @@ export const getUpdatedProducts = (
 const isProductInCart = (existingProductsInCart, productId) => {
   const returnItemThatExits = (item, index) => {
     if (productId === item.productId) {
-      return item;
+      return item
     }
-  };
+  }
 
   // This new array will only contain the product which is matched.
-  const newArray = existingProductsInCart.filter(returnItemThatExits);
+  const newArray = existingProductsInCart.filter(returnItemThatExits)
 
-  return existingProductsInCart.indexOf(newArray[0]);
-};
+  return existingProductsInCart.indexOf(newArray[0])
+}
 
 /**
  * Remove Item from the cart.
@@ -215,71 +196,69 @@ const isProductInCart = (existingProductsInCart, productId) => {
  */
 export const removeItemFromCart = (productId) => {
   if (!process.browser) {
-    return null;
+    return null
   }
 
-  let existingCart = localStorage.getItem("woo-next-cart");
-  existingCart = JSON.parse(existingCart);
+  let existingCart = localStorage.getItem('woo-next-cart')
+  existingCart = JSON.parse(existingCart)
 
   // If there is only one item in the cart, delete the cart.
   if (1 === existingCart.products.length) {
-    localStorage.removeItem("woo-next-cart");
-    return null;
+    localStorage.removeItem('woo-next-cart')
+    return null
   }
 
   // Check if the product already exits in the cart.
-  const productExitsIndex = isProductInCart(existingCart.products, productId);
+  const productExitsIndex = isProductInCart(existingCart.products, productId)
 
   // If product to be removed exits
   if (-1 < productExitsIndex) {
-    const productTobeRemoved = existingCart.products[productExitsIndex];
-    const qtyToBeRemovedFromTotal = productTobeRemoved.qty;
-    const priceToBeDeductedFromTotal = productTobeRemoved.totalPrice;
+    const productTobeRemoved = existingCart.products[productExitsIndex]
+    const qtyToBeRemovedFromTotal = productTobeRemoved.qty
+    const priceToBeDeductedFromTotal = productTobeRemoved.totalPrice
 
     // Remove that product from the array and update the total price and total quantity of the cart
-    let updatedCart = existingCart;
-    updatedCart.products.splice(productExitsIndex, 1);
-    updatedCart.totalProductsCount =
-      updatedCart.totalProductsCount - qtyToBeRemovedFromTotal;
-    updatedCart.totalProductsPrice =
-      updatedCart.totalProductsPrice - priceToBeDeductedFromTotal;
+    let updatedCart = existingCart
+    updatedCart.products.splice(productExitsIndex, 1)
+    updatedCart.totalProductsCount = updatedCart.totalProductsCount - qtyToBeRemovedFromTotal
+    updatedCart.totalProductsPrice = updatedCart.totalProductsPrice - priceToBeDeductedFromTotal
 
-    localStorage.setItem("woo-next-cart", JSON.stringify(updatedCart));
-    return updatedCart;
+    localStorage.setItem('woo-next-cart', JSON.stringify(updatedCart))
+    return updatedCart
   } else {
-    return existingCart;
+    return existingCart
   }
-};
+}
 
 /**
  * Returns cart data in the required format.
  * @param {String} data Cart data
  */
 export const getFormattedCart = (data) => {
-  let formattedCart = null;
+  let formattedCart = null
 
   if (undefined === data || !data?.cart?.contents?.nodes?.length) {
-    return formattedCart;
+    return formattedCart
   }
 
-  const givenProducts = data.cart.contents.nodes;
+  const givenProducts = data.cart.contents.nodes
 
   // Create an empty object.
-  formattedCart = {};
-  formattedCart.products = [];
-  let totalProductsCount = 0;
+  formattedCart = {}
+  formattedCart.products = []
+  let totalProductsCount = 0
 
   for (let i = 0; i < givenProducts.length; i++) {
-    const givenProduct = givenProducts[i].product;
-    const product = {};
-    const total = getFloatVal(givenProducts[i].total);
+    const givenProduct = givenProducts[i].product
+    const product = {}
+    const total = getFloatVal(givenProducts[i].total)
 
-    product.productId = givenProduct?.node?.databaseId;
-    product.cartKey = givenProducts[i].key;
-    product.name = givenProduct?.node?.name;
-    product.qty = givenProducts[i].quantity;
-    product.price = total / product.qty;
-    product.totalPrice = givenProducts[i].total;
+    product.productId = givenProduct?.node?.databaseId
+    product.cartKey = givenProducts[i].key
+    product.name = givenProduct?.node?.name
+    product.qty = givenProducts[i].quantity
+    product.price = total / product.qty
+    product.totalPrice = givenProducts[i].total
 
     // Ensure we can add products without images to the cart
     !isEmpty(givenProduct?.node?.image)
@@ -289,22 +268,22 @@ export const getFormattedCart = (data) => {
           title: givenProduct?.node?.image.title,
         })
       : (product.image = {
-          sourceUrl: "https://via.placeholder.com/434",
-          srcSet: "https://via.placeholder.com/434",
+          sourceUrl: 'https://via.placeholder.com/434',
+          srcSet: 'https://via.placeholder.com/434',
           title: givenProduct?.node?.name,
-        });
+        })
 
-    totalProductsCount += givenProducts[i].quantity;
+    totalProductsCount += givenProducts[i].quantity
 
     // Push each item into the products array.
-    formattedCart.products.push(product);
+    formattedCart.products.push(product)
   }
 
-  formattedCart.totalProductsCount = totalProductsCount;
-  formattedCart.totalProductsPrice = data.cart.total;
+  formattedCart.totalProductsCount = totalProductsCount
+  formattedCart.totalProductsPrice = data.cart.total
 
-  return formattedCart;
-};
+  return formattedCart
+}
 
 export const createCheckoutData = (order) => {
   const checkoutData = {
@@ -338,19 +317,19 @@ export const createCheckoutData = (order) => {
     shipToDifferentAddress: false,
     paymentMethod: order.paymentMethod,
     isPaid: false,
-    transactionId: "hjkhjkhsdsdiui",
+    transactionId: 'hjkhjkhsdsdiui',
     customerNote: order.customerNote,
-  };
+  }
 
   if (order.createAccount) {
     checkoutData.account = {
       username: order.username,
       password: order.password,
-    };
+    }
   }
 
-  return checkoutData;
-};
+  return checkoutData
+}
 
 /**
  * Get the updated items in the below format required for mutation input.
@@ -365,7 +344,7 @@ export const createCheckoutData = (order) => {
  */
 export const getUpdatedItems = (products, newQty, cartKey) => {
   // Create an empty array.
-  const updatedItems = [];
+  const updatedItems = []
 
   // Loop through the product array.
   products.map((cartItem) => {
@@ -374,38 +353,38 @@ export const getUpdatedItems = (products, newQty, cartKey) => {
       updatedItems.push({
         key: cartItem.cartKey,
         quantity: parseInt(newQty),
-      });
+      })
 
       // Otherwise just push the existing qty without updating.
     } else {
       updatedItems.push({
         key: cartItem.cartKey,
         quantity: cartItem.qty,
-      });
+      })
     }
-    return null;
-  });
+    return null
+  })
 
   // Return the updatedItems array with new Qtys.
-  return updatedItems;
-};
+  return updatedItems
+}
 
 export const isUserLoggedIn = () => {
-  let authData = null;
+  let authData = null
 
   if (process.browser) {
-    authData = JSON.parse(localStorage.getItem("auth"));
+    authData = JSON.parse(localStorage.getItem('auth'))
   }
-  return authData;
-};
+  return authData
+}
 
 export const logOut = () => {
-  localStorage.removeItem("auth");
-};
+  localStorage.removeItem('auth')
+}
 
 export const setAuth = (authData) => {
-  localStorage.setItem("auth", JSON.stringify(authData));
-};
+  localStorage.setItem('auth', JSON.stringify(authData))
+}
 
 /**
  * Check if user is logged in.
@@ -413,23 +392,22 @@ export const setAuth = (authData) => {
  * @return {object} Auth Object containing token and user data, false on failure.
  */
 export const isUserValidated = () => {
-  let userLoggedInData = "";
+  let userLoggedInData = ''
 
   if (process.browser) {
-    let authTokenData = localStorage.getItem("auth");
+    let authTokenData = localStorage.getItem('auth')
 
     if (!isEmpty(authTokenData)) {
-      authTokenData = JSON.parse(authTokenData);
+      authTokenData = JSON.parse(authTokenData)
 
       if (!isEmpty(authTokenData.authToken)) {
-        userLoggedInData = authTokenData;
+        userLoggedInData = authTokenData
       }
     }
   }
 
-  return userLoggedInData;
-};
-
+  return userLoggedInData
+}
 
 /**
  * Function to get opengraph image.
@@ -438,14 +416,13 @@ export const isUserValidated = () => {
  *
  * @return {void}
  */
-export const getOgImage = ( seo ) => {
+export const getOgImage = (seo) => {
+  if (isEmpty(seo) || isEmpty(seo.opengraphImage) || isEmpty(seo.opengraphImage.sourceUrl)) {
+    return getDefaultOgImage(seo)
+  }
 
-	if ( isEmpty( seo ) || isEmpty( seo.opengraphImage ) || isEmpty( seo.opengraphImage.sourceUrl ) ) {
-		return getDefaultOgImage( seo );
-	}
-
-	return seo.opengraphImage.sourceUrl;
-};
+  return seo.opengraphImage.sourceUrl
+}
 
 /**
  * Function to get opengraph default image.
@@ -454,61 +431,58 @@ export const getOgImage = ( seo ) => {
  *
  * @return {void}
  */
-export const getDefaultOgImage = ( seo ) => {
+export const getDefaultOgImage = (seo) => {
+  if (
+    isEmpty(seo) ||
+    isEmpty(seo.social) ||
+    isEmpty(seo.social.facebook) ||
+    isEmpty(seo.social.facebook.defaultImage) ||
+    isEmpty(seo.social.facebook.defaultImage.sourceUrl)
+  ) {
+    return ''
+  }
 
-	if (
-		isEmpty( seo ) ||
-		isEmpty( seo.social ) ||
-		isEmpty( seo.social.facebook ) ||
-		isEmpty( seo.social.facebook.defaultImage ) ||
-		isEmpty( seo.social.facebook.defaultImage.sourceUrl )
-	) {
-		return '';
-	}
-
-	return seo.social.facebook.defaultImage.sourceUrl;
-};
+  return seo.social.facebook.defaultImage.sourceUrl
+}
 
 /**
  * Add to wish list
  * @param {Object} productData Product data.
  */
-export const addToWishList = ( productData ) => {
+export const addToWishList = (productData) => {
+  let updatedWishList
 
-	let updatedWishList;
+  // Get the existing value of wishlist from localStorage.
+  const existingWishList = JSON.parse(localStorage.getItem('woo_wishlist'))
 
-	// Get the existing value of wishlist from localStorage.
-	const existingWishList = JSON.parse( localStorage.getItem( 'woo_wishlist' ) );
+  /**
+   * If its the first item
+   */
 
-	/**
-	 * If its the first item
-	 */
+  // Set it in localStorage and return.
+  if (isEmpty(existingWishList)) {
+    updatedWishList = addWishListToLocalStorage({
+      productIds: [productData.node.productId],
+      products: [productData],
+    })
+    return updatedWishList
+  }
 
-	// Set it in localStorage and return.
-	if ( isEmpty( existingWishList ) ) {
-		updatedWishList = addWishListToLocalStorage( {
-			productIds: [ productData.node.productId ],
-			products: [ productData ]
-		} );
-		return updatedWishList;
-	}
+  /**
+   * If its not the first item
+   */
 
-	/**
-	 * If its not the first item
-	 */
+  // First set the updated wishlist to existing one.
+  updatedWishList = existingWishList
 
-	// First set the updated wishlist to existing one.
-	updatedWishList = existingWishList;
+  // Then push the new items to existing array.
+  if (!existingWishList.productIds.includes(productData.node.productId)) {
+    updatedWishList.productIds.push(productData.node.productId)
+    updatedWishList.products.push(productData)
+  }
 
-	// Then push the new items to existing array.
-	if ( ! existingWishList.productIds.includes( productData.node.productId )  ) {
-		updatedWishList.productIds.push( productData.node.productId );
-		updatedWishList.products.push( productData );
-	}
-
-	// Update the localStorage with updated items.
-	addWishListToLocalStorage( updatedWishList );
-
+  // Update the localStorage with updated items.
+  addWishListToLocalStorage(updatedWishList)
 }
 
 /**
@@ -518,27 +492,31 @@ export const addToWishList = ( productData ) => {
  * @param getWishList
  * @param setWishList
  */
-export const removeProductFromWishList = ( productId, getWishList, setWishList ) => {
-	const existingWishlist = getWishListProducts();
-	let updatedWishList;
+export const removeProductFromWishList = (productId, getWishList, setWishList) => {
+  const existingWishlist = getWishListProducts()
+  let updatedWishList
 
-	if ( ! isEmpty( existingWishlist ) ) {
-		const updatedItems = {
-			productIds: remove( existingWishlist.productIds, ( id ) => { return productId !== id } ),
-			products: remove( existingWishlist.products, ( product ) => { return productId !== product.node.productId } )
-		}
+  if (!isEmpty(existingWishlist)) {
+    const updatedItems = {
+      productIds: remove(existingWishlist.productIds, (id) => {
+        return productId !== id
+      }),
+      products: remove(existingWishlist.products, (product) => {
+        return productId !== product.node.productId
+      }),
+    }
 
-		updatedWishList = addWishListToLocalStorage( updatedItems  );
+    updatedWishList = addWishListToLocalStorage(updatedItems)
 
-		if ( 0 === updatedItems.productIds.length ) {
-			setWishList(null);
-		} else {
-			getWishList();
-		}
+    if (0 === updatedItems.productIds.length) {
+      setWishList(null)
+    } else {
+      getWishList()
+    }
 
-		return updatedWishList;
-	}
-};
+    return updatedWishList
+  }
+}
 
 /**
  * Add wishlist products to localStorage.
@@ -546,7 +524,7 @@ export const removeProductFromWishList = ( productId, getWishList, setWishList )
  * @param wishList
  */
 export const addWishListToLocalStorage = (wishList) => {
-	return localStorage.setItem( 'woo_wishlist', JSON.stringify( wishList ) )
+  return localStorage.setItem('woo_wishlist', JSON.stringify(wishList))
 }
 
 /**
@@ -555,24 +533,24 @@ export const addWishListToLocalStorage = (wishList) => {
  * @param productId
  * @returns {boolean}
  */
-export const isProductInWishList = ( productId ) => {
-	if ( ! process.browser ) {
-		return null;
-	}
-	const existingWishList = JSON.parse( localStorage.getItem( 'woo_wishlist' ) );
+export const isProductInWishList = (productId) => {
+  if (!process.browser) {
+    return null
+  }
+  const existingWishList = JSON.parse(localStorage.getItem('woo_wishlist'))
 
-	if ( ! isEmpty( existingWishList ) ) {
-		return existingWishList.productIds.includes( productId );
-	} else {
-		return false;
-	}
+  if (!isEmpty(existingWishList)) {
+    return existingWishList.productIds.includes(productId)
+  } else {
+    return false
+  }
 }
 
 export const getWishListProducts = () => {
-	if ( ! process.browser ) {
-		return null;
-	}
-	return JSON.parse( localStorage.getItem( 'woo_wishlist' ) );
+  if (!process.browser) {
+    return null
+  }
+  return JSON.parse(localStorage.getItem('woo_wishlist'))
 }
 
 /**
@@ -583,6 +561,5 @@ export const getWishListProducts = () => {
  * @return {string} Sanitized string
  */
 export const sanitize = (content) => {
-	return process.browser ? DOMPurify.sanitize(content) : content
+  return process.browser ? DOMPurify.sanitize(content) : content
 }
-
