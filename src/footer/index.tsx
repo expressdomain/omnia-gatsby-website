@@ -17,7 +17,7 @@ const FooterLeft = styled.div`
     line-height: 1.2;
     letter-spacing: normal;
   }
-  `
+`
 
 const FooterRight = styled.div`
   color: white;
@@ -52,7 +52,6 @@ const Footer = () => {
   // console.log(wpFooterMenu)
   // if (!wpFooterMenu?.menuItems?.nodes || wpFooterMenu.menuItems.nodes === 0) return null
 
-  
   return (
     <footer id="site-footer" role="contentinfo" className="footer">
       <div className="section-inner">
@@ -64,10 +63,14 @@ const Footer = () => {
           <p>John Mollema</p>
           <p>Meerstraat 9</p>
           <p>5473AA Heeswijk-Dinther</p>
-          <a style={{color: 'white'}} href="https://www.linkedin.com/in/johnmollema/"><FaLinkedin style={{ marginTop: '0.5rem' }} size={26} /></a>
+          <a style={{ color: 'white' }} href="https://www.linkedin.com/in/johnmollema/">
+            <FaLinkedin style={{ marginTop: '0.5rem' }} size={26} />
+          </a>
         </FooterLeft>
         <FooterRight className="footer-left">
-          <p><a href="tel:0031643889974">+31 6 43889974</a></p>
+          <p>
+            <a href="tel:0031643889974">+31 6 43889974</a>
+          </p>
           <p>john.mollema@omnia-consultancy.com</p>
           <p>KvK-nummer:</p>
           <p>BTW-nummer:</p>

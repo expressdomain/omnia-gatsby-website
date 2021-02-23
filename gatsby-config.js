@@ -10,30 +10,27 @@ require('dotenv').config({
  */
 
 module.exports = {
-  /**
-   * Adding plugins to this array adds them to your Gatsby site.
-   *
-   * Gatsby has a rich ecosystem of plugins.
-   * If you need any more you can search here: https://www.gatsbyjs.com/plugins/
-   */
   plugins: [
     `gatsby-plugin-typescript`,
     `gatsby-plugin-image`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
+    {
+        resolve: `gatsby-plugin-google-fonts-v2`,
+        options: {
+          fonts: [
+            {
+              family: 'Karla',
+              variable: true,
+              weights: ['200..800']
+            }
+          ]
+        }
+      },
 
     {
-      /**
-       * First up is the WordPress source plugin that connects Gatsby
-       * to your WordPress site.
-       *
-       * visit the plugin docs to learn more
-       * https://github.com/gatsbyjs/gatsby-source-wordpress-experimental/blob/master/README.md
-       *
-       */
       resolve: `gatsby-source-wordpress`,
       options: {
-        // the only required plugin option for WordPress is the GraphQL url.
         url: process.env.WPGRAPHQL_URL,
         schema: {
           requestConcurrency: 5,

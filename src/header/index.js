@@ -37,16 +37,16 @@ const Header = ({ isHomePage = false }) => {
   `)
 
   return (
-      <GlobalWrapper className="global-wrapper">
-        <GlobalHeader className="global-header">
-          <Link to="/">
-            <Logo src={logo} width={158} />
-          </Link>
-          <div style={{ marginLeft: 'auto', display: 'flex' }}>
-            <Menu />
-          </div>
-        </GlobalHeader>
-      </GlobalWrapper>
+    <GlobalWrapper className="global-wrapper">
+      <GlobalHeader className="global-header">
+        <Link to="/">
+          <Logo src={logo} width={158} />
+        </Link>
+        <div style={{ marginLeft: 'auto', display: 'flex' }}>
+          <Menu />
+        </div>
+      </GlobalHeader>
+    </GlobalWrapper>
   )
 }
 
