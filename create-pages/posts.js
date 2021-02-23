@@ -47,7 +47,7 @@ module.exports = async ( { actions, graphql } ) => {
             if ( ! customTemplatesUris.includes( post.uri ) &&! customTemplateSlugs.includes( post.slug )  ) {
 
                 createPage( {
-                    path: `${ post.uri }`,
+                    path: `/blog${ post.uri }`,
                     component: slash( singlePostTemplate ),
                     context: { ...post }, // pass single page data in context, so its available in the singlePostTemplate in props.pageContext.
                 } );
