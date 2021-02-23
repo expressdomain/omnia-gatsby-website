@@ -1,5 +1,15 @@
 import React from 'react'
 import Layout from '../../components/layout'
+import FeaturedBlog from './FeaturedBlog'
+import styled from 'styled-components'
+import { Link } from 'gatsby'
+
+const BlogWrapper = styled.div`
+  margin-top: 230px;
+  margin-bottom: 100px;
+  display: flex;
+  place-content: center;
+`
 
 const Homepage = (props) => {
   const {
@@ -79,11 +89,18 @@ const Homepage = (props) => {
                       />
                     </div>
                     <div className="services-button">
-                      <button className="lees-meer-button">Lees meer</button>
+                      <button className="lees-verder-button">
+                        <Link className="lees-verder-link" to={'#'}>
+                          Lees verder
+                        </Link>
+                      </button>
                     </div>
                   </div>
                 </div>
               </div>
+              <BlogWrapper className="Blog-Wrapper">
+                <FeaturedBlog />
+              </BlogWrapper>
             </main>
           </div>
         </>

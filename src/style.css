@@ -354,18 +354,25 @@ body {
   margin-right: 80px;
 }
 
-.lees-meer-button {
+.lees-verder-button {
   border-radius: 5px;
   border: none;
   padding: 16px 20px 16.4px;
   -webkit-box-shadow: 0 12px 24px 0 rgba(0, 0, 0, 0.15);
           box-shadow: 0 12px 24px 0 rgba(0, 0, 0, 0.15);
   background-color: #120c41;
+  max-width: -webkit-max-content;
+  max-width: -moz-max-content;
+  max-width: max-content;
+}
+
+.lees-verder-link {
   font-size: 18px;
   font-weight: bold;
   letter-spacing: 0.27px;
   text-align: left;
   color: white;
+  text-decoration: none;
 }
 
 .small-letters {
@@ -548,10 +555,41 @@ body {
   max-width: fit-content;
 }
 
+.featured-blog-icon {
+  width: 140px;
+  -ms-flex-item-align: end;
+      -ms-grid-row-align: end;
+      align-self: end;
+  top: -65px;
+  position: relative;
+  right: -60px;
+}
+
+.featured-title {
+  font-size: 30px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.2;
+  letter-spacing: 0.45px;
+  text-align: left;
+  color: #120c41;
+}
+
+.featured-excerpt {
+  font-size: 20px;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: 0.3px;
+  text-align: left;
+  color: #392b7d;
+}
+
 .footer {
   border-radius: 5px;
   background-color: #120c41;
-  margin-top: 10%;
 }
 
 .section-inner {

@@ -36,7 +36,7 @@ const Menu = () => {
     }
   `)
 
-  console.log(wpMenu)
+  // console.log(wpMenu)
 
   if (!wpMenu?.menuItems?.nodes || wpMenu.menuItems.nodes === 0) return null
 
@@ -56,7 +56,11 @@ const Menu = () => {
                 'menu-item menu-item-type-custom menu-item-object-custom menu-item-home ' + itemId
               }
             >
-              <Link style={{color: 'white', textDecoration: 'none', textTransform: 'lowercase'}} to={path} activeClassName={'current-menu-item current_page_item small-letters'}>
+              <Link
+                style={{ color: 'white', textDecoration: 'none', textTransform: 'lowercase' }}
+                to={path}
+                activeClassName={'current-menu-item current_page_item small-letters'}
+              >
                 {menuItem.label}
               </Link>
             </MenuItem>
