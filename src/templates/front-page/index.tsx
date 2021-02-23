@@ -5,7 +5,7 @@ import styled from 'styled-components'
 import { Link } from 'gatsby'
 
 const BlogWrapper = styled.div`
-  margin-top: 230px;
+  margin-top: 160px;
   margin-bottom: 100px;
   display: flex;
   place-content: center;

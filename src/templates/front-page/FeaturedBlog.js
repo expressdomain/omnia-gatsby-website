@@ -10,17 +10,17 @@ import blog_placeholder from '../../images/featured_blog_placeholder.png'
 const BlogInnerWrapper = styled.div`
   display: flex;
   flex-flow: column;
-  background-image: url(${blog_placeholder});
-  width: 663px;
-  height: 515px;
-  background-repeat: no-repeat;
+`
+
+const BlogInnerContainer = styled.div`
+  display: flex;
+  flex-flow: row;
 `
 
 const BlogItem = styled.div`
-  position: relative;
-  top: -10%;
-  left: 70%;
   max-width: 550px;
+  margin-left: 48px;
+  margin-top: 100px;
 `
 
 // const BlogBackground12 = styled.div`
@@ -28,18 +28,6 @@ const BlogItem = styled.div`
 //   /* background-image: ${prop => prop.url ? url('../images/featured_blog_placeholder.png') : 'lightgray'}; */
 // `
 
-// const BlogBackground = styled.div`
-//   background-image: url(${blog_placeholder});
-//   width: 663px;
-//   height: 515px;
-//   background-repeat: no-repeat;
-// `;
-
-// const BlogBackground = styled.div`
-//   background-image: url(${blog_placeholder}) no-repeat top;
-//   width: 663px;
-//   height: 515px;
-// `;
 
 const FeaturedBlog = () => {
   const { wpPost } = useStaticQuery(graphql`
@@ -68,10 +56,11 @@ const FeaturedBlog = () => {
       {wpPost !== null ? (
         <BlogInnerWrapper className="blog-inner-wrapper">
           <img src={blog_icon} alt="blog-icon" className="featured-blog-icon" />
-          {/* <img
+          <BlogInnerContainer>
+          <img
             src={getFeaturedImageUrl(wpPost.featuredImage?.node?.localFile?.url)}
             alt="featured-blog"
-          /> */}
+          />
           <BlogItem className="blog-item">
             <div className="featured-title">{parse(wpPost.title)}</div>
             <div className="featured-excerpt">{parse(wpPost.excerpt)}</div>
@@ -81,7 +70,7 @@ const FeaturedBlog = () => {
               </Link>
             </button>
           </BlogItem>
-          {/* <BlogBackground className="blog-background"/> */}
+          </BlogInnerContainer>
         </BlogInnerWrapper>
       ) : (
         <pre style={{ color: 'darkred' }}>No featured blog item found.</pre>
