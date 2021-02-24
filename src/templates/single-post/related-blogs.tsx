@@ -10,12 +10,13 @@ const RelatedBlogWrapper = styled.div`
   flex-flow: column;
   background-color: hsl(264, 71%, 43%);
   border-radius: 5px;
+  margin-bottom: 200px;
 `
 
 const RelatedBlogInner = styled.div`
   margin: 4rem 7.375rem 10rem;
   display: flex;
-    flex-flow: row;
+  flex-flow: row;
 `
 
 const BlogInnerContainer = styled.div`
@@ -36,7 +37,7 @@ const RelatedBlogs = ({ id }) => {
 
   const { wpPost } = useStaticQuery(graphql`
     query OTHER_POSTS {
-      allWpPost(limit: 3, filter: { id: { ne: "cG9zdDo5NQ==" } }) {
+      allWpPost(limit: 4) {
         nodes {
           id
           title
@@ -62,15 +63,24 @@ const RelatedBlogs = ({ id }) => {
     <>
       {wpPost !== null ? (
         <RelatedBlogWrapper className="related-blog-wrapper">
-          <RelatedBlogInner className="related-blog-inner">
-            <h2 className="related-blog-header">
-              Dit vindt je misschien <br /> ook interessant
-            </h2>
-            <img src={blog_icon} alt="blog-icon" className="related-blog-icon" />
-          </RelatedBlogInner>
+          <div style={{ margin: `4rem 7.375rem 10rem` }}>
+            <div style={{ display: `flex`, flexFlow: `row` }}>
+              <h2 className="related-blog-header">
+                Dit vindt je misschien <br /> ook interessant
+              </h2>
+              <img src={blog_icon} alt="blog-icon" className="related-blog-icon" />
+            </div>
+            <BlogInnerContainer>
+              {wpPost !== undefined ? (
+                <p>Test</p>
+              ) : (
+                <pre style={{ color: 'white' }}>No related blog items found.</pre>
+              )}
+            </BlogInnerContainer>
+          </div>
         </RelatedBlogWrapper>
       ) : (
-        <pre style={{ color: 'darkred' }}>No featured blog item found.</pre>
+        <pre style={{ color: 'darkred' }}>This component has not loaded succesfully.</pre>
       )}
     </>
   )
