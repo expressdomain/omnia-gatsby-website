@@ -42,7 +42,7 @@ const SinglePostTemplate = (props) => {
     pageContext: { title, blogPreview, content, featuredImage, seo, uri, id },
   } = props
 
-  // console.log(props.pageContext)
+  console.log(props.pageContext)
 
   return (
     <Layout>
@@ -57,7 +57,11 @@ const SinglePostTemplate = (props) => {
                   alt="featured-blog"
                   className="blog-detail-image"
                 />
-                <p className="blog-detail-toptext">{parse(blogPreview.blogPreview)}</p>
+                {blogPreview.blogPreview !== null ? (
+                  <p className="blog-detail-toptext">{parse(blogPreview.blogPreview)}</p>
+                ) : (
+                  <pre>No body found</pre>
+                )}
               </BlogInnerHeader>
             </BlogHeader>
           </BlogHeaderWrapper>
