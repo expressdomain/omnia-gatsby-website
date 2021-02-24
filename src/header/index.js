@@ -17,7 +17,12 @@ const GlobalHeader = styled.header`
 `
 
 const Logo = styled.img`
-  margin: 22px 0;
+  @media only screen and (min-width: 416px) {
+    margin: 1.375rem 0;
+  }
+  @media only screen and (max-width: 414px) {
+    margin: 1rem;
+  }
 `
 
 const Header = ({ isHomePage = false }) => {

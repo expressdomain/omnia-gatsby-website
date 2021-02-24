@@ -10,9 +10,14 @@ const MenuWrapper = styled.nav`
 `
 
 const PrimaryMenu = styled.ul`
-  display: flex;
-  flex-flow: row;
-  list-style: none;
+  @media only screen and (min-width: 416px) {
+    display: flex;
+    flex-flow: row;
+    list-style: none;
+  }
+  @media only screen and (max-width: 414px) {
+    display: none;
+  }
 `
 
 const MenuItem = styled.li`

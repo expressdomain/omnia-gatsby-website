@@ -3,12 +3,16 @@ import Layout from '../../components/layout'
 import FeaturedBlog from './FeaturedBlog'
 import styled from 'styled-components'
 import { Link } from 'gatsby'
+import parse from 'html-react-parser'
 
 const BlogWrapper = styled.div`
-  margin-top: 160px;
-  margin-bottom: 100px;
-  display: flex;
+
+  @media only screen and (min-width: 416px) {
+    margin-top: 160px;
+    margin-bottom: 100px;
+      display: flex;
   place-content: center;
+  }
 `
 
 const Homepage = (props) => {
@@ -26,25 +30,15 @@ const Homepage = (props) => {
             <main id="main" className="site-main">
               <div className="hero-container">
                 <div className="hero-header">
-                  <p
-                    className="hero-small hero-dark"
-                    dangerouslySetInnerHTML={{
-                      __html: homepageACF.heroSubHeader,
-                    }}
-                  />
-                  <h1
-                    className="hero-dark hero-big"
-                    dangerouslySetInnerHTML={{
-                      __html: homepageACF.heroHeader,
-                    }}
-                  />
+                  <p className="hero-small">{parse(homepageACF.heroSubHeader)}</p>
+                  <h1 className="hero-big">{parse(homepageACF.heroHeader)}</h1>
                 </div>
-                <p
-                  className="hero-subtext"
-                  dangerouslySetInnerHTML={{
-                    __html: homepageACF.heroSubtext,
-                  }}
+                <img
+                  className="hero-image"
+                  src={homepageACF.heroImage.sourceUrl}
+                  alt=""
                 />
+                <p className="hero-subtext">{parse(homepageACF.heroSubtext)}</p>
 
                 <div className="hero-button-container">
                   <div className="hero-button-square">
@@ -54,13 +48,8 @@ const Homepage = (props) => {
               </div>
 
               <div className="usp-services-container">
-                <h2
-                  className="usp-header"
-                  dangerouslySetInnerHTML={{
-                    __html: homepageACF.uspHeader,
-                  }}
-                />
-                <div className="flex f-row pt-8">
+                <h2 className="usp-header">{parse(homepageACF.uspHeader)}</h2>
+                <div className="usp-services-innercontainer">
                   {/* Update into fluid gatsby */}
                   <img
                     className="services-image"
@@ -68,25 +57,10 @@ const Homepage = (props) => {
                     alt=""
                   />
                   <div className="services-text-container">
-                    <h3
-                      className="services-header"
-                      dangerouslySetInnerHTML={{
-                        __html: homepageACF.servicesHeader,
-                      }}
-                    />
+                    <h3 className="services-header">{parse(homepageACF.servicesHeader)}</h3>
                     <div className="services-content flex">
-                      <div
-                        className="bullet-list mr-8"
-                        dangerouslySetInnerHTML={{
-                          __html: homepageACF.servicesContent,
-                        }}
-                      />
-                      <div
-                        className="bullet-list mr-8"
-                        dangerouslySetInnerHTML={{
-                          __html: homepageACF.servicesContent1,
-                        }}
-                      />
+                      <div className="bullet-list bullet-list-margin">{parse(homepageACF.servicesContent)}</div>
+                      <div className="bullet-list bullet-list-margin">{parse(homepageACF.servicesContent1)}</div>
                     </div>
                     <div className="services-button">
                       <button className="lees-verder-button">

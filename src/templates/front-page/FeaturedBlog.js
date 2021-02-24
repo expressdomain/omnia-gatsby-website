@@ -4,29 +4,34 @@ import styled from 'styled-components'
 import parse from 'html-react-parser'
 import blog_icon from '../../images/blog_icon.png'
 import { getFeaturedImageUrl } from '../../utils/functions'
-// import blog_placeholder from '..//images/featured_blog_placeholder.png'
-import blog_placeholder from '../../images/featured_blog_placeholder.png'
 
 const BlogInnerWrapper = styled.div`
-  display: flex;
+      @media only screen and (min-width: 416px) {
+          display: flex;
   flex-flow: column;
+    }
 `
 
 const BlogInnerContainer = styled.div`
-  display: flex;
+      @media only screen and (min-width: 416px) {
+          display: flex;
   flex-flow: row;
+    }
+
 `
 
 const BlogItem = styled.div`
-  max-width: 550px;
+
+    @media only screen and (min-width: 416px) {
+        max-width: 550px;
   margin-left: 48px;
   margin-top: 100px;
-`
+    }
+    @media only screen and (max-width: 414px) {
+      position: relative;
+    }
 
-// const BlogBackground12 = styled.div`
-//   /* background-image: url(${blog_placeholder}); */
-//   /* background-image: ${prop => prop.url ? url('../images/featured_blog_placeholder.png') : 'lightgray'}; */
-// `
+`
 
 
 const FeaturedBlog = () => {
@@ -48,18 +53,16 @@ const FeaturedBlog = () => {
     }
   `)
 
-  const backgroundImage = (`${wpPost.featuredImage?.node?.localFile?.url}`)
-  console.log(backgroundImage)
-
   return (
     <>
       {wpPost !== null ? (
         <BlogInnerWrapper className="blog-inner-wrapper">
           <img src={blog_icon} alt="blog-icon" className="featured-blog-icon" />
-          <BlogInnerContainer>
+          <BlogInnerContainer className="blog-inner-container">
           <img
             src={getFeaturedImageUrl(wpPost.featuredImage?.node?.localFile?.url)}
-            alt="featured-blog"
+              alt="featured-blog"
+              className="featured-blog-image"
           />
           <BlogItem className="blog-item">
             <div className="featured-title">{parse(wpPost.title)}</div>
