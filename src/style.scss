@@ -67,8 +67,8 @@
 	--color-primary: #005b99;
 	--color-text: #2e353f;
 	--color-text-light: #4f5969;
-	--color-heading: #1a202c;
-	--color-heading-black: black;
+	--color-heading: hsl(247, 69%, 15%);
+	--color-heading-white: white;
 	--color-accent: #d1dce5;
 }
 
@@ -135,7 +135,12 @@ h6 {
 h1 {
 	// font-weight: var(--fontWeight-black);
 	font-size: var(--fontSize-6);
-	color: var(--color-heading-black);
+	@media only screen and (min-width: 416px) {
+		color: var(--color-heading);
+	}
+	@media only screen and (max-width: 414px) {
+		color: var(--color-heading-white);
+	}
 }
 
 h2 {
@@ -422,14 +427,16 @@ body {
 //Homepage styles
 .hero-container {
 	@media only screen and (min-width: 416px) {
-		margin-bottom: 45px;
-		padding-top: 146px;
-		width: 685px;
-		height: 815px;
-		width: 1750px;
-		margin-bottom: 160px;
-		margin-left: -150px;
+		// margin-bottom: 45px;
+		// padding-top: 146px;
+		// width: 685px;
+		// height: 815px;
+		// width: 1750px;
+		margin-bottom: 130px;
+		margin-left: -230px;
 		margin-top: 50px;
+		display: flex;
+		flex-flow: row;
 	}
 	@media only screen and (max-width: 414px) {
 	}
@@ -460,6 +467,7 @@ body {
 		padding: 1rem 2rem;
 		border-bottom-left-radius: 5px;
 		border-bottom-right-radius: 5px;
+		color: var(--color-heading-white);
 	}
 }
 
@@ -471,7 +479,6 @@ body {
 	}
 	@media only screen and (max-width: 414px) {
 		font-size: 20px;
-		color: white;
 	}
 }
 
@@ -486,14 +493,7 @@ body {
 	@media only screen and (max-width: 414px) {
 		font-size: 20px;
 		margin-bottom: 0;
-		color: white;
 	}
-}
-
-.page-id-2 h1 span {
-	font-style: italic;
-	color: #ffffff;
-	padding: 0 8px 0 8px;
 }
 
 .hero-subtext {
@@ -518,7 +518,7 @@ body {
 	@media only screen and (min-width: 416px) {
 		position: relative;
 		top: 95px;
-		left: 675px;
+		left: 700px;
 		width: fit-content;
 	}
 	@media only screen and (max-width: 414px) {
@@ -553,8 +553,7 @@ body {
 	}
 }
 
-.usp-services-innercontainer {
-	background-color: #120c42;
+.usp-services-inner-container {
 	border-radius: 5px;
 	flex-flow: row;
 	display: flex;
@@ -562,6 +561,7 @@ body {
 		padding-top: 80px;
 	}
 	@media only screen and (max-width: 414px) {
+		background-color: #120c42;
 	}
 }
 
