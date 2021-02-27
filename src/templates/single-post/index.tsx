@@ -42,7 +42,7 @@ const SinglePostTemplate = (props) => {
     pageContext: { title, blogPreview, content, featuredImage, seo, uri, id },
   } = props
 
-  console.log(props.pageContext)
+  // console.log(props.pageContext)
 
   return (
     <Layout>
@@ -68,7 +68,7 @@ const SinglePostTemplate = (props) => {
           <BlogContentContainer className="blog-content-container">
             <p>{parse(content)}</p>
           </BlogContentContainer>
-          <RelatedBlogs id={id} />
+          <RelatedBlogs />
         </BlogWrapper>
       ) : (
         <div>Something went wrong</div>

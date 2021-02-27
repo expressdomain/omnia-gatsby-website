@@ -671,3 +671,51 @@ body {
 	top: -120px;
 	left: 445px;
 }
+
+// Blog overview
+
+.blog-preview-image {
+	width: 310px;
+	height: 310px;
+}
+
+.blog-preview-title {
+	font-size: 27px;
+	font-weight: bold;
+	font-stretch: normal;
+	font-style: normal;
+	line-height: 1.19;
+	letter-spacing: 0.38px;
+	text-align: left;
+	color: hsl(264, 71%, 43%);
+}
+
+.blog-preview-text {
+	font-size: 15px;
+	font-weight: 300;
+	font-stretch: normal;
+	font-style: normal;
+	line-height: 1.33;
+	letter-spacing: 0.17px;
+	text-align: left;
+	// color: hsl(250, 49%, 33%);
+}
+
+.blog-link-detail {
+	font-size: 20px;
+	font-weight: bold;
+	font-stretch: normal;
+	font-style: normal;
+	line-height: 1.75;
+	letter-spacing: 0.3px;
+	text-align: left;
+	color: hsl(250, 49%, 33%);
+	text-decoration: none;
+}
+
+.lees-verder-chevron {
+	display: flex;
+	flex-flow: row;
+	align-items: center;
+	color: hsl(250, 49%, 33%);
+}
