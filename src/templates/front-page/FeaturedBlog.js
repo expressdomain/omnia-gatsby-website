@@ -28,7 +28,6 @@ const BlogItem = styled.div`
 //   /* background-image: ${prop => prop.url ? url('../images/featured_blog_placeholder.png') : 'lightgray'}; */
 // `
 
-
 const FeaturedBlog = () => {
   const { wpPost } = useStaticQuery(graphql`
     query FeaturedBlogQuery {
@@ -36,7 +35,9 @@ const FeaturedBlog = () => {
         uri
         slug
         title
-        excerpt
+        blogPreview {
+          blogPreview
+        }
         featuredImage {
           node {
             localFile {
@@ -48,7 +49,7 @@ const FeaturedBlog = () => {
     }
   `)
 
-  const backgroundImage = (`${wpPost.featuredImage?.node?.localFile?.url}`)
+  const backgroundImage = `${wpPost.featuredImage?.node?.localFile?.url}`
   console.log(backgroundImage)
 
   return (
@@ -57,19 +58,19 @@ const FeaturedBlog = () => {
         <BlogInnerWrapper className="blog-inner-wrapper">
           <img src={blog_icon} alt="blog-icon" className="featured-blog-icon" />
           <BlogInnerContainer>
-          <img
-            src={getFeaturedImageUrl(wpPost.featuredImage?.node?.localFile?.url)}
-            alt="featured-blog"
-          />
-          <BlogItem className="blog-item">
-            <div className="featured-title">{parse(wpPost.title)}</div>
-            <div className="featured-excerpt">{parse(wpPost.excerpt)}</div>
-            <button className="lees-verder-button">
-              <Link className="lees-verder-link" to={wpPost.uri}>
-                Lees verder
-              </Link>
-            </button>
-          </BlogItem>
+            <img
+              src={getFeaturedImageUrl(wpPost.featuredImage?.node?.localFile?.url)}
+              alt="featured-blog"
+            />
+            <BlogItem className="blog-item">
+              <div className="featured-title">{parse(wpPost.title)}</div>
+              <div className="featured-excerpt">{parse(wpPost.blogPreview.blogPreview)}</div>
+              <button className="lees-verder-button">
+                <Link className="lees-verder-link" to={wpPost.uri}>
+                  Lees verder
+                </Link>
+              </button>
+            </BlogItem>
           </BlogInnerContainer>
         </BlogInnerWrapper>
       ) : (
