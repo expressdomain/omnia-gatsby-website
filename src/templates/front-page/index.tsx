@@ -88,7 +88,7 @@ const Homepage = (props) => {
                     </div>
                     <div className="services-button">
                       <button className="lees-verder-button">
-                        <Link className="lees-verder-link" to={'#'}>
+                        <Link className="lees-verder-link" to={'/diensten/'}>
                           Lees verder
                         </Link>
                       </button>
