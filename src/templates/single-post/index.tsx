@@ -19,22 +19,36 @@ const BlogHeader = styled.div`
   color: white;
   max-width: 920px;
   margin: 0 auto;
-  padding: 1rem;
-  height: 440px;
+  @media only screen and (min-width: 416px) {
+    height: 440px;
+    padding: 1rem;
+  }
+  @media only screen and (max-width: 414px) {
+    padding: 1rem 0;
+  }
 `
 
 const BlogInnerHeader = styled.div`
-  display: flex;
-  flex-flow: row;
-  margin-top: 2rem;
+  @media only screen and (min-width: 416px) {
+    display: flex;
+    flex-flow: row;
+    margin-top: 2rem;
+  }
+  @media only screen and (max-width: 414px) {
+  }
 `
 
 const BlogContentContainer = styled.div`
-  margin-top: 12.5rem;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 10%;
   max-width: 60%;
+  @media only screen and (min-width: 416px) {
+    margin-top: 12.5rem;
+  }
+  @media only screen and (max-width: 414px) {
+    margin-top: 2rem;
+  }
 `
 
 const SinglePostTemplate = (props) => {

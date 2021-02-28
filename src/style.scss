@@ -623,53 +623,87 @@ body {
 // Blog detail
 
 .blog-detail-header {
-	font-size: 59px;
-	font-weight: 300;
 	font-stretch: normal;
 	font-style: normal;
-	line-height: 1.17;
-	letter-spacing: 0.89px;
 	text-align: left;
 	color: hsl(0, 0%, 100%);
+	@media only screen and (min-width: 416px) {
+		font-size: 59px;
+		letter-spacing: 0.89px;
+		font-weight: 300;
+		line-height: 1.17;
+	}
+	@media only screen and (max-width: 414px) {
+		font-size: 20px;
+		font-weight: bold;
+		line-height: 1.2;
+		letter-spacing: 0.3px;
+		margin: 1rem 2.5rem;
+	}
 }
 
 .blog-detail-image {
-	width: 343px;
-	height: 344px;
-	box-shadow: 0 3px 6px 0 hsla(0, 0%, 0%, 0.15);
-	margin-right: 3.3rem;
+	@media only screen and (min-width: 416px) {
+		width: 343px;
+		height: 343px;
+		box-shadow: 0 3px 6px 0 hsla(0, 0%, 0%, 0.15);
+		margin-right: 3.3rem;
+	}
+	@media only screen and (max-width: 414px) {
+		width: 375px;
+		height: 375px;
+	}
 }
 
 .blog-detail-toptext {
-	font-size: 20px;
 	font-weight: 300;
 	font-stretch: normal;
 	font-style: normal;
 	line-height: 1.75;
 	letter-spacing: 0.3px;
 	text-align: left;
+	@media only screen and (min-width: 416px) {
+		font-size: 20px;
+	}
+	@media only screen and (max-width: 414px) {
+		margin: 1rem 3.875rem;
+		font-size: 15px;
+	}
 }
 
 // Related blog styles on Blog Detail page
 
 .related-blog-header {
-	font-size: 59px;
-	font-weight: 300;
-	font-stretch: normal;
-	font-style: normal;
-	line-height: 1.2;
-	letter-spacing: 0.89px;
-	text-align: left;
-	color: hsl(0, 0%, 100%);
-	margin: 0;
+	@media only screen and (min-width: 416px) {
+		font-size: 59px;
+		font-weight: 300;
+		font-stretch: normal;
+		font-style: normal;
+		line-height: 1.2;
+		letter-spacing: 0.89px;
+		text-align: left;
+		color: hsl(0, 0%, 100%);
+		margin: 0;
+	}
+	@media only screen and (max-width: 414px) {
+		display: none;
+	}
 }
 
 .related-blog-icon {
-	width: 117.8px;
-	height: 123.4px;
 	position: relative;
-	top: -120px;
-	left: 445px;
+	@media only screen and (min-width: 416px) {
+		width: 117.8px;
+		height: 123.4px;
+		top: -120px;
+		left: 445px;
+	}
+	@media only screen and (max-width: 414px) {
+		width: 73px;
+		height: 76.5px;
+		top: -40px;
+		left: 30px;
+	}
 }
 
 // Blog overview
