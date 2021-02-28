@@ -15,7 +15,7 @@ const BlogWrapper = styled.div`
 `
 
 const HeroInnerContainer = styled.div`
-    margin-right: 50px;
+  margin-right: 50px;
 `
 
 const Homepage = (props) => {
@@ -31,7 +31,6 @@ const Homepage = (props) => {
         <>
           <div id="primary" className="content-area">
             <main id="main" className="site-main">
-
               {window.innerWidth <= 414 ? (
                 // Mobile layout
                 <div className="hero-container">
@@ -39,18 +38,13 @@ const Homepage = (props) => {
                     <p className="hero-small">{parse(homepageACF.heroSubHeader)}</p>
                     <h1 className="hero-big">{parse(homepageACF.heroHeader)}</h1>
                   </div>
-                  <img
-                    className="hero-image"
-                    src={homepageACF.heroImage.sourceUrl}
-                    alt=""
-                  />
+                  <img className="hero-image" src={homepageACF.heroImage.sourceUrl} alt="" />
                   <p className="hero-subtext">{parse(homepageACF.heroSubtext)}</p>
-
                 </div>
-                // Desktop layout
               ) : (
-                  <div className="hero-container">
-                    <HeroInnerContainer className="hero-inner-container">
+                // Desktop layout
+                <div className="hero-container">
+                  <HeroInnerContainer className="hero-inner-container">
                     <div className="hero-header">
                       <p className="hero-small">{parse(homepageACF.heroSubHeader)}</p>
                       <h1 className="hero-big">{parse(homepageACF.heroHeader)}</h1>
@@ -61,15 +55,10 @@ const Homepage = (props) => {
                         <div className="hero-button-triangle"></div>
                       </div>
                     </div>
-                    </HeroInnerContainer>
-                    <img
-                      className="hero-image"
-                      src={homepageACF.heroImage.sourceUrl}
-                      alt=""
-                    />
-
-                  </div>
-                )}
+                  </HeroInnerContainer>
+                  <img className="hero-image" src={homepageACF.heroImage.sourceUrl} alt="" />
+                </div>
+              )}
 
               <div className="usp-services-container">
                 <h2 className="usp-header">{parse(homepageACF.uspHeader)}</h2>
@@ -83,8 +72,12 @@ const Homepage = (props) => {
                   <div className="services-text-container">
                     <h3 className="services-header">{parse(homepageACF.servicesHeader)}</h3>
                     <div className="services-content flex">
-                      <div className="bullet-list bullet-list-margin">{parse(homepageACF.servicesContent)}</div>
-                      <div className="bullet-list bullet-list-margin">{parse(homepageACF.servicesContent1)}</div>
+                      <div className="bullet-list bullet-list-margin">
+                        {parse(homepageACF.servicesContent)}
+                      </div>
+                      <div className="bullet-list bullet-list-margin">
+                        {parse(homepageACF.servicesContent1)}
+                      </div>
                     </div>
                     <div className="services-button">
                       <button className="lees-verder-button">

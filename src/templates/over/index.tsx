@@ -56,7 +56,6 @@ const Over = (props) => {
 
   console.log(props)
 
-
   return (
     <Layout>
       {props.pageContext ? (
@@ -67,43 +66,45 @@ const Over = (props) => {
             </ServicesHeader>
           </ServicesHeaderWrapper>
           <AboutContentContainer className="services-content-container">
-          <AboutContentInnerContainer className="services-content-inner-container">
+            <AboutContentInnerContainer className="services-content-inner-container">
               <AboutContentItem className="services-content-item">
                 <img
                   src={getFeaturedImageUrl(overACF?.gbImage?.localFile?.url)}
                   alt="featured-blog"
                   className="over-detail-image"
                 />
-              <h2 className="over-item-header">{parse(overACF.gbHeader)}</h2>
+                <h2 className="over-item-header">{parse(overACF.gbHeader)}</h2>
                 <p className="services-item-body primary">{parse(overACF.gbBody)}</p>
-            </AboutContentItem>
+              </AboutContentItem>
               <AboutContentItem className="services-content-item">
                 <img
                   src={getFeaturedImageUrl(overACF?.kennisProjectervaringImage?.localFile?.url)}
                   alt="featured-blog"
                   className="over-detail-image"
                 />
-              <h2 className="over-item-header">{parse(overACF.kennisProjectervaringHeader)}</h2>
-                <p className="services-item-body primary">{parse(overACF.kennisProjectervaringBody)}</p>
-            </AboutContentItem>
+                <h2 className="over-item-header">{parse(overACF.kennisProjectervaringHeader)}</h2>
+                <p className="services-item-body primary">
+                  {parse(overACF.kennisProjectervaringBody)}
+                </p>
+              </AboutContentItem>
               <AboutContentItem className="services-content-item">
                 <img
                   src={getFeaturedImageUrl(overACF?.dnaImage?.localFile?.url)}
                   alt="featured-blog"
                   className="over-detail-image"
                 />
-              <h2 className="over-item-header">{parse(overACF.dnaHeader)}</h2>
-              <p className="services-item-body primary">{parse(overACF.dnaBody)}</p>
-            </AboutContentItem>
+                <h2 className="over-item-header">{parse(overACF.dnaHeader)}</h2>
+                <p className="services-item-body primary">{parse(overACF.dnaBody)}</p>
+              </AboutContentItem>
               <AboutContentItem className="services-content-item">
                 <img
                   src={getFeaturedImageUrl(overACF?.bierImage?.localFile?.url)}
                   alt="featured-blog"
                   className="over-detail-image"
                 />
-              <h2 className="over-item-header">{parse(overACF.bierHeader)}</h2>
-              <p className="services-item-body primary">{parse(overACF.bierBody)}</p>
-            </AboutContentItem>
+                <h2 className="over-item-header">{parse(overACF.bierHeader)}</h2>
+                <p className="services-item-body primary">{parse(overACF.bierBody)}</p>
+              </AboutContentItem>
               <AboutContentItem className="services-content-item">
                 <img
                   src={getFeaturedImageUrl(overACF?.werkgeversWerkervaringImage?.localFile?.url)}
@@ -111,9 +112,11 @@ const Over = (props) => {
                   className="over-detail-image"
                 />
                 <h2 className="over-item-header">{parse(overACF.werkgeversWerkervaringHeader)}</h2>
-                <p className="services-item-body primary">{parse(overACF.werkgeversWerkervaringBody)}</p>
-            </AboutContentItem>
-              </AboutContentInnerContainer>
+                <p className="services-item-body primary">
+                  {parse(overACF.werkgeversWerkervaringBody)}
+                </p>
+              </AboutContentItem>
+            </AboutContentInnerContainer>
           </AboutContentContainer>
         </ServicesWrapper>
       ) : (

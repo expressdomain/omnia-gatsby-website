@@ -51,8 +51,8 @@ const ServicesContentItem = styled.div`
 `
 
 const ServicesContentImage = styled.div`
-	width: 348px;
-	height: 348px;
+  width: 348px;
+  height: 348px;
   border-radius: 5px;
   box-shadow: 0 12px 24px 0 hsla(0, 0%, 0%, 0.15);
   background-color: hsl(0, 0%, 100%);
@@ -80,7 +80,6 @@ const Diensten = (props) => {
     },
   } = props
 
-
   return (
     <Layout>
       {props.pageContext ? (
@@ -91,47 +90,69 @@ const Diensten = (props) => {
             </ServicesHeader>
           </ServicesHeaderWrapper>
           <ServicesContentContainer className="services-content-container">
-          <ServicesContentInnerContainer className="services-content-inner-container">
-            <ServicesContentItem className="services-content-item">
-              <h2 className="services-item-header primary">{parse(dienstenACF.adviesHeader)}</h2>
-              <p className="services-item-body primary">{parse(dienstenACF.adviesBody)}</p>
-            </ServicesContentItem>
-            <ServicesContentItem className="services-content-item">
-              <h2 className="services-item-header primary">{parse(dienstenACF.visieHeader)}</h2>
-              <p className="services-item-body primary">{parse(dienstenACF.visieBody)}</p>
-            </ServicesContentItem>
-            <ServicesContentItem className="services-content-item">
-              <h2 className="services-item-header primary">{parse(dienstenACF.beleidsplanningHeader)}</h2>
-              <p className="services-item-body primary">{parse(dienstenACF.beleidsplanningBody)}</p>
-            </ServicesContentItem>
-            <ServicesContentItem className="services-content-item">
-              <h2 className="services-item-header primary">{parse(dienstenACF.aanbestedingenHeader)}</h2>
-              <p className="services-item-body primary">{parse(dienstenACF.aanbestedingenBody)}</p>
-            </ServicesContentItem>
-            <ServicesContentImage className="services-content-image">
-              <img
-                src={getFeaturedImageUrl(dienstenACF?.image?.localFile?.url)}
-                alt="john-mollema"
-                className="services-detail-image"
-              />
-            </ServicesContentImage>
-            <ServicesContentItem className="services-content-item">
-              <h2 className="services-item-header primary">{parse(dienstenACF.procesmanagementHeader)}</h2>
-              <p className="services-item-body primary">{parse(dienstenACF.procesmanagementBody)}</p>
-            </ServicesContentItem>
-            <ServicesContentItem className="services-content-item">
-              <h2 className="services-item-header primary">{parse(dienstenACF.projectmanagementHeader)}</h2>
-              <p className="services-item-body primary">{parse(dienstenACF.projectmanagementBody)}</p>
-            </ServicesContentItem>
-            <ServicesContentItem className="services-content-item">
-              <h2 className="services-item-header primary">{parse(dienstenACF.sparringHeader)}</h2>
-              <p className="services-item-body primary">{parse(dienstenACF.sparringBody)}</p>
-            </ServicesContentItem>
-            <ServicesContentItemSecondary className="services-content-secondary">
-              <h2 className="services-item-header secondary">{parse(dienstenACF.andereUitdagingHeader)}</h2>
-              <p className="services-item-body secondary">{parse(dienstenACF.andereUitdagingBody)}</p>
+            <ServicesContentInnerContainer className="services-content-inner-container">
+              <ServicesContentItem className="services-content-item">
+                <h2 className="services-item-header primary">{parse(dienstenACF.adviesHeader)}</h2>
+                <p className="services-item-body primary">{parse(dienstenACF.adviesBody)}</p>
+              </ServicesContentItem>
+              <ServicesContentItem className="services-content-item">
+                <h2 className="services-item-header primary">{parse(dienstenACF.visieHeader)}</h2>
+                <p className="services-item-body primary">{parse(dienstenACF.visieBody)}</p>
+              </ServicesContentItem>
+              <ServicesContentItem className="services-content-item">
+                <h2 className="services-item-header primary">
+                  {parse(dienstenACF.beleidsplanningHeader)}
+                </h2>
+                <p className="services-item-body primary">
+                  {parse(dienstenACF.beleidsplanningBody)}
+                </p>
+              </ServicesContentItem>
+              <ServicesContentItem className="services-content-item">
+                <h2 className="services-item-header primary">
+                  {parse(dienstenACF.aanbestedingenHeader)}
+                </h2>
+                <p className="services-item-body primary">
+                  {parse(dienstenACF.aanbestedingenBody)}
+                </p>
+              </ServicesContentItem>
+              <ServicesContentImage className="services-content-image">
+                <img
+                  src={getFeaturedImageUrl(dienstenACF?.image?.localFile?.url)}
+                  alt="john-mollema"
+                  className="services-detail-image"
+                />
+              </ServicesContentImage>
+              <ServicesContentItem className="services-content-item">
+                <h2 className="services-item-header primary">
+                  {parse(dienstenACF.procesmanagementHeader)}
+                </h2>
+                <p className="services-item-body primary">
+                  {parse(dienstenACF.procesmanagementBody)}
+                </p>
+              </ServicesContentItem>
+              <ServicesContentItem className="services-content-item">
+                <h2 className="services-item-header primary">
+                  {parse(dienstenACF.projectmanagementHeader)}
+                </h2>
+                <p className="services-item-body primary">
+                  {parse(dienstenACF.projectmanagementBody)}
+                </p>
+              </ServicesContentItem>
+              <ServicesContentItem className="services-content-item">
+                <h2 className="services-item-header primary">
+                  {parse(dienstenACF.sparringHeader)}
+                </h2>
+                <p className="services-item-body primary">{parse(dienstenACF.sparringBody)}</p>
+              </ServicesContentItem>
+              <ServicesContentItemSecondary className="services-content-secondary">
+                <h2 className="services-item-header secondary">
+                  {parse(dienstenACF.andereUitdagingHeader)}
+                </h2>
+                <p className="services-item-body secondary">
+                  {parse(dienstenACF.andereUitdagingBody)}
+                </p>
               </ServicesContentItemSecondary>
-              </ServicesContentInnerContainer>
+            </ServicesContentInnerContainer>
           </ServicesContentContainer>
           <BlogWrapper className="Blog-Wrapper">
             <FeaturedBlog />
