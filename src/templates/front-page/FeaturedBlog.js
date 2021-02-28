@@ -54,6 +54,8 @@ const FeaturedBlog = () => {
     }
   `)
 
+  console.log(wpPost)
+
   return (
     <>
       {wpPost !== null ? (
@@ -67,7 +69,7 @@ const FeaturedBlog = () => {
           />
           <BlogItem className="blog-item">
             <div className="featured-title">{parse(wpPost.title)}</div>
-            <div className="featured-excerpt">{parse(wpPost.excerpt)}</div>
+            <div className="featured-excerpt">{parse(wpPost.blogPreview.blogPreview)}</div>
             <button className="lees-verder-button">
               <Link className="lees-verder-link" to={wpPost.uri}>
                 Lees verder
