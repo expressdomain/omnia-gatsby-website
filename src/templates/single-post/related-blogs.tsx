@@ -38,7 +38,6 @@ const BlogItem = styled.div`
 `
 
 const RelatedBlogs = () => {
-
   const { allWpPost } = useStaticQuery(graphql`
     query OTHER_POSTS {
       allWpPost(limit: 4) {
@@ -66,9 +65,15 @@ const RelatedBlogs = () => {
     <>
       {allWpPost !== null ? (
         <RelatedBlogWrapper className="related-blog-wrapper">
-          <div style={{
-            margin: `4rem 7.375rem 10rem`, display: `grid`, gridTemplateColumns: `1fr`, gridTemplateRows: `180px 70px` }}>
-            <div style={{ display: `flex`, flexFlow: `row`}}>
+          <div
+            style={{
+              margin: `4rem 7.375rem 10rem`,
+              display: `grid`,
+              gridTemplateColumns: `1fr`,
+              gridTemplateRows: `180px 70px`,
+            }}
+          >
+            <div style={{ display: `flex`, flexFlow: `row` }}>
               <h2 className="related-blog-header">
                 Dit vindt je misschien <br /> ook interessant
               </h2>

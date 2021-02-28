@@ -1008,4 +1008,64 @@ body {
   height: 348px;
   border-radius: 5px;
 }
+
+.over-page-header {
+  font-size: 48px;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.15;
+  letter-spacing: 0.72px;
+  text-align: left;
+  color: white;
+  margin-top: 2rem;
+}
+
+.over-page-header span {
+  font-weight: bold;
+}
+
+.over-page-subtext {
+  font-size: 20px;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.75;
+  letter-spacing: 0.3px;
+  text-align: left;
+  color: white;
+  margin-top: 4rem;
+}
+
+.over-item-header {
+  font-size: 25px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.2;
+  letter-spacing: 0.38px;
+  text-align: left;
+  color: #120c41;
+}
+
+.over-item-body {
+  font-size: 15px;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.67;
+  letter-spacing: 0.23px;
+  text-align: left;
+  color: #392b7d;
+}
+
+.over-hero-image {
+  width: 467.1px;
+  height: 467.1px;
+}
+
+.over-detail-image {
+  width: 163px;
+  height: 163px;
+}
 /*# sourceMappingURL=style.css.map */
