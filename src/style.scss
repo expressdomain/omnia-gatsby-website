@@ -749,11 +749,18 @@ body {
 	line-height: 1.33;
 	letter-spacing: 0.17px;
 	text-align: left;
+}
+
+.services-item-body.primary {
 	color: hsl(250, 49%, 33%);
 }
 
+.services-item-body.secondary {
+	color: hsl(0, 0%, 100%);
+}
+
 .services-detail-image {
-	width: 352px;
-	height: 352px;
+	width: 348px;
+	height: 348px;
 	border-radius: 5px;
 }

@@ -730,12 +730,19 @@ body {
   line-height: 1.33;
   letter-spacing: 0.17px;
   text-align: left;
+}
+
+.services-item-body.primary {
   color: #392b7d;
 }
 
+.services-item-body.secondary {
+  color: white;
+}
+
 .services-detail-image {
-  width: 352px;
-  height: 352px;
+  width: 348px;
+  height: 348px;
   border-radius: 5px;
 }
 /*# sourceMappingURL=style.css.map */

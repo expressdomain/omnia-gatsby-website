@@ -9,6 +9,7 @@ query GET_DIENSTEN_PAGE {
     id
     title
     uri
+    content
     dienstenACF {
       aanbestedingenBody
       aanbestedingenHeader
@@ -18,7 +19,6 @@ query GET_DIENSTEN_PAGE {
       andereUitdagingHeader
       beleidsplanningBody
       beleidsplanningHeader
-      fieldGroupName
       procesmanagementBody
       projectmanagementBody
       procesmanagementHeader
@@ -27,6 +27,11 @@ query GET_DIENSTEN_PAGE {
       sparringHeader
       visieBody
       visieHeader
+      image {
+        localFile {
+          url
+        }
+      }
     }
   }
 }

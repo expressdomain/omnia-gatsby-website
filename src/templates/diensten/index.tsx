@@ -45,6 +45,14 @@ const ServicesContentItem = styled.div`
   background-color: hsl(0, 0%, 100%);
 `
 
+const ServicesContentImage = styled.div`
+	width: 348px;
+	height: 348px;
+  border-radius: 5px;
+  box-shadow: 0 12px 24px 0 hsla(0, 0%, 0%, 0.15);
+  background-color: hsl(0, 0%, 100%);
+`
+
 const ServicesContentItemPurple = styled.div`
   width: 260px;
   height: 260px;
@@ -61,6 +69,7 @@ const Diensten = (props) => {
     },
   } = props
 
+  console.log(props)
   // console.log(props.pageContext.page.featuredImage)
 
   return (
@@ -78,42 +87,42 @@ const Diensten = (props) => {
           <ServicesContentContainer className="Services-content-container">
             <ServicesContentItem>
               <h2 className="services-item-header primary">{parse(dienstenACF.adviesHeader)}</h2>
-              <p className="services-item-body">{parse(dienstenACF.adviesBody)}</p>
+              <p className="services-item-body primary">{parse(dienstenACF.adviesBody)}</p>
             </ServicesContentItem>
             <ServicesContentItem>
               <h2 className="services-item-header primary">{parse(dienstenACF.visieHeader)}</h2>
-              <p className="services-item-body">{parse(dienstenACF.visieBody)}</p>
+              <p className="services-item-body primary">{parse(dienstenACF.visieBody)}</p>
             </ServicesContentItem>
             <ServicesContentItem>
               <h2 className="services-item-header primary">{parse(dienstenACF.beleidsplanningHeader)}</h2>
-              <p className="services-item-body">{parse(dienstenACF.beleidsplanningBody)}</p>
+              <p className="services-item-body primary">{parse(dienstenACF.beleidsplanningBody)}</p>
             </ServicesContentItem>
             <ServicesContentItem>
               <h2 className="services-item-header primary">{parse(dienstenACF.aanbestedingenHeader)}</h2>
-              <p className="services-item-body">{parse(dienstenACF.aanbestedingenBody)}</p>
+              <p className="services-item-body primary">{parse(dienstenACF.aanbestedingenBody)}</p>
             </ServicesContentItem>
-            <ServicesContentItem>
+            <ServicesContentImage>
               <img
-                src={getFeaturedImageUrl(featuredImage?.node?.localFile?.url)}
+                src={getFeaturedImageUrl(dienstenACF?.image?.localFile?.url)}
                 alt="john-mollema"
                 className="services-detail-image"
               />
-            </ServicesContentItem>
+            </ServicesContentImage>
             <ServicesContentItem>
               <h2 className="services-item-header primary">{parse(dienstenACF.procesmanagementHeader)}</h2>
-              <p className="services-item-body">{parse(dienstenACF.procesmanagementBody)}</p>
+              <p className="services-item-body primary">{parse(dienstenACF.procesmanagementBody)}</p>
             </ServicesContentItem>
             <ServicesContentItem>
               <h2 className="services-item-header primary">{parse(dienstenACF.projectmanagementHeader)}</h2>
-              <p className="services-item-body">{parse(dienstenACF.projectmanagementBody)}</p>
+              <p className="services-item-body primary">{parse(dienstenACF.projectmanagementBody)}</p>
             </ServicesContentItem>
             <ServicesContentItem>
               <h2 className="services-item-header primary">{parse(dienstenACF.sparringHeader)}</h2>
-              <p className="services-item-body">{parse(dienstenACF.sparringBody)}</p>
+              <p className="services-item-body primary">{parse(dienstenACF.sparringBody)}</p>
             </ServicesContentItem>
             <ServicesContentItemPurple>
               <h2 className="services-item-header secondary">{parse(dienstenACF.andereUitdagingHeader)}</h2>
-              <p className="services-item-body">{parse(dienstenACF.andereUitdagingBody)}</p>
+              <p className="services-item-body secondary">{parse(dienstenACF.andereUitdagingBody)}</p>
             </ServicesContentItemPurple>
           </ServicesContentContainer>
         </ServicesWrapper>
