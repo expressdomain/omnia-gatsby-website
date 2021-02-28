@@ -33,7 +33,6 @@ const BlogItem = styled.div`
 
 `
 
-
 const FeaturedBlog = () => {
   const { wpPost } = useStaticQuery(graphql`
     query FeaturedBlogQuery {
@@ -41,7 +40,9 @@ const FeaturedBlog = () => {
         uri
         slug
         title
-        excerpt
+        blogPreview {
+          blogPreview
+        }
         featuredImage {
           node {
             localFile {

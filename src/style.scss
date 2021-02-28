@@ -761,3 +761,164 @@ body {
 		justify-content: center;
 	}
 }
+
+// Blog detail
+
+.blog-detail-header {
+	font-size: 59px;
+	font-weight: 300;
+	font-stretch: normal;
+	font-style: normal;
+	line-height: 1.17;
+	letter-spacing: 0.89px;
+	text-align: left;
+	color: hsl(0, 0%, 100%);
+}
+
+.blog-detail-image {
+	width: 343px;
+	height: 344px;
+	box-shadow: 0 3px 6px 0 hsla(0, 0%, 0%, 0.15);
+	margin-right: 3.3rem;
+}
+
+.blog-detail-toptext {
+	font-size: 20px;
+	font-weight: 300;
+	font-stretch: normal;
+	font-style: normal;
+	line-height: 1.75;
+	letter-spacing: 0.3px;
+	text-align: left;
+}
+
+// Related blog styles on Blog Detail page
+
+.related-blog-header {
+	font-size: 59px;
+	font-weight: 300;
+	font-stretch: normal;
+	font-style: normal;
+	line-height: 1.2;
+	letter-spacing: 0.89px;
+	text-align: left;
+	color: hsl(0, 0%, 100%);
+	margin: 0;
+}
+
+.related-blog-icon {
+	width: 117.8px;
+	height: 123.4px;
+	position: relative;
+	top: -120px;
+	left: 445px;
+}
+
+// Blog overview styles
+
+.blog-preview-image {
+	width: 310px;
+	height: 310px;
+}
+
+.blog-preview-title {
+	font-size: 27px;
+	font-weight: bold;
+	font-stretch: normal;
+	font-style: normal;
+	line-height: 1.19;
+	letter-spacing: 0.38px;
+	text-align: left;
+	color: hsl(264, 71%, 43%);
+}
+
+.blog-preview-text {
+	font-size: 15px;
+	font-weight: 300;
+	font-stretch: normal;
+	font-style: normal;
+	line-height: 1.33;
+	letter-spacing: 0.17px;
+	text-align: left;
+	// color: hsl(250, 49%, 33%);
+}
+
+.blog-link-detail {
+	font-size: 20px;
+	font-weight: bold;
+	font-stretch: normal;
+	font-style: normal;
+	line-height: 1.75;
+	letter-spacing: 0.3px;
+	text-align: left;
+	color: hsl(250, 49%, 33%);
+	text-decoration: none;
+}
+
+.lees-verder-chevron {
+	display: flex;
+	flex-flow: row;
+	align-items: center;
+	color: hsl(250, 49%, 33%);
+}
+
+// Diensten styles
+
+.services-detail-header {
+	h1 {
+		font-size: 59px;
+		font-weight: 300;
+		font-stretch: normal;
+		font-style: normal;
+		line-height: 1.17;
+		letter-spacing: 0.89px;
+		text-align: left;
+		color: hsl(0, 0%, 100%);
+	}
+	span {
+		font-weight: bold;
+	}
+}
+
+.services-item-header {
+	font-size: 27px;
+	font-weight: bold;
+	font-stretch: normal;
+	font-style: normal;
+	line-height: 1.19;
+	letter-spacing: 0.38px;
+	text-align: left;
+	margin-top: 0;
+}
+
+.services-item-header.primary {
+	color: hsl(264, 71%, 43%);
+}
+
+.services-item-header.secondary {
+	color: hsl(0, 0%, 100%);
+}
+
+.services-item-body {
+	font-size: 15px;
+	font-weight: 300;
+	font-stretch: normal;
+	font-style: normal;
+	line-height: 1.33;
+	letter-spacing: 0.17px;
+	text-align: left;
+}
+
+.services-item-body.primary {
+	color: hsl(250, 49%, 33%);
+}
+
+.services-item-body.secondary {
+	color: hsl(0, 0%, 100%);
+}
+
+.services-detail-image {
+	width: 348px;
+	height: 348px;
+	border-radius: 5px;
+}

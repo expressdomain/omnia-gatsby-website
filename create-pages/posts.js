@@ -1,23 +1,30 @@
-
 const { slash } = require( `gatsby-core-utils` );
-const customTemplatesUris = [ '/'  ];
-const customTemplateSlugs = [ 'checkout', 'cart', 'my-account', 'products' ];
-const singlePostTemplate = require.resolve(`../src/templates/single-post/index.js`);
+const singlePostTemplate = require.resolve(`../src/templates/single-post/index.tsx`);
 
 // Get all the posts.
 const GET_POSTS = `
 query GET_POSTS {
-    posts: allWpPost(limit: 5000) {
-      nodes {
-        id
-        title
-        content
-        date
-        uri
-        slug
+  posts: allWpPost(limit: 5000) {
+    nodes {
+      id
+      title
+      content
+      date
+      uri
+      slug
+      blogPreview {
+        blogPreview
+      }
+      featuredImage {
+        node {
+          localFile {
+            url
+          }
+        }
       }
     }
   }
+}
 `
 
 module.exports = async ( { actions, graphql } ) => {
@@ -42,18 +49,11 @@ module.exports = async ( { actions, graphql } ) => {
         // 2. Create Single POST PAGE: Loop through all pages and create single page for post.
         posts &&
         posts.map( ( post ) => {
-
-            // If its not a custom template, create the page.
-            if ( ! customTemplatesUris.includes( post.uri ) &&! customTemplateSlugs.includes( post.slug )  ) {
-
-                createPage( {
-                    path: `${ post.uri }`,
-                    component: slash( singlePostTemplate ),
-                    context: { ...post }, // pass single page data in context, so its available in the singlePostTemplate in props.pageContext.
-                } );
-
-            }
-
+            createPage( {
+                path: `/blog${ post.uri }`,
+                component: slash( singlePostTemplate ),
+                context: { ...post }, // pass single page data in context, so its available in the singlePostTemplate in props.pageContext.
+            } );
         } );
 
     } )
