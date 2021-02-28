@@ -23,6 +23,9 @@ query GET_FRONT_PAGE {
       servicesImage {
         sourceUrl
       }
+      heroImage {
+        sourceUrl
+      }
     }
   }
 }
