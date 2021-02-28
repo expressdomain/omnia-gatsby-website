@@ -13,6 +13,15 @@ query GET_CONTACT_PAGE {
     title
     uri
 	content
+	contactACF {
+		contactHeader
+		contactBody
+		contactGmaps {
+        localFile {
+          url
+        }
+      }
+	}
   }
 }
 `;
