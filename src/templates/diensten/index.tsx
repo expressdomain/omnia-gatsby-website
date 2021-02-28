@@ -3,6 +3,7 @@ import Layout from '../../components/layout'
 import parse from 'html-react-parser'
 import styled from 'styled-components'
 import { getFeaturedImageUrl } from '../../utils/functions'
+import FeaturedBlog from '../front-page/FeaturedBlog'
 
 const ServicesWrapper = styled.div`
   /* margin: 0 auto;
@@ -19,7 +20,7 @@ const ServicesHeader = styled.div`
   max-width: 920px;
   margin: 0 auto;
   padding: 1rem;
-  height: 440px;
+  /* height: 440px; */
 `
 
 const ServicesInnerHeader = styled.div`
@@ -29,11 +30,15 @@ const ServicesInnerHeader = styled.div`
 `
 
 const ServicesContentContainer = styled.div`
+  display: flex;
+  place-content: center;
+`
+
+const ServicesContentInnerContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-column-gap: 2rem;
   grid-row-gap: 2rem;
-  margin-bottom: 5rem;
 `
 
 const ServicesContentItem = styled.div`
@@ -53,7 +58,7 @@ const ServicesContentImage = styled.div`
   background-color: hsl(0, 0%, 100%);
 `
 
-const ServicesContentItemPurple = styled.div`
+const ServicesContentItemSecondary = styled.div`
   width: 260px;
   height: 260px;
   padding: 44px;
@@ -61,70 +66,76 @@ const ServicesContentItemPurple = styled.div`
   box-shadow: 0 12px 24px 0 hsla(0, 0%, 0%, 0.15);
   background-color: hsl(258, 60%, 44%);
 `
+const BlogWrapper = styled.div`
+  margin-top: 160px;
+  margin-bottom: 100px;
+  display: flex;
+  place-content: center;
+`
 
 const Diensten = (props) => {
   const {
     pageContext: {
-      page: { title, uri, dienstenACF },
+      page: { title, content, uri, dienstenACF },
     },
   } = props
 
-  console.log(props)
-  // console.log(props.pageContext.page.featuredImage)
 
   return (
     <Layout>
       {props.pageContext ? (
-        <ServicesWrapper className="Services-wrapper">
-          <ServicesHeaderWrapper className="Services-header-wrapper">
-            <ServicesHeader className="Services-header">
-              <h2 className="Services-detail-header">{parse(title)}</h2>
-              <ServicesInnerHeader className="Services-inner-header">
-                <p>Test</p>
-              </ServicesInnerHeader>
+        <ServicesWrapper className="services-wrapper">
+          <ServicesHeaderWrapper className="services-header-wrapper">
+            <ServicesHeader className="services-header">
+              <div className="services-detail-header">{parse(content)}</div>
             </ServicesHeader>
           </ServicesHeaderWrapper>
-          <ServicesContentContainer className="Services-content-container">
-            <ServicesContentItem>
+          <ServicesContentContainer className="services-content-container">
+          <ServicesContentInnerContainer className="services-content-inner-container">
+            <ServicesContentItem className="services-content-item">
               <h2 className="services-item-header primary">{parse(dienstenACF.adviesHeader)}</h2>
               <p className="services-item-body primary">{parse(dienstenACF.adviesBody)}</p>
             </ServicesContentItem>
-            <ServicesContentItem>
+            <ServicesContentItem className="services-content-item">
               <h2 className="services-item-header primary">{parse(dienstenACF.visieHeader)}</h2>
               <p className="services-item-body primary">{parse(dienstenACF.visieBody)}</p>
             </ServicesContentItem>
-            <ServicesContentItem>
+            <ServicesContentItem className="services-content-item">
               <h2 className="services-item-header primary">{parse(dienstenACF.beleidsplanningHeader)}</h2>
               <p className="services-item-body primary">{parse(dienstenACF.beleidsplanningBody)}</p>
             </ServicesContentItem>
-            <ServicesContentItem>
+            <ServicesContentItem className="services-content-item">
               <h2 className="services-item-header primary">{parse(dienstenACF.aanbestedingenHeader)}</h2>
               <p className="services-item-body primary">{parse(dienstenACF.aanbestedingenBody)}</p>
             </ServicesContentItem>
-            <ServicesContentImage>
+            <ServicesContentImage className="services-content-image">
               <img
                 src={getFeaturedImageUrl(dienstenACF?.image?.localFile?.url)}
                 alt="john-mollema"
                 className="services-detail-image"
               />
             </ServicesContentImage>
-            <ServicesContentItem>
+            <ServicesContentItem className="services-content-item">
               <h2 className="services-item-header primary">{parse(dienstenACF.procesmanagementHeader)}</h2>
               <p className="services-item-body primary">{parse(dienstenACF.procesmanagementBody)}</p>
             </ServicesContentItem>
-            <ServicesContentItem>
+            <ServicesContentItem className="services-content-item">
               <h2 className="services-item-header primary">{parse(dienstenACF.projectmanagementHeader)}</h2>
               <p className="services-item-body primary">{parse(dienstenACF.projectmanagementBody)}</p>
             </ServicesContentItem>
-            <ServicesContentItem>
+            <ServicesContentItem className="services-content-item">
               <h2 className="services-item-header primary">{parse(dienstenACF.sparringHeader)}</h2>
               <p className="services-item-body primary">{parse(dienstenACF.sparringBody)}</p>
             </ServicesContentItem>
-            <ServicesContentItemPurple>
+            <ServicesContentItemSecondary className="services-content-secondary">
               <h2 className="services-item-header secondary">{parse(dienstenACF.andereUitdagingHeader)}</h2>
               <p className="services-item-body secondary">{parse(dienstenACF.andereUitdagingBody)}</p>
-            </ServicesContentItemPurple>
+              </ServicesContentItemSecondary>
+              </ServicesContentInnerContainer>
           </ServicesContentContainer>
+          <BlogWrapper className="Blog-Wrapper">
+            <FeaturedBlog />
+          </BlogWrapper>
         </ServicesWrapper>
       ) : (
         <div>Something went wrong</div>

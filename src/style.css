@@ -703,6 +703,21 @@ body {
   color: #392b7d;
 }
 
+.services-detail-header h1 {
+  font-size: 59px;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.17;
+  letter-spacing: 0.89px;
+  text-align: left;
+  color: white;
+}
+
+.services-detail-header span {
+  font-weight: bold;
+}
+
 .services-item-header {
   font-size: 27px;
   font-weight: bold;
