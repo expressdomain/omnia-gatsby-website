@@ -672,7 +672,7 @@ body {
 	left: 445px;
 }
 
-// Blog overview
+// Blog overview styles
 
 .blog-preview-image {
 	width: 310px;
@@ -718,4 +718,42 @@ body {
 	flex-flow: row;
 	align-items: center;
 	color: hsl(250, 49%, 33%);
+}
+
+// Diensten styles
+
+.services-item-header {
+	font-size: 27px;
+	font-weight: bold;
+	font-stretch: normal;
+	font-style: normal;
+	line-height: 1.19;
+	letter-spacing: 0.38px;
+	text-align: left;
+	margin-top: 0;
+}
+
+.services-item-header.primary {
+	color: hsl(264, 71%, 43%);
+}
+
+.services-item-header.secondary {
+	color: hsl(0, 0%, 100%);
+}
+
+.services-item-body {
+	font-size: 15px;
+	font-weight: 300;
+	font-stretch: normal;
+	font-style: normal;
+	line-height: 1.33;
+	letter-spacing: 0.17px;
+	text-align: left;
+	color: hsl(250, 49%, 33%);
+}
+
+.services-detail-image {
+	width: 352px;
+	height: 352px;
+	border-radius: 5px;
 }
