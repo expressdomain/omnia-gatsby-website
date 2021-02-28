@@ -925,6 +925,32 @@ body {
 }
 
 // Over Styles
+.over-page-header {
+	font-size: 48px;
+	font-weight: 300;
+	font-stretch: normal;
+	font-style: normal;
+	line-height: 1.15;
+	letter-spacing: 0.72px;
+	text-align: left;
+	color: hsl(0, 0%, 100%);
+	margin-top: 2rem;
+	span {
+		font-weight: bold;
+	}
+}
+
+.over-page-subtext {
+	font-size: 20px;
+	font-weight: 300;
+	font-stretch: normal;
+	font-style: normal;
+	line-height: 1.75;
+	letter-spacing: 0.3px;
+	text-align: left;
+	color: hsl(0, 0%, 100%);
+	margin-top: 4rem;
+}
 
 .over-item-header {
 	font-size: 25px;
@@ -935,6 +961,22 @@ body {
 	letter-spacing: 0.38px;
 	text-align: left;
 	color: hsl(247, 69%, 15%);
+}
+
+.over-item-body {
+	font-size: 15px;
+	font-weight: 300;
+	font-stretch: normal;
+	font-style: normal;
+	line-height: 1.67;
+	letter-spacing: 0.23px;
+	text-align: left;
+	color: hsl(250, 49%, 33%);
+}
+
+.over-hero-image {
+	width: 467.1px;
+	height: 467.1px;
 }
 
 .over-detail-image {

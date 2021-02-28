@@ -5,46 +5,54 @@ import styled from 'styled-components'
 import { getFeaturedImageUrl } from '../../utils/functions'
 import FeaturedBlog from '../front-page/FeaturedBlog'
 
-const ServicesWrapper = styled.div`
-  /* margin: 0 auto;
-  max-width: 1060px; */
+const OverWrapper = styled.div`
+  margin-bottom: 10%;
 `
 
-const ServicesHeaderWrapper = styled.div`
+const OverHeaderWrapper = styled.div`
   background-color: hsl(247, 69%, 15%);
   border-radius: 5px;
+  margin-top: 10%;
 `
 
-const ServicesHeader = styled.div`
+const OverHeader = styled.div`
   color: white;
-  max-width: 920px;
+  /* max-width: 920px; */
   margin: 0 auto;
-  padding: 1rem;
-  /* height: 440px; */
-`
-
-const ServicesInnerHeader = styled.div`
+  /* padding: 1rem; */
   display: flex;
   flex-flow: row;
-  margin-top: 2rem;
+  padding-top: 2rem;
 `
 
-const AboutContentContainer = styled.div`
+const OverInnerHeader = styled.div`
+  margin-left: 2.3rem;
+  max-width: 540px;
+`
+
+const OverContentContainer = styled.div`
   display: flex;
   place-content: center;
 `
 
-const AboutContentInnerContainer = styled.div`
+const OverContentInnerContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-column-gap: 2rem;
   grid-row-gap: 2rem;
+  margin-top: 10%;
 `
 
-const AboutContentItem = styled.div`
-  /* width: 260px;
-  height: 260px; */
-  padding: 44px;
+const OverContentItem = styled.div`
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+`
+
+const OverInnerContent = styled.div`
+  display: flex;
+  flex-flow: column;
+  margin-left: 1.5rem;
 `
 
 const Over = (props) => {
@@ -59,66 +67,84 @@ const Over = (props) => {
   return (
     <Layout>
       {props.pageContext ? (
-        <ServicesWrapper className="services-wrapper">
-          <ServicesHeaderWrapper className="services-header-wrapper">
-            <ServicesHeader className="services-header">
-              <div className="services-detail-header">{parse(content)}</div>
-            </ServicesHeader>
-          </ServicesHeaderWrapper>
-          <AboutContentContainer className="services-content-container">
-            <AboutContentInnerContainer className="services-content-inner-container">
-              <AboutContentItem className="services-content-item">
+        <OverWrapper className="over-wrapper">
+          <OverHeaderWrapper className="over-header-wrapper">
+            <OverHeader className="over-header">
+              <img
+                src={getFeaturedImageUrl(overACF?.overHeroImage?.localFile?.url)}
+                alt="featured-blog"
+                className="over-hero-image"
+              />
+              <OverInnerHeader className="over-inner-header">
+              <h1 className="over-page-header">{parse(overACF.overHeroHeader)}</h1>
+                <p className="over-page-subtext">{parse(overACF.overHeroBody)}</p>
+              </OverInnerHeader>
+            </OverHeader>
+          </OverHeaderWrapper>
+          <OverContentContainer className="over-content-container">
+            <OverContentInnerContainer className="over-content-inner-container">
+              <OverContentItem className="over-content-item">
                 <img
                   src={getFeaturedImageUrl(overACF?.gbImage?.localFile?.url)}
                   alt="featured-blog"
                   className="over-detail-image"
                 />
+                <OverInnerContent className="over-inner-content">
                 <h2 className="over-item-header">{parse(overACF.gbHeader)}</h2>
-                <p className="services-item-body primary">{parse(overACF.gbBody)}</p>
-              </AboutContentItem>
-              <AboutContentItem className="services-content-item">
+                  <p className="over-item-body primary">{parse(overACF.gbBody)}</p>
+                </OverInnerContent>
+              </OverContentItem>
+              <OverContentItem className="over-content-item">
                 <img
                   src={getFeaturedImageUrl(overACF?.kennisProjectervaringImage?.localFile?.url)}
                   alt="featured-blog"
                   className="over-detail-image"
                 />
+                <OverInnerContent className="over-inner-content">
                 <h2 className="over-item-header">{parse(overACF.kennisProjectervaringHeader)}</h2>
-                <p className="services-item-body primary">
+                <p className="over-item-body primary">
                   {parse(overACF.kennisProjectervaringBody)}
-                </p>
-              </AboutContentItem>
-              <AboutContentItem className="services-content-item">
+                  </p>
+                </OverInnerContent>
+              </OverContentItem>
+              <OverContentItem className="over-content-item">
                 <img
                   src={getFeaturedImageUrl(overACF?.dnaImage?.localFile?.url)}
                   alt="featured-blog"
                   className="over-detail-image"
                 />
+                <OverInnerContent className="over-inner-content">
                 <h2 className="over-item-header">{parse(overACF.dnaHeader)}</h2>
-                <p className="services-item-body primary">{parse(overACF.dnaBody)}</p>
-              </AboutContentItem>
-              <AboutContentItem className="services-content-item">
+                  <p className="over-item-body primary">{parse(overACF.dnaBody)}</p>
+                </OverInnerContent>
+              </OverContentItem>
+              <OverContentItem className="over-content-item">
                 <img
                   src={getFeaturedImageUrl(overACF?.bierImage?.localFile?.url)}
                   alt="featured-blog"
                   className="over-detail-image"
                 />
+                <OverInnerContent className="over-inner-content">
                 <h2 className="over-item-header">{parse(overACF.bierHeader)}</h2>
-                <p className="services-item-body primary">{parse(overACF.bierBody)}</p>
-              </AboutContentItem>
-              <AboutContentItem className="services-content-item">
+                  <p className="over-item-body primary">{parse(overACF.bierBody)}</p>
+                </OverInnerContent>
+              </OverContentItem>
+              <OverContentItem className="over-content-item">
                 <img
                   src={getFeaturedImageUrl(overACF?.werkgeversWerkervaringImage?.localFile?.url)}
                   alt="featured-blog"
                   className="over-detail-image"
                 />
+                <OverInnerContent className="over-inner-content">
                 <h2 className="over-item-header">{parse(overACF.werkgeversWerkervaringHeader)}</h2>
-                <p className="services-item-body primary">
+                <p className="over-item-body primary">
                   {parse(overACF.werkgeversWerkervaringBody)}
-                </p>
-              </AboutContentItem>
-            </AboutContentInnerContainer>
-          </AboutContentContainer>
-        </ServicesWrapper>
+                  </p>
+                </OverInnerContent>
+              </OverContentItem>
+            </OverContentInnerContainer>
+          </OverContentContainer>
+        </OverWrapper>
       ) : (
         <div>Something went wrong</div>
       )}
