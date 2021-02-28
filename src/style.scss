@@ -923,3 +923,21 @@ body {
 	height: 348px;
 	border-radius: 5px;
 }
+
+// Over Styles
+
+.over-item-header {
+	font-size: 25px;
+	font-weight: bold;
+	font-stretch: normal;
+	font-style: normal;
+	line-height: 1.2;
+	letter-spacing: 0.38px;
+	text-align: left;
+	color: hsl(247, 69%, 15%);
+}
+
+.over-detail-image {
+	width: 163px;
+	height: 163px;
+}
