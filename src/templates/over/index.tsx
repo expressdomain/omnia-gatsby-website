@@ -62,8 +62,6 @@ const Over = (props) => {
     },
   } = props
 
-  console.log(props)
-
   return (
     <Layout>
       {props.pageContext ? (
@@ -76,7 +74,7 @@ const Over = (props) => {
                 className="over-hero-image"
               />
               <OverInnerHeader className="over-inner-header">
-              <h1 className="over-page-header">{parse(overACF.overHeroHeader)}</h1>
+                <h1 className="over-page-header">{parse(overACF.overHeroHeader)}</h1>
                 <p className="over-page-subtext">{parse(overACF.overHeroBody)}</p>
               </OverInnerHeader>
             </OverHeader>
@@ -90,8 +88,8 @@ const Over = (props) => {
                   className="over-detail-image"
                 />
                 <OverInnerContent className="over-inner-content">
-                <h2 className="over-item-header">{parse(overACF.gbHeader)}</h2>
-                  <p className="over-item-body primary">{parse(overACF.gbBody)}</p>
+                  <h2 className="over-item-header">{parse(overACF.gbHeader)}</h2>
+                  <p className="over-item-body">{parse(overACF.gbBody)}</p>
                 </OverInnerContent>
               </OverContentItem>
               <OverContentItem className="over-content-item">
@@ -101,10 +99,8 @@ const Over = (props) => {
                   className="over-detail-image"
                 />
                 <OverInnerContent className="over-inner-content">
-                <h2 className="over-item-header">{parse(overACF.kennisProjectervaringHeader)}</h2>
-                <p className="over-item-body primary">
-                  {parse(overACF.kennisProjectervaringBody)}
-                  </p>
+                  <h2 className="over-item-header">{parse(overACF.kennisProjectervaringHeader)}</h2>
+                  <p className="over-item-body">{parse(overACF.kennisProjectervaringBody)}</p>
                 </OverInnerContent>
               </OverContentItem>
               <OverContentItem className="over-content-item">
@@ -114,8 +110,8 @@ const Over = (props) => {
                   className="over-detail-image"
                 />
                 <OverInnerContent className="over-inner-content">
-                <h2 className="over-item-header">{parse(overACF.dnaHeader)}</h2>
-                  <p className="over-item-body primary">{parse(overACF.dnaBody)}</p>
+                  <h2 className="over-item-header">{parse(overACF.dnaHeader)}</h2>
+                  <p className="over-item-body">{parse(overACF.dnaBody)}</p>
                 </OverInnerContent>
               </OverContentItem>
               <OverContentItem className="over-content-item">
@@ -125,8 +121,8 @@ const Over = (props) => {
                   className="over-detail-image"
                 />
                 <OverInnerContent className="over-inner-content">
-                <h2 className="over-item-header">{parse(overACF.bierHeader)}</h2>
-                  <p className="over-item-body primary">{parse(overACF.bierBody)}</p>
+                  <h2 className="over-item-header">{parse(overACF.bierHeader)}</h2>
+                  <p className="over-item-body">{parse(overACF.bierBody)}</p>
                 </OverInnerContent>
               </OverContentItem>
               <OverContentItem className="over-content-item">
@@ -136,10 +132,10 @@ const Over = (props) => {
                   className="over-detail-image"
                 />
                 <OverInnerContent className="over-inner-content">
-                <h2 className="over-item-header">{parse(overACF.werkgeversWerkervaringHeader)}</h2>
-                <p className="over-item-body primary">
-                  {parse(overACF.werkgeversWerkervaringBody)}
-                  </p>
+                  <h2 className="over-item-header">
+                    {parse(overACF.werkgeversWerkervaringHeader)}
+                  </h2>
+                  <p className="over-item-body">{parse(overACF.werkgeversWerkervaringBody)}</p>
                 </OverInnerContent>
               </OverContentItem>
             </OverContentInnerContainer>

@@ -1068,4 +1068,37 @@ body {
   width: 163px;
   height: 163px;
 }
+
+.contact-header {
+  font-size: 55px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.2;
+  letter-spacing: 0.83px;
+  text-align: left;
+  color: white;
+}
+
+.contact-header span {
+  font-weight: normal;
+}
+
+.contact-body-text {
+  font-size: 20px;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.75;
+  letter-spacing: 0.3px;
+  text-align: left;
+  color: white;
+}
+
+.contact-location-image {
+  width: 346px;
+  height: 318px;
+  border-radius: 5px;
+  margin-right: 3rem;
+}
 /*# sourceMappingURL=style.css.map */

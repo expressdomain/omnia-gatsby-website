@@ -42,8 +42,6 @@ const SinglePostTemplate = (props) => {
     pageContext: { title, blogPreview, content, featuredImage, seo, uri, id },
   } = props
 
-  // console.log(props.pageContext)
-
   return (
     <Layout>
       {props.pageContext ? (
