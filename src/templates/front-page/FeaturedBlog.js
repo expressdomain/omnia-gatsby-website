@@ -71,7 +71,7 @@ const FeaturedBlog = () => {
             <div className="featured-title">{parse(wpPost.title)}</div>
             <div className="featured-excerpt">{parse(wpPost.blogPreview.blogPreview)}</div>
             <button className="lees-verder-button">
-              <Link className="lees-verder-link" to={wpPost.uri}>
+              <Link className="lees-verder-link" to={`/blog${wpPost.uri}`}>
                 Lees verder
               </Link>
             </button>
