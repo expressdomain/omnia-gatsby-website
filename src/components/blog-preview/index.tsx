@@ -27,7 +27,9 @@ const BlogPreview = ({ post }) => {
       <BlogText>
         <h3 className="blog-preview-title">{parse(post.title)}</h3>
         {post.blogPreview.blogPreview !== null ? (
-          <p className="blog-preview-text">{parse(post.blogPreview.blogPreview)}</p>
+          <div className="blog-preview-container">
+            <p className="blog-preview-text">{parse(post.blogPreview.blogPreview)}</p>
+          </div>
         ) : (
           <pre>No blog preview found.</pre>
         )}
