@@ -3,8 +3,8 @@ const createFrontPage = require( './create-pages/front-page' );
 const createContactPage = require( './create-pages/contact' );
 const createDienstenPage = require( './create-pages/diensten' );
 const createOverPage = require( './create-pages/over' );
+const createBlogArchivePages = require( './create-pages/blog-archive' );
 const createPosts = require( './create-pages/posts' );
-// const createArchivePages = require( './create-pages/archive' );
 // const createPages = require( './create-pages/pages' );
 
 // Create all pages.
@@ -13,9 +13,9 @@ exports.createPages = async ( { actions, graphql } ) => {
 	await createContactPage( { actions, graphql } );
 	await createDienstenPage( { actions, graphql } );
 	await createOverPage( { actions, graphql } );
+	await createBlogArchivePages( { actions, graphql } );
 	await createPosts( { actions, graphql } );
 	};
-	// await createArchivePages( { actions, graphql } );
 	// await createPages( { actions, graphql } );
 
 /**

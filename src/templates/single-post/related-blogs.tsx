@@ -27,7 +27,7 @@ const BlogInnerContainer = styled.div`
   flex-flow: row; */
   display: grid;
   /* grid-template-columns: 1fr 1fr 1fr; */
-  grid-template-columns: repeat(3, auto 1fr);
+  grid-template-columns: repeat(3, auto);
   grid-column-gap: 2rem;
 `
 
@@ -80,7 +80,7 @@ const RelatedBlogs = () => {
               <img src={blog_icon} alt="blog-icon" className="related-blog-icon" />
             </div>
             <BlogInnerContainer className="blog-inner-container">
-              {allWpPost !== undefined ? (
+              {allWpPost !== undefined || null ? (
                 allWpPost.nodes.map((post) => <BlogPreview post={post} />)
               ) : (
                 <pre style={{ color: 'white' }}>No related blog items found.</pre>

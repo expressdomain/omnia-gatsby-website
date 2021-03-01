@@ -817,6 +817,22 @@ body {
 
 // Blog overview styles
 
+.blog-overview-header {
+	font-size: 59px;
+	font-weight: normal;
+	font-stretch: normal;
+	line-height: 1.2;
+	letter-spacing: 0.89px;
+	text-align: left;
+	color: hsl(0, 0%, 100%);
+	margin: 0;
+	span {
+		font-weight: bold;
+	}
+}
+
+// Blog preview styles
+
 .blog-preview-image {
 	width: 310px;
 	height: 310px;
@@ -831,6 +847,14 @@ body {
 	letter-spacing: 0.38px;
 	text-align: left;
 	color: hsl(264, 71%, 43%);
+}
+
+.blog-preview-container {
+	height: 160px;
+	display: -webkit-box;
+	-webkit-line-clamp: 8;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
 }
 
 .blog-preview-text {
