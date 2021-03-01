@@ -51,13 +51,14 @@ const ServicesContentContainer = styled.div`
 
 const ServicesContentInnerContainer = styled.div`
   display: grid;
-  grid-row-gap: 2rem;
   @media only screen and (min-width: 416px) {
-      grid-template-columns: repeat(3, 1fr);
-  grid-column-gap: 2rem;
-    }
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 2rem;
+    grid-row-gap: 2rem;
+  }
   @media only screen and (max-width: 414px) {
     grid-template-columns: 1fr;
+    grid-row-gap: 1.5rem;
     }
 `
 
