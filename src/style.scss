@@ -396,6 +396,7 @@ body {
 	@media only screen and (max-width: 414px) {
 		background-color: hsl(264, 71%, 43%);
 		padding: 10px 14px 10.4px;
+		margin-top: 1rem;
 	}
 }
 
@@ -706,8 +707,11 @@ body {
 		left: 600px;
 	}
 	@media only screen and (max-width: 414px) {
+		position: relative;
 		width: 73px;
 		height: 76.5px;
+		top: 40px;
+		left: 30px;
 	}
 }
 
@@ -902,6 +906,19 @@ body {
 	}
 	span {
 		font-weight: bold;
+	}
+	@media only screen and (max-width: 414px) {
+		h1 {
+			margin: 0;
+			font-size: 20px;
+			font-weight: 300;
+			font-stretch: normal;
+			font-style: normal;
+			line-height: 1.2;
+			letter-spacing: 0.3px;
+			text-align: left;
+			color: hsl(247, 69%, 15%);
+		}
 	}
 }
 

@@ -6,21 +6,36 @@ import { getFeaturedImageUrl } from '../../utils/functions'
 import FeaturedBlog from '../front-page/FeaturedBlog'
 
 const ServicesWrapper = styled.div`
-  /* margin: 0 auto;
-  max-width: 1060px; */
+      @media only screen and (min-width: 416px) {
+          margin-top: 10%;
+    }
+    @media only screen and (max-width: 414px) {
+        margin-top: 5%;
+    }
 `
 
 const ServicesHeaderWrapper = styled.div`
-  background-color: hsl(247, 69%, 15%);
-  border-radius: 5px;
+  @media only screen and (min-width: 416px) {
+    background-color: hsl(247, 69%, 15%);
+    border-radius: 5px;
+    height: 500px;
+    margin-bottom: 75%;
+    }
+  @media only screen and (max-width: 414px) {
+    }
+
 `
 
 const ServicesHeader = styled.div`
   color: white;
-  max-width: 920px;
-  margin: 0 auto;
-  padding: 1rem;
-  /* height: 440px; */
+  @media only screen and (min-width: 416px) {
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 1rem;
+    }
+  @media only screen and (max-width: 414px) {
+    margin: 1rem 3.5rem;
+    }
 `
 
 const ServicesInnerHeader = styled.div`
@@ -36,9 +51,14 @@ const ServicesContentContainer = styled.div`
 
 const ServicesContentInnerContainer = styled.div`
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-column-gap: 2rem;
   grid-row-gap: 2rem;
+  @media only screen and (min-width: 416px) {
+      grid-template-columns: repeat(3, 1fr);
+  grid-column-gap: 2rem;
+    }
+  @media only screen and (max-width: 414px) {
+    grid-template-columns: 1fr;
+    }
 `
 
 const ServicesContentItem = styled.div`
@@ -51,11 +71,17 @@ const ServicesContentItem = styled.div`
 `
 
 const ServicesContentImage = styled.div`
-  width: 348px;
-  height: 348px;
-  border-radius: 5px;
-  box-shadow: 0 12px 24px 0 hsla(0, 0%, 0%, 0.15);
-  background-color: hsl(0, 0%, 100%);
+    @media only screen and (min-width: 416px) {
+        width: 348px;
+        height: 348px;
+        border-radius: 5px;
+        box-shadow: 0 12px 24px 0 hsla(0, 0%, 0%, 0.15);
+        background-color: hsl(0, 0%, 100%);
+    }
+    @media only screen and (max-width: 414px) {
+      display: none;
+    }
+
 `
 
 const ServicesContentItemSecondary = styled.div`
@@ -67,10 +93,15 @@ const ServicesContentItemSecondary = styled.div`
   background-color: hsl(258, 60%, 44%);
 `
 const BlogWrapper = styled.div`
-  margin-top: 160px;
-  margin-bottom: 100px;
   display: flex;
   place-content: center;
+  @media only screen and (min-width: 416px) {
+        margin-top: 160px;
+        margin-bottom: 100px;
+    }
+    @media only screen and (max-width: 414px) {
+      margin-top: 2%;
+    }
 `
 
 const Diensten = (props) => {
@@ -88,7 +119,6 @@ const Diensten = (props) => {
             <ServicesHeader className="services-header">
               <div className="services-detail-header">{parse(content)}</div>
             </ServicesHeader>
-          </ServicesHeaderWrapper>
           <ServicesContentContainer className="services-content-container">
             <ServicesContentInnerContainer className="services-content-inner-container">
               <ServicesContentItem className="services-content-item">
@@ -153,7 +183,8 @@ const Diensten = (props) => {
                 </p>
               </ServicesContentItemSecondary>
             </ServicesContentInnerContainer>
-          </ServicesContentContainer>
+            </ServicesContentContainer>
+          </ServicesHeaderWrapper>
           <BlogWrapper className="Blog-Wrapper">
             <FeaturedBlog />
           </BlogWrapper>
