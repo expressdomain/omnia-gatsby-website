@@ -68,8 +68,12 @@ const FeaturedBlog = () => {
               className="featured-blog-image"
           />
           <BlogItem className="blog-item">
-            <div className="featured-title">{parse(wpPost.title)}</div>
-            <div className="featured-excerpt">{parse(wpPost.blogPreview.blogPreview)}</div>
+              <div className="featured-title">{parse(wpPost.title)}</div>
+              {wpPost.blogPreview.blogPreview != null ? (
+                <div className="featured-excerpt">{parse(wpPost.blogPreview.blogPreview)}</div>
+              ) : (
+                  <pre>No Preview found.</pre>
+              )}
             <button className="lees-verder-button">
               <Link className="lees-verder-link" to={`/blog${wpPost.uri}`}>
                 Lees verder
