@@ -44,9 +44,6 @@ const BlogArchive = (props) => {
     },
   } = props
 
-  console.log(props.pageContext)
-  // console.log(props.pageContext.allPosts)
-
   return (
     <Layout>
       {props.pageContext ? (

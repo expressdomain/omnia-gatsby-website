@@ -31,8 +31,6 @@ const Homepage = (props) => {
     },
   } = props
 
-  console.log(contactACF)
-
   return (
     <Layout>
       {props.pageContext ? (

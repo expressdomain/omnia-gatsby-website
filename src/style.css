@@ -386,6 +386,7 @@ body {
   .lees-verder-button {
     background-color: #5e20bc;
     padding: 10px 14px 10.4px;
+    margin-top: 1rem;
   }
 }
 
@@ -780,8 +781,11 @@ body {
 
 @media only screen and (max-width: 414px) {
   .featured-blog-icon {
+    position: relative;
     width: 73px;
     height: 76.5px;
+    top: 40px;
+    left: 30px;
   }
 }
 
@@ -987,6 +991,20 @@ body {
 
 .services-detail-header span {
   font-weight: bold;
+}
+
+@media only screen and (max-width: 414px) {
+  .services-detail-header h1 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 300;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.2;
+    letter-spacing: 0.3px;
+    text-align: left;
+    color: #120c41;
+  }
 }
 
 .services-item-header {

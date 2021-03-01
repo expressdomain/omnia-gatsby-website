@@ -29,6 +29,8 @@ const BlogItem = styled.div`
     }
     @media only screen and (max-width: 414px) {
       position: relative;
+      top: -240px;
+padding: 0 30px;
     }
 
 `
@@ -54,7 +56,6 @@ const FeaturedBlog = () => {
     }
   `)
 
-  console.log(wpPost)
 
   return (
     <>
@@ -72,7 +73,9 @@ const FeaturedBlog = () => {
               {wpPost.blogPreview.blogPreview != null ? (
                 <div className="featured-excerpt">{parse(wpPost.blogPreview.blogPreview)}</div>
               ) : (
-                  <pre>No Preview found.</pre>
+                  <div className="featured-excerpt">
+                    <pre>No Preview found.</pre>
+                  </div>
               )}
             <button className="lees-verder-button">
               <Link className="lees-verder-link" to={`/blog${wpPost.uri}`}>

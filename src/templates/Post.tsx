@@ -17,8 +17,6 @@ const BlogPostTemplate = ({ data: { previous, next, post } }) => {
     alt: post.featuredImage?.node?.alt || ``,
   }
 
-  console.log(post)
-
   return (
     <Layout>
       <Seo post={post} />
