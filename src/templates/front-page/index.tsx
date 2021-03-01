@@ -31,7 +31,7 @@ const Homepage = (props) => {
         <>
           <div id="primary" className="content-area">
             <main id="main" className="site-main">
-              {window.innerWidth <= 414 ? (
+              {/* {window.innerWidth <= 414 ? (
                 // Mobile layout
                 <div className="hero-container">
                   <div className="hero-header">
@@ -41,8 +41,8 @@ const Homepage = (props) => {
                   <img className="hero-image" src={homepageACF.heroImage.sourceUrl} alt="" />
                   <p className="hero-subtext">{parse(homepageACF.heroSubtext)}</p>
                 </div>
-              ) : (
-                // Desktop layout
+              ) : ( */}
+                {/* // Desktop layout */}
                 <div className="hero-container">
                   <HeroInnerContainer className="hero-inner-container">
                     <div className="hero-header">
@@ -58,7 +58,7 @@ const Homepage = (props) => {
                   </HeroInnerContainer>
                   <img className="hero-image" src={homepageACF.heroImage.sourceUrl} alt="" />
                 </div>
-              )}
+              {/* )} */}
 
               <div className="usp-services-container">
                 <h2 className="usp-header">{parse(homepageACF.uspHeader)}</h2>
