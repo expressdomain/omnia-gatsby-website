@@ -10,25 +10,25 @@ const OverWrapper = styled.div`
 `
 
 const DesktopWrapper = styled.div`
-    @media only screen and (max-width: 414px) {
-        display: none;
-    }
+  @media only screen and (max-width: 414px) {
+    display: none;
+  }
 `
 
 const MobileWrapper = styled.div`
-    @media only screen and (min-width: 416px) {
-        display: none;
-    }
+  @media only screen and (min-width: 416px) {
+    display: none;
+  }
 `
 
 const OverHeaderWrapper = styled.div`
-    @media only screen and (min-width: 416px) {
-      border-radius: 5px;
-      margin-top: 10%;
-    }
   @media only screen and (min-width: 416px) {
-      background-color: hsl(247, 69%, 15%);
-    }
+    border-radius: 5px;
+    margin-top: 10%;
+  }
+  @media only screen and (min-width: 416px) {
+    background-color: hsl(247, 69%, 15%);
+  }
 `
 
 const OverHeader = styled.div`
@@ -40,9 +40,9 @@ const OverHeader = styled.div`
   flex-flow: row;
   padding-top: 2rem;
   @media only screen and (max-width: 414px) {
-        flex-flow: column;
-        padding: 0 3rem;
-    }
+    flex-flow: column;
+    padding: 0 3rem;
+  }
 `
 
 const OverInnerHeader = styled.div`
@@ -73,8 +73,8 @@ const OverContentInnerContainer = styled.div`
   margin-top: 10%;
   @media only screen and (max-width: 414px) {
     margin: 5% 5%;
-      grid-template-columns: 1fr;
-    }
+    grid-template-columns: 1fr;
+  }
 `
 
 const OverContentItem = styled.div`
@@ -100,38 +100,37 @@ const Over = (props) => {
     <Layout>
       {props.pageContext ? (
         <OverWrapper className="over-wrapper">
-          
           <DesktopWrapper className="desktop-wrapper">
-          {/* Desktop setup */}
-          <OverHeaderWrapper className="over-header-wrapper">
-            <OverHeader className="over-header">
-              <img
-                src={getFeaturedImageUrl(overACF?.overHeroImage?.localFile?.url)}
-                alt="featured-blog"
-                className="over-hero-image"
-              />
-              <OverInnerHeader className="over-inner-header">
-                <h1 className="over-page-header">{parse(overACF.overHeroHeader)}</h1>
-                <p className="over-page-subtext">{parse(overACF.overHeroBody)}</p>
-              </OverInnerHeader>
-            </OverHeader>
+            {/* Desktop setup */}
+            <OverHeaderWrapper className="over-header-wrapper">
+              <OverHeader className="over-header">
+                <img
+                  src={getFeaturedImageUrl(overACF?.overHeroImage?.localFile?.url)}
+                  alt="featured-blog"
+                  className="over-hero-image"
+                />
+                <OverInnerHeader className="over-inner-header">
+                  <h1 className="over-page-header">{parse(overACF.overHeroHeader)}</h1>
+                  <p className="over-page-subtext">{parse(overACF.overHeroBody)}</p>
+                </OverInnerHeader>
+              </OverHeader>
             </OverHeaderWrapper>
           </DesktopWrapper>
 
           {/* Mobile setup */}
           <MobileWrapper className="mobile-wrapper">
-          <OverHeaderWrapper className="over-header-wrapper">
-            <OverHeader className="over-header">
+            <OverHeaderWrapper className="over-header-wrapper">
+              <OverHeader className="over-header">
                 <h1 className="over-page-header">{parse(overACF.overHeroHeader)}</h1>
-                  <HeroMobileContainer className="hero-mobile-container">  
-              <img
-                src={getFeaturedImageUrl(overACF?.overHeroImage?.localFile?.url)}
-                alt="featured-blog"
-                className="over-hero-image"
-                    />
-                  </HeroMobileContainer> 
+                <HeroMobileContainer className="hero-mobile-container">
+                  <img
+                    src={getFeaturedImageUrl(overACF?.overHeroImage?.localFile?.url)}
+                    alt="featured-blog"
+                    className="over-hero-image"
+                  />
+                </HeroMobileContainer>
                 <p className="over-page-subtext">{parse(overACF.overHeroBody)}</p>
-            </OverHeader>
+              </OverHeader>
             </OverHeaderWrapper>
           </MobileWrapper>
 

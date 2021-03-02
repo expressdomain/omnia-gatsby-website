@@ -42,22 +42,22 @@ const Homepage = (props) => {
                   <p className="hero-subtext">{parse(homepageACF.heroSubtext)}</p>
                 </div>
               ) : ( */}
-                {/* // Desktop layout */}
-                <div className="hero-container">
-                  <HeroInnerContainer className="hero-inner-container">
-                    <div className="hero-header">
-                      <p className="hero-small">{parse(homepageACF.heroSubHeader)}</p>
-                      <h1 className="hero-big">{parse(homepageACF.heroHeader)}</h1>
+              {/* // Desktop layout */}
+              <div className="hero-container">
+                <HeroInnerContainer className="hero-inner-container">
+                  <div className="hero-header">
+                    <p className="hero-small">{parse(homepageACF.heroSubHeader)}</p>
+                    <h1 className="hero-big">{parse(homepageACF.heroHeader)}</h1>
+                  </div>
+                  <p className="hero-subtext">{parse(homepageACF.heroSubtext)}</p>
+                  <div className="hero-button-container">
+                    <div className="hero-button-square">
+                      <div className="hero-button-triangle"></div>
                     </div>
-                    <p className="hero-subtext">{parse(homepageACF.heroSubtext)}</p>
-                    <div className="hero-button-container">
-                      <div className="hero-button-square">
-                        <div className="hero-button-triangle"></div>
-                      </div>
-                    </div>
-                  </HeroInnerContainer>
-                  <img className="hero-image" src={homepageACF.heroImage.sourceUrl} alt="" />
-                </div>
+                  </div>
+                </HeroInnerContainer>
+                <img className="hero-image" src={homepageACF.heroImage.sourceUrl} alt="" />
+              </div>
               {/* )} */}
 
               <div className="usp-services-container">

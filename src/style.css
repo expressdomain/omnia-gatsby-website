@@ -1170,6 +1170,20 @@ body {
   font-weight: normal;
 }
 
+@media only screen and (max-width: 414px) {
+  .contact-header {
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing: 0.3px;
+    color: #120c41;
+    margin: 0;
+    padding: 0 3.75rem;
+  }
+  .contact-header span {
+    font-weight: bold;
+  }
+}
+
 .contact-body-text {
   font-size: 20px;
   font-weight: 300;
@@ -1181,10 +1195,28 @@ body {
   color: white;
 }
 
+@media only screen and (max-width: 414px) {
+  .contact-body-text {
+    font-size: 15px;
+    line-height: 1.33;
+    letter-spacing: 0.23px;
+    color: #392b7d;
+    padding: 0 3.75rem;
+  }
+}
+
 .contact-location-image {
   width: 346px;
   height: 318px;
   border-radius: 5px;
   margin-right: 3rem;
+}
+
+@media only screen and (max-width: 414px) {
+  .contact-location-image {
+    width: 278px;
+    height: 256px;
+    margin-right: 0;
+  }
 }
 /*# sourceMappingURL=style.css.map */

@@ -40,7 +40,7 @@ const BlogArchive = (props) => {
   const {
     pageContext: {
       page: { title, uri, content, blogOverviewACF },
-      allPosts
+      allPosts,
     },
   } = props
 
@@ -55,12 +55,12 @@ const BlogArchive = (props) => {
             </BlogOverviewHeaderInner>
           </BlogOverviewHeaderContainer>
           <BlogContainer className="blog-container">
-          <BlogInnerContainer className="blog-inner-container">
-          {allPosts !== undefined || null ? (
-            allPosts.map((post) => <BlogPreview post={post} />)
-          ) : (
-              <pre style={{ color: 'white' }}>No related blog items found.</pre>
-            )}
+            <BlogInnerContainer className="blog-inner-container">
+              {allPosts !== undefined || null ? (
+                allPosts.map((post) => <BlogPreview post={post} />)
+              ) : (
+                <pre style={{ color: 'white' }}>No related blog items found.</pre>
+              )}
             </BlogInnerContainer>
           </BlogContainer>
         </BlogWrapper>
