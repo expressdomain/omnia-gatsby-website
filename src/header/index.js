@@ -2,7 +2,7 @@
 import { graphql, Link, useStaticQuery } from 'gatsby'
 import React from 'react'
 import Menu from './menu'
-import styled from 'styled-components'
+import styled from '@emotion/styled'
 import logo from '../images/Logo.png'
 
 const GlobalWrapper = styled.header`

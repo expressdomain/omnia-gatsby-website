@@ -1,7 +1,7 @@
 import React from 'react'
 import { useStaticQuery, graphql, Link } from 'gatsby'
 // import UniversalLink from './UniversalLink'
-import styled from 'styled-components'
+import styled from '@emotion/styled'
 
 const MenuWrapper = styled.nav`
   display: flex;

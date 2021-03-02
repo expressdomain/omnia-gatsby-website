@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled from '@emotion/styled'
 import parse from 'html-react-parser'
 import { Link } from 'gatsby'
 import { FiChevronRight } from 'react-icons/fi'

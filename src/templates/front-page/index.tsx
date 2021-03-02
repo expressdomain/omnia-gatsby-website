@@ -1,7 +1,7 @@
 import React from 'react'
 import Layout from '../../components/layout'
 import FeaturedBlog from './FeaturedBlog'
-import styled from 'styled-components'
+import styled from '@emotion/styled'
 import { Link } from 'gatsby'
 import parse from 'html-react-parser'
 

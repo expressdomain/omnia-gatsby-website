@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link, useStaticQuery, graphql } from 'gatsby'
-import styled from 'styled-components'
+import styled from '@emotion/styled'
 import parse from 'html-react-parser'
 import blog_icon from '../../images/blog_icon.png'
 import { getFeaturedImageUrl } from '../../utils/functions'

@@ -1,7 +1,7 @@
 import React from 'react'
 import Layout from '../../components/layout'
 import parse from 'html-react-parser'
-import styled from 'styled-components'
+import styled from '@emotion/styled'
 import { getFeaturedImageUrl } from '../../utils/functions'
 
 const ContactWrapper = styled.div`

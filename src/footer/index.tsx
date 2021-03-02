@@ -1,6 +1,6 @@
 import React from 'react'
 import { useStaticQuery, graphql, Link } from 'gatsby'
-import styled from 'styled-components'
+import styled from '@emotion/styled'
 import logo from '../images/Logo.png'
 import { FaLinkedin } from 'react-icons/fa'
 
