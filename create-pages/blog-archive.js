@@ -1,11 +1,8 @@
 const { slash }         = require( `gatsby-core-utils` );
 const blogArchiveTemplate = require.resolve( `../src/templates/blog-archive/index.tsx` );
-// const singleProductPageTemplate = require.resolve( `../src/templates/product/index.js` );
-// const { ProductsFragment } = require('./fragments/products/index.js');
 // const { SeoFragment } = require('./fragments/seo/index.js');
-// const { HomepageFragment } = require('./fragments/pages/index.js');
 
-// Get all the front page data.
+// Get all the blog page data.
 const GET_BLOG_PAGE = `
 query GET_BLOG_PAGE {
   page: wpPage(slug: {eq: "blog"}) {
@@ -46,12 +43,11 @@ module.exports = async ( { actions, graphql } ) => {
 
 	const fetchPosts = async () => {
 
-		// Do query to get home page data.
+		// Do query to get blog page data.
 		return await graphql( GET_BLOG_PAGE )
 			.then(({ data }) => {
 				
                 const { page, posts } = data;
-				// console.log(data)
 
 				let allThePosts = [];
 				posts && posts.nodes.map( post => {

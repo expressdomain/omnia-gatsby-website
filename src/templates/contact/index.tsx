@@ -66,7 +66,6 @@ const Homepage = (props) => {
     <Layout>
       {props.pageContext ? (
         <ContactWrapper className="contact-wrapper">
-
           {/* Desktop setup */}
           <DesktopWrapper className="desktop-wrapper">
             <ContactHeaderContainer className="contact-header-container">
@@ -102,7 +101,6 @@ const Homepage = (props) => {
               </ContactHeaderContent>
             </ContactHeaderContainer>
           </MobileWrapper>
-          
         </ContactWrapper>
       ) : (
         <div>Something went wrong</div>
