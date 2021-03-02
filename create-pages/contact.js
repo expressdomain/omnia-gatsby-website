@@ -1,7 +1,5 @@
 const { slash }         = require( `gatsby-core-utils` );
 const contactTemplate = require.resolve( `../src/templates/contact/index.tsx` );
-// const singleProductPageTemplate = require.resolve( `../src/templates/product/index.js` );
-// const { ProductsFragment } = require('./fragments/products/index.js');
 // const { SeoFragment } = require('./fragments/seo/index.js');
 // const { HomepageFragment } = require('./fragments/pages/index.js');
 
@@ -12,15 +10,24 @@ query GET_CONTACT_PAGE {
     id
     title
     uri
-	content
-	contactACF {
-		contactHeader
-		contactGmaps {
+    content
+    contactACF {
+      contactHeader
+      contactGmaps {
         localFile {
           url
         }
       }
-	}
+      email
+      kamerVanKoophandel
+      linkedin
+      personName
+      street
+      telephone
+      zipCity
+      companyName
+      btwNummer
+    }
   }
 }
 `;
