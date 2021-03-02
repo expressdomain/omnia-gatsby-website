@@ -10,9 +10,27 @@ const BlogWrapper = styled.div`
   max-width: 1060px; */
 `
 
+const DesktopWrapper = styled.div`
+  @media only screen and (max-width: 414px) {
+    display: none;
+  }
+`
+
+const MobileWrapper = styled.div`
+  @media only screen and (min-width: 416px) {
+    display: none;
+  }
+`
+
 const BlogHeaderWrapper = styled.div`
   background-color: hsl(247, 69%, 15%);
   border-radius: 5px;
+  @media only screen and (max-width: 414px) {
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
 `
 
 const BlogHeader = styled.div`
@@ -30,11 +48,17 @@ const BlogInnerHeader = styled.div`
 `
 
 const BlogContentContainer = styled.div`
-  margin-top: 12.5rem;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 10%;
-  max-width: 60%;
+  @media only screen and (min-width: 416px) {
+    margin-top: 12.5rem;
+    max-width: 60%;
+    margin-bottom: 10%;
+    }
+  @media only screen and (max-width: 414px) {
+    margin-top: 2rem;
+    max-width: 80%;
+  }
 `
 
 const SinglePostTemplate = (props) => {
