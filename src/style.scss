@@ -1068,6 +1068,17 @@ body {
 	span {
 		font-weight: normal;
 	}
+	@media only screen and (max-width: 414px) {
+		font-size: 20px;
+		font-weight: bold;
+		letter-spacing: 0.3px;
+		color: hsl(247, 69%, 15%);
+		margin: 0;
+		padding: 0 3.75rem;
+		span {
+			font-weight: bold;
+		}
+	}
 }
 
 .contact-body-text {
@@ -1079,6 +1090,13 @@ body {
 	letter-spacing: 0.3px;
 	text-align: left;
 	color: hsl(0, 0%, 100%);
+	@media only screen and (max-width: 414px) {
+		font-size: 15px;
+		line-height: 1.33;
+		letter-spacing: 0.23px;
+		color: hsl(250, 49%, 33%);
+		padding: 0 3.75rem;
+	}
 }
 
 .contact-location-image {
@@ -1086,4 +1104,9 @@ body {
 	height: 318px;
 	border-radius: 5px;
 	margin-right: 3rem;
+	@media only screen and (max-width: 414px) {
+		width: 278px;
+		height: 256px;
+		margin-right: 0;
+	}
 }

@@ -15,7 +15,6 @@ query GET_CONTACT_PAGE {
 	content
 	contactACF {
 		contactHeader
-		contactBody
 		contactGmaps {
         localFile {
           url
