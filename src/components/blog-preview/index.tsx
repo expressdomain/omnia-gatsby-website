@@ -9,7 +9,9 @@ const BlogWrapper = styled.div`
   border-radius: 5px;
   box-shadow: 0 12px 24px 0 hsla(0, 0%, 0%, 0.15);
   background-color: hsl(0, 0%, 100%);
-  z-index: 10;
+      @media only screen and (min-width: 416px) {
+        z-index: 10;
+    }
 `
 
 const BlogText = styled.div`

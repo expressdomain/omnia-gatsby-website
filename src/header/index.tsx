@@ -4,9 +4,13 @@ import React from 'react'
 import Menu from './menu'
 import styled from '@emotion/styled'
 import logo from '../images/Logo.png'
+import Sidebar from './sidebar'
 
 const GlobalWrapper = styled.header`
   background-color: hsl(247, 69%, 15%);
+  position: sticky;
+  top: 0;
+  z-index: 10;
 `
 
 const GlobalHeader = styled.header`
@@ -25,17 +29,24 @@ const Logo = styled.img`
   }
 `
 
-const Header = ({ isHomePage = false }) => {
-  const {
-    wp: {
-      generalSettings: { title },
-    },
-  } = useStaticQuery(graphql`
-    query HeaderQuery {
-      wp {
-        generalSettings {
-          title
-          description
+const Header = () => {
+  const [showMenu, setShowMenu] = React.useState(false)
+
+  const toggleMenu = () => {
+    setShowMenu(!showMenu)
+  }
+
+  const { wpMenu } = useStaticQuery(graphql`
+    query MenuQuery {
+      wpMenu {
+        name
+        menuItems {
+          nodes {
+            url
+            label
+            id
+            databaseId
+          }
         }
       }
     }
@@ -48,7 +59,8 @@ const Header = ({ isHomePage = false }) => {
           <Logo src={logo} width={158} />
         </Link>
         <div style={{ marginLeft: 'auto', display: 'flex' }}>
-          <Menu />
+          <Menu toggleMenu={toggleMenu} items={wpMenu.menuItems.nodes} />
+          <Sidebar toggleMenu={toggleMenu} showMenu={showMenu} items={wpMenu.menuItems.nodes} />
         </div>
       </GlobalHeader>
     </GlobalWrapper>
