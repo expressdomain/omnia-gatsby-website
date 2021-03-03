@@ -10,9 +10,9 @@ const RelatedBlogWrapper = styled.div`
   border-radius: 5px;
   display: grid;
   @media only screen and (min-width: 416px) {
-        margin-bottom: 630px;
-        background-color: hsl(264, 71%, 43%);
-    }
+    margin-bottom: 630px;
+    background-color: hsl(264, 71%, 43%);
+  }
 `
 
 const DesktopWrapper = styled.div`

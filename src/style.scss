@@ -783,6 +783,7 @@ body {
 		font-weight: bold;
 		line-height: 1.2;
 		letter-spacing: 0.3px;
+		margin: 1rem 3rem;
 	}
 }
 
@@ -791,6 +792,11 @@ body {
 	height: 344px;
 	box-shadow: 0 3px 6px 0 hsla(0, 0%, 0%, 0.15);
 	margin-right: 3.3rem;
+	@media only screen and (max-width: 414px) {
+		width: 100%;
+		height: auto;
+		margin: 0;
+	}
 }
 
 .blog-detail-toptext {
@@ -801,6 +807,11 @@ body {
 	line-height: 1.75;
 	letter-spacing: 0.3px;
 	text-align: left;
+	@media only screen and (max-width: 414px) {
+		font-size: 16px;
+		font-weight: 300;
+		margin: 0;
+	}
 }
 
 // Related blog styles on Blog Detail page

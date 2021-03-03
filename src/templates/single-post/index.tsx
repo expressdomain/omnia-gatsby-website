@@ -10,18 +10,6 @@ const BlogWrapper = styled.div`
   max-width: 1060px; */
 `
 
-const DesktopWrapper = styled.div`
-  @media only screen and (max-width: 414px) {
-    display: none;
-  }
-`
-
-const MobileWrapper = styled.div`
-  @media only screen and (min-width: 416px) {
-    display: none;
-  }
-`
-
 const BlogHeaderWrapper = styled.div`
   background-color: hsl(247, 69%, 15%);
   border-radius: 5px;
@@ -35,16 +23,23 @@ const BlogHeaderWrapper = styled.div`
 
 const BlogHeader = styled.div`
   color: white;
-  max-width: 920px;
-  margin: 0 auto;
-  padding: 1rem;
-  height: 440px;
+  @media only screen and (min-width: 416px) {
+    max-width: 920px;
+    margin: 0 auto;
+    height: 440px;
+    padding: 1rem;
+  }
+  @media only screen and (max-width: 414px) {
+    padding: 1rem 0;
+  }
 `
 
 const BlogInnerHeader = styled.div`
   display: flex;
-  flex-flow: row;
   margin-top: 2rem;
+  @media only screen and (max-width: 414px) {
+    flex-flow: column;
+  }
 `
 
 const BlogContentContainer = styled.div`
@@ -54,11 +49,18 @@ const BlogContentContainer = styled.div`
     margin-top: 12.5rem;
     max-width: 60%;
     margin-bottom: 10%;
-    }
+  }
   @media only screen and (max-width: 414px) {
     margin-top: 2rem;
     max-width: 80%;
   }
+`
+
+const BlogText = styled.div`
+    @media only screen and (max-width: 414px) {
+      max-width: 80%;
+      margin: 1rem auto;
+    }
 `
 
 const SinglePostTemplate = (props) => {
@@ -69,9 +71,9 @@ const SinglePostTemplate = (props) => {
   return (
     <Layout>
       {props.pageContext ? (
-        <BlogWrapper className="blog-wrapper">
-          <BlogHeaderWrapper className="blog-header-wrapper">
-            <BlogHeader className="blog-header">
+        <BlogWrapper>
+          <BlogHeaderWrapper>
+            <BlogHeader>
               <h2 className="blog-detail-header">{parse(title)}</h2>
               <BlogInnerHeader className="blog-inner-header">
                 <img
@@ -80,14 +82,18 @@ const SinglePostTemplate = (props) => {
                   className="blog-detail-image"
                 />
                 {blogPreview.blogPreview !== null ? (
-                  <p className="blog-detail-toptext">{parse(blogPreview.blogPreview)}</p>
+                  <BlogText>
+                    <p className="blog-detail-toptext">
+                      {parse(blogPreview.blogPreview)}
+                    </p>
+                  </BlogText>
                 ) : (
                   <pre>No body found</pre>
                 )}
               </BlogInnerHeader>
             </BlogHeader>
           </BlogHeaderWrapper>
-          <BlogContentContainer className="blog-content-container">
+          <BlogContentContainer>
             <p>{parse(content)}</p>
           </BlogContentContainer>
           <RelatedBlogs />
