@@ -6,7 +6,7 @@ import styled from '@emotion/styled'
 import logo from '../images/Logo.png'
 import Sidebar from './sidebar'
 
-const GlobalWrapper = styled.header`
+const HeaderWrapper = styled.header`
   background-color: hsl(247, 69%, 15%);
   position: sticky;
   top: 0;
@@ -53,8 +53,8 @@ const Header = () => {
   `)
 
   return (
-    <GlobalWrapper className="global-wrapper">
-      <GlobalHeader className="global-header">
+    <HeaderWrapper>
+      <GlobalHeader>
         <Link to="/">
           <Logo src={logo} width={158} />
         </Link>
@@ -63,7 +63,7 @@ const Header = () => {
           <Sidebar toggleMenu={toggleMenu} showMenu={showMenu} items={wpMenu.menuItems.nodes} />
         </div>
       </GlobalHeader>
-    </GlobalWrapper>
+    </HeaderWrapper>
   )
 }
 
