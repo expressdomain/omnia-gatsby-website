@@ -2,6 +2,20 @@ import React from 'react'
 import { useStaticQuery, graphql, Link } from 'gatsby'
 // import UniversalLink from './UniversalLink'
 import styled from '@emotion/styled'
+import { FiMenu, FiX } from 'react-icons/fi'
+import Sidebar from '../sidebar'
+
+const DesktopWrapper = styled.div`
+  @media only screen and (max-width: 414px) {
+    display: none;
+  }
+`
+
+const OpenIcon = styled.div`
+  @media only screen and (min-width: 416px) {
+    display: none;
+  }
+`
 
 const MenuWrapper = styled.nav`
   display: flex;
@@ -10,68 +24,51 @@ const MenuWrapper = styled.nav`
 `
 
 const PrimaryMenu = styled.ul`
-  @media only screen and (min-width: 416px) {
-    display: flex;
-    flex-flow: row;
-    list-style: none;
-  }
-  @media only screen and (max-width: 414px) {
-    display: none;
-  }
+  display: flex;
+  flex-flow: row;
+  list-style: none;
 `
 
 const MenuItem = styled.li`
   margin: 0 2.5rem;
 `
 
-const Menu = () => {
-  const { wpMenu } = useStaticQuery(graphql`
-    query MenuQuery {
-      wpMenu {
-        name
-        menuItems {
-          nodes {
-            url
-            label
-            id
-            databaseId
-          }
-        }
-      }
-    }
-  `)
-
-  // console.log(wpMenu)
-
-  if (!wpMenu?.menuItems?.nodes || wpMenu.menuItems.nodes === 0) return null
+const Menu = ({ items, toggleMenu }) => {
+  if (items === 0) return null
 
   return (
     <MenuWrapper className="menu-wrapper">
-      <PrimaryMenu className="primary-menu">
-        {wpMenu.menuItems?.nodes.map((menuItem, i) => {
-          const path = menuItem?.connectedNode?.node?.uri ?? menuItem.url
+      <OpenIcon onClick={toggleMenu}>
+        <FiMenu size={34} style={{ color: 'white', marginRight: '1rem' }} />
+      </OpenIcon>
 
-          const itemId = 'menu-item-' + menuItem.databaseId
+      <DesktopWrapper>
+        <PrimaryMenu>
+          {items.map((menuItem, i) => {
+            const path = menuItem?.connectedNode?.node?.uri ?? menuItem.url
 
-          return (
-            <MenuItem
-              id={itemId}
-              key={i + menuItem.url}
-              className={
-                'menu-item menu-item-type-custom menu-item-object-custom menu-item-home ' + itemId
-              }
-            >
-              <Link
-                style={{ color: 'white', textDecoration: 'none', textTransform: 'lowercase' }}
-                to={path}
-                activeClassName={'current-menu-item current_page_item small-letters'}
+            const itemId = 'menu-item-' + menuItem.databaseId
+
+            return (
+              <MenuItem
+                id={itemId}
+                key={i + menuItem.url}
+                className={
+                  'menu-item menu-item-type-custom menu-item-object-custom menu-item-home ' + itemId
+                }
               >
-                {menuItem.label}
-              </Link>
-            </MenuItem>
-          )
-        })}
-      </PrimaryMenu>
+                <Link
+                  style={{ color: 'white', textDecoration: 'none', textTransform: 'lowercase' }}
+                  to={path}
+                  activeClassName={'current-menu-item current_page_item small-letters'}
+                >
+                  {menuItem.label}
+                </Link>
+              </MenuItem>
+            )
+          })}
+        </PrimaryMenu>
+      </DesktopWrapper>
     </MenuWrapper>
   )
 }

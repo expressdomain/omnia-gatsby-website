@@ -5,7 +5,7 @@ import { SEOContext } from 'gatsby-plugin-wpgraphql-seo'
 import Footer from '../footer'
 import Header from '../header'
 
-const Layout = ({ isHomePage = false, children }) => {
+const Layout = ({ children }) => {
   const {
     wp: {
       seo,
@@ -91,7 +91,7 @@ const Layout = ({ isHomePage = false, children }) => {
 
   return (
     <SEOContext.Provider value={{ global: seo }}>
-      <div className="global-wrapper" data-is-root-path={isHomePage}>
+      <div className="global-wrapper">
         <Header />
 
         <main>{children}</main>

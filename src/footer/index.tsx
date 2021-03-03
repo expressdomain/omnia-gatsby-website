@@ -23,6 +23,7 @@ const MobileWrapper = styled.div`
     display: flex;
     place-items: center;
     flex-flow: column;
+    overflow-x: hidden;
   }
 `
 
