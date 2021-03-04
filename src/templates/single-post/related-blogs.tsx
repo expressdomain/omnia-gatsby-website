@@ -80,8 +80,6 @@ const RelatedBlogs = () => {
   `)
 
   const latestPost = allWpPost.nodes.slice(-1)
-  console.log('slice', latestPost[0])
-  console.log('select', allWpPost.nodes[0])
 
   return (
     <>

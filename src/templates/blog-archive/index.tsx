@@ -3,7 +3,7 @@ import Layout from '../../components/layout'
 import parse from 'html-react-parser'
 import styled from '@emotion/styled'
 import { getFeaturedImageUrl } from '../../utils/functions'
-import BlogPreview from '../../components/blog-preview-desktop'
+import BlogPreview from '../../components/blog-preview'
 import blog_icon from '../../images/blog_icon.png'
 
 const BlogWrapper = styled.div`
