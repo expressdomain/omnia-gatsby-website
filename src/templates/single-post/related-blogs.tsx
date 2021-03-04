@@ -4,7 +4,8 @@ import styled from '@emotion/styled'
 import parse from 'html-react-parser'
 import blog_icon from '../../images/blog_icon.png'
 import { getFeaturedImageUrl } from '../../utils/functions'
-import BlogPreview from '../../components/blog-preview'
+import BlogPreview from '../../components/blog-preview/'
+import BlogPreviewMobile from '../../components/blog-preview/mobile-blog-detail'
 
 const RelatedBlogWrapper = styled.div`
   border-radius: 5px;
@@ -109,7 +110,7 @@ const RelatedBlogs = () => {
               <img src={blog_icon} alt="blog-icon" className="related-blog-icon" />
               <BlogInnerContainer className="blog-inner-container">
                 {allWpPost !== undefined || null ? (
-                  <BlogPreview post={latestPost[0]} />
+                  <BlogPreviewMobile post={latestPost[0]} />
                 ) : (
                   <pre style={{ color: 'white' }}>No related blog items found.</pre>
                 )}
