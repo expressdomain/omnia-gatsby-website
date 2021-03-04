@@ -777,6 +777,12 @@ body {
 	}
 }
 
+.hide-on-mobile {
+	@media only screen and (max-width: 414px) {
+		display: none;
+	}
+}
+
 .blog-preview-title {
 	font-size: 27px;
 	font-weight: bold;
@@ -788,7 +794,8 @@ body {
 	color: hsl(264, 71%, 43%);
 	@media only screen and (max-width: 414px) {
 		font-size: 20px;
-		margin-top: 1rem;
+		margin-top: 2rem;
+		margin-bottom: 0.8rem;
 	}
 }
 
@@ -821,6 +828,9 @@ body {
 	text-align: left;
 	color: hsl(250, 49%, 33%);
 	text-decoration: none;
+	@media only screen and (max-width: 414px) {
+		font-size: 15px;
+	}
 }
 
 .lees-verder-chevron {
@@ -828,6 +838,9 @@ body {
 	flex-flow: row;
 	align-items: center;
 	color: hsl(250, 49%, 33%);
+	@media only screen and (max-width: 414px) {
+		margin-top: 1rem;
+	}
 }
 
 // Diensten styles

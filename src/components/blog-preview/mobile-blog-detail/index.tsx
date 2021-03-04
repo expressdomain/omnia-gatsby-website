@@ -2,7 +2,6 @@ import React from 'react'
 import styled from '@emotion/styled'
 import parse from 'html-react-parser'
 import { Link } from 'gatsby'
-import { FiChevronRight } from 'react-icons/fi'
 import { getFeaturedImageUrl } from '../../../utils/functions'
 
 const BlogWrapper = styled.div`
@@ -28,12 +27,6 @@ const BlogPreview = ({ post }) => {
       />
       <BlogText>
         <h3 className="featured-title" style={{ margin: '0'}}>{parse(post.title)}</h3>
-        {/* <div className="lees-verder-chevron">
-          <Link className="blog-link-detail" to={`/blog${post.uri}`}>
-            Lees verder
-          </Link>
-          <FiChevronRight />
-        </div> */}
         <button className="lees-verder-button">
           <Link className="lees-verder-link" to={`/blog${ post.uri }`}>
             Lees verder

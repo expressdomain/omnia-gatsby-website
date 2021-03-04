@@ -5,6 +5,18 @@ import { Link } from 'gatsby'
 import { FiChevronRight } from 'react-icons/fi'
 import { getFeaturedImageUrl } from '../../utils/functions'
 
+const DesktopWrapper = styled.div`
+  @media only screen and (max-width: 414px) {
+    display: none;
+  }
+`
+
+const MobileWrapper = styled.div`
+  @media only screen and (min-width: 416px) {
+    display: none;
+  }
+`
+
 const BlogWrapper = styled.div`
   border-radius: 5px;
   box-shadow: 0 12px 24px 0 hsla(0, 0%, 0%, 0.15);
@@ -24,7 +36,7 @@ const BlogPreview = ({ post }) => {
       <img
         src={getFeaturedImageUrl(post.featuredImage?.node?.localFile?.url)}
         alt="featured-blog"
-        className="blog-preview-image"
+        className="blog-preview-image hide-on-mobile"
       />
       <BlogText>
         <h3 className="blog-preview-title">{parse(post.title)}</h3>
