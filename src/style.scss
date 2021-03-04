@@ -676,6 +676,13 @@ body {
 	letter-spacing: 0.89px;
 	text-align: left;
 	color: hsl(0, 0%, 100%);
+	@media only screen and (max-width: 414px) {
+		font-size: 20px;
+		font-weight: bold;
+		line-height: 1.2;
+		letter-spacing: 0.3px;
+		margin: 1rem 3rem;
+	}
 }
 
 .blog-detail-image {
@@ -683,6 +690,11 @@ body {
 	height: 344px;
 	box-shadow: 0 3px 6px 0 hsla(0, 0%, 0%, 0.15);
 	margin-right: 3.3rem;
+	@media only screen and (max-width: 414px) {
+		width: 100%;
+		height: auto;
+		margin: 0;
+	}
 }
 
 .blog-detail-toptext {
@@ -693,6 +705,11 @@ body {
 	line-height: 1.75;
 	letter-spacing: 0.3px;
 	text-align: left;
+	@media only screen and (max-width: 414px) {
+		font-size: 16px;
+		font-weight: 300;
+		margin: 0;
+	}
 }
 
 // Related blog styles on Blog Detail page
@@ -710,11 +727,20 @@ body {
 }
 
 .related-blog-icon {
-	width: 117.8px;
-	height: 123.4px;
-	position: relative;
-	top: -120px;
-	left: 445px;
+	@media only screen and (min-width: 416px) {
+		width: 117.8px;
+		height: 123.4px;
+		position: relative;
+		top: -120px;
+		left: 445px;
+	}
+	@media only screen and (max-width: 414px) {
+		width: 73px;
+		height: 76.5px;
+		position: relative;
+		top: 50px;
+		padding-left: 10%;
+	}
 }
 
 // Blog overview styles
@@ -742,8 +768,13 @@ body {
 // Blog preview styles
 
 .blog-preview-image {
-	width: 310px;
-	height: 310px;
+	@media only screen and (min-width: 416px) {
+		width: 310px;
+		height: 310px;
+	}
+	@media only screen and (max-width: 414px) {
+		width: 100%;
+	}
 }
 
 .blog-preview-title {
@@ -755,6 +786,10 @@ body {
 	letter-spacing: 0.38px;
 	text-align: left;
 	color: hsl(264, 71%, 43%);
+	@media only screen and (max-width: 414px) {
+		font-size: 20px;
+		margin-top: 1rem;
+	}
 }
 
 .blog-preview-container {
