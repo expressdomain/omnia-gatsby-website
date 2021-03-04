@@ -4,8 +4,15 @@ import parse from 'html-react-parser'
 import { SEOContext } from 'gatsby-plugin-wpgraphql-seo'
 import Footer from '../footer'
 import Header from '../header'
+import styled from '@emotion/styled'
 
-const Layout = ({ isHomePage = false, children }) => {
+const GlobalWrapper = styled.div`
+    @media only screen and (max-width: 414px) {
+      overflow-y: hidden;
+    }
+`
+
+const Layout = ({ children }) => {
   const {
     wp: {
       seo,
@@ -91,13 +98,13 @@ const Layout = ({ isHomePage = false, children }) => {
 
   return (
     <SEOContext.Provider value={{ global: seo }}>
-      <div className="global-wrapper" data-is-root-path={isHomePage}>
+      <GlobalWrapper>
         <Header />
 
         <main>{children}</main>
 
         <Footer />
-      </div>
+      </GlobalWrapper>
     </SEOContext.Provider>
   )
 }
