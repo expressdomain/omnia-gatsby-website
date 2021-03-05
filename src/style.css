@@ -637,6 +637,10 @@ body {
   }
 }
 
+.featured-blog-icon {
+  z-index: 1;
+}
+
 @media only screen and (min-width: 416px) {
   .featured-blog-icon {
     position: relative;
@@ -678,6 +682,7 @@ body {
     letter-spacing: 0.3px;
     text-align: left;
     color: #392b7d;
+    margin: 1rem 0;
   }
 }
 

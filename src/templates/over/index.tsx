@@ -3,7 +3,7 @@ import Layout from '../../components/layout'
 import parse from 'html-react-parser'
 import styled from '@emotion/styled'
 import { getFeaturedImageUrl } from '../../utils/functions'
-import FeaturedBlog from '../front-page/FeaturedBlog'
+import FeaturedBlog from '../front-page/featured-blog'
 
 const OverWrapper = styled.div`
   margin-bottom: 10%;

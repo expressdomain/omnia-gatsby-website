@@ -1,6 +1,6 @@
 import React from 'react'
 import Layout from '../../components/layout'
-import FeaturedBlog from './FeaturedBlog'
+import FeaturedBlog from './featured-blog'
 import styled from '@emotion/styled'
 import { Link } from 'gatsby'
 import parse from 'html-react-parser'
@@ -150,10 +150,6 @@ const Homepage = (props) => {
     },
   } = props
 
-  console.log(homepageACF.heroImage?.localFile?.childImageSharp.gatsbyImageData)
-  console.log(homepageACF.servicesImage?.localFile?.childImageSharp.gatsbyImageData)
-  console.log(homepageACF)
-
   const heroImage = {
     img: homepageACF.heroImage?.localFile?.childImageSharp?.gatsbyImageData,
     alt: homepageACF.heroImage?.alt || ``,
@@ -177,11 +173,7 @@ const Homepage = (props) => {
                     <h1 className="hero-big">{parse(homepageACF.heroHeader)}</h1>
                   </HeroHeader>
                   {heroImage?.img && (
-                    <GatsbyImage
-                      image={heroImage.img}
-                      alt={heroImage.alt}
-                      className="hero-image"
-                    />
+                    <GatsbyImage image={heroImage.img} alt={heroImage.alt} className="hero-image" />
                   )}
                   <p className="hero-subtext">{parse(homepageACF.heroSubtext)}</p>
                 </HeroContainer>
@@ -202,11 +194,7 @@ const Homepage = (props) => {
                     </HeroButtonContainer>
                   </HeroInnerContainer>
                   {heroImage?.img && (
-                    <GatsbyImage
-                      image={heroImage.img}
-                      alt={heroImage.alt}
-                      className="hero-image"
-                    />
+                    <GatsbyImage image={heroImage.img} alt={heroImage.alt} className="hero-image" />
                   )}
                 </HeroContainer>
               </DesktopWrapper>

@@ -48,12 +48,10 @@ module.exports = async ( { actions, graphql } ) => {
 		// Do query to get home page data.
 		return await graphql( GET_FRONT_PAGE )
       .then(({ data }) => {
-        
-        console.log(data.page.homepageACF.servicesImage.localFile.childImageSharp.gatsbyImageData)
 				
                 const { page } = data;
                 
-				return {  page: page };
+				return { page };
 			} );
 
 

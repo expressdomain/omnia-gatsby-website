@@ -4,6 +4,8 @@ import styled from '@emotion/styled'
 import parse from 'html-react-parser'
 import blog_icon from '../../images/blog_icon.png'
 import { getFeaturedImageUrl } from '../../utils/functions'
+import blog_placeholder from '../../images/featured_blog_placeholder.png'
+import { GatsbyImage, StaticImage } from 'gatsby-plugin-image'
 
 const BlogInnerWrapper = styled.div`
   @media only screen and (min-width: 416px) {
@@ -48,7 +50,9 @@ const FeaturedBlog = () => {
         featuredImage {
           node {
             localFile {
-              url
+              childImageSharp {
+                gatsbyImageData
+              }
             }
           }
         }
@@ -56,20 +60,33 @@ const FeaturedBlog = () => {
     }
   `)
 
+  const featuredImage = {
+    img: wpPost.featuredImage?.node?.localFile?.childImageSharp?.gatsbyImageData,
+    alt: wpPost.servicesImage?.node?.alt || ``,
+  }
+
   return (
     <>
       {wpPost !== null ? (
         <BlogInnerWrapper className="blog-inner-wrapper">
           <img src={blog_icon} alt="blog-icon" className="featured-blog-icon" />
           <BlogInnerContainer className="blog-inner-container">
-            <img
-              src={getFeaturedImageUrl(wpPost.featuredImage?.node?.localFile?.url)}
-              alt="featured-blog"
-              className="featured-blog-image"
-            />
+            {featuredImage.img !== undefined || null ? (
+              <GatsbyImage
+                image={featuredImage.img}
+                alt={featuredImage.alt}
+                className="featured-blog-image"
+              />
+            ) : (
+              <StaticImage
+                src="../../images/featured_blog_placeholder.png"
+                alt="placeholder"
+                className="featured-blog-image"
+              />
+            )}
             <BlogItem className="blog-item">
               <div className="featured-title">{parse(wpPost.title)}</div>
-              {wpPost.blogPreview.blogPreview != null ? (
+              {wpPost.blogPreview.blogPreview !== null ? (
                 <div className="featured-excerpt">{parse(wpPost.blogPreview.blogPreview)}</div>
               ) : (
                 <div className="featured-excerpt">

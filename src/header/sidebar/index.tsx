@@ -21,7 +21,7 @@ const MenuWrapper = styled.nav`
   justify-content: end;
   align-items: center;
   @media only screen and (min-width: 416px) {
-      display: none;
+    display: none;
   }
 `
 
@@ -47,7 +47,7 @@ const MobileMenu = styled.aside`
 const Overlay = styled.div`
   background: black;
   width: 100%;
-  height: ${({ showMenu }) => (showMenu ? '100%' : '0')};;
+  height: ${({ showMenu }) => (showMenu ? '100%' : '0')};
   position: fixed;
   z-index: -1;
   left: 0;
@@ -118,7 +118,7 @@ const Sidebar = ({ showMenu, toggleMenu, items }) => {
             )
           })}
         </MenuInnerContainer>
-        <Overlay showMenu={showMenu}/>
+        <Overlay showMenu={showMenu} />
       </MobileMenu>
     </MenuWrapper>
   )
