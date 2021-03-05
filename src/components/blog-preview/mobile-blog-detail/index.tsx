@@ -26,9 +26,11 @@ const BlogPreview = ({ post }) => {
         className="blog-preview-image"
       />
       <BlogText>
-        <h3 className="featured-title" style={{ margin: '0'}}>{parse(post.title)}</h3>
+        <h3 className="featured-title" style={{ margin: '0' }}>
+          {parse(post.title)}
+        </h3>
         <button className="lees-verder-button">
-          <Link className="lees-verder-link" to={`/blog${ post.uri }`}>
+          <Link className="lees-verder-link" to={`/blog${post.uri}`}>
             Lees verder
           </Link>
         </button>

@@ -21,9 +21,14 @@ const BlogWrapper = styled.div`
   border-radius: 5px;
   box-shadow: 0 12px 24px 0 hsla(0, 0%, 0%, 0.15);
   background-color: hsl(0, 0%, 100%);
-      @media only screen and (min-width: 416px) {
-        z-index: 10;
-    }
+`
+
+const BlogPreviewContainer = styled.div`
+  height: 160px;
+  display: -webkit-box;
+  -webkit-line-clamp: 8;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 `
 
 const BlogText = styled.div`
@@ -41,11 +46,13 @@ const BlogPreview = ({ post }) => {
       <BlogText>
         <h3 className="blog-preview-title">{parse(post.title)}</h3>
         {post.blogPreview.blogPreview !== null ? (
-          <div className="blog-preview-container">
+          <BlogPreviewContainer>
             <p className="blog-preview-text">{parse(post.blogPreview.blogPreview)}</p>
-          </div>
+          </BlogPreviewContainer>
         ) : (
-          <pre>No blog preview found.</pre>
+          <BlogPreviewContainer>
+            <pre>No blog preview found.</pre>
+          </BlogPreviewContainer>
         )}
         <div className="lees-verder-chevron">
           <Link className="blog-link-detail" to={`/blog${post.uri}`}>

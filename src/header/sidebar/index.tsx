@@ -5,15 +5,15 @@ import { FiX } from 'react-icons/fi'
 import logo from '../../images/Logo.png'
 
 const LogoIcon = styled.div`
-    display: flex;
-align-items: center;
+  display: flex;
+  align-items: center;
 `
 
 const CloseIcon = styled.div`
   margin-left: auto;
 `
 const Logo = styled.img`
-    margin: 1rem;
+  margin: 1rem;
 `
 
 const MenuWrapper = styled.nav`
@@ -57,15 +57,15 @@ const MenuItem = styled.div`
 const Sidebar = ({ showMenu, toggleMenu, items }) => {
   return (
     <MenuWrapper className="menu-wrapper">
-          <MobileMenu showMenu={showMenu} onClick={toggleMenu}>
-              <LogoIcon>
-              <Link to="/">
-                  <Logo src={logo} width={158} />
-              </Link>
-                  <CloseIcon onClick={toggleMenu}>
-          <FiX size={34} style={{ color: 'white', marginRight: '1rem' }} />
-                  </CloseIcon>
-              </LogoIcon>
+      <MobileMenu showMenu={showMenu} onClick={toggleMenu}>
+        <LogoIcon>
+          <Link to="/">
+            <Logo src={logo} width={158} />
+          </Link>
+          <CloseIcon onClick={toggleMenu}>
+            <FiX size={34} style={{ color: 'white', marginRight: '1rem' }} />
+          </CloseIcon>
+        </LogoIcon>
         <MenuInnerContainer>
           {items.map((menuItem, i) => {
             const path = menuItem?.connectedNode?.node?.uri ?? menuItem.url
@@ -81,7 +81,12 @@ const Sidebar = ({ showMenu, toggleMenu, items }) => {
                 }
               >
                 <Link
-                  style={{ color: 'white', textDecoration: 'none', textTransform: 'lowercase', width: '80px' }}
+                  style={{
+                    color: 'white',
+                    textDecoration: 'none',
+                    textTransform: 'lowercase',
+                    width: '80px',
+                  }}
                   to={path}
                   activeClassName={'current-menu-item current_page_item small-letters'}
                 >

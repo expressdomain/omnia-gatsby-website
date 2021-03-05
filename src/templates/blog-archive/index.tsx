@@ -5,13 +5,17 @@ import styled from '@emotion/styled'
 import { getFeaturedImageUrl } from '../../utils/functions'
 import BlogPreview from '../../components/blog-preview'
 import blog_icon from '../../images/blog_icon.png'
+import ReactPaginate from 'react-paginate';
 
 const BlogWrapper = styled.div`
-  margin-bottom: 10%;
+  background-color: hsl(247, 69%, 15%);
+  border-radius: 5px;
+  height: 440px;
+  margin-bottom: 120%;
 `
 
 const BlogOverviewHeaderContainer = styled.div`
-  background-color: hsl(247, 69%, 15%);
+  /* background-color: hsl(247, 69%, 15%); */
   border-radius: 5px;
   margin-top: 10%;
   @media only screen and (max-width: 414px) {
@@ -43,7 +47,8 @@ const BlogInnerContainer = styled.div`
   display: grid;
   @media only screen and (min-width: 416px) {
     grid-template-columns: repeat(3, auto);
-    grid-column-gap: 2rem;
+    grid-column-gap: 2.25rem;
+    grid-row-gap: 3.75rem;
   }
   @media only screen and (max-width: 414px) {
     grid-template-rows: auto;
@@ -51,13 +56,49 @@ const BlogInnerContainer = styled.div`
   }
 `
 
+
 const BlogArchive = (props) => {
+  const [offset, setOffset] = React.useState(0)
+  const [pageCount, setPageCount] = React.useState(0)
+  
+  const BLOG_PER_PAGE = 6
+  
   const {
     pageContext: {
-      page: { title, uri, content, blogOverviewACF },
+      page: { blogOverviewACF },
       allPosts,
     },
   } = props
+
+  React.useEffect(() => {
+    setPageCount(Math.ceil(allPosts.length / BLOG_PER_PAGE))
+    console.log('$$Pagecount set')
+  }, [])
+
+  const BlogItems = (allPosts) => {
+
+    console.log('blog items created', allPosts.data.length)
+    if (allPosts !== undefined || null) {
+      return (
+        allPosts.data.map((post) =>
+          <BlogPreview key={`${ post.id }`} post={post} />
+        )
+      )
+    }
+  }
+  
+  // console.log(allPosts)
+
+  const handlePageClick = (allPosts) => {
+    let selected = allPosts.selected;
+    let offset = Math.ceil(selected * BLOG_PER_PAGE);
+
+    setOffset(offset)
+
+    // this.setState({ offset: offset }, () => {
+    //   this.loadCommentsFromServer();
+    // });
+  };
 
   return (
     <Layout>
@@ -71,11 +112,20 @@ const BlogArchive = (props) => {
           </BlogOverviewHeaderContainer>
           <BlogContainer>
             <BlogInnerContainer>
-              {allPosts !== undefined || null ? (
-                allPosts.map((post) => <BlogPreview post={post} />)
-              ) : (
-                <pre style={{ color: 'white' }}>No related blog items found.</pre>
-              )}
+                <BlogItems data={allPosts} />
+                <ReactPaginate
+                  previousLabel={'previous'}
+                  nextLabel={'next'}
+                  breakLabel={'...'}
+                  breakClassName={'break-me'}
+                  pageCount={pageCount}
+                  marginPagesDisplayed={2}
+                  pageRangeDisplayed={5}
+                  onPageChange={handlePageClick}
+                  containerClassName={'pagination'}
+                  subContainerClassName={'pages pagination'}
+                  activeClassName={'active'}
+                />
             </BlogInnerContainer>
           </BlogContainer>
         </BlogWrapper>
