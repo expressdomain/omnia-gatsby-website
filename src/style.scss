@@ -1017,6 +1017,7 @@ body {
 	letter-spacing: 0.83px;
 	text-align: left;
 	color: hsl(0, 0%, 100%);
+	margin-top: 0;
 	span {
 		font-weight: normal;
 	}
@@ -1054,8 +1055,12 @@ body {
 .contact-location-image {
 	width: 346px;
 	height: 318px;
-	border-radius: 5px;
 	margin-right: 3rem;
+	@media only screen and (min-width: 416px) {
+		border-radius: 5px;
+		box-shadow: 0 12px 24px 0 hsla(0, 0%, 0%, 0.15);
+	}
+
 	@media only screen and (max-width: 414px) {
 		width: 278px;
 		height: 256px;

@@ -52,6 +52,7 @@ const ContactHeaderContent = styled.div`
   @media only screen and (min-width: 416px) {
     margin: 0 auto;
     padding: 2rem 13rem;
+    height: 425px;
   }
 `
 
@@ -65,13 +66,13 @@ const Homepage = (props) => {
   return (
     <Layout>
       {props.pageContext ? (
-        <ContactWrapper className="contact-wrapper">
+        <ContactWrapper>
           {/* Desktop setup */}
-          <DesktopWrapper className="desktop-wrapper">
-            <ContactHeaderContainer className="contact-header-container">
-              <ContactHeaderContent className="contact-header-content">
+          <DesktopWrapper>
+            <ContactHeaderContainer>
+              <ContactHeaderContent>
                 <h1 className="contact-header">{parse(contactACF.contactHeader)}</h1>
-                <ContactHeaderInner className="contact-header-inner">
+                <ContactHeaderInner>
                   <img
                     src={getFeaturedImageUrl(contactACF?.contactGmaps.localFile.url)}
                     alt="google-maps-location"
@@ -84,12 +85,12 @@ const Homepage = (props) => {
           </DesktopWrapper>
 
           {/* Mobile setup   */}
-          <MobileWrapper className="mobile-wrapper">
-            <ContactHeaderContainer className="contact-header-container">
-              <ContactHeaderContent className="contact-header-content">
+          <MobileWrapper>
+            <ContactHeaderContainer>
+              <ContactHeaderContent>
                 <h1 className="contact-header">{parse(contactACF.contactHeader)}</h1>
-                <ContactHeaderInner className="contact-header-inner">
-                  <HeroMobileContainer className="hero-mobile-container">
+                <ContactHeaderInner>
+                  <HeroMobileContainer>
                     <img
                       src={getFeaturedImageUrl(contactACF?.contactGmaps.localFile.url)}
                       alt="google-maps-location"
