@@ -1098,14 +1098,16 @@ body {
 }
 
 .over-detail-image {
-  width: 163px;
-  height: 163px;
+  min-width: 163px;
+  max-width: 163px;
+  height: auto;
 }
 
 @media only screen and (max-width: 414px) {
   .over-detail-image {
-    width: 71.2px;
-    height: 71.2px;
+    min-width: 71.2px;
+    max-width: 71.2px;
+    height: auto;
   }
 }
 
