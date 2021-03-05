@@ -150,7 +150,8 @@ const Homepage = (props) => {
     },
   } = props
 
-  // console.log(homepageACF.heroImage?.localFile?.childImageSharp.gatsbyImageData)
+  console.log(homepageACF.heroImage?.localFile?.childImageSharp.gatsbyImageData)
+  console.log(homepageACF.servicesImage?.localFile?.childImageSharp.gatsbyImageData)
 
   const heroImage = {
     img: homepageACF.heroImage?.localFile?.childImageSharp?.gatsbyImageData,
