@@ -21,10 +21,18 @@ query GET_FRONT_PAGE {
       servicesHeader
       uspHeader
       servicesImage {
-        sourceUrl
+        localFile {
+          childImageSharp {
+            gatsbyImageData
+          }
+        }
       }
       heroImage {
-        sourceUrl
+        localFile {
+          childImageSharp {
+            gatsbyImageData
+          }
+        }
       }
     }
   }

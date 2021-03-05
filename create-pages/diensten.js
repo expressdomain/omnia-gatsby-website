@@ -29,7 +29,9 @@ query GET_DIENSTEN_PAGE {
       visieHeader
       image {
         localFile {
-          url
+          childImageSharp {
+            gatsbyImageData
+          }
         }
       }
     }
