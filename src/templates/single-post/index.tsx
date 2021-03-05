@@ -57,10 +57,10 @@ const BlogContentContainer = styled.div`
 `
 
 const BlogText = styled.div`
-    @media only screen and (max-width: 414px) {
-      max-width: 80%;
-      margin: 1rem auto;
-    }
+  @media only screen and (max-width: 414px) {
+    max-width: 80%;
+    margin: 1rem auto;
+  }
 `
 
 const SinglePostTemplate = (props) => {
@@ -83,9 +83,7 @@ const SinglePostTemplate = (props) => {
                 />
                 {blogPreview.blogPreview !== null ? (
                   <BlogText>
-                    <p className="blog-detail-toptext">
-                      {parse(blogPreview.blogPreview)}
-                    </p>
+                    <p className="blog-detail-toptext">{parse(blogPreview.blogPreview)}</p>
                   </BlogText>
                 ) : (
                   <pre>No body found</pre>

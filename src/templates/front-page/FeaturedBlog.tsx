@@ -18,8 +18,8 @@ const BlogInnerContainer = styled.div`
     flex-flow: row;
   }
   @media only screen and (max-width: 414px) {
-      height: 290px;
-    }
+    height: 290px;
+  }
 `
 
 const BlogItem = styled.div`
