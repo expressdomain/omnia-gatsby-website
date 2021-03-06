@@ -43,6 +43,7 @@ const BlogInnerContainer = styled.div`
   @media only screen and (min-width: 416px) {
     grid-template-columns: repeat(3, auto);
     grid-column-gap: 2rem;
+    grid-row-gap: 3.75rem;
   }
   @media only screen and (max-width: 414px) {
     grid-template-rows: auto;
