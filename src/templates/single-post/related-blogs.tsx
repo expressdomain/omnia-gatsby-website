@@ -57,7 +57,7 @@ const BlogItem = styled.div`
 const RelatedBlogs = ({currentBlog}) => {
   const { allWpPost } = useStaticQuery(graphql`
     query OTHER_POSTS {
-      allWpPost(limit: 10) {
+      allWpPost(limit: 4) {
         nodes {
           id
           title
