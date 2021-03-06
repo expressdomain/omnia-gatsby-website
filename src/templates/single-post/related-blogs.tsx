@@ -54,7 +54,7 @@ const BlogItem = styled.div`
   margin-top: 100px;
 `
 
-const RelatedBlogs = () => {
+const RelatedBlogs = ({currentBlog}) => {
   const { allWpPost } = useStaticQuery(graphql`
     query OTHER_POSTS {
       allWpPost(limit: 10) {
@@ -80,7 +80,9 @@ const RelatedBlogs = () => {
     }
   `)
 
-  const latestPost = allWpPost.nodes.slice(-1)
+  const otherRelatedPosts = allWpPost.nodes.filter(post => post.id !== currentBlog)
+  const latestThreePosts = otherRelatedPosts.slice(-3)
+  const latestPost = otherRelatedPosts.slice(-1)
 
   return (
     <>
@@ -95,8 +97,8 @@ const RelatedBlogs = () => {
                 <img src={blog_icon} alt="blog-icon" className="related-blog-icon" />
               </div>
               <BlogInnerContainer className="blog-inner-container">
-                {allWpPost !== undefined || null ? (
-                  allWpPost.nodes.map((post) => <BlogPreview post={post} />)
+                {latestThreePosts !== undefined || null ? (
+                  latestThreePosts.map((post) => <BlogPreview post={post} />)
                 ) : (
                   <pre style={{ color: 'white' }}>No related blog items found.</pre>
                 )}
@@ -108,7 +110,7 @@ const RelatedBlogs = () => {
             <>
               <img src={blog_icon} alt="blog-icon" className="related-blog-icon" />
               <BlogInnerContainer className="blog-inner-container">
-                {allWpPost !== undefined || null ? (
+                {latestPost !== undefined || null ? (
                   <BlogPreviewMobile post={latestPost[0]} />
                 ) : (
                   <pre style={{ color: 'white' }}>No related blog items found.</pre>
