@@ -749,7 +749,8 @@ body {
 }
 
 .blog-detail-image {
-  width: 343px;
+  min-width: 343px;
+  max-width: 343px;
   height: 344px;
   -webkit-box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.15);
           box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.15);

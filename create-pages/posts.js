@@ -8,9 +8,8 @@ query GET_POSTS {
     nodes {
       id
       title
-      content
-      date
       uri
+      content
       slug
       blogPreview {
         blogPreview
@@ -18,7 +17,9 @@ query GET_POSTS {
       featuredImage {
         node {
           localFile {
-            url
+            childImageSharp {
+              gatsbyImageData
+            }
           }
         }
       }

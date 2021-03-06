@@ -3,8 +3,6 @@ import { Link, useStaticQuery, graphql } from 'gatsby'
 import styled from '@emotion/styled'
 import parse from 'html-react-parser'
 import blog_icon from '../../images/blog_icon.png'
-import { getFeaturedImageUrl } from '../../utils/functions'
-import blog_placeholder from '../../images/featured_blog_placeholder.png'
 import { GatsbyImage, StaticImage } from 'gatsby-plugin-image'
 
 const BlogInnerWrapper = styled.div`
@@ -62,7 +60,7 @@ const FeaturedBlog = () => {
 
   const featuredImage = {
     img: wpPost.featuredImage?.node?.localFile?.childImageSharp?.gatsbyImageData,
-    alt: wpPost.servicesImage?.node?.alt || ``,
+    alt: wpPost.servicesImage?.node?.alt || `featured-image`,
   }
 
   return (

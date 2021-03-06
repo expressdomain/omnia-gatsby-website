@@ -688,7 +688,8 @@ body {
 }
 
 .blog-detail-image {
-	width: 343px;
+	min-width: 343px;
+	max-width: 343px;
 	height: 344px;
 	box-shadow: 0 3px 6px 0 hsla(0, 0%, 0%, 0.15);
 	margin-right: 3.3rem;

@@ -2,7 +2,7 @@ import React from 'react'
 import Layout from '../../components/layout'
 import parse from 'html-react-parser'
 import styled from '@emotion/styled'
-import { getFeaturedImageUrl } from '../../utils/functions'
+import { GatsbyImage, StaticImage } from 'gatsby-plugin-image'
 
 const ContactWrapper = styled.div`
   margin-bottom: 10%;
@@ -63,6 +63,11 @@ const Homepage = (props) => {
     },
   } = props
 
+  const gMapsImage = {
+    img: contactACF?.contactGmaps?.localFile?.childImageSharp?.gatsbyImageData,
+    alt: contactACF?.contactGmaps?.alt || `google-maps-location`,
+  }
+
   return (
     <Layout>
       {props.pageContext ? (
@@ -73,11 +78,19 @@ const Homepage = (props) => {
               <ContactHeaderContent>
                 <h1 className="contact-header">{parse(contactACF.contactHeader)}</h1>
                 <ContactHeaderInner>
-                  <img
-                    src={getFeaturedImageUrl(contactACF?.contactGmaps.localFile.url)}
-                    alt="google-maps-location"
-                    className="contact-location-image"
-                  />
+                  {gMapsImage.img !== undefined || null ? (
+                    <GatsbyImage
+                      image={gMapsImage.img}
+                      alt={gMapsImage.alt}
+                      className="contact-location-image"
+                    />
+                  ) : (
+                    <StaticImage
+                      src="../../images/featured_blog_placeholder.png"
+                      alt="placeholder"
+                      className="contact-location-image"
+                    />
+                  )}
                   <p className="contact-body-text">{parse(content)}</p>
                 </ContactHeaderInner>
               </ContactHeaderContent>
@@ -91,11 +104,19 @@ const Homepage = (props) => {
                 <h1 className="contact-header">{parse(contactACF.contactHeader)}</h1>
                 <ContactHeaderInner>
                   <HeroMobileContainer>
-                    <img
-                      src={getFeaturedImageUrl(contactACF?.contactGmaps.localFile.url)}
-                      alt="google-maps-location"
-                      className="contact-location-image"
-                    />
+                    {gMapsImage.img !== undefined || null ? (
+                      <GatsbyImage
+                        image={gMapsImage.img}
+                        alt={gMapsImage.alt}
+                        className="contact-location-image"
+                      />
+                    ) : (
+                      <StaticImage
+                        src="../../images/featured_blog_placeholder.png"
+                        alt="placeholder"
+                        className="contact-location-image"
+                      />
+                    )}
                   </HeroMobileContainer>
                   <p className="contact-body-text">{parse(content)}</p>
                 </ContactHeaderInner>

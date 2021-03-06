@@ -2,7 +2,7 @@ import React from 'react'
 import styled from '@emotion/styled'
 import parse from 'html-react-parser'
 import { Link } from 'gatsby'
-import { getFeaturedImageUrl } from '../../../utils/functions'
+import { GatsbyImage, StaticImage } from 'gatsby-plugin-image'
 
 const BlogWrapper = styled.div`
   border-radius: 5px;
@@ -18,13 +18,26 @@ const BlogText = styled.div`
 `
 
 const BlogPreview = ({ post }) => {
+  const featuredImageSrc = {
+    img: post?.featuredImage?.node?.localFile?.childImageSharp?.gatsbyImageData,
+    alt: post?.featuredImage?.node?.alt || `featured-blog`,
+  }
+
   return (
     <BlogWrapper className="blog-wrapper">
-      <img
-        src={getFeaturedImageUrl(post.featuredImage?.node?.localFile?.url)}
-        alt="featured-blog"
-        className="blog-preview-image"
-      />
+      {featuredImageSrc.img !== undefined || null ? (
+        <GatsbyImage
+          image={featuredImageSrc.img}
+          alt={featuredImageSrc.alt}
+          className="blog-preview-image"
+        />
+      ) : (
+        <StaticImage
+          src="../../images/featured_blog_placeholder.png"
+          alt="placeholder"
+          className="blog-preview-image"
+        />
+      )}
       <BlogText>
         <h3 className="featured-title" style={{ margin: '0' }}>
           {parse(post.title)}

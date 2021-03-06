@@ -2,7 +2,6 @@ import React from 'react'
 import Layout from '../../components/layout'
 import parse from 'html-react-parser'
 import styled from '@emotion/styled'
-import { getFeaturedImageUrl } from '../../utils/functions'
 import FeaturedBlog from '../front-page/featured-blog'
 import { GatsbyImage } from 'gatsby-plugin-image'
 
@@ -97,12 +96,11 @@ const Over = (props) => {
     },
   } = props
 
-  
   const bierImage = {
     img: overACF.bierImage?.localFile?.childImageSharp?.gatsbyImageData,
     alt: overACF.bierImage?.alt || `bierImage`,
   }
-  
+
   const dnaImage = {
     img: overACF.dnaImage?.localFile?.childImageSharp?.gatsbyImageData,
     alt: overACF.dnaImage?.alt || `dnaImage`,
@@ -112,12 +110,12 @@ const Over = (props) => {
     img: overACF.gbImage?.localFile?.childImageSharp?.gatsbyImageData,
     alt: overACF.gbImage?.alt || `groningseBrabanderImage`,
   }
-  
+
   const kennisProjectervaringImage = {
     img: overACF.kennisProjectervaringImage?.localFile?.childImageSharp?.gatsbyImageData,
     alt: overACF.kennisProjectervaringImage?.alt || `kennisProjectervaringImage`,
   }
-  
+
   const overHeroImage = {
     img: overACF.overHeroImage?.localFile?.childImageSharp?.gatsbyImageData,
     alt: overACF.overHeroImage?.alt || `overHeroImage`,
@@ -128,7 +126,6 @@ const Over = (props) => {
     alt: overACF.werkgeversWerkervaringImage?.alt || `werkgeversWerkervaringImage`,
   }
 
-
   return (
     <Layout>
       {props.pageContext ? (
@@ -137,11 +134,6 @@ const Over = (props) => {
             {/* Desktop setup */}
             <OverHeaderWrapper className="over-header-wrapper">
               <OverHeader className="over-header">
-                {/* <img
-                  src={getFeaturedImageUrl(overACF?.overHeroImage?.localFile?.url)}
-                  alt="featured-blog"
-                  className="over-hero-image"
-                /> */}
                 {overHeroImage?.img && (
                   <GatsbyImage
                     image={overHeroImage.img}
@@ -179,11 +171,6 @@ const Over = (props) => {
           <OverContentContainer className="over-content-container">
             <OverContentInnerContainer className="over-content-inner-container">
               <OverContentItem className="over-content-item">
-                {/* <img
-                  src={getFeaturedImageUrl(overACF?.gbImage?.localFile?.url)}
-                  alt="featured-blog"
-                  className="over-detail-image"
-                /> */}
                 {gbImage?.img && (
                   <GatsbyImage
                     image={gbImage.img}
@@ -197,11 +184,6 @@ const Over = (props) => {
                 </OverInnerContent>
               </OverContentItem>
               <OverContentItem className="over-content-item">
-                {/* <img
-                  src={getFeaturedImageUrl(overACF?.kennisProjectervaringImage?.localFile?.url)}
-                  alt="featured-blog"
-                  className="over-detail-image"
-                /> */}
                 {kennisProjectervaringImage?.img && (
                   <GatsbyImage
                     image={kennisProjectervaringImage.img}
@@ -215,11 +197,6 @@ const Over = (props) => {
                 </OverInnerContent>
               </OverContentItem>
               <OverContentItem className="over-content-item">
-                {/* <img
-                  src={getFeaturedImageUrl(overACF?.dnaImage?.localFile?.url)}
-                  alt="featured-blog"
-                  className="over-detail-image"
-                /> */}
                 {dnaImage?.img && (
                   <GatsbyImage
                     image={dnaImage.img}
@@ -233,11 +210,6 @@ const Over = (props) => {
                 </OverInnerContent>
               </OverContentItem>
               <OverContentItem className="over-content-item">
-                {/* <img
-                  src={getFeaturedImageUrl(overACF?.bierImage?.localFile?.url)}
-                  alt="featured-blog"
-                  className="over-detail-image"
-                /> */}
                 {bierImage?.img && (
                   <GatsbyImage
                     image={bierImage.img}
@@ -251,11 +223,6 @@ const Over = (props) => {
                 </OverInnerContent>
               </OverContentItem>
               <OverContentItem className="over-content-item">
-                {/* <img
-                  src={getFeaturedImageUrl(overACF?.werkgeversWerkervaringImage?.localFile?.url)}
-                  alt="featured-blog"
-                  className="over-detail-image"
-                /> */}
                 {werkgeversWerkervaringImage?.img && (
                   <GatsbyImage
                     image={werkgeversWerkervaringImage.img}
