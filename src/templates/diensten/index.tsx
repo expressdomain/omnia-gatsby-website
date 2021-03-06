@@ -2,8 +2,8 @@ import React from 'react'
 import Layout from '../../components/layout'
 import parse from 'html-react-parser'
 import styled from '@emotion/styled'
-import { getFeaturedImageUrl } from '../../utils/functions'
-import FeaturedBlog from '../front-page/FeaturedBlog'
+import FeaturedBlog from '../front-page/featured-blog'
+import { GatsbyImage } from 'gatsby-plugin-image'
 
 const ServicesWrapper = styled.div`
   @media only screen and (min-width: 416px) {
@@ -106,9 +106,14 @@ const BlogWrapper = styled.div`
 const Diensten = (props) => {
   const {
     pageContext: {
-      page: { title, content, uri, dienstenACF },
+      page: { content, dienstenACF },
     },
   } = props
+
+  const image = {
+    img: dienstenACF.image?.localFile?.childImageSharp?.gatsbyImageData,
+    alt: dienstenACF.image?.alt || ``,
+  }
 
   return (
     <Layout>
@@ -147,11 +152,13 @@ const Diensten = (props) => {
                   </p>
                 </ServicesContentItem>
                 <ServicesContentImage className="services-content-image">
-                  <img
-                    src={getFeaturedImageUrl(dienstenACF?.image?.localFile?.url)}
-                    alt="john-mollema"
-                    className="services-detail-image"
-                  />
+                  {image?.img && (
+                    <GatsbyImage
+                      image={image.img}
+                      alt={image.alt}
+                      className="services-detail-image"
+                    />
+                  )}
                 </ServicesContentImage>
                 <ServicesContentItem className="services-content-item">
                   <h2 className="services-item-header primary">

@@ -3,7 +3,6 @@ import { Link, useStaticQuery, graphql } from 'gatsby'
 import styled from '@emotion/styled'
 import parse from 'html-react-parser'
 import blog_icon from '../../images/blog_icon.png'
-import { getFeaturedImageUrl } from '../../utils/functions'
 import BlogPreview from '../../components/blog-preview/'
 import BlogPreviewMobile from '../../components/blog-preview/mobile-blog-detail'
 
@@ -58,7 +57,7 @@ const BlogItem = styled.div`
 const RelatedBlogs = () => {
   const { allWpPost } = useStaticQuery(graphql`
     query OTHER_POSTS {
-      allWpPost(limit: 4) {
+      allWpPost(limit: 10) {
         nodes {
           id
           title
@@ -70,7 +69,9 @@ const RelatedBlogs = () => {
           featuredImage {
             node {
               localFile {
-                url
+                childImageSharp {
+                  gatsbyImageData
+                }
               }
             }
           }

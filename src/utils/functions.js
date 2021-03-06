@@ -159,11 +159,3 @@ export const getDefaultOgImage = (seo) => {
 export const sanitize = (content) => {
   return process.browser ? DOMPurify.sanitize(content) : content
 }
-
-export function getFeaturedImageUrl(URL) {
-  if (URL === undefined) {
-    return blog_placeholder
-  }
-
-  return `${URL}`
-}

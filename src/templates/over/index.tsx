@@ -2,8 +2,8 @@ import React from 'react'
 import Layout from '../../components/layout'
 import parse from 'html-react-parser'
 import styled from '@emotion/styled'
-import { getFeaturedImageUrl } from '../../utils/functions'
-import FeaturedBlog from '../front-page/FeaturedBlog'
+import FeaturedBlog from '../front-page/featured-blog'
+import { GatsbyImage } from 'gatsby-plugin-image'
 
 const OverWrapper = styled.div`
   margin-bottom: 10%;
@@ -96,6 +96,36 @@ const Over = (props) => {
     },
   } = props
 
+  const bierImage = {
+    img: overACF.bierImage?.localFile?.childImageSharp?.gatsbyImageData,
+    alt: overACF.bierImage?.alt || `bierImage`,
+  }
+
+  const dnaImage = {
+    img: overACF.dnaImage?.localFile?.childImageSharp?.gatsbyImageData,
+    alt: overACF.dnaImage?.alt || `dnaImage`,
+  }
+
+  const gbImage = {
+    img: overACF.gbImage?.localFile?.childImageSharp?.gatsbyImageData,
+    alt: overACF.gbImage?.alt || `groningseBrabanderImage`,
+  }
+
+  const kennisProjectervaringImage = {
+    img: overACF.kennisProjectervaringImage?.localFile?.childImageSharp?.gatsbyImageData,
+    alt: overACF.kennisProjectervaringImage?.alt || `kennisProjectervaringImage`,
+  }
+
+  const overHeroImage = {
+    img: overACF.overHeroImage?.localFile?.childImageSharp?.gatsbyImageData,
+    alt: overACF.overHeroImage?.alt || `overHeroImage`,
+  }
+
+  const werkgeversWerkervaringImage = {
+    img: overACF.werkgeversWerkervaringImage?.localFile?.childImageSharp?.gatsbyImageData,
+    alt: overACF.werkgeversWerkervaringImage?.alt || `werkgeversWerkervaringImage`,
+  }
+
   return (
     <Layout>
       {props.pageContext ? (
@@ -104,11 +134,13 @@ const Over = (props) => {
             {/* Desktop setup */}
             <OverHeaderWrapper className="over-header-wrapper">
               <OverHeader className="over-header">
-                <img
-                  src={getFeaturedImageUrl(overACF?.overHeroImage?.localFile?.url)}
-                  alt="featured-blog"
-                  className="over-hero-image"
-                />
+                {overHeroImage?.img && (
+                  <GatsbyImage
+                    image={overHeroImage.img}
+                    alt={overHeroImage.alt}
+                    className="over-hero-image"
+                  />
+                )}
                 <OverInnerHeader className="over-inner-header">
                   <h1 className="over-page-header">{parse(overACF.overHeroHeader)}</h1>
                   <p className="over-page-subtext">{parse(overACF.overHeroBody)}</p>
@@ -123,11 +155,13 @@ const Over = (props) => {
               <OverHeader className="over-header">
                 <h1 className="over-page-header">{parse(overACF.overHeroHeader)}</h1>
                 <HeroMobileContainer className="hero-mobile-container">
-                  <img
-                    src={getFeaturedImageUrl(overACF?.overHeroImage?.localFile?.url)}
-                    alt="featured-blog"
-                    className="over-hero-image"
-                  />
+                  {overHeroImage?.img && (
+                    <GatsbyImage
+                      image={overHeroImage.img}
+                      alt={overHeroImage.alt}
+                      className="over-hero-image"
+                    />
+                  )}
                 </HeroMobileContainer>
                 <p className="over-page-subtext">{parse(overACF.overHeroBody)}</p>
               </OverHeader>
@@ -137,55 +171,65 @@ const Over = (props) => {
           <OverContentContainer className="over-content-container">
             <OverContentInnerContainer className="over-content-inner-container">
               <OverContentItem className="over-content-item">
-                <img
-                  src={getFeaturedImageUrl(overACF?.gbImage?.localFile?.url)}
-                  alt="featured-blog"
-                  className="over-detail-image"
-                />
+                {gbImage?.img && (
+                  <GatsbyImage
+                    image={gbImage.img}
+                    alt={gbImage.alt}
+                    className="over-detail-image"
+                  />
+                )}
                 <OverInnerContent className="over-inner-content">
                   <h2 className="over-item-header">{parse(overACF.gbHeader)}</h2>
                   <p className="over-item-body">{parse(overACF.gbBody)}</p>
                 </OverInnerContent>
               </OverContentItem>
               <OverContentItem className="over-content-item">
-                <img
-                  src={getFeaturedImageUrl(overACF?.kennisProjectervaringImage?.localFile?.url)}
-                  alt="featured-blog"
-                  className="over-detail-image"
-                />
+                {kennisProjectervaringImage?.img && (
+                  <GatsbyImage
+                    image={kennisProjectervaringImage.img}
+                    alt={kennisProjectervaringImage.alt}
+                    className="over-detail-image"
+                  />
+                )}
                 <OverInnerContent className="over-inner-content">
                   <h2 className="over-item-header">{parse(overACF.kennisProjectervaringHeader)}</h2>
                   <p className="over-item-body">{parse(overACF.kennisProjectervaringBody)}</p>
                 </OverInnerContent>
               </OverContentItem>
               <OverContentItem className="over-content-item">
-                <img
-                  src={getFeaturedImageUrl(overACF?.dnaImage?.localFile?.url)}
-                  alt="featured-blog"
-                  className="over-detail-image"
-                />
+                {dnaImage?.img && (
+                  <GatsbyImage
+                    image={dnaImage.img}
+                    alt={dnaImage.alt}
+                    className="over-detail-image"
+                  />
+                )}
                 <OverInnerContent className="over-inner-content">
                   <h2 className="over-item-header">{parse(overACF.dnaHeader)}</h2>
                   <p className="over-item-body">{parse(overACF.dnaBody)}</p>
                 </OverInnerContent>
               </OverContentItem>
               <OverContentItem className="over-content-item">
-                <img
-                  src={getFeaturedImageUrl(overACF?.bierImage?.localFile?.url)}
-                  alt="featured-blog"
-                  className="over-detail-image"
-                />
+                {bierImage?.img && (
+                  <GatsbyImage
+                    image={bierImage.img}
+                    alt={bierImage.alt}
+                    className="over-detail-image"
+                  />
+                )}
                 <OverInnerContent className="over-inner-content">
                   <h2 className="over-item-header">{parse(overACF.bierHeader)}</h2>
                   <p className="over-item-body">{parse(overACF.bierBody)}</p>
                 </OverInnerContent>
               </OverContentItem>
               <OverContentItem className="over-content-item">
-                <img
-                  src={getFeaturedImageUrl(overACF?.werkgeversWerkervaringImage?.localFile?.url)}
-                  alt="featured-blog"
-                  className="over-detail-image"
-                />
+                {werkgeversWerkervaringImage?.img && (
+                  <GatsbyImage
+                    image={werkgeversWerkervaringImage.img}
+                    alt={werkgeversWerkervaringImage.alt}
+                    className="over-detail-image"
+                  />
+                )}
                 <OverInnerContent className="over-inner-content">
                   <h2 className="over-item-header">
                     {parse(overACF.werkgeversWerkervaringHeader)}

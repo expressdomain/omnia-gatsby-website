@@ -1,9 +1,8 @@
 const { slash }         = require( `gatsby-core-utils` );
 const contactTemplate = require.resolve( `../src/templates/contact/index.tsx` );
 // const { SeoFragment } = require('./fragments/seo/index.js');
-// const { HomepageFragment } = require('./fragments/pages/index.js');
 
-// Get all the front page data.
+// Get all the contact page data.
 const GET_CONTACT_PAGE = `
 query GET_CONTACT_PAGE {
   page: wpPage(slug: {eq: "contact"}) {
@@ -15,7 +14,9 @@ query GET_CONTACT_PAGE {
       contactHeader
       contactGmaps {
         localFile {
-          url
+          childImageSharp {
+            gatsbyImageData
+          }
         }
       }
       email

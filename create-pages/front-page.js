@@ -21,10 +21,18 @@ query GET_FRONT_PAGE {
       servicesHeader
       uspHeader
       servicesImage {
-        sourceUrl
+        localFile {
+          childImageSharp {
+            gatsbyImageData
+          }
+        }
       }
       heroImage {
-        sourceUrl
+        localFile {
+          childImageSharp {
+            gatsbyImageData
+          }
+        }
       }
     }
   }
@@ -39,11 +47,11 @@ module.exports = async ( { actions, graphql } ) => {
 
 		// Do query to get home page data.
 		return await graphql( GET_FRONT_PAGE )
-			.then(({ data }) => {
+      .then(({ data }) => {
 				
                 const { page } = data;
                 
-				return {  page: page };
+				return { page };
 			} );
 
 

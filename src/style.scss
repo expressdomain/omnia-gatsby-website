@@ -597,6 +597,7 @@ body {
 }
 
 .featured-blog-icon {
+	z-index: 1;
 	@media only screen and (min-width: 416px) {
 		position: relative;
 		width: 117.8px;
@@ -634,6 +635,7 @@ body {
 		letter-spacing: 0.3px;
 		text-align: left;
 		color: hsl(250, 49%, 33%);
+		margin: 1rem 0;
 	}
 	@media only screen and (max-width: 414px) {
 		display: none;
@@ -686,7 +688,8 @@ body {
 }
 
 .blog-detail-image {
-	width: 343px;
+	min-width: 343px;
+	max-width: 343px;
 	height: 344px;
 	box-shadow: 0 3px 6px 0 hsla(0, 0%, 0%, 0.15);
 	margin-right: 3.3rem;
@@ -998,11 +1001,13 @@ body {
 }
 
 .over-detail-image {
-	width: 163px;
-	height: 163px;
+	min-width: 163px;
+	max-width: 163px;
+	height: auto;
 	@media only screen and (max-width: 414px) {
-		width: 71.2px;
-		height: 71.2px;
+		min-width: 71.2px;
+		max-width: 71.2px;
+		height: auto;
 	}
 }
 

@@ -3,7 +3,7 @@ import styled from '@emotion/styled'
 import parse from 'html-react-parser'
 import { Link } from 'gatsby'
 import { FiChevronRight } from 'react-icons/fi'
-import { getFeaturedImageUrl } from '../../utils/functions'
+import { GatsbyImage, StaticImage } from 'gatsby-plugin-image'
 
 const DesktopWrapper = styled.div`
   @media only screen and (max-width: 414px) {
@@ -31,13 +31,27 @@ const BlogText = styled.div`
 `
 
 const BlogPreview = ({ post }) => {
+  const featuredImageSrc = {
+    img: post?.featuredImage?.node?.localFile?.childImageSharp?.gatsbyImageData,
+    alt: post?.featuredImage?.node?.alt || `featured-image`,
+  }
+
   return (
     <BlogWrapper className="blog-wrapper">
-      <img
-        src={getFeaturedImageUrl(post.featuredImage?.node?.localFile?.url)}
-        alt="featured-blog"
-        className="blog-preview-image hide-on-mobile"
-      />
+      {featuredImageSrc.img !== undefined || null ? (
+        <GatsbyImage
+          image={featuredImageSrc.img}
+          alt={featuredImageSrc.alt}
+          className="blog-preview-image hide-on-mobile"
+        />
+      ) : (
+        <StaticImage
+          src="../../images/featured_blog_placeholder.png"
+          alt="placeholder"
+          className="blog-preview-image hide-on-mobile"
+        />
+      )}
+
       <BlogText>
         <h3 className="blog-preview-title">{parse(post.title)}</h3>
         {post.blogPreview.blogPreview !== null ? (

@@ -17,40 +17,52 @@ query GET_OVER_PAGE {
       dnaHeader
       bierImage {
         localFile {
-          url
+          childImageSharp {
+            gatsbyImageData
+          }
         }
       }
       dnaImage {
         localFile {
-          url
+          childImageSharp {
+            gatsbyImageData
+          }
         }
       }
       gbBody
       gbHeader
       gbImage {
         localFile {
-          url
+          childImageSharp {
+            gatsbyImageData
+          }
         }
       }
       kennisProjectervaringBody
       kennisProjectervaringHeader
       kennisProjectervaringImage {
         localFile {
-          url
+          childImageSharp {
+            gatsbyImageData
+          }
         }
       }
       overHeroBody
       overHeroHeader
       overHeroImage {
         localFile {
-          url
+          childImageSharp {
+            gatsbyImageData
+          }
         }
       }
       werkgeversWerkervaringBody
       werkgeversWerkervaringHeader
       werkgeversWerkervaringImage {
         localFile {
-          url
+          childImageSharp {
+            gatsbyImageData
+          }
         }
       }
     }

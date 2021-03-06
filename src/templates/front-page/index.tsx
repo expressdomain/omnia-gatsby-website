@@ -1,9 +1,10 @@
 import React from 'react'
 import Layout from '../../components/layout'
-import FeaturedBlog from './FeaturedBlog'
+import FeaturedBlog from './featured-blog'
 import styled from '@emotion/styled'
 import { Link } from 'gatsby'
 import parse from 'html-react-parser'
+import { GatsbyImage } from 'gatsby-plugin-image'
 
 const DesktopWrapper = styled.div`
   @media only screen and (max-width: 414px) {
@@ -149,6 +150,16 @@ const Homepage = (props) => {
     },
   } = props
 
+  const heroImage = {
+    img: homepageACF.heroImage?.localFile?.childImageSharp?.gatsbyImageData,
+    alt: homepageACF.heroImage?.alt || ``,
+  }
+
+  const servicesImage = {
+    img: homepageACF.servicesImage?.localFile?.childImageSharp?.gatsbyImageData,
+    alt: homepageACF.servicesImage?.alt || ``,
+  }
+
   return (
     <Layout>
       {props.pageContext ? (
@@ -161,7 +172,9 @@ const Homepage = (props) => {
                     <p className="hero-small">{parse(homepageACF.heroSubHeader)}</p>
                     <h1 className="hero-big">{parse(homepageACF.heroHeader)}</h1>
                   </HeroHeader>
-                  <img className="hero-image" src={homepageACF.heroImage.sourceUrl} alt="" />
+                  {heroImage?.img && (
+                    <GatsbyImage image={heroImage.img} alt={heroImage.alt} className="hero-image" />
+                  )}
                   <p className="hero-subtext">{parse(homepageACF.heroSubtext)}</p>
                 </HeroContainer>
               </MobileWrapper>
@@ -180,19 +193,22 @@ const Homepage = (props) => {
                       </div>
                     </HeroButtonContainer>
                   </HeroInnerContainer>
-                  <img className="hero-image" src={homepageACF.heroImage.sourceUrl} alt="" />
+                  {heroImage?.img && (
+                    <GatsbyImage image={heroImage.img} alt={heroImage.alt} className="hero-image" />
+                  )}
                 </HeroContainer>
               </DesktopWrapper>
 
               <UspServicesContainer>
                 <h2 className="usp-header">{parse(homepageACF.uspHeader)}</h2>
                 <UspServicesInnerContainer>
-                  {/* Update into fluid gatsby */}
-                  <img
-                    className="services-image"
-                    src={homepageACF.servicesImage.sourceUrl}
-                    alt=""
-                  />
+                  {servicesImage?.img && (
+                    <GatsbyImage
+                      image={servicesImage.img}
+                      alt={servicesImage.alt}
+                      className="services-image"
+                    />
+                  )}
                   <ServicesTextContainer>
                     <h3 className="services-header">{parse(homepageACF.servicesHeader)}</h3>
                     <ServicesContent>

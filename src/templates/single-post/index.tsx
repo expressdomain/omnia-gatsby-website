@@ -2,8 +2,8 @@ import React from 'react'
 import Layout from '../../components/layout'
 import parse from 'html-react-parser'
 import styled from '@emotion/styled'
-import { getFeaturedImageUrl } from '../../utils/functions'
 import RelatedBlogs from './related-blogs'
+import { GatsbyImage, StaticImage } from 'gatsby-plugin-image'
 
 const BlogWrapper = styled.div`
   /* margin: 0 auto;
@@ -68,6 +68,11 @@ const SinglePostTemplate = (props) => {
     pageContext: { title, blogPreview, content, featuredImage, seo, uri, id },
   } = props
 
+  const featuredImageSrc = {
+    img: featuredImage?.node?.localFile?.childImageSharp?.gatsbyImageData,
+    alt: featuredImage?.node?.alt || `featured-image`,
+  }
+
   return (
     <Layout>
       {props.pageContext ? (
@@ -76,11 +81,19 @@ const SinglePostTemplate = (props) => {
             <BlogHeader>
               <h2 className="blog-detail-header">{parse(title)}</h2>
               <BlogInnerHeader className="blog-inner-header">
-                <img
-                  src={getFeaturedImageUrl(featuredImage?.node?.localFile?.url)}
-                  alt="featured-blog"
-                  className="blog-detail-image"
-                />
+                {featuredImageSrc !== undefined || null ? (
+                  <GatsbyImage
+                    image={featuredImageSrc.img}
+                    alt={featuredImageSrc.alt}
+                    className="blog-detail-image"
+                  />
+                ) : (
+                  <StaticImage
+                    src="../../images/featured_blog_placeholder.png"
+                    alt="placeholder"
+                    className="blog-detail-image"
+                  />
+                )}
                 {blogPreview.blogPreview !== null ? (
                   <BlogText>
                     <p className="blog-detail-toptext">{parse(blogPreview.blogPreview)}</p>
@@ -92,7 +105,7 @@ const SinglePostTemplate = (props) => {
             </BlogHeader>
           </BlogHeaderWrapper>
           <BlogContentContainer>
-            <p>{parse(content)}</p>
+            {content !== null ? <p>{parse(content)}</p> : <pre>No body found</pre>}
           </BlogContentContainer>
           <RelatedBlogs />
         </BlogWrapper>
