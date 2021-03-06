@@ -28,7 +28,9 @@ query GET_BLOG_PAGE {
       featuredImage {
         node {
           localFile {
-            url
+            childImageSharp {
+              gatsbyImageData
+            }
           }
         }
       }
