@@ -4,6 +4,9 @@ import parse from 'html-react-parser'
 import styled from '@emotion/styled'
 import BlogPreview from '../../components/blog-preview'
 import blog_icon from '../../images/blog_icon.png'
+import {
+  slice, concat,
+} from 'lodash';
 
 const BlogWrapper = styled.div`
   /* margin-bottom: 10%; */
@@ -51,16 +54,43 @@ const BlogInnerContainer = styled.div`
   @media only screen and (max-width: 414px) {
     grid-template-rows: auto;
     grid-row-gap: 2.5rem;
+    margin-bottom: 1rem;
+  }
+`
+const ButtonContainer = styled.div`
+  display: grid;
+  place-items: center;
+  transform: translateY(-80px);
+  @media only screen and (max-width: 414px) {
+    transform: none;
+    padding-bottom: 2rem;
   }
 `
 
 const BlogArchive = (props) => {
   const {
     pageContext: {
-      page: { title, uri, content, blogOverviewACF },
+      page: { blogOverviewACF },
       allPosts,
     },
   } = props
+  
+  const LENGTH = allPosts.length + 1;
+  const DATA = [...allPosts];
+  const LIMIT = 6;
+  
+  const [showMore, setShowMore] = React.useState(true);
+  const [list, setList] = React.useState(slice(DATA, 0, LIMIT))
+  const [index, setIndex] = React.useState(LIMIT);
+
+  const loadMore = () => {
+    const newIndex = index + LIMIT;
+    const newShowMore = newIndex < LENGTH - 1;
+    const newList = concat(list, slice(DATA, index, newIndex));
+    setIndex(newIndex);
+    setList(newList);
+    setShowMore(newShowMore);
+  }
 
   return (
     <Layout>
@@ -75,11 +105,14 @@ const BlogArchive = (props) => {
           <BlogContainer>
             <BlogInnerContainer>
               {allPosts !== undefined || null ? (
-                allPosts.map((post) => <BlogPreview post={post} />)
+                list.map((post) => <BlogPreview post={post} />)
               ) : (
                 <pre style={{ color: 'white' }}>No related blog items found.</pre>
               )}
             </BlogInnerContainer>
+            <ButtonContainer>
+              {showMore && <div className="lees-verder-button" onClick={loadMore}><span style={{cursor: 'pointer'}} className="lees-verder-link">Laad meer</span></div>}
+            </ButtonContainer>
           </BlogContainer>
         </BlogWrapper>
       ) : (
