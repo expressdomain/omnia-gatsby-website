@@ -10,7 +10,6 @@ blocks:
       jobs:
         - name: yarn install
           commands:
-            - sem-version node 8
             - checkout
             - yarn install
             - yarn test
