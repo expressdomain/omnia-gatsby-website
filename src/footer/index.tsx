@@ -130,11 +130,11 @@ const Footer = () => {
           {wpFooterMenu.page.contactACF != null || undefined ? (
             <>
               <FooterLeft className="footer-left">
-                <p>{parse(wpFooterMenu.page.contactACF.companyName)}</p>
-                <p>{parse(wpFooterMenu.page.contactACF.personName)}</p>
-                <p>{parse(wpFooterMenu.page.contactACF.street)}</p>
-                <p>{parse(wpFooterMenu.page.contactACF.zipCity)}</p>
-                <a style={{ color: 'white' }} href={wpFooterMenu.page.contactACF.linkedIn}>
+                <p>{parse(wpFooterMenu.page.contactACF?.companyName)}</p>
+                <p>{parse(wpFooterMenu.page.contactACF?.personName)}</p>
+                <p>{parse(wpFooterMenu.page.contactACF?.street)}</p>
+                <p>{parse(wpFooterMenu.page.contactACF?.zipCity)}</p>
+                <a style={{ color: 'white' }} href={wpFooterMenu.page.contactACF?.linkedIn}>
                   <FaLinkedin style={{ marginTop: '0.5rem' }} size={26} />
                 </a>
               </FooterLeft>
@@ -142,14 +142,14 @@ const Footer = () => {
                 <p>
                   <a
                     style={{ color: 'white', textDecoration: 'none' }}
-                    href={`tel:${wpFooterMenu.page.contactACF.telephone}`}
+                    href={`tel:${wpFooterMenu.page.contactACF?.telephone}`}
                   >
-                    {parse(wpFooterMenu.page.contactACF.telephone)}
+                    {parse(wpFooterMenu.page.contactACF?.telephone)}
                   </a>
                 </p>
-                <p>{parse(wpFooterMenu.page.contactACF.email)}</p>
-                <p>{wpFooterMenu.page.contactACF.CoC}</p>
-                <p>{wpFooterMenu.page.contactACF.Vat}</p>
+                <p>{parse(wpFooterMenu.page.contactACF?.email)}</p>
+                <p>{wpFooterMenu.page.contactACF?.CoC}</p>
+                <p>{wpFooterMenu.page.contactACF?.Vat}</p>
               </FooterRight>
             </>
           ) : (
@@ -171,7 +171,7 @@ const Footer = () => {
             <Logo src={logo} width={119} />
           </Link>
           <MobileInner>
-            <a style={{ color: 'white' }} href={wpFooterMenu.page.contactACF.linkedIn}>
+            <a style={{ color: 'white' }} href={wpFooterMenu.page.contactACF?.linkedIn}>
               <FaLinkedin style={{ marginTop: '0.5rem' }} size={26} />
             </a>
             <MobileContactWrapper>
@@ -182,10 +182,10 @@ const Footer = () => {
                       style={{ color: 'white', textDecoration: 'none' }}
                       href={wpFooterMenu.page.contactACF.telephone}
                     >
-                      {parse(wpFooterMenu.page.contactACF.telephone)}
+                      {parse(wpFooterMenu.page.contactACF?.telephone)}
                     </a>
                   </p>
-                  <p>{parse(wpFooterMenu.page.contactACF.email)}</p>
+                  <p>{parse(wpFooterMenu.page.contactACF?.email)}</p>
                 </>
               ) : (
                 <pre>{NO_DETAILS}</pre>

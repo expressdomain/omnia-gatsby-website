@@ -648,11 +648,9 @@ body {
 // Footer styles
 
 .footer {
-	border-radius: 5px;
 	background-color: hsl(247, 69%, 15%);
 	@media only screen and (min-width: 416px) {
-	}
-	@media only screen and (max-width: 414px) {
+		border-radius: 5px;
 	}
 }
 
@@ -789,7 +787,7 @@ body {
 
 .hide-on-mobile {
 	@media only screen and (max-width: 414px) {
-		display: none;
+		display: none !important;
 	}
 }
 
@@ -936,15 +934,15 @@ body {
 	line-height: 1.15;
 	letter-spacing: 0.72px;
 	text-align: left;
-	color: hsl(0, 0%, 100%);
+	color: var(--color-heading-white);
 	margin-top: 2rem;
 	span {
 		font-weight: bold;
 	}
 	@media only screen and (max-width: 414px) {
 		font-size: 20px;
-		color: hsl(247, 69%, 15%);
 		font-weight: bold;
+		margin-bottom: 0;
 	}
 }
 
@@ -959,8 +957,7 @@ body {
 	color: hsl(0, 0%, 100%);
 	margin-top: 4rem;
 	@media only screen and (max-width: 414px) {
-		font-size: 15px;
-		color: hsl(250, 49%, 33%);
+		font-size: 16px;
 		margin-top: 1.6rem;
 		margin-bottom: 0;
 	}
@@ -1037,7 +1034,7 @@ body {
 		font-size: 20px;
 		font-weight: bold;
 		letter-spacing: 0.3px;
-		color: hsl(247, 69%, 15%);
+		color: var(--color-heading-white);
 		margin: 0;
 		padding: 0 3.75rem;
 		span {
@@ -1059,8 +1056,8 @@ body {
 		font-size: 15px;
 		line-height: 1.33;
 		letter-spacing: 0.23px;
-		color: hsl(250, 49%, 33%);
 		padding: 0 3.75rem;
+		margin: 2rem 0;
 	}
 }
 

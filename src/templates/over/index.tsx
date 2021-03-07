@@ -41,7 +41,9 @@ const OverHeader = styled.div`
   padding-top: 2rem;
   @media only screen and (max-width: 414px) {
     flex-flow: column;
-    padding: 0 3rem;
+    padding: 1rem 3rem;
+    background-color: hsl(247, 69%, 15%);
+    border-radius: 5px;
   }
 `
 
@@ -54,10 +56,8 @@ const OverInnerHeader = styled.div`
 `
 
 const HeroMobileContainer = styled.div`
-  margin: 0 -3rem;
   display: flex;
   place-content: center;
-  background-color: hsl(247, 69%, 15%);
 `
 
 const OverContentContainer = styled.div`
@@ -150,19 +150,19 @@ const Over = (props) => {
           </DesktopWrapper>
 
           {/* Mobile setup */}
-          <MobileWrapper className="mobile-wrapper">
-            <OverHeaderWrapper className="over-header-wrapper">
-              <OverHeader className="over-header">
-                <h1 className="over-page-header">{parse(overACF.overHeroHeader)}</h1>
-                <HeroMobileContainer className="hero-mobile-container">
+          <MobileWrapper>
+            <OverHeaderWrapper>
+              <OverHeader>
+                <HeroMobileContainer>
                   {overHeroImage?.img && (
                     <GatsbyImage
-                      image={overHeroImage.img}
-                      alt={overHeroImage.alt}
-                      className="over-hero-image"
+                    image={overHeroImage.img}
+                    alt={overHeroImage.alt}
+                    className="over-hero-image"
                     />
-                  )}
+                    )}
                 </HeroMobileContainer>
+                <h1 className="over-page-header">{parse(overACF.overHeroHeader)}</h1>
                 <p className="over-page-subtext">{parse(overACF.overHeroBody)}</p>
               </OverHeader>
             </OverHeaderWrapper>
