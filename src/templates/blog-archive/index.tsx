@@ -44,6 +44,9 @@ const BlogInnerContainer = styled.div`
     grid-template-columns: repeat(3, auto);
     grid-column-gap: 2rem;
     grid-row-gap: 3.75rem;
+    min-height: calc(100vh - 336px);
+    transform: translateY(-35px);
+    max-width: 100%;
   }
   @media only screen and (max-width: 414px) {
     grid-template-rows: auto;

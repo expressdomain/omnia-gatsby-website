@@ -66,9 +66,9 @@ const FeaturedBlog = () => {
   return (
     <>
       {wpPost !== null ? (
-        <BlogInnerWrapper className="blog-inner-wrapper">
+        <BlogInnerWrapper>
           <img src={blog_icon} alt="blog-icon" className="featured-blog-icon" />
-          <BlogInnerContainer className="blog-inner-container">
+          <BlogInnerContainer>
             {featuredImage.img !== undefined || null ? (
               <GatsbyImage
                 image={featuredImage.img}
@@ -82,7 +82,7 @@ const FeaturedBlog = () => {
                 className="featured-blog-image"
               />
             )}
-            <BlogItem className="blog-item">
+            <BlogItem>
               <div className="featured-title">{parse(wpPost.title)}</div>
               {wpPost.blogPreview.blogPreview !== null ? (
                 <div className="featured-excerpt">{parse(wpPost.blogPreview.blogPreview)}</div>
