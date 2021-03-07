@@ -20,14 +20,8 @@ const MobileWrapper = styled.div`
 
 const HeroContainer = styled.div`
   @media only screen and (min-width: 416px) {
-    // margin-bottom: 45px;
-    // padding-top: 146px;
-    // width: 685px;
-    // height: 815px;
-    // width: 1750px;
     margin-bottom: 130px;
     margin-left: -230px;
-    margin-top: 50px;
     display: flex;
     flex-flow: row;
   }
@@ -36,7 +30,8 @@ const HeroContainer = styled.div`
 `
 
 const HeroInnerContainer = styled.div`
-  margin-right: 50px;
+  padding: 0 4rem;
+  background-color: hsl(247, 69%, 15%);
 `
 
 const HeroHeader = styled.div`
@@ -58,12 +53,18 @@ const HeroHeader = styled.div`
   }
 `
 
+const HeroSubTextContainer = styled.div`
+  display: flex;
+  justify-content: flex-end;
+`
+
 const HeroButtonContainer = styled.div`
   @media only screen and (min-width: 416px) {
     position: relative;
     top: 95px;
-    left: 700px;
+    left: 713px;
     width: fit-content;
+    z-index: 1;
   }
   @media only screen and (max-width: 414px) {
     display: none;
@@ -189,7 +190,9 @@ const Homepage = (props) => {
                       <p className="hero-small">{parse(homepageACF.heroSubHeader)}</p>
                       <h1 className="hero-big">{parse(homepageACF.heroHeader)}</h1>
                     </HeroHeader>
-                    <p className="hero-subtext">{parse(homepageACF.heroSubtext)}</p>
+                    <HeroSubTextContainer>
+                      <p className="hero-subtext">{parse(homepageACF.heroSubtext)}</p>
+                    </HeroSubTextContainer>
                     <HeroButtonContainer>
                       <div className="hero-button-square">
                         <div className="hero-button-triangle"></div>

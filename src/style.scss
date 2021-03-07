@@ -135,12 +135,7 @@ h6 {
 h1 {
 	// font-weight: var(--fontWeight-black);
 	font-size: var(--fontSize-6);
-	@media only screen and (min-width: 416px) {
-		color: var(--color-heading);
-	}
-	@media only screen and (max-width: 414px) {
-		color: var(--color-heading-white);
-	}
+	color: var(--color-heading-white);
 }
 
 h2 {
@@ -421,7 +416,7 @@ body {
 }
 
 .menu-item {
-	color: white;
+	color: hsl(247, 69%, 15%);
 	text-decoration: none;
 	text-transform: lowercase;
 }
@@ -429,6 +424,7 @@ body {
 //Homepage styles
 .hero-image {
 	@media only screen and (min-width: 416px) {
+		min-width: 950px;
 	}
 	@media only screen and (max-width: 414px) {
 		width: 375px;
@@ -442,7 +438,8 @@ body {
 	margin-top: 0;
 	@media only screen and (min-width: 416px) {
 		font-size: 35px;
-		color: var(--color-heading);
+		color: var(--color-heading-white);
+		text-align: right;
 	}
 	@media only screen and (max-width: 414px) {
 		font-size: 20px;
@@ -455,9 +452,12 @@ body {
 	margin-top: 0;
 	span {
 		font-weight: normal;
+		color: #fd9c00;
+		font-style: italic;
 	}
 	@media only screen and (min-width: 416px) {
 		font-size: 52px;
+		text-align: right;
 	}
 	@media only screen and (max-width: 414px) {
 		font-size: 20px;
@@ -472,10 +472,11 @@ body {
 	line-height: 1.75;
 	letter-spacing: 0.3px;
 	text-align: left;
-	color: hsl(264, 71%, 43%);
+	color: white;
 	@media only screen and (min-width: 416px) {
 		font-size: 20px;
-		width: 407px;
+		width: 520px;
+		text-align: right;
 	}
 	@media only screen and (max-width: 414px) {
 		padding: 1rem 2rem;

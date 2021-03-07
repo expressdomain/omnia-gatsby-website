@@ -7,7 +7,7 @@ import logo from '../images/Logo.png'
 import Sidebar from './sidebar'
 
 const HeaderWrapper = styled.header`
-  background-color: hsl(247, 69%, 15%);
+  background-color: hsl(0, 0%, 100%);
   position: sticky;
   top: 0;
   z-index: 10;
