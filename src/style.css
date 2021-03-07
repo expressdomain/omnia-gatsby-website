@@ -1027,7 +1027,7 @@ body {
   line-height: 1.15;
   letter-spacing: 0.72px;
   text-align: left;
-  color: white;
+  color: var(--color-heading-white);
   margin-top: 2rem;
 }
 
@@ -1038,8 +1038,8 @@ body {
 @media only screen and (max-width: 414px) {
   .over-page-header {
     font-size: 20px;
-    color: #120c41;
     font-weight: bold;
+    margin-bottom: 0;
   }
 }
 
@@ -1057,8 +1057,7 @@ body {
 
 @media only screen and (max-width: 414px) {
   .over-page-subtext {
-    font-size: 15px;
-    color: #392b7d;
+    font-size: 16px;
     margin-top: 1.6rem;
     margin-bottom: 0;
   }

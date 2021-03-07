@@ -934,15 +934,15 @@ body {
 	line-height: 1.15;
 	letter-spacing: 0.72px;
 	text-align: left;
-	color: hsl(0, 0%, 100%);
+	color: var(--color-heading-white);
 	margin-top: 2rem;
 	span {
 		font-weight: bold;
 	}
 	@media only screen and (max-width: 414px) {
 		font-size: 20px;
-		color: hsl(247, 69%, 15%);
 		font-weight: bold;
+		margin-bottom: 0;
 	}
 }
 
@@ -957,8 +957,7 @@ body {
 	color: hsl(0, 0%, 100%);
 	margin-top: 4rem;
 	@media only screen and (max-width: 414px) {
-		font-size: 15px;
-		color: hsl(250, 49%, 33%);
+		font-size: 16px;
 		margin-top: 1.6rem;
 		margin-bottom: 0;
 	}
