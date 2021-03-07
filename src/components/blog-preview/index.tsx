@@ -35,7 +35,7 @@ const BlogPreview = ({ post }) => {
   }
 
   return (
-    <BlogWrapper className="blog-wrapper">
+    <BlogWrapper>
       {featuredImageSrc.img !== undefined || null ? (
         <GatsbyImage
           image={featuredImageSrc.img}

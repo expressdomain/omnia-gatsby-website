@@ -8,6 +8,7 @@ const ContactWrapper = styled.div`
   margin-bottom: 10%;
   @media only screen and (max-width: 414px) {
     margin-bottom: 0;
+    background-color: hsl(247, 69%, 15%);
   }
 `
 
@@ -29,7 +30,7 @@ const ContactHeaderContainer = styled.div`
   margin-top: 10%;
   @media only screen and (max-width: 414px) {
     background-color: transparent;
-    margin-top: 5%;
+    margin-top: 0;
   }
 `
 
@@ -45,7 +46,7 @@ const HeroMobileContainer = styled.div`
   margin: 2rem 0;
   display: flex;
   place-content: center;
-  background-color: hsl(247, 69%, 15%);
+  background-color: inherit;
 `
 
 const ContactHeaderContent = styled.div`
@@ -101,23 +102,23 @@ const Homepage = (props) => {
           <MobileWrapper>
             <ContactHeaderContainer>
               <ContactHeaderContent>
-                <h1 className="contact-header">{parse(contactACF.contactHeader)}</h1>
                 <ContactHeaderInner>
                   <HeroMobileContainer>
                     {gMapsImage.img !== undefined || null ? (
                       <GatsbyImage
-                        image={gMapsImage.img}
-                        alt={gMapsImage.alt}
-                        className="contact-location-image"
+                      image={gMapsImage.img}
+                      alt={gMapsImage.alt}
+                      className="contact-location-image"
                       />
-                    ) : (
-                      <StaticImage
+                      ) : (
+                        <StaticImage
                         src="../../images/featured_blog_placeholder.png"
                         alt="placeholder"
                         className="contact-location-image"
-                      />
-                    )}
+                        />
+                        )}
                   </HeroMobileContainer>
+                  <h1 className="contact-header">{parse(contactACF.contactHeader)}</h1>
                   <p className="contact-body-text">{parse(content)}</p>
                 </ContactHeaderInner>
               </ContactHeaderContent>

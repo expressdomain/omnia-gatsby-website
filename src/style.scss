@@ -648,11 +648,9 @@ body {
 // Footer styles
 
 .footer {
-	border-radius: 5px;
 	background-color: hsl(247, 69%, 15%);
 	@media only screen and (min-width: 416px) {
-	}
-	@media only screen and (max-width: 414px) {
+		border-radius: 5px;
 	}
 }
 
@@ -789,7 +787,7 @@ body {
 
 .hide-on-mobile {
 	@media only screen and (max-width: 414px) {
-		display: none;
+		display: none !important;
 	}
 }
 
@@ -1037,7 +1035,7 @@ body {
 		font-size: 20px;
 		font-weight: bold;
 		letter-spacing: 0.3px;
-		color: hsl(247, 69%, 15%);
+		color: var(--color-heading-white);
 		margin: 0;
 		padding: 0 3.75rem;
 		span {
@@ -1059,8 +1057,8 @@ body {
 		font-size: 15px;
 		line-height: 1.33;
 		letter-spacing: 0.23px;
-		color: hsl(250, 49%, 33%);
 		padding: 0 3.75rem;
+		margin: 2rem 0;
 	}
 }
 

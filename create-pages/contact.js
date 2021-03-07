@@ -24,11 +24,9 @@ query GET_CONTACT_PAGE {
       email
       kamerVanKoophandel
       linkedin
-      personName
       street
       telephone
       zipCity
-      companyName
       btwNummer
     }
   }

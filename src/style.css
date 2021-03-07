@@ -695,8 +695,13 @@ body {
 }
 
 .footer {
-  border-radius: 5px;
   background-color: #120c41;
+}
+
+@media only screen and (min-width: 416px) {
+  .footer {
+    border-radius: 5px;
+  }
 }
 
 .section-inner {
@@ -863,7 +868,7 @@ body {
 
 @media only screen and (max-width: 414px) {
   .hide-on-mobile {
-    display: none;
+    display: none !important;
   }
 }
 
@@ -1142,7 +1147,7 @@ body {
     font-size: 20px;
     font-weight: bold;
     letter-spacing: 0.3px;
-    color: #120c41;
+    color: var(--color-heading-white);
     margin: 0;
     padding: 0 3.75rem;
   }
@@ -1167,8 +1172,8 @@ body {
     font-size: 15px;
     line-height: 1.33;
     letter-spacing: 0.23px;
-    color: #392b7d;
     padding: 0 3.75rem;
+    margin: 2rem 0;
   }
 }
 
