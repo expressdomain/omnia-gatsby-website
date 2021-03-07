@@ -8,10 +8,10 @@ import BlogPreviewMobile from '../../components/blog-preview/mobile-blog-detail'
 
 const RelatedBlogWrapper = styled.div`
   border-radius: 5px;
-  display: grid;
+  /* display: grid; */
   @media only screen and (min-width: 416px) {
-    margin-bottom: 630px;
-    background-color: hsl(264, 71%, 43%);
+    /* margin-bottom: 630px; */
+    /* background-color: hsl(264, 71%, 43%); */
   }
 `
 
@@ -27,6 +27,17 @@ const MobileWrapper = styled.div`
   }
 `
 
+const RelatedBlogHeaderContainer = styled.div`
+  display: flex;
+  flex-flow: row;
+  background-color: hsl(264, 71%, 43%);
+  border-radius: 5px;
+`
+
+const RelatedBlogInnerHeader = styled.div`
+  padding: 3rem 7.375rem 10rem;
+`
+
 const RelatedBlogInner = styled.div`
   margin: 4rem 7.375rem 10rem;
   display: flex;
@@ -34,17 +45,19 @@ const RelatedBlogInner = styled.div`
 `
 
 const BlogContainer = styled.div`
-  margin: 4rem 7.375rem 10rem;
+  /* margin: 4rem 7.375rem 10rem;
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 180px 70px;
+  grid-template-rows: 180px 70px; */
 `
 
 const BlogInnerContainer = styled.div`
   @media only screen and (min-width: 416px) {
     display: grid;
-    grid-template-columns: repeat(3, auto);
+    grid-template-columns: repeat(3, 310px);
     grid-column-gap: 2rem;
+    transform: translateY(-230px);
+    max-width: 100%;
   }
 `
 
@@ -54,10 +67,10 @@ const BlogItem = styled.div`
   margin-top: 100px;
 `
 
-const RelatedBlogs = () => {
+const RelatedBlogs = ({currentBlog}) => {
   const { allWpPost } = useStaticQuery(graphql`
     query OTHER_POSTS {
-      allWpPost(limit: 10) {
+      allWpPost(limit: 4) {
         nodes {
           id
           title
@@ -80,35 +93,41 @@ const RelatedBlogs = () => {
     }
   `)
 
-  const latestPost = allWpPost.nodes.slice(-1)
+  const otherRelatedPosts = allWpPost.nodes.filter(post => post.id !== currentBlog)
+  const latestThreePosts = otherRelatedPosts.slice(-3)
+  const latestPost = otherRelatedPosts.slice(-1)
 
   return (
     <>
       {allWpPost !== null ? (
-        <RelatedBlogWrapper className="related-blog-wrapper">
+        <RelatedBlogWrapper>
           <DesktopWrapper>
             <BlogContainer>
-              <div style={{ display: `flex`, flexFlow: `row` }}>
+              <RelatedBlogHeaderContainer>
+                <RelatedBlogInnerHeader>
                 <h2 className="related-blog-header">
                   Dit vindt je misschien <br /> ook interessant
                 </h2>
-                <img src={blog_icon} alt="blog-icon" className="related-blog-icon" />
-              </div>
-              <BlogInnerContainer className="blog-inner-container">
-                {allWpPost !== undefined || null ? (
-                  allWpPost.nodes.map((post) => <BlogPreview post={post} />)
+                  <img src={blog_icon} alt="blog-icon" className="related-blog-icon" />
+                </RelatedBlogInnerHeader>
+              </RelatedBlogHeaderContainer>
+              <div style={{display: "flex", justifyContent: 'center'}}>
+              <BlogInnerContainer>
+                {latestThreePosts !== undefined || null ? (
+                  latestThreePosts.map((post) => <BlogPreview post={post} />)
                 ) : (
                   <pre style={{ color: 'white' }}>No related blog items found.</pre>
                 )}
               </BlogInnerContainer>
+            </div>
             </BlogContainer>
           </DesktopWrapper>
 
           <MobileWrapper>
             <>
               <img src={blog_icon} alt="blog-icon" className="related-blog-icon" />
-              <BlogInnerContainer className="blog-inner-container">
-                {allWpPost !== undefined || null ? (
+              <BlogInnerContainer>
+                {latestPost !== undefined || null ? (
                   <BlogPreviewMobile post={latestPost[0]} />
                 ) : (
                   <pre style={{ color: 'white' }}>No related blog items found.</pre>

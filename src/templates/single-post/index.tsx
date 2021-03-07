@@ -107,7 +107,7 @@ const SinglePostTemplate = (props) => {
           <BlogContentContainer>
             {content !== null ? <p>{parse(content)}</p> : <pre>No body found</pre>}
           </BlogContentContainer>
-          <RelatedBlogs />
+          <RelatedBlogs currentBlog={id}/>
         </BlogWrapper>
       ) : (
         <div>Something went wrong</div>

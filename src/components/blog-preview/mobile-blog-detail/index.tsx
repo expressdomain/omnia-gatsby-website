@@ -8,7 +8,7 @@ const BlogWrapper = styled.div`
   border-radius: 5px;
   box-shadow: 0 12px 24px 0 hsla(0, 0%, 0%, 0.15);
   background-color: hsl(0, 0%, 100%);
-  height: 297px;
+  height: 290px;
 `
 
 const BlogText = styled.div`

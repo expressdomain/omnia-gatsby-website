@@ -116,7 +116,10 @@ const ServicesContent = styled.div`
   text-align: left;
   color: hsl(0, 0%, 100%);
   display: flex;
-  flex-flow: column;
+  flex-flow: row;
+  @media only screen and (max-width: 414px) {
+    flex-flow: column;
+  }
 `
 
 const ServicesButton = styled.div`
