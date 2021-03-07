@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'gatsby'
 import styled from '@emotion/styled'
 import { FiX } from 'react-icons/fi'
-import logo from '../../images/Logo.png'
+import logo from '../../images/Logo_white.png'
 
 const LogoIcon = styled.div`
   display: flex;

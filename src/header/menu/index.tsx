@@ -39,7 +39,7 @@ const Menu = ({ items, toggleMenu }) => {
   return (
     <MenuWrapper className="menu-wrapper">
       <OpenIcon onClick={toggleMenu}>
-        <FiMenu size={34} style={{ color: 'white', marginRight: '1rem' }} />
+        <FiMenu size={34} style={{ color: '#0F0E40', marginRight: '1rem' }} />
       </OpenIcon>
 
       <DesktopWrapper>
@@ -58,7 +58,7 @@ const Menu = ({ items, toggleMenu }) => {
                 }
               >
                 <Link
-                  style={{ color: 'white', textDecoration: 'none', textTransform: 'lowercase' }}
+                  style={{ color: '#120C42', textDecoration: 'none', textTransform: 'lowercase' }}
                   to={path}
                   activeClassName={'current-menu-item current_page_item small-letters'}
                 >

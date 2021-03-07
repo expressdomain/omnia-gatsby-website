@@ -20,14 +20,8 @@ const MobileWrapper = styled.div`
 
 const HeroContainer = styled.div`
   @media only screen and (min-width: 416px) {
-    // margin-bottom: 45px;
-    // padding-top: 146px;
-    // width: 685px;
-    // height: 815px;
-    // width: 1750px;
     margin-bottom: 130px;
     margin-left: -230px;
-    margin-top: 50px;
     display: flex;
     flex-flow: row;
   }
@@ -36,7 +30,8 @@ const HeroContainer = styled.div`
 `
 
 const HeroInnerContainer = styled.div`
-  margin-right: 50px;
+  padding: 0 4rem;
+  background-color: hsl(247, 69%, 15%);
 `
 
 const HeroHeader = styled.div`
@@ -58,12 +53,18 @@ const HeroHeader = styled.div`
   }
 `
 
+const HeroSubTextContainer = styled.div`
+  display: flex;
+  justify-content: flex-end;
+`
+
 const HeroButtonContainer = styled.div`
   @media only screen and (min-width: 416px) {
     position: relative;
     top: 95px;
-    left: 700px;
+    left: 713px;
     width: fit-content;
+    z-index: 1;
   }
   @media only screen and (max-width: 414px) {
     display: none;
@@ -71,15 +72,15 @@ const HeroButtonContainer = styled.div`
 `
 
 const UspServicesContainer = styled.div`
-  background-color: #120c42;
   border-radius: 5px;
   @media only screen and (min-width: 416px) {
+    background-color: #120c42;
     height: 400px;
     width: 1230px;
     padding: 80px 0 0 125px;
   }
   @media only screen and (max-width: 414px) {
-    padding: 1rem 2rem;
+    padding: 2.75rem 2rem 1rem;
   }
 `
 
@@ -90,9 +91,6 @@ const UspServicesInnerContainer = styled.div`
   @media only screen and (min-width: 416px) {
     padding-top: 80px;
   }
-  @media only screen and (max-width: 414px) {
-    background-color: #120c42;
-  }
 `
 
 const ServicesTextContainer = styled.div`
@@ -101,8 +99,6 @@ const ServicesTextContainer = styled.div`
     border-radius: 5px;
     box-shadow: 0 12px 24px 0 hsla(0, 0%, 0%, 0.15);
     background-color: hsl(264, 71%, 43%);
-  }
-  @media only screen and (max-width: 414px) {
   }
 `
 
@@ -119,6 +115,7 @@ const ServicesContent = styled.div`
   flex-flow: row;
   @media only screen and (max-width: 414px) {
     flex-flow: column;
+    color: hsl(247, 69%, 15%);
   }
 `
 
@@ -132,7 +129,7 @@ const ServicesButton = styled.div`
   }
   @media only screen and (max-width: 414px) {
     max-width: 94.73px;
-    top: 32px;
+    top: 10px;
     left: -60px;
   }
 `
@@ -171,14 +168,14 @@ const Homepage = (props) => {
             <main id="main" className="site-main">
               <MobileWrapper>
                 <HeroContainer>
-                  <HeroHeader>
-                    <p className="hero-small">{parse(homepageACF.heroSubHeader)}</p>
-                    <h1 className="hero-big">{parse(homepageACF.heroHeader)}</h1>
-                  </HeroHeader>
                   {heroImage?.img && (
                     <GatsbyImage image={heroImage.img} alt={heroImage.alt} className="hero-image" />
                   )}
-                  <p className="hero-subtext">{parse(homepageACF.heroSubtext)}</p>
+                  <HeroHeader>
+                    <p className="hero-small">{parse(homepageACF.heroSubHeader)}</p>
+                    <h1 className="hero-big">{parse(homepageACF.heroHeader)}</h1>
+                    <p className="hero-subtext">{parse(homepageACF.heroSubtext)}</p>
+                  </HeroHeader>
                 </HeroContainer>
               </MobileWrapper>
 
@@ -189,7 +186,9 @@ const Homepage = (props) => {
                       <p className="hero-small">{parse(homepageACF.heroSubHeader)}</p>
                       <h1 className="hero-big">{parse(homepageACF.heroHeader)}</h1>
                     </HeroHeader>
-                    <p className="hero-subtext">{parse(homepageACF.heroSubtext)}</p>
+                    <HeroSubTextContainer>
+                      <p className="hero-subtext">{parse(homepageACF.heroSubtext)}</p>
+                    </HeroSubTextContainer>
                     <HeroButtonContainer>
                       <div className="hero-button-square">
                         <div className="hero-button-triangle"></div>

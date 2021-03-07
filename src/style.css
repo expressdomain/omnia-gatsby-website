@@ -115,18 +115,7 @@ h6 {
 
 h1 {
   font-size: var(--fontSize-6);
-}
-
-@media only screen and (min-width: 416px) {
-  h1 {
-    color: var(--color-heading);
-  }
-}
-
-@media only screen and (max-width: 414px) {
-  h1 {
-    color: var(--color-heading-white);
-  }
+  color: var(--color-heading-white);
 }
 
 h2 {
@@ -416,9 +405,15 @@ body {
 }
 
 .menu-item {
-  color: white;
+  color: #120c41;
   text-decoration: none;
   text-transform: lowercase;
+}
+
+@media only screen and (min-width: 416px) {
+  .hero-image {
+    min-width: 950px;
+  }
 }
 
 @media only screen and (max-width: 414px) {
@@ -437,15 +432,17 @@ body {
 @media only screen and (min-width: 416px) {
   .hero-small {
     font-size: 35px;
-    color: var(--color-heading);
+    color: var(--color-heading-white);
+    text-align: right;
   }
 }
 
 @media only screen and (max-width: 414px) {
   .hero-small {
-    font-size: 20px;
+    font-size: 14px;
     line-height: var(--lineHeight-tight);
     margin-bottom: 6px;
+    font-weight: normal;
   }
 }
 
@@ -455,17 +452,20 @@ body {
 
 .hero-big span {
   font-weight: normal;
+  color: #fd9c00;
+  font-style: italic;
 }
 
 @media only screen and (min-width: 416px) {
   .hero-big {
     font-size: 52px;
+    text-align: right;
   }
 }
 
 @media only screen and (max-width: 414px) {
   .hero-big {
-    font-size: 20px;
+    font-size: 21px;
     margin-bottom: 0;
   }
 }
@@ -477,20 +477,21 @@ body {
   line-height: 1.75;
   letter-spacing: 0.3px;
   text-align: left;
-  color: #5e20bc;
+  color: white;
 }
 
 @media only screen and (min-width: 416px) {
   .hero-subtext {
     font-size: 20px;
-    width: 407px;
+    width: 520px;
+    text-align: right;
   }
 }
 
 @media only screen and (max-width: 414px) {
   .hero-subtext {
-    padding: 1rem 2rem;
-    font-size: 15px;
+    padding: 1rem 0;
+    margin: 0;
   }
 }
 
@@ -533,8 +534,7 @@ body {
 
 @media only screen and (max-width: 414px) {
   .usp-header {
-    font-size: 15px;
-    margin-bottom: 1.766rem;
+    display: none;
   }
 }
 
@@ -560,6 +560,7 @@ body {
   .services-header {
     font-size: 15px;
     margin-bottom: 0.625rem;
+    color: #120c41;
   }
 }
 
@@ -570,12 +571,12 @@ body {
   line-height: 1;
   letter-spacing: 0.24px;
   text-align: left;
-  color: white;
   margin: 0;
 }
 
 @media only screen and (min-width: 416px) {
   .bullet-list > ul {
+    color: white;
     font-size: 16px;
     padding: 0 16px;
   }
@@ -621,8 +622,8 @@ body {
 
 @media only screen and (max-width: 414px) {
   .services-image {
-    width: 163.8px;
-    height: 163.8px;
+    width: 142.3px;
+    height: 142.3px;
     margin-right: 18px;
   }
 }

@@ -1,7 +1,7 @@
 import React from 'react'
 import { useStaticQuery, graphql, Link } from 'gatsby'
 import styled from '@emotion/styled'
-import logo from '../images/Logo.png'
+import logo from '../images/Logo_white.png'
 import { FaLinkedin } from 'react-icons/fa'
 import parse from 'html-react-parser'
 import contact from '../../create-pages/contact'
