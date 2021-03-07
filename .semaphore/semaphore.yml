@@ -1,15 +1,13 @@
 version: v1.0
-name: Node JS
+name: Initial Pipeline
 agent:
   machine:
     type: e1-standard-2
     os_image: ubuntu1804
 blocks:
-  - name: Install dependencies
+  - name: 'Block #1'
     task:
       jobs:
-        - name: yarn install
+        - name: 'Job #1'
           commands:
             - checkout
-            - yarn install
-            - yarn test
