@@ -7,19 +7,21 @@ import parse from 'html-react-parser'
 import contact from '../../create-pages/contact'
 
 const DesktopWrapper = styled.div`
-  @media only screen and (min-width: 416px) {
-    display: flex;
-    flex-flow: row;
+  @media only screen and (min-width: 481px) {
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    grid-column-gap: 2rem;
+    margin: 0 auto;
   }
-  @media only screen and (max-width: 414px) {
+  @media only screen and (max-width: 480px) {
     display: none;
   }
 `
 const MobileWrapper = styled.div`
-  @media only screen and (min-width: 416px) {
+  @media only screen and (min-width: 481px) {
     display: none;
   }
-  @media only screen and (max-width: 414px) {
+  @media only screen and (max-width: 480px) {
     display: flex;
     place-items: center;
     flex-flow: column;
@@ -72,7 +74,6 @@ const FooterRight = styled.div`
 const FooterMenu = styled.div`
   display: flex;
   flex-flow: column;
-  margin-left: 6rem;
 
   a {
     margin-bottom: 0;
@@ -84,9 +85,9 @@ const FooterMenu = styled.div`
   }
 `
 
-const Logo = styled.img`
-  margin-right: 13rem;
-`
+// const Logo = styled.img`
+//   margin-right: 13rem;
+// `
 
 const NO_DETAILS = 'No details loaded.'
 
@@ -125,7 +126,7 @@ const Footer = () => {
       <div className="section-inner">
         <DesktopWrapper>
           <Link to="/">
-            <Logo src={logo} width={158} />
+            <img src={logo} width={158} />
           </Link>
           {wpFooterMenu.page.contactACF != null || undefined ? (
             <>
@@ -168,7 +169,7 @@ const Footer = () => {
 
         <MobileWrapper>
           <Link to="/" style={{ maxWidth: `119px` }}>
-            <Logo src={logo} width={119} />
+            <img src={logo} width={119} />
           </Link>
           <MobileInner>
             <a style={{ color: 'white' }} href={wpFooterMenu.page.contactACF?.linkedIn}>

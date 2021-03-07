@@ -21,10 +21,10 @@ const GlobalHeader = styled.header`
 `
 
 const Logo = styled.img`
-  @media only screen and (min-width: 416px) {
+  @media only screen and (min-width: 481px) {
     margin: 1.375rem 0;
   }
-  @media only screen and (max-width: 414px) {
+  @media only screen and (max-width: 480px) {
     margin: 0 1rem;
   }
 `

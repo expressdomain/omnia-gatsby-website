@@ -6,29 +6,29 @@ import blog_icon from '../../images/blog_icon.png'
 import { GatsbyImage, StaticImage } from 'gatsby-plugin-image'
 
 const BlogInnerWrapper = styled.div`
-  @media only screen and (min-width: 416px) {
+  @media only screen and (min-width: 481px) {
     display: flex;
     flex-flow: column;
   }
 `
 
 const BlogInnerContainer = styled.div`
-  @media only screen and (min-width: 416px) {
+  @media only screen and (min-width: 481px) {
     display: flex;
     flex-flow: row;
   }
-  @media only screen and (max-width: 414px) {
+  @media only screen and (max-width: 480px) {
     height: 290px;
   }
 `
 
 const BlogItem = styled.div`
-  @media only screen and (min-width: 416px) {
+  @media only screen and (min-width: 481px) {
     max-width: 550px;
     margin-left: 48px;
     margin-top: 100px;
   }
-  @media only screen and (max-width: 414px) {
+  @media only screen and (max-width: 480px) {
     position: relative;
     top: -240px;
     padding: 0 30px;

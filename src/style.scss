@@ -384,12 +384,12 @@ body {
 	border: none;
 	box-shadow: 0 12px 24px 0 hsla(0, 0%, 0%, 0.15);
 	cursor: pointer;
-	@media only screen and (min-width: 416px) {
+	@media only screen and (min-width: 481px) {
 		background-color: hsl(247, 69%, 15%);
 		max-width: max-content;
 		padding: 16px 20px 16.4px;
 	}
-	@media only screen and (max-width: 414px) {
+	@media only screen and (max-width: 480px) {
 		background-color: hsl(264, 71%, 43%);
 		padding: 10px 14px 10.4px;
 		margin-top: 1rem;
@@ -402,10 +402,10 @@ body {
 	text-align: left;
 	color: hsl(0, 0%, 100%);
 	text-decoration: none;
-	@media only screen and (min-width: 416px) {
+	@media only screen and (min-width: 481px) {
 		font-size: 18px;
 	}
-	@media only screen and (max-width: 414px) {
+	@media only screen and (max-width: 480px) {
 		font-size: 12px;
 	}
 }
@@ -423,12 +423,12 @@ body {
 
 //Homepage styles
 .hero-image {
-	@media only screen and (min-width: 416px) {
+	@media only screen and (min-width: 481px) {
 		min-width: 950px;
 	}
-	@media only screen and (max-width: 414px) {
-		width: 375px;
-		height: 250px;
+	@media only screen and (max-width: 480px) {
+		width: auto;
+		height: auto;
 		border-radius: 5px;
 	}
 }
@@ -436,12 +436,12 @@ body {
 .hero-small {
 	margin-bottom: 0;
 	margin-top: 0;
-	@media only screen and (min-width: 416px) {
+	@media only screen and (min-width: 481px) {
 		font-size: 35px;
 		color: var(--color-heading-white);
 		text-align: right;
 	}
-	@media only screen and (max-width: 414px) {
+	@media only screen and (max-width: 480px) {
 		font-size: 14px;
 		line-height: var(--lineHeight-tight);
 		margin-bottom: 6px;
@@ -456,11 +456,11 @@ body {
 		color: #fd9c00;
 		font-style: italic;
 	}
-	@media only screen and (min-width: 416px) {
+	@media only screen and (min-width: 481px) {
 		font-size: 52px;
 		text-align: right;
 	}
-	@media only screen and (max-width: 414px) {
+	@media only screen and (max-width: 480px) {
 		font-size: 21px;
 		margin-bottom: 0;
 	}
@@ -474,12 +474,12 @@ body {
 	letter-spacing: 0.3px;
 	text-align: left;
 	color: white;
-	@media only screen and (min-width: 416px) {
+	@media only screen and (min-width: 481px) {
 		font-size: 20px;
 		width: 520px;
 		text-align: right;
 	}
-	@media only screen and (max-width: 414px) {
+	@media only screen and (max-width: 480px) {
 		padding: 1rem 0;
 		margin: 0;
 	}
@@ -511,11 +511,11 @@ body {
 	span {
 		font-weight: bold;
 	}
-	@media only screen and (min-width: 416px) {
+	@media only screen and (min-width: 481px) {
 		font-size: 48px;
 		width: 840px;
 	}
-	@media only screen and (max-width: 414px) {
+	@media only screen and (max-width: 480px) {
 		display: none;
 	}
 }
@@ -530,11 +530,11 @@ body {
 	color: hsl(0, 0%, 100%);
 	margin-top: 0;
 
-	@media only screen and (min-width: 416px) {
+	@media only screen and (min-width: 481px) {
 		font-size: 40px;
 		margin-bottom: 30px;
 	}
-	@media only screen and (max-width: 414px) {
+	@media only screen and (max-width: 480px) {
 		font-size: 15px;
 		margin-bottom: 0.625rem;
 		color: hsl(247, 69%, 15%);
@@ -549,27 +549,27 @@ body {
 	letter-spacing: 0.24px;
 	text-align: left;
 	margin: 0;
-	@media only screen and (min-width: 416px) {
+	@media only screen and (min-width: 481px) {
 		color: hsl(0, 0%, 100%);
 		font-size: 16px;
 		padding: 0 16px;
 	}
-	@media only screen and (max-width: 414px) {
+	@media only screen and (max-width: 480px) {
 		font-size: 12px;
 	}
 }
 
 .bullet-list > ul > li {
-	@media only screen and (max-width: 414px) {
+	@media only screen and (max-width: 480px) {
 		margin-bottom: 6px;
 	}
 }
 
 .bullet-list-margin {
-	@media only screen and (min-width: 416px) {
+	@media only screen and (min-width: 481px) {
 		margin-right: 80px;
 	}
-	@media only screen and (max-width: 414px) {
+	@media only screen and (max-width: 480px) {
 		margin-right: 0;
 	}
 }
@@ -577,12 +577,12 @@ body {
 .services-image {
 	border-radius: 5px;
 	box-shadow: 0 12px 24px 0 rgba(0, 0, 0, 0.15);
-	@media only screen and (min-width: 416px) {
+	@media only screen and (min-width: 481px) {
 		width: 280px;
 		height: 280px;
 		margin-right: 33px;
 	}
-	@media only screen and (max-width: 414px) {
+	@media only screen and (max-width: 480px) {
 		width: 142.3px;
 		height: 142.3px;
 		margin-right: 18px;
@@ -591,24 +591,24 @@ body {
 
 .featured-blog-image {
 	border-radius: 5px;
-	@media only screen and (min-width: 416px) {
+	@media only screen and (min-width: 481px) {
 	}
-	@media only screen and (max-width: 414px) {
-		width: 375px;
+	@media only screen and (max-width: 480px) {
+		width: auto;
 		height: 293px;
 	}
 }
 
 .featured-blog-icon {
 	z-index: 1;
-	@media only screen and (min-width: 416px) {
+	@media only screen and (min-width: 481px) {
 		position: relative;
 		width: 117.8px;
 		height: 123.4px;
 		top: 60px;
 		left: 600px;
 	}
-	@media only screen and (max-width: 414px) {
+	@media only screen and (max-width: 480px) {
 		position: relative;
 		width: 73px;
 		height: 76.5px;
@@ -629,7 +629,7 @@ body {
 }
 
 .featured-excerpt {
-	@media only screen and (min-width: 416px) {
+	@media only screen and (min-width: 481px) {
 		font-size: 20px;
 		font-weight: 300;
 		font-stretch: normal;
@@ -640,7 +640,7 @@ body {
 		color: hsl(250, 49%, 33%);
 		margin: 1rem 0;
 	}
-	@media only screen and (max-width: 414px) {
+	@media only screen and (max-width: 480px) {
 		display: none;
 	}
 }
@@ -649,7 +649,7 @@ body {
 
 .footer {
 	background-color: hsl(247, 69%, 15%);
-	@media only screen and (min-width: 416px) {
+	@media only screen and (min-width: 481px) {
 		border-radius: 5px;
 	}
 }
@@ -657,12 +657,12 @@ body {
 .section-inner {
 	margin: 0 auto;
 	display: flex;
-	@media only screen and (min-width: 416px) {
+	@media only screen and (min-width: 481px) {
 		max-width: 1230px;
 		flex-flow: row;
 		padding: 4rem 0;
 	}
-	@media only screen and (max-width: 414px) {
+	@media only screen and (max-width: 480px) {
 		flex-flow: column;
 		justify-content: center;
 	}
@@ -679,7 +679,7 @@ body {
 	letter-spacing: 0.89px;
 	text-align: left;
 	color: hsl(0, 0%, 100%);
-	@media only screen and (max-width: 414px) {
+	@media only screen and (max-width: 480px) {
 		font-size: 20px;
 		font-weight: bold;
 		line-height: 1.2;
@@ -691,12 +691,12 @@ body {
 .blog-detail-image {
 	box-shadow: 0 3px 6px 0 hsla(0, 0%, 0%, 0.15);
 	margin-right: 3.3rem;
-	@media only screen and (min-width: 416px) {
+	@media only screen and (min-width: 481px) {
 		min-width: 343px;
 		max-width: 343px;
 		height: 344px;
 	}
-	@media only screen and (max-width: 414px) {
+	@media only screen and (max-width: 480px) {
 		max-width: 100%;
 		height: auto;
 		margin: 0;
@@ -712,7 +712,7 @@ body {
 	line-height: 1.75;
 	letter-spacing: 0.3px;
 	text-align: left;
-	@media only screen and (max-width: 414px) {
+	@media only screen and (max-width: 480px) {
 		font-size: 16px;
 		font-weight: 300;
 		margin: 0;
@@ -735,14 +735,14 @@ body {
 
 .related-blog-icon {
 	z-index: 1;
-	@media only screen and (min-width: 416px) {
+	@media only screen and (min-width: 481px) {
 		width: 117.8px;
 		height: 123.4px;
 		position: relative;
 		top: -250px;
 		left: 1050px;
 	}
-	@media only screen and (max-width: 414px) {
+	@media only screen and (max-width: 480px) {
 		width: 73px;
 		height: 76.5px;
 		position: relative;
@@ -765,7 +765,7 @@ body {
 	span {
 		font-weight: bold;
 	}
-	@media only screen and (max-width: 414px) {
+	@media only screen and (max-width: 480px) {
 		font-size: 20px;
 		font-weight: normal;
 		font-stretch: normal;
@@ -776,20 +776,20 @@ body {
 // Blog preview styles
 
 .blog-preview-image {
-	@media only screen and (min-width: 416px) {
+	@media only screen and (min-width: 481px) {
 		width: 310px;
 		height: 310px;
 		border-top-left-radius: 5px;
 		border-top-right-radius: 5px;
 	}
-	@media only screen and (max-width: 414px) {
+	@media only screen and (max-width: 480px) {
 		width: 100%;
 		max-height: 292px;
 	}
 }
 
 .hide-on-mobile {
-	@media only screen and (max-width: 414px) {
+	@media only screen and (max-width: 480px) {
 		display: none !important;
 	}
 }
@@ -803,7 +803,7 @@ body {
 	letter-spacing: 0.38px;
 	text-align: left;
 	color: hsl(264, 71%, 43%);
-	@media only screen and (max-width: 414px) {
+	@media only screen and (max-width: 480px) {
 		font-size: 20px;
 		margin-top: 2rem;
 		margin-bottom: 0.8rem;
@@ -839,7 +839,7 @@ body {
 	text-align: left;
 	color: hsl(250, 49%, 33%);
 	text-decoration: none;
-	@media only screen and (max-width: 414px) {
+	@media only screen and (max-width: 480px) {
 		font-size: 15px;
 	}
 }
@@ -849,7 +849,7 @@ body {
 	flex-flow: row;
 	align-items: center;
 	color: hsl(250, 49%, 33%);
-	@media only screen and (max-width: 414px) {
+	@media only screen and (max-width: 480px) {
 		margin-top: 1rem;
 	}
 }
@@ -870,7 +870,7 @@ body {
 	span {
 		font-weight: bold;
 	}
-	@media only screen and (max-width: 414px) {
+	@media only screen and (max-width: 480px) {
 		h1 {
 			margin: 0;
 			font-size: 20px;
@@ -942,7 +942,7 @@ body {
 	span {
 		font-weight: bold;
 	}
-	@media only screen and (max-width: 414px) {
+	@media only screen and (max-width: 480px) {
 		font-size: 20px;
 		font-weight: bold;
 		margin-bottom: 0;
@@ -959,7 +959,7 @@ body {
 	text-align: left;
 	color: hsl(0, 0%, 100%);
 	margin-top: 4rem;
-	@media only screen and (max-width: 414px) {
+	@media only screen and (max-width: 480px) {
 		font-size: 16px;
 		margin-top: 1.6rem;
 		margin-bottom: 0;
@@ -975,7 +975,7 @@ body {
 	letter-spacing: 0.38px;
 	text-align: left;
 	color: hsl(247, 69%, 15%);
-	@media only screen and (max-width: 414px) {
+	@media only screen and (max-width: 480px) {
 		font-size: 16px;
 		margin: 1rem 0 0.9rem 0;
 	}
@@ -990,7 +990,7 @@ body {
 	letter-spacing: 0.23px;
 	text-align: left;
 	color: hsl(250, 49%, 33%);
-	@media only screen and (max-width: 414px) {
+	@media only screen and (max-width: 480px) {
 		font-size: 14px;
 		margin-bottom: 0;
 	}
@@ -999,7 +999,7 @@ body {
 .over-hero-image {
 	width: 467.1px;
 	height: 467.1px;
-	@media only screen and (max-width: 414px) {
+	@media only screen and (max-width: 480px) {
 		width: 230.5px;
 		height: 230.5px;
 		// display: inline-flex;
@@ -1011,7 +1011,7 @@ body {
 	min-width: 163px;
 	max-width: 163px;
 	height: auto;
-	@media only screen and (max-width: 414px) {
+	@media only screen and (max-width: 480px) {
 		min-width: 71.2px;
 		max-width: 71.2px;
 		height: auto;
@@ -1033,7 +1033,7 @@ body {
 	span {
 		font-weight: normal;
 	}
-	@media only screen and (max-width: 414px) {
+	@media only screen and (max-width: 480px) {
 		font-size: 20px;
 		font-weight: bold;
 		letter-spacing: 0.3px;
@@ -1055,7 +1055,7 @@ body {
 	letter-spacing: 0.3px;
 	text-align: left;
 	color: hsl(0, 0%, 100%);
-	@media only screen and (max-width: 414px) {
+	@media only screen and (max-width: 480px) {
 		font-size: 15px;
 		line-height: 1.33;
 		letter-spacing: 0.23px;
@@ -1068,12 +1068,12 @@ body {
 	width: 346px;
 	height: 318px;
 	margin-right: 3rem;
-	@media only screen and (min-width: 416px) {
+	@media only screen and (min-width: 481px) {
 		border-radius: 5px;
 		box-shadow: 0 12px 24px 0 hsla(0, 0%, 0%, 0.15);
 	}
 
-	@media only screen and (max-width: 414px) {
+	@media only screen and (max-width: 480px) {
 		width: 278px;
 		height: 256px;
 		margin-right: 0;

@@ -9,20 +9,20 @@ import BlogPreviewMobile from '../../components/blog-preview/mobile-blog-detail'
 const RelatedBlogWrapper = styled.div`
   border-radius: 5px;
   /* display: grid; */
-  @media only screen and (min-width: 416px) {
+  @media only screen and (min-width: 481px) {
     /* margin-bottom: 630px; */
     /* background-color: hsl(264, 71%, 43%); */
   }
 `
 
 const DesktopWrapper = styled.div`
-  @media only screen and (max-width: 414px) {
+  @media only screen and (max-width: 480px) {
     display: none;
   }
 `
 
 const MobileWrapper = styled.div`
-  @media only screen and (min-width: 416px) {
+  @media only screen and (min-width: 481px) {
     display: none;
   }
 `
@@ -52,7 +52,7 @@ const BlogContainer = styled.div`
 `
 
 const BlogInnerContainer = styled.div`
-  @media only screen and (min-width: 416px) {
+  @media only screen and (min-width: 481px) {
     display: grid;
     grid-template-columns: repeat(3, 310px);
     grid-column-gap: 2rem;

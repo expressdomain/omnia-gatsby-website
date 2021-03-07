@@ -6,13 +6,13 @@ import { FiMenu, FiX } from 'react-icons/fi'
 import Sidebar from '../sidebar'
 
 const DesktopWrapper = styled.div`
-  @media only screen and (max-width: 414px) {
+  @media only screen and (max-width: 480px) {
     display: none;
   }
 `
 
 const OpenIcon = styled.div`
-  @media only screen and (min-width: 416px) {
+  @media only screen and (min-width: 481px) {
     display: none;
   }
 `

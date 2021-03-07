@@ -6,13 +6,13 @@ import { FiChevronRight } from 'react-icons/fi'
 import { GatsbyImage, StaticImage } from 'gatsby-plugin-image'
 
 const DesktopWrapper = styled.div`
-  @media only screen and (max-width: 414px) {
+  @media only screen and (max-width: 480px) {
     display: none;
   }
 `
 
 const MobileWrapper = styled.div`
-  @media only screen and (min-width: 416px) {
+  @media only screen and (min-width: 481px) {
     display: none;
   }
 `

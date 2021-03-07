@@ -10,23 +10,23 @@ const OverWrapper = styled.div`
 `
 
 const DesktopWrapper = styled.div`
-  @media only screen and (max-width: 414px) {
+  @media only screen and (max-width: 480px) {
     display: none;
   }
 `
 
 const MobileWrapper = styled.div`
-  @media only screen and (min-width: 416px) {
+  @media only screen and (min-width: 481px) {
     display: none;
   }
 `
 
 const OverHeaderWrapper = styled.div`
-  @media only screen and (min-width: 416px) {
+  @media only screen and (min-width: 481px) {
     border-radius: 5px;
     margin-top: 10%;
   }
-  @media only screen and (min-width: 416px) {
+  @media only screen and (min-width: 481px) {
     background-color: hsl(247, 69%, 15%);
   }
 `
@@ -39,7 +39,7 @@ const OverHeader = styled.div`
   display: flex;
   flex-flow: row;
   padding-top: 2rem;
-  @media only screen and (max-width: 414px) {
+  @media only screen and (max-width: 480px) {
     flex-flow: column;
     padding: 1rem 3rem;
     background-color: hsl(247, 69%, 15%);
@@ -50,7 +50,7 @@ const OverHeader = styled.div`
 const OverInnerHeader = styled.div`
   margin-left: 2.3rem;
   max-width: 540px;
-  @media only screen and (max-width: 414px) {
+  @media only screen and (max-width: 480px) {
     margin: 1rem 3rem;
   }
 `
@@ -71,7 +71,7 @@ const OverContentInnerContainer = styled.div`
   grid-column-gap: 2rem;
   grid-row-gap: 2rem;
   margin-top: 10%;
-  @media only screen and (max-width: 414px) {
+  @media only screen and (max-width: 480px) {
     margin: 5% 5%;
     grid-template-columns: 1fr;
   }
