@@ -442,9 +442,10 @@ body {
 		text-align: right;
 	}
 	@media only screen and (max-width: 414px) {
-		font-size: 20px;
+		font-size: 14px;
 		line-height: var(--lineHeight-tight);
 		margin-bottom: 6px;
+		font-weight: normal;
 	}
 }
 
@@ -460,7 +461,7 @@ body {
 		text-align: right;
 	}
 	@media only screen and (max-width: 414px) {
-		font-size: 20px;
+		font-size: 21px;
 		margin-bottom: 0;
 	}
 }
@@ -479,8 +480,8 @@ body {
 		text-align: right;
 	}
 	@media only screen and (max-width: 414px) {
-		padding: 1rem 2rem;
-		font-size: 15px;
+		padding: 1rem 0;
+		margin: 0;
 	}
 }
 
@@ -515,8 +516,7 @@ body {
 		width: 840px;
 	}
 	@media only screen and (max-width: 414px) {
-		font-size: 15px;
-		margin-bottom: 1.766rem;
+		display: none;
 	}
 }
 
@@ -537,6 +537,7 @@ body {
 	@media only screen and (max-width: 414px) {
 		font-size: 15px;
 		margin-bottom: 0.625rem;
+		color: hsl(247, 69%, 15%);
 	}
 }
 
@@ -547,9 +548,9 @@ body {
 	line-height: 1;
 	letter-spacing: 0.24px;
 	text-align: left;
-	color: hsl(0, 0%, 100%);
 	margin: 0;
 	@media only screen and (min-width: 416px) {
+		color: hsl(0, 0%, 100%);
 		font-size: 16px;
 		padding: 0 16px;
 	}
@@ -582,8 +583,8 @@ body {
 		margin-right: 33px;
 	}
 	@media only screen and (max-width: 414px) {
-		width: 163.8px;
-		height: 163.8px;
+		width: 142.3px;
+		height: 142.3px;
 		margin-right: 18px;
 	}
 }

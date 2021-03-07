@@ -25,7 +25,7 @@ const Logo = styled.img`
     margin: 1.375rem 0;
   }
   @media only screen and (max-width: 414px) {
-    margin: 1rem;
+    margin: 0 1rem;
   }
 `
 
