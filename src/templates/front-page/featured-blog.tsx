@@ -60,7 +60,7 @@ const FeaturedBlog = () => {
 
   const featuredImage = {
     img: wpPost.featuredImage?.node?.localFile?.childImageSharp?.gatsbyImageData,
-    alt: wpPost.servicesImage?.node?.alt || `featured-image`,
+    alt: wpPost.servicesImage?.node?.altText || `featured-image`,
   }
 
   return (

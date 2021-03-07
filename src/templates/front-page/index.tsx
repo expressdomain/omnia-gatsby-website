@@ -155,12 +155,12 @@ const Homepage = (props) => {
 
   const heroImage = {
     img: homepageACF.heroImage?.localFile?.childImageSharp?.gatsbyImageData,
-    alt: homepageACF.heroImage?.alt || ``,
+    alt: homepageACF.heroImage?.altText || ``,
   }
 
   const servicesImage = {
     img: homepageACF.servicesImage?.localFile?.childImageSharp?.gatsbyImageData,
-    alt: homepageACF.servicesImage?.alt || ``,
+    alt: homepageACF.servicesImage?.altText || ``,
   }
 
   return (

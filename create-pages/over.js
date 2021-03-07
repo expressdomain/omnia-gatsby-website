@@ -1,6 +1,7 @@
 const { slash }         = require( `gatsby-core-utils` );
 const overTemplate = require.resolve( `../src/templates/over/index.tsx` );
 // const { SeoFragment } = require('./fragments/seo/index.js');
+// const { ImageFragment } = require('./fragments/image/index.js');
 
 // Get all the about page data.
 const GET_OVER_PAGE = `
@@ -16,6 +17,7 @@ query GET_OVER_PAGE {
       dnaBody
       dnaHeader
       bierImage {
+        altText
         localFile {
           childImageSharp {
             gatsbyImageData
@@ -23,6 +25,7 @@ query GET_OVER_PAGE {
         }
       }
       dnaImage {
+        altText
         localFile {
           childImageSharp {
             gatsbyImageData
@@ -32,6 +35,7 @@ query GET_OVER_PAGE {
       gbBody
       gbHeader
       gbImage {
+        altText
         localFile {
           childImageSharp {
             gatsbyImageData
@@ -41,6 +45,7 @@ query GET_OVER_PAGE {
       kennisProjectervaringBody
       kennisProjectervaringHeader
       kennisProjectervaringImage {
+        altText
         localFile {
           childImageSharp {
             gatsbyImageData
@@ -50,6 +55,7 @@ query GET_OVER_PAGE {
       overHeroBody
       overHeroHeader
       overHeroImage {
+        altText
         localFile {
           childImageSharp {
             gatsbyImageData
@@ -59,6 +65,7 @@ query GET_OVER_PAGE {
       werkgeversWerkervaringBody
       werkgeversWerkervaringHeader
       werkgeversWerkervaringImage {
+        altText
         localFile {
           childImageSharp {
             gatsbyImageData

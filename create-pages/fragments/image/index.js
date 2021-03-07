@@ -1,17 +1,11 @@
 const ImageFragment = `
 fragment ImageFragment on WpMediaItem {
-	  id
-	  altText
-	  caption
-	  sourceUrl
-	  mediaDetails {
-	    sizes {
-	      height
-	      width
-	      name
-	      sourceUrl
-	    }
-	  }
+	altText
+	localFile {
+		childImageSharp {
+		gatsbyImageData
+		}
+	}
 }
 `;
 

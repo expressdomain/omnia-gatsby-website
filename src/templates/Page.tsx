@@ -13,7 +13,7 @@ import Layout from '../components/layout'
 const PageTemplate = ({ data: { previous, next, post } }) => {
   const featuredImage = {
     img: post.featuredImage?.node?.localFile?.childImageSharp?.gatsbyImageData,
-    alt: post.featuredImage?.node?.alt || ``,
+    alt: post.featuredImage?.node?.altText || ``,
   }
 
   return (

@@ -98,32 +98,32 @@ const Over = (props) => {
 
   const bierImage = {
     img: overACF.bierImage?.localFile?.childImageSharp?.gatsbyImageData,
-    alt: overACF.bierImage?.alt || `bierImage`,
+    alt: overACF.bierImage?.altTextText || `bierImage`,
   }
 
   const dnaImage = {
     img: overACF.dnaImage?.localFile?.childImageSharp?.gatsbyImageData,
-    alt: overACF.dnaImage?.alt || `dnaImage`,
+    alt: overACF.dnaImage?.altText || `dnaImage`,
   }
 
   const gbImage = {
     img: overACF.gbImage?.localFile?.childImageSharp?.gatsbyImageData,
-    alt: overACF.gbImage?.alt || `groningseBrabanderImage`,
+    alt: overACF.gbImage?.altText || `groningseBrabanderImage`,
   }
 
   const kennisProjectervaringImage = {
     img: overACF.kennisProjectervaringImage?.localFile?.childImageSharp?.gatsbyImageData,
-    alt: overACF.kennisProjectervaringImage?.alt || `kennisProjectervaringImage`,
+    alt: overACF.kennisProjectervaringImage?.altText || `kennisProjectervaringImage`,
   }
 
   const overHeroImage = {
     img: overACF.overHeroImage?.localFile?.childImageSharp?.gatsbyImageData,
-    alt: overACF.overHeroImage?.alt || `overHeroImage`,
+    alt: overACF.overHeroImage?.altText || `overHeroImage`,
   }
 
   const werkgeversWerkervaringImage = {
     img: overACF.werkgeversWerkervaringImage?.localFile?.childImageSharp?.gatsbyImageData,
-    alt: overACF.werkgeversWerkervaringImage?.alt || `werkgeversWerkervaringImage`,
+    alt: overACF.werkgeversWerkervaringImage?.altText || `werkgeversWerkervaringImage`,
   }
 
   return (

@@ -1,5 +1,6 @@
 const { slash }         = require( `gatsby-core-utils` );
-const blogArchiveTemplate = require.resolve( `../src/templates/blog-archive/index.tsx` );
+const blogArchiveTemplate = require.resolve(`../src/templates/blog-archive/index.tsx`);
+// const { ImageFragment } = require('./fragments/image/index.js');
 // const { SeoFragment } = require('./fragments/seo/index.js');
 
 // Get all the blog page data.
@@ -27,6 +28,7 @@ query GET_BLOG_PAGE {
       }
       featuredImage {
         node {
+          altText
           localFile {
             childImageSharp {
               gatsbyImageData
@@ -53,18 +55,9 @@ module.exports = async ( { actions, graphql } ) => {
 
 				let allThePosts = [];
 				posts && posts.nodes.map( post => {
-
-					// Push the categories data in form of an array, to make it searchable
-					// let productsData = product.node;
-					// productsData.categoriesData = [];
-
-					// productsData.productCategories.nodes.map( category => {
-					// 	productsData.categoriesData.push( category.name );
-					// } );
 				
 					allThePosts.push(post);
 				} );
-				// console.log(allThePosts)
 				return { page: page, allPosts: allThePosts };
 			} );
 

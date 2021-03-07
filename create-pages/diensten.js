@@ -1,5 +1,6 @@
 const { slash }         = require( `gatsby-core-utils` );
-const dienstenTemplate = require.resolve( `../src/templates/diensten/index.tsx` );
+const dienstenTemplate = require.resolve(`../src/templates/diensten/index.tsx`);
+// const { ImageFragment } = require('./fragments/image/index.js');
 // const { SeoFragment } = require('./fragments/seo/index.js');
 
 // Get all the services page data.
@@ -28,6 +29,7 @@ query GET_DIENSTEN_PAGE {
       visieBody
       visieHeader
       image {
+        altText
         localFile {
           childImageSharp {
             gatsbyImageData

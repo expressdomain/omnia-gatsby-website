@@ -70,7 +70,7 @@ const SinglePostTemplate = (props) => {
 
   const featuredImageSrc = {
     img: featuredImage?.node?.localFile?.childImageSharp?.gatsbyImageData,
-    alt: featuredImage?.node?.alt || `featured-image`,
+    alt: featuredImage?.node?.altText || `featured-image`,
   }
 
   return (
@@ -107,7 +107,7 @@ const SinglePostTemplate = (props) => {
           <BlogContentContainer>
             {content !== null ? <p>{parse(content)}</p> : <pre>No body found</pre>}
           </BlogContentContainer>
-          <RelatedBlogs currentBlog={id}/>
+          <RelatedBlogs currentBlog={id} />
         </BlogWrapper>
       ) : (
         <div>Something went wrong</div>
