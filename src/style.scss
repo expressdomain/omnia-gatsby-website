@@ -731,6 +731,7 @@ body {
 }
 
 .related-blog-icon {
+	z-index: 1;
 	@media only screen and (min-width: 416px) {
 		width: 117.8px;
 		height: 123.4px;
@@ -780,6 +781,7 @@ body {
 	}
 	@media only screen and (max-width: 414px) {
 		width: 100%;
+		max-height: 292px;
 	}
 }
 

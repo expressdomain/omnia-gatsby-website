@@ -796,6 +796,10 @@ body {
   margin: 0;
 }
 
+.related-blog-icon {
+  z-index: 1;
+}
+
 @media only screen and (min-width: 416px) {
   .related-blog-icon {
     width: 117.8px;
@@ -852,6 +856,7 @@ body {
 @media only screen and (max-width: 414px) {
   .blog-preview-image {
     width: 100%;
+    max-height: 292px;
   }
 }
 
