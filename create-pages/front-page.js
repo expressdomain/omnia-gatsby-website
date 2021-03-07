@@ -1,9 +1,8 @@
 const { slash }         = require( `gatsby-core-utils` );
 const frontPageTemplate = require.resolve( `../src/templates/front-page/index.tsx` );
-// const singleProductPageTemplate = require.resolve( `../src/templates/product/index.js` );
-// const { ProductsFragment } = require('./fragments/products/index.js');
+// const { ImageFragment } = require('./fragments/image/index.js');
 // const { SeoFragment } = require('./fragments/seo/index.js');
-// const { HomepageFragment } = require('./fragments/pages/index.js');
+
 
 // Get all the front page data.
 const GET_FRONT_PAGE = `
@@ -21,6 +20,7 @@ query GET_FRONT_PAGE {
       servicesHeader
       uspHeader
       servicesImage {
+        altText
         localFile {
           childImageSharp {
             gatsbyImageData
@@ -28,6 +28,7 @@ query GET_FRONT_PAGE {
         }
       }
       heroImage {
+        altText
         localFile {
           childImageSharp {
             gatsbyImageData

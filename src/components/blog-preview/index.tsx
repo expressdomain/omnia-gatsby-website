@@ -31,7 +31,7 @@ const BlogText = styled.div`
 const BlogPreview = ({ post }) => {
   const featuredImageSrc = {
     img: post?.featuredImage?.node?.localFile?.childImageSharp?.gatsbyImageData,
-    alt: post?.featuredImage?.node?.alt || `featured-image`,
+    alt: post?.featuredImage?.node?.altText || `featured-image`,
   }
 
   return (

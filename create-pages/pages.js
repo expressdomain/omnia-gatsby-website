@@ -53,8 +53,6 @@ module.exports = async ( { actions, graphql } ) => {
 		// Do query to get all pages and categories, this will return the pages and categories.
 		return await graphql( GET_PAGES )
 			.then(({ data }) => {
-				
-				console.log(data)
 
 				const { pages } = data;
 

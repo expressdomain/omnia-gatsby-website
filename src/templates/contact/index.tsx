@@ -65,7 +65,7 @@ const Homepage = (props) => {
 
   const gMapsImage = {
     img: contactACF?.contactGmaps?.localFile?.childImageSharp?.gatsbyImageData,
-    alt: contactACF?.contactGmaps?.alt || `google-maps-location`,
+    alt: contactACF?.contactGmaps?.altText || `google-maps-location`,
   }
 
   return (

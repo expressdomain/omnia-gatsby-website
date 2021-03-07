@@ -67,7 +67,7 @@ const BlogItem = styled.div`
   margin-top: 100px;
 `
 
-const RelatedBlogs = ({currentBlog}) => {
+const RelatedBlogs = ({ currentBlog }) => {
   const { allWpPost } = useStaticQuery(graphql`
     query OTHER_POSTS {
       allWpPost(limit: 4) {
@@ -93,7 +93,7 @@ const RelatedBlogs = ({currentBlog}) => {
     }
   `)
 
-  const otherRelatedPosts = allWpPost.nodes.filter(post => post.id !== currentBlog)
+  const otherRelatedPosts = allWpPost.nodes.filter((post) => post.id !== currentBlog)
   const latestThreePosts = otherRelatedPosts.slice(-3)
   const latestPost = otherRelatedPosts.slice(-1)
 
@@ -105,21 +105,21 @@ const RelatedBlogs = ({currentBlog}) => {
             <BlogContainer>
               <RelatedBlogHeaderContainer>
                 <RelatedBlogInnerHeader>
-                <h2 className="related-blog-header">
-                  Dit vindt je misschien <br /> ook interessant
-                </h2>
+                  <h2 className="related-blog-header">
+                    Dit vindt je misschien <br /> ook interessant
+                  </h2>
                   <img src={blog_icon} alt="blog-icon" className="related-blog-icon" />
                 </RelatedBlogInnerHeader>
               </RelatedBlogHeaderContainer>
-              <div style={{display: "flex", justifyContent: 'center'}}>
-              <BlogInnerContainer>
-                {latestThreePosts !== undefined || null ? (
-                  latestThreePosts.map((post) => <BlogPreview post={post} />)
-                ) : (
-                  <pre style={{ color: 'white' }}>No related blog items found.</pre>
-                )}
-              </BlogInnerContainer>
-            </div>
+              <div style={{ display: 'flex', justifyContent: 'center' }}>
+                <BlogInnerContainer>
+                  {latestThreePosts !== undefined || null ? (
+                    latestThreePosts.map((post) => <BlogPreview post={post} />)
+                  ) : (
+                    <pre style={{ color: 'white' }}>No related blog items found.</pre>
+                  )}
+                </BlogInnerContainer>
+              </div>
             </BlogContainer>
           </DesktopWrapper>
 

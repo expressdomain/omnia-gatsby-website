@@ -1,5 +1,6 @@
 const { slash }         = require( `gatsby-core-utils` );
-const contactTemplate = require.resolve( `../src/templates/contact/index.tsx` );
+const contactTemplate = require.resolve(`../src/templates/contact/index.tsx`);
+// const { ImageFragment } = require('./fragments/image/index.js');
 // const { SeoFragment } = require('./fragments/seo/index.js');
 
 // Get all the contact page data.
@@ -13,6 +14,7 @@ query GET_CONTACT_PAGE {
     contactACF {
       contactHeader
       contactGmaps {
+        altText
         localFile {
           childImageSharp {
             gatsbyImageData

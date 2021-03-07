@@ -1,5 +1,6 @@
 const { slash } = require( `gatsby-core-utils` );
 const singlePostTemplate = require.resolve(`../src/templates/single-post/index.tsx`);
+// const { ImageFragment } = require('./fragments/image/index.js');
 
 // Get all the posts.
 const GET_POSTS = `
@@ -16,6 +17,7 @@ query GET_POSTS {
       }
       featuredImage {
         node {
+          altText
           localFile {
             childImageSharp {
               gatsbyImageData

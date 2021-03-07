@@ -20,7 +20,7 @@ const BlogText = styled.div`
 const BlogPreview = ({ post }) => {
   const featuredImageSrc = {
     img: post?.featuredImage?.node?.localFile?.childImageSharp?.gatsbyImageData,
-    alt: post?.featuredImage?.node?.alt || `featured-blog`,
+    alt: post?.featuredImage?.node?.altText || `featured-blog`,
   }
 
   return (

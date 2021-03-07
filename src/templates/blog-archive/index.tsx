@@ -4,9 +4,7 @@ import parse from 'html-react-parser'
 import styled from '@emotion/styled'
 import BlogPreview from '../../components/blog-preview'
 import blog_icon from '../../images/blog_icon.png'
-import {
-  slice, concat,
-} from 'lodash';
+import { slice, concat } from 'lodash'
 
 const BlogWrapper = styled.div`
   /* margin-bottom: 10%; */
@@ -74,22 +72,22 @@ const BlogArchive = (props) => {
       allPosts,
     },
   } = props
-  
-  const LENGTH = allPosts.length + 1;
-  const DATA = [...allPosts];
-  const LIMIT = 6;
-  
-  const [showMore, setShowMore] = React.useState(true);
+
+  const LENGTH = allPosts.length + 1
+  const DATA = [...allPosts]
+  const LIMIT = 6
+
+  const [showMore, setShowMore] = React.useState(true)
   const [list, setList] = React.useState(slice(DATA, 0, LIMIT))
-  const [index, setIndex] = React.useState(LIMIT);
+  const [index, setIndex] = React.useState(LIMIT)
 
   const loadMore = () => {
-    const newIndex = index + LIMIT;
-    const newShowMore = newIndex < LENGTH - 1;
-    const newList = concat(list, slice(DATA, index, newIndex));
-    setIndex(newIndex);
-    setList(newList);
-    setShowMore(newShowMore);
+    const newIndex = index + LIMIT
+    const newShowMore = newIndex < LENGTH - 1
+    const newList = concat(list, slice(DATA, index, newIndex))
+    setIndex(newIndex)
+    setList(newList)
+    setShowMore(newShowMore)
   }
 
   return (
@@ -111,7 +109,13 @@ const BlogArchive = (props) => {
               )}
             </BlogInnerContainer>
             <ButtonContainer>
-              {showMore && <div className="lees-verder-button" onClick={loadMore}><span style={{cursor: 'pointer'}} className="lees-verder-link">Laad meer</span></div>}
+              {showMore && (
+                <div className="lees-verder-button" onClick={loadMore}>
+                  <span style={{ cursor: 'pointer' }} className="lees-verder-link">
+                    Laad meer
+                  </span>
+                </div>
+              )}
             </ButtonContainer>
           </BlogContainer>
         </BlogWrapper>
