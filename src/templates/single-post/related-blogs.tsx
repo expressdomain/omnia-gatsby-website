@@ -31,10 +31,11 @@ const RelatedBlogHeaderContainer = styled.div`
   display: flex;
   flex-flow: row;
   background-color: hsl(264, 71%, 43%);
+  border-radius: 5px;
 `
 
 const RelatedBlogInnerHeader = styled.div`
-  padding: 3rem 7.375rem;
+  padding: 3rem 7.375rem 10rem;
 `
 
 const RelatedBlogInner = styled.div`
@@ -55,7 +56,7 @@ const BlogInnerContainer = styled.div`
     display: grid;
     grid-template-columns: repeat(3, 310px);
     grid-column-gap: 2rem;
-    transform: translateY(-60px);
+    transform: translateY(-230px);
     max-width: 100%;
   }
 `

@@ -6,7 +6,7 @@ import BlogPreview from '../../components/blog-preview'
 import blog_icon from '../../images/blog_icon.png'
 
 const BlogWrapper = styled.div`
-  margin-bottom: 10%;
+  /* margin-bottom: 10%; */
 `
 
 const BlogOverviewHeaderContainer = styled.div`
@@ -24,7 +24,7 @@ const BlogOverviewHeaderContainer = styled.div`
 `
 
 const BlogOverviewHeaderInner = styled.div`
-  padding: 3rem 7.375rem;
+  padding: 3rem 7.375rem 15rem;
   @media only screen and (max-width: 414px) {
     padding: 1.125rem 3.062rem;
   }
@@ -44,8 +44,8 @@ const BlogInnerContainer = styled.div`
     grid-template-columns: repeat(3, auto);
     grid-column-gap: 2rem;
     grid-row-gap: 3.75rem;
-    min-height: calc(100vh - 336px);
-    transform: translateY(-35px);
+    min-height: calc(100vh - 100px);
+    transform: translateY(-180px);
     max-width: 100%;
   }
   @media only screen and (max-width: 414px) {

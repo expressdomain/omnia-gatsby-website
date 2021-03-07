@@ -18,8 +18,6 @@ const ServicesHeaderWrapper = styled.div`
   @media only screen and (min-width: 416px) {
     background-color: hsl(247, 69%, 15%);
     border-radius: 5px;
-    height: 500px;
-    margin-bottom: 75%;
   }
   @media only screen and (max-width: 414px) {
   }
@@ -29,8 +27,8 @@ const ServicesHeader = styled.div`
   color: white;
   @media only screen and (min-width: 416px) {
     max-width: 920px;
-    margin: 0 auto;
-    padding: 1rem;
+    /* margin: 0 auto; */
+    padding: 3rem 4rem 15rem;
   }
   @media only screen and (max-width: 414px) {
     margin: 1rem 3.5rem;
@@ -54,6 +52,8 @@ const ServicesContentInnerContainer = styled.div`
     grid-template-columns: repeat(3, 1fr);
     grid-column-gap: 2rem;
     grid-row-gap: 2rem;
+    transform: translateY(-180px);
+    max-width: 100%;
   }
   @media only screen and (max-width: 414px) {
     grid-template-columns: 1fr;
@@ -95,7 +95,6 @@ const BlogWrapper = styled.div`
   display: flex;
   place-content: center;
   @media only screen and (min-width: 416px) {
-    margin-top: 160px;
     margin-bottom: 100px;
   }
   @media only screen and (max-width: 414px) {
@@ -118,24 +117,25 @@ const Diensten = (props) => {
   return (
     <Layout>
       {props.pageContext ? (
-        <ServicesWrapper className="services-wrapper">
-          <ServicesHeaderWrapper className="services-header-wrapper">
-            <ServicesHeader className="services-header">
+        <ServicesWrapper>
+          <ServicesHeaderWrapper>
+            <ServicesHeader>
               <div className="services-detail-header">{parse(content)}</div>
             </ServicesHeader>
-            <ServicesContentContainer className="services-content-container">
-              <ServicesContentInnerContainer className="services-content-inner-container">
-                <ServicesContentItem className="services-content-item">
+          </ServicesHeaderWrapper>
+            <ServicesContentContainer>
+              <ServicesContentInnerContainer>
+                <ServicesContentItem>
                   <h2 className="services-item-header primary">
                     {parse(dienstenACF.adviesHeader)}
                   </h2>
                   <p className="services-item-body primary">{parse(dienstenACF.adviesBody)}</p>
                 </ServicesContentItem>
-                <ServicesContentItem className="services-content-item">
+                <ServicesContentItem>
                   <h2 className="services-item-header primary">{parse(dienstenACF.visieHeader)}</h2>
                   <p className="services-item-body primary">{parse(dienstenACF.visieBody)}</p>
                 </ServicesContentItem>
-                <ServicesContentItem className="services-content-item">
+                <ServicesContentItem>
                   <h2 className="services-item-header primary">
                     {parse(dienstenACF.beleidsplanningHeader)}
                   </h2>
@@ -143,7 +143,7 @@ const Diensten = (props) => {
                     {parse(dienstenACF.beleidsplanningBody)}
                   </p>
                 </ServicesContentItem>
-                <ServicesContentItem className="services-content-item">
+                <ServicesContentItem>
                   <h2 className="services-item-header primary">
                     {parse(dienstenACF.aanbestedingenHeader)}
                   </h2>
@@ -151,7 +151,7 @@ const Diensten = (props) => {
                     {parse(dienstenACF.aanbestedingenBody)}
                   </p>
                 </ServicesContentItem>
-                <ServicesContentImage className="services-content-image">
+                <ServicesContentImage>
                   {image?.img && (
                     <GatsbyImage
                       image={image.img}
@@ -160,7 +160,7 @@ const Diensten = (props) => {
                     />
                   )}
                 </ServicesContentImage>
-                <ServicesContentItem className="services-content-item">
+                <ServicesContentItem >
                   <h2 className="services-item-header primary">
                     {parse(dienstenACF.procesmanagementHeader)}
                   </h2>
@@ -168,7 +168,7 @@ const Diensten = (props) => {
                     {parse(dienstenACF.procesmanagementBody)}
                   </p>
                 </ServicesContentItem>
-                <ServicesContentItem className="services-content-item">
+                <ServicesContentItem>
                   <h2 className="services-item-header primary">
                     {parse(dienstenACF.projectmanagementHeader)}
                   </h2>
@@ -176,13 +176,13 @@ const Diensten = (props) => {
                     {parse(dienstenACF.projectmanagementBody)}
                   </p>
                 </ServicesContentItem>
-                <ServicesContentItem className="services-content-item">
+                <ServicesContentItem>
                   <h2 className="services-item-header primary">
                     {parse(dienstenACF.sparringHeader)}
                   </h2>
                   <p className="services-item-body primary">{parse(dienstenACF.sparringBody)}</p>
                 </ServicesContentItem>
-                <ServicesContentItemSecondary className="services-content-secondary">
+                <ServicesContentItemSecondary>
                   <h2 className="services-item-header secondary">
                     {parse(dienstenACF.andereUitdagingHeader)}
                   </h2>
@@ -192,7 +192,6 @@ const Diensten = (props) => {
                 </ServicesContentItemSecondary>
               </ServicesContentInnerContainer>
             </ServicesContentContainer>
-          </ServicesHeaderWrapper>
           <BlogWrapper className="Blog-Wrapper">
             <FeaturedBlog />
           </BlogWrapper>
