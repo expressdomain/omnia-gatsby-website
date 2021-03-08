@@ -601,12 +601,19 @@ body {
 
 .featured-blog-icon {
 	z-index: 1;
-	@media only screen and (min-width: 481px) {
+	@media only screen and (min-width: 769px) {
 		position: relative;
 		width: 117.8px;
 		height: 123.4px;
-		top: 60px;
-		left: 600px;
+		top: 10%;
+		left: 90%;
+	}
+	@media only screen and (min-width: 768px) {
+		position: relative;
+		width: 117.8px;
+		height: 123.4px;
+		top: 10%;
+		left: 80%;
 	}
 	@media only screen and (max-width: 480px) {
 		position: relative;

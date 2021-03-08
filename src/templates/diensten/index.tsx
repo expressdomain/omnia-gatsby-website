@@ -6,10 +6,10 @@ import FeaturedBlog from '../front-page/featured-blog'
 import { GatsbyImage } from 'gatsby-plugin-image'
 
 const ServicesWrapper = styled.div`
-  @media only screen and (min-width: 481px) {
+  @media only screen and (min-width: 1025px) {
     margin-top: 10%;
   }
-  @media only screen and (max-width: 480px) {
+  @media only screen and (max-width: 1024px) {
     margin-top: 5%;
   }
 `
@@ -48,16 +48,23 @@ const ServicesContentContainer = styled.div`
 
 const ServicesContentInnerContainer = styled.div`
   display: grid;
+  @media only screen and (max-width: 480px) {
+    grid-template-columns: 1fr;
+    grid-row-gap: 1.5rem;
+  }
   @media only screen and (min-width: 481px) {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     grid-column-gap: 2rem;
     grid-row-gap: 2rem;
     transform: translateY(-180px);
     max-width: 100%;
   }
-  @media only screen and (max-width: 480px) {
-    grid-template-columns: 1fr;
-    grid-row-gap: 1.5rem;
+  @media only screen and (min-width: 1025px) {
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 2rem;
+    grid-row-gap: 2rem;
+    transform: translateY(-180px);
+    max-width: 100%;
   }
 `
 
@@ -78,7 +85,7 @@ const ServicesContentImage = styled.div`
     box-shadow: 0 12px 24px 0 hsla(0, 0%, 0%, 0.15);
     background-color: hsl(0, 0%, 100%);
   }
-  @media only screen and (max-width: 480px) {
+  @media only screen and (max-width: 768px) {
     display: none;
   }
 `

@@ -51,9 +51,13 @@ const HeroMobileContainer = styled.div`
 
 const ContactHeaderContent = styled.div`
   @media only screen and (min-width: 481px) {
+    height: 425px;
+    max-width: 920px;
+    padding: 3rem 4rem 1rem;
+  }
+  @media only screen and (min-width: 1025px) {
     margin: 0 auto;
     padding: 2rem 13rem;
-    height: 425px;
   }
 `
 
