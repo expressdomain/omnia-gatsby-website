@@ -6,20 +6,20 @@ import { GatsbyImage, StaticImage } from 'gatsby-plugin-image'
 
 const ContactWrapper = styled.div`
   margin-bottom: 10%;
-  @media only screen and (max-width: 414px) {
+  @media only screen and (max-width: 480px) {
     margin-bottom: 0;
     background-color: hsl(247, 69%, 15%);
   }
 `
 
 const DesktopWrapper = styled.div`
-  @media only screen and (max-width: 414px) {
+  @media only screen and (max-width: 480px) {
     display: none;
   }
 `
 
 const MobileWrapper = styled.div`
-  @media only screen and (min-width: 416px) {
+  @media only screen and (min-width: 481px) {
     display: none;
   }
 `
@@ -28,7 +28,7 @@ const ContactHeaderContainer = styled.div`
   background-color: hsl(247, 69%, 15%);
   border-radius: 5px;
   margin-top: 10%;
-  @media only screen and (max-width: 414px) {
+  @media only screen and (max-width: 480px) {
     background-color: transparent;
     margin-top: 0;
   }
@@ -37,7 +37,7 @@ const ContactHeaderContainer = styled.div`
 const ContactHeaderInner = styled.div`
   display: flex;
   flex-flow: row;
-  @media only screen and (max-width: 414px) {
+  @media only screen and (max-width: 480px) {
     flex-flow: column;
   }
 `
@@ -50,10 +50,14 @@ const HeroMobileContainer = styled.div`
 `
 
 const ContactHeaderContent = styled.div`
-  @media only screen and (min-width: 416px) {
+  @media only screen and (min-width: 481px) {
+    height: 425px;
+    max-width: 920px;
+    padding: 3rem 4rem 1rem;
+  }
+  @media only screen and (min-width: 1025px) {
     margin: 0 auto;
     padding: 2rem 13rem;
-    height: 425px;
   }
 `
 

@@ -13,7 +13,7 @@ const BlogWrapper = styled.div`
 const BlogHeaderWrapper = styled.div`
   background-color: hsl(247, 69%, 15%);
   border-radius: 5px;
-  @media only screen and (max-width: 414px) {
+  @media only screen and (max-width: 480px) {
     border-bottom-right-radius: 5px;
     border-bottom-left-radius: 5px;
     border-top-left-radius: 0;
@@ -23,13 +23,13 @@ const BlogHeaderWrapper = styled.div`
 
 const BlogHeader = styled.div`
   color: white;
-  @media only screen and (min-width: 416px) {
+  @media only screen and (min-width: 481px) {
     max-width: 920px;
     margin: 0 auto;
     height: 440px;
     padding: 1rem;
   }
-  @media only screen and (max-width: 414px) {
+  @media only screen and (max-width: 480px) {
     padding: 1rem 0;
   }
 `
@@ -37,7 +37,7 @@ const BlogHeader = styled.div`
 const BlogInnerHeader = styled.div`
   display: flex;
   margin-top: 2rem;
-  @media only screen and (max-width: 414px) {
+  @media only screen and (max-width: 480px) {
     flex-flow: column;
   }
 `
@@ -45,19 +45,19 @@ const BlogInnerHeader = styled.div`
 const BlogContentContainer = styled.div`
   margin-left: auto;
   margin-right: auto;
-  @media only screen and (min-width: 416px) {
+  @media only screen and (min-width: 481px) {
     margin-top: 12.5rem;
     max-width: 60%;
     margin-bottom: 10%;
   }
-  @media only screen and (max-width: 414px) {
+  @media only screen and (max-width: 480px) {
     margin-top: 2rem;
     max-width: 80%;
   }
 `
 
 const BlogText = styled.div`
-  @media only screen and (max-width: 414px) {
+  @media only screen and (max-width: 480px) {
     max-width: 80%;
     margin: 1rem auto;
   }

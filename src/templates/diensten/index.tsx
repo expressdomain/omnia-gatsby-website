@@ -6,31 +6,31 @@ import FeaturedBlog from '../front-page/featured-blog'
 import { GatsbyImage } from 'gatsby-plugin-image'
 
 const ServicesWrapper = styled.div`
-  @media only screen and (min-width: 416px) {
+  @media only screen and (min-width: 1025px) {
     margin-top: 10%;
   }
-  @media only screen and (max-width: 414px) {
+  @media only screen and (max-width: 1024px) {
     margin-top: 5%;
   }
 `
 
 const ServicesHeaderWrapper = styled.div`
-  @media only screen and (min-width: 416px) {
+  @media only screen and (min-width: 481px) {
     background-color: hsl(247, 69%, 15%);
     border-radius: 5px;
   }
-  @media only screen and (max-width: 414px) {
+  @media only screen and (max-width: 480px) {
   }
 `
 
 const ServicesHeader = styled.div`
   color: white;
-  @media only screen and (min-width: 416px) {
+  @media only screen and (min-width: 481px) {
     max-width: 920px;
     /* margin: 0 auto; */
     padding: 3rem 4rem 15rem;
   }
-  @media only screen and (max-width: 414px) {
+  @media only screen and (max-width: 480px) {
     margin: 1rem 3.5rem;
   }
 `
@@ -48,16 +48,23 @@ const ServicesContentContainer = styled.div`
 
 const ServicesContentInnerContainer = styled.div`
   display: grid;
-  @media only screen and (min-width: 416px) {
-    grid-template-columns: repeat(3, 1fr);
+  @media only screen and (max-width: 480px) {
+    grid-template-columns: 1fr;
+    grid-row-gap: 1.5rem;
+  }
+  @media only screen and (min-width: 481px) {
+    grid-template-columns: repeat(2, 1fr);
     grid-column-gap: 2rem;
     grid-row-gap: 2rem;
     transform: translateY(-180px);
     max-width: 100%;
   }
-  @media only screen and (max-width: 414px) {
-    grid-template-columns: 1fr;
-    grid-row-gap: 1.5rem;
+  @media only screen and (min-width: 1025px) {
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 2rem;
+    grid-row-gap: 2rem;
+    transform: translateY(-180px);
+    max-width: 100%;
   }
 `
 
@@ -71,14 +78,14 @@ const ServicesContentItem = styled.div`
 `
 
 const ServicesContentImage = styled.div`
-  @media only screen and (min-width: 416px) {
+  @media only screen and (min-width: 481px) {
     width: 348px;
     height: 348px;
     border-radius: 5px;
     box-shadow: 0 12px 24px 0 hsla(0, 0%, 0%, 0.15);
     background-color: hsl(0, 0%, 100%);
   }
-  @media only screen and (max-width: 414px) {
+  @media only screen and (max-width: 768px) {
     display: none;
   }
 `
@@ -94,10 +101,10 @@ const ServicesContentItemSecondary = styled.div`
 const BlogWrapper = styled.div`
   display: flex;
   place-content: center;
-  @media only screen and (min-width: 416px) {
+  @media only screen and (min-width: 481px) {
     margin-bottom: 100px;
   }
-  @media only screen and (max-width: 414px) {
+  @media only screen and (max-width: 480px) {
     margin-top: 2%;
   }
 `

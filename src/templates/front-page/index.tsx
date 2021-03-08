@@ -7,25 +7,25 @@ import parse from 'html-react-parser'
 import { GatsbyImage } from 'gatsby-plugin-image'
 
 const DesktopWrapper = styled.div`
-  @media only screen and (max-width: 414px) {
+  @media only screen and (max-width: 480px) {
     display: none;
   }
 `
 
 const MobileWrapper = styled.div`
-  @media only screen and (min-width: 416px) {
+  @media only screen and (min-width: 481px) {
     display: none;
   }
 `
 
 const HeroContainer = styled.div`
-  @media only screen and (min-width: 416px) {
+  @media only screen and (min-width: 481px) {
     margin-bottom: 130px;
     margin-left: -230px;
     display: flex;
     flex-flow: row;
   }
-  @media only screen and (max-width: 414px) {
+  @media only screen and (max-width: 480px) {
   }
 `
 
@@ -39,12 +39,12 @@ const HeroHeader = styled.div`
   font-stretch: normal;
   font-style: normal;
   text-align: left;
-  @media only screen and (min-width: 416px) {
+  @media only screen and (min-width: 481px) {
     margin-bottom: 45px;
     padding-top: 146px;
     width: 685px;
   }
-  @media only screen and (max-width: 414px) {
+  @media only screen and (max-width: 480px) {
     background-color: hsl(241, 64%, 15%);
     padding: 1rem 2rem;
     border-bottom-left-radius: 5px;
@@ -59,28 +59,30 @@ const HeroSubTextContainer = styled.div`
 `
 
 const HeroButtonContainer = styled.div`
-  @media only screen and (min-width: 416px) {
+  @media only screen and (min-width: 481px) {
     position: relative;
     top: 95px;
     left: 713px;
     width: fit-content;
     z-index: 1;
   }
-  @media only screen and (max-width: 414px) {
+  @media only screen and (max-width: 480px) {
     display: none;
   }
 `
 
 const UspServicesContainer = styled.div`
   border-radius: 5px;
-  @media only screen and (min-width: 416px) {
+  @media only screen and (min-width: 481px) {
     background-color: #120c42;
     height: 400px;
     width: 1230px;
     padding: 80px 0 0 125px;
   }
-  @media only screen and (max-width: 414px) {
+  @media only screen and (max-width: 480px) {
     padding: 2.75rem 2rem 1rem;
+    display: flex;
+    place-content: center;
   }
 `
 
@@ -88,13 +90,13 @@ const UspServicesInnerContainer = styled.div`
   border-radius: 5px;
   flex-flow: row;
   display: flex;
-  @media only screen and (min-width: 416px) {
+  @media only screen and (min-width: 481px) {
     padding-top: 80px;
   }
 `
 
 const ServicesTextContainer = styled.div`
-  @media only screen and (min-width: 416px) {
+  @media only screen and (min-width: 481px) {
     padding: 37px 55px 0 56px;
     border-radius: 5px;
     box-shadow: 0 12px 24px 0 hsla(0, 0%, 0%, 0.15);
@@ -113,7 +115,7 @@ const ServicesContent = styled.div`
   color: hsl(0, 0%, 100%);
   display: flex;
   flex-flow: row;
-  @media only screen and (max-width: 414px) {
+  @media only screen and (max-width: 480px) {
     flex-flow: column;
     color: hsl(247, 69%, 15%);
   }
@@ -122,12 +124,12 @@ const ServicesContent = styled.div`
 const ServicesButton = styled.div`
   position: relative;
 
-  @media only screen and (min-width: 416px) {
+  @media only screen and (min-width: 481px) {
     top: 26px;
     left: 230px;
     max-width: 138.55px;
   }
-  @media only screen and (max-width: 414px) {
+  @media only screen and (max-width: 480px) {
     max-width: 94.73px;
     top: 10px;
     left: -60px;
@@ -135,7 +137,7 @@ const ServicesButton = styled.div`
 `
 
 const BlogWrapper = styled.div`
-  @media only screen and (min-width: 416px) {
+  @media only screen and (min-width: 481px) {
     margin-top: 160px;
     margin-bottom: 100px;
     display: flex;

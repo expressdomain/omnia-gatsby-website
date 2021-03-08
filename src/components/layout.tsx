@@ -7,7 +7,7 @@ import Header from '../header'
 import styled from '@emotion/styled'
 
 const GlobalWrapper = styled.div`
-  @media only screen and (max-width: 414px) {
+  @media only screen and (max-width: 480px) {
     overflow-y: hidden;
   }
 `

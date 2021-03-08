@@ -6,29 +6,32 @@ import blog_icon from '../../images/blog_icon.png'
 import { GatsbyImage, StaticImage } from 'gatsby-plugin-image'
 
 const BlogInnerWrapper = styled.div`
-  @media only screen and (min-width: 416px) {
+ @media only screen and (max-width: 480px) {
+   height: 375px;
+ }
+  @media only screen and (min-width: 481px) {
     display: flex;
     flex-flow: column;
   }
 `
 
 const BlogInnerContainer = styled.div`
-  @media only screen and (min-width: 416px) {
-    display: flex;
-    flex-flow: row;
-  }
-  @media only screen and (max-width: 414px) {
-    height: 290px;
+  @media only screen and (min-width: 481px) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 4%;
   }
 `
 
 const BlogItem = styled.div`
-  @media only screen and (min-width: 416px) {
-    max-width: 550px;
+  @media only screen and (min-width: 481px) {
     margin-left: 48px;
-    margin-top: 100px;
+    margin-top: 20%;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
   }
-  @media only screen and (max-width: 414px) {
+  @media only screen and (max-width: 480px) {
     position: relative;
     top: -240px;
     padding: 0 30px;
@@ -67,8 +70,9 @@ const FeaturedBlog = () => {
     <>
       {wpPost !== null ? (
         <BlogInnerWrapper>
-          <img src={blog_icon} alt="blog-icon" className="featured-blog-icon" />
           <BlogInnerContainer>
+            <div>
+              <img src={blog_icon} alt="blog-icon" className="featured-blog-icon" />
             {featuredImage.img !== undefined || null ? (
               <GatsbyImage
                 image={featuredImage.img}
@@ -82,6 +86,7 @@ const FeaturedBlog = () => {
                 className="featured-blog-image"
               />
             )}
+            </div>
             <BlogItem>
               <div className="featured-title">{parse(wpPost.title)}</div>
               {wpPost.blogPreview.blogPreview !== null ? (
