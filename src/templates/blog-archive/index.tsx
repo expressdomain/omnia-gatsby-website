@@ -26,7 +26,8 @@ const BlogOverviewHeaderContainer = styled.div`
 
 const OptionsContainer = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
+  margin-top: 2rem;
 `
 
 const BlogOverviewHeaderInner = styled.div`

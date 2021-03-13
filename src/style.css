@@ -876,10 +876,6 @@ body {
   text-transform: lowercase;
 }
 
-.category_option:hover {
-  font-weight: bold;
-}
-
 .category_option:active {
   font-weight: bold;
 }
