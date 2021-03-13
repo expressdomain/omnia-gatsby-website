@@ -24,6 +24,11 @@ const BlogOverviewHeaderContainer = styled.div`
   }
 `
 
+const OptionsContainer = styled.div`
+  display: flex;
+  justify-content: center;
+`
+
 const BlogOverviewHeaderInner = styled.div`
   padding: 3rem 7.375rem 15rem;
   @media only screen and (max-width: 480px) {
@@ -35,7 +40,7 @@ const BlogContainer = styled.div`
   max-width: 990px;
   margin: 0 auto;
   display: grid;
-place-items: center;
+  place-items: center;
   @media only screen and (max-width: 480px) {
     margin: 0 2rem;
   }
@@ -88,11 +93,14 @@ const BlogArchive = (props) => {
 
   const DATA = [...allPosts]
   const LIMIT = 6
+  const START_CAT = 'Alles'
+  const NO_BLOGS_FOUND = 'Geen gerelateerde blogs gevonden.'
 
   const [showMore, setShowMore] = React.useState(true)
   const [filteredList, setFilteredList] = React.useState(DATA)
   const [baseList, setBaseList] = React.useState(slice(DATA, 0, LIMIT))
   const [index, setIndex] = React.useState(LIMIT)
+  const [baseCat, setBaseCat] = React.useState(START_CAT)
 
   const loadMore = () => {
     const newIndex = index + LIMIT
@@ -103,16 +111,18 @@ const BlogArchive = (props) => {
     setShowMore(newShowMore)
   }
 
-  const filterCategory = (value) => {
+  const filterCategory = (category) => {
     const filterBlogs = DATA.filter((blog) =>
-    blog.categories.nodes.map(category => category.id).includes(value)
+      blog.categories.nodes.map(category => category.id).includes(category.id)
     )
-    const newShowMore = LIMIT < (filteredList.length + 1) - 1
+    const newShowMore = LIMIT < (filterBlogs.length + 1) - 1
     setIndex(LIMIT)
     setBaseList(slice(filterBlogs, 0, LIMIT))
     setFilteredList(filterBlogs)
     setShowMore(newShowMore)
+    setBaseCat(category.name)
   }
+
 
   return (
     <Layout>
@@ -122,17 +132,22 @@ const BlogArchive = (props) => {
             {/* <img src={blog_icon} alt="blog-icon" className="related-blog-icon" /> */}
             <BlogOverviewHeaderInner>
               <h1 className="blog-overview-header">{parse(blogOverviewACF.blogOverviewHeader)}</h1>
-              <div style={{display: 'flex'}}>
-                {categories.nodes.map((category) => <p onClick={() => filterCategory(category.id)} style={{ color: 'white', marginRight: '8px' }}>{category.name}</p>)}
-              </div>
+              <OptionsContainer>
+                {categories && categories.nodes.map((category) =>
+                  <span onClick={() => filterCategory(category)} className={`category_option ${baseCat === category.name && 'option--selected'}`}>{category.name}</span>
+                )}
+              </OptionsContainer>
             </BlogOverviewHeaderInner>
           </BlogOverviewHeaderContainer>
           <BlogContainer>
             <BlogInnerContainer>
-              {allPosts !== undefined || null ? (
+              {allPosts !== undefined || null ?
+                (baseList.length > 0 ? (
                 baseList.map((post) => <BlogPreview post={post} />)
-              ) : (
-                <pre style={{ color: 'white' }}>No related blog items found.</pre>
+                ) : (
+                  <pre style={{ color: 'white' }}>{NO_BLOGS_FOUND}</pre>
+                )) : (
+                <pre style={{ color: 'white' }}>{NO_BLOGS_FOUND}</pre>
               )}
             </BlogInnerContainer>
             <ButtonContainer>
@@ -147,7 +162,7 @@ const BlogArchive = (props) => {
           </BlogContainer>
         </BlogWrapper>
       ) : (
-        <div>Something went wrong</div>
+        <div>{NO_BLOGS_FOUND}</div>
       )}
     </Layout>
   )
