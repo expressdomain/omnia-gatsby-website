@@ -123,6 +123,8 @@ const BlogArchive = (props) => {
     setBaseCat(category.name)
   }
 
+  console.log(props.pageContext)
+
 
   return (
     <Layout>
