@@ -82,23 +82,35 @@ const BlogArchive = (props) => {
     pageContext: {
       page: { blogOverviewACF },
       allPosts,
+      categories
     },
   } = props
 
-  const LENGTH = allPosts.length + 1
   const DATA = [...allPosts]
   const LIMIT = 6
 
   const [showMore, setShowMore] = React.useState(true)
-  const [list, setList] = React.useState(slice(DATA, 0, LIMIT))
+  const [filteredList, setFilteredList] = React.useState(DATA)
+  const [baseList, setBaseList] = React.useState(slice(DATA, 0, LIMIT))
   const [index, setIndex] = React.useState(LIMIT)
 
   const loadMore = () => {
     const newIndex = index + LIMIT
-    const newShowMore = newIndex < LENGTH - 1
-    const newList = concat(list, slice(DATA, index, newIndex))
+    const newShowMore = newIndex < (filteredList.length + 1) - 1
+    const newList = concat(baseList, slice(filteredList, index, newIndex))
     setIndex(newIndex)
-    setList(newList)
+    setBaseList(newList)
+    setShowMore(newShowMore)
+  }
+
+  const filterCategory = (value) => {
+    const filterBlogs = DATA.filter((blog) =>
+    blog.categories.nodes.map(category => category.id).includes(value)
+    )
+    const newShowMore = LIMIT < (filteredList.length + 1) - 1
+    setIndex(LIMIT)
+    setBaseList(slice(filterBlogs, 0, LIMIT))
+    setFilteredList(filterBlogs)
     setShowMore(newShowMore)
   }
 
@@ -110,12 +122,15 @@ const BlogArchive = (props) => {
             {/* <img src={blog_icon} alt="blog-icon" className="related-blog-icon" /> */}
             <BlogOverviewHeaderInner>
               <h1 className="blog-overview-header">{parse(blogOverviewACF.blogOverviewHeader)}</h1>
+              <div style={{display: 'flex'}}>
+                {categories.nodes.map((category) => <p onClick={() => filterCategory(category.id)} style={{ color: 'white', marginRight: '8px' }}>{category.name}</p>)}
+              </div>
             </BlogOverviewHeaderInner>
           </BlogOverviewHeaderContainer>
           <BlogContainer>
             <BlogInnerContainer>
               {allPosts !== undefined || null ? (
-                list.map((post) => <BlogPreview post={post} />)
+                baseList.map((post) => <BlogPreview post={post} />)
               ) : (
                 <pre style={{ color: 'white' }}>No related blog items found.</pre>
               )}
