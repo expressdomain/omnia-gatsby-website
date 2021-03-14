@@ -26,7 +26,7 @@ const HeroContainer = styled.div`
     flex-flow: row;
   }
   @media only screen and (max-width: 1024px) {
-    margin-bottom: 130px;
+    margin-bottom: 60px;
     flex-flow: row;
   }
   @media only screen and (max-width: 768px) {
@@ -91,13 +91,38 @@ const HeroButtonContainer = styled.div`
   }
 `
 
+const UspServicesWrapper = styled.div`
+  @media only screen and (max-width: 1024px) {
+    display: flex;
+    justify-content: center;
+  }
+`
+
 const UspServicesContainer = styled.div`
   border-radius: 5px;
-  @media only screen and (min-width: 481px) {
+  @media only screen and (min-width: 1400px) {
     background-color: #120c42;
     height: 400px;
     width: 1230px;
     padding: 80px 0 0 125px;
+  }
+  @media only screen and (max-width: 1200px) {
+    background-color: #120c42;
+    height: 400px;
+    width: 1230px;
+    padding: 80px 0 0 125px;
+  }
+  @media only screen and (max-width: 1024px) {
+    background-color: #120c42;
+    height: 220px;
+    width: 820px;
+    padding: 40px 0 0 40px;
+  }
+  @media only screen and (max-width: 768px) {
+    background-color: #120c42;
+    height: 150px;
+    width: 600px;
+    padding: 2.125rem 0 0 2rem;
   }
   @media only screen and (max-width: 480px) {
     padding: 2.75rem 2rem 1rem;
@@ -110,17 +135,39 @@ const UspServicesInnerContainer = styled.div`
   border-radius: 5px;
   flex-flow: row;
   display: flex;
-  @media only screen and (min-width: 481px) {
+  @media only screen and (min-width: 1025px) {
     padding-top: 80px;
+  }
+  @media only screen and (max-width: 1024px) {
+    padding-top: 3.3rem;
+  }
+  @media only screen and (max-width: 768px) {
+    padding-top: 2.5rem;
   }
 `
 
 const ServicesTextContainer = styled.div`
-  @media only screen and (min-width: 481px) {
+  @media only screen and (min-width: 1025px) {
     padding: 37px 55px 0 56px;
     border-radius: 5px;
     box-shadow: 0 12px 24px 0 hsla(0, 0%, 0%, 0.15);
     background-color: hsl(264, 71%, 43%);
+  }
+  @media only screen and (max-width: 1024px) {
+    padding: 22px 22px 0 42px;
+    border-radius: 5px;
+    box-shadow: 0 12px 24px 0 hsla(0, 0%, 0%, 0.15);
+    background-color: hsl(264, 71%, 43%);
+    height: 160px;
+  }
+  @media only screen and (max-width: 768px) {
+    padding: 16px 0 0 32px;
+    border-radius: 5px;
+    box-shadow: 0 12px 24px 0 hsla(0, 0%, 0%, 0.15);
+    background-color: hsl(264, 71%, 43%);
+    height: 130px;
+  }
+  @media only screen and (max-width: 480px) {
   }
 `
 
@@ -143,23 +190,34 @@ const ServicesContent = styled.div`
 
 const ServicesButton = styled(Link)`
   position: relative;
-
-  @media only screen and (min-width: 481px) {
+  @media only screen and (min-width: 1025px) {
     top: 26px;
     left: 230px;
-    max-width: 138.55px;
+  }
+  @media only screen and (max-width: 1024px) {
+    top: 8px;
+    left: 230px;
+  }
+  @media only screen and (max-width: 768px) {
+    top: -10px;
+    left: 166px;
   }
   @media only screen and (max-width: 480px) {
-    max-width: 94.73px;
     top: 10px;
     left: -60px;
   }
 `
 
 const BlogWrapper = styled.div`
-  @media only screen and (min-width: 481px) {
-    margin-top: 160px;
+  @media only screen and (max-width: 1024px) {
+    margin-top: 100px;
     margin-bottom: 100px;
+    display: flex;
+    place-content: center;
+  }
+  @media only screen and (max-width: 480px) {
+    margin-top: 0;
+    margin-bottom: 0;
     display: flex;
     place-content: center;
   }
@@ -223,6 +281,7 @@ const Homepage = (props) => {
                 </HeroContainer>
               </DesktopWrapper>
 
+              <UspServicesWrapper>
               <UspServicesContainer>
                 <h2 className="usp-header">{parse(homepageACF.uspHeader)}</h2>
                 <UspServicesInnerContainer>
@@ -250,7 +309,8 @@ const Homepage = (props) => {
                     </ServicesButton>
                   </ServicesTextContainer>
                 </UspServicesInnerContainer>
-              </UspServicesContainer>
+                </UspServicesContainer>
+              </UspServicesWrapper>
               <BlogWrapper className="Blog-Wrapper">
                 <FeaturedBlog />
               </BlogWrapper>

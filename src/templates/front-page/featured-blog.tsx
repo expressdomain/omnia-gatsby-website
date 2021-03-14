@@ -20,12 +20,13 @@ const BlogInnerContainer = styled.div`
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-column-gap: 4%;
+    padding: 0 5rem;
   }
 `
 
 const BlogItem = styled.div`
   @media only screen and (min-width: 481px) {
-    margin-left: 48px;
+    /* margin-left: 48px; */
     margin-top: 20%;
     display: flex;
     flex-flow: column;
@@ -88,9 +89,9 @@ const FeaturedBlog = () => {
               )}
             </div>
             <BlogItem>
-              <div className="featured-title">{parse(wpPost.title)}</div>
+              <h3 className="featured-title">{parse(wpPost.title)}</h3>
               {wpPost.blogPreview.blogPreview !== null ? (
-                <div className="featured-excerpt">{parse(wpPost.blogPreview.blogPreview)}</div>
+                <p className="featured-excerpt">{parse(wpPost.blogPreview.blogPreview)}</p>
               ) : (
                 <div className="featured-excerpt">
                   <pre>No Preview found.</pre>

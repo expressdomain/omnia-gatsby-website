@@ -385,10 +385,14 @@ body {
 	box-shadow: 0 12px 24px 0 hsla(0, 0%, 0%, 0.15);
 	cursor: pointer;
 	transition: 0.3s ease-in-out;
-	@media only screen and (min-width: 481px) {
-		background-color: hsl(247, 69%, 15%);
+	background-color: hsl(247, 69%, 15%);
+	@media only screen and (min-width: 769px) {
 		max-width: max-content;
 		padding: 16px 20px 16.4px;
+	}
+	@media only screen and (max-width: 768px) {
+		max-width: max-content;
+		padding: 8px 13px 8.4px;
 	}
 	@media only screen and (max-width: 480px) {
 		background-color: hsl(264, 71%, 43%);
@@ -407,8 +411,11 @@ body {
 	text-align: left;
 	color: hsl(0, 0%, 100%);
 	text-decoration: none;
-	@media only screen and (min-width: 481px) {
+	@media only screen and (min-width: 769px) {
 		font-size: 18px;
+	}
+	@media only screen and (max-width: 768px) {
+		font-size: 12px;
 	}
 	@media only screen and (max-width: 480px) {
 		font-size: 12px;
@@ -567,9 +574,22 @@ body {
 	span {
 		font-weight: bold;
 	}
-	@media only screen and (min-width: 481px) {
+	@media only screen and (min-width: 1025px) {
 		font-size: 48px;
 		width: 840px;
+	}
+	@media only screen and (max-width: 1024px) {
+		font-size: 29px;
+		width: 580px;
+		line-height: 1.14;
+  		letter-spacing: 0.44px;
+		margin-left: 3rem;
+	}
+	@media only screen and (max-width: 768px) {
+		font-size: 22px;
+		width: 460px;
+		line-height: 1.14;
+		letter-spacing: 0.33px;
 	}
 	@media only screen and (max-width: 480px) {
 		display: none;
@@ -586,9 +606,17 @@ body {
 	color: hsl(0, 0%, 100%);
 	margin-top: 0;
 
-	@media only screen and (min-width: 481px) {
+	@media only screen and (min-width: 1025px) {
 		font-size: 40px;
 		margin-bottom: 30px;
+	}
+	@media only screen and (max-width: 1024px) {
+		font-size: 22px;
+		margin-bottom: 20px;
+	}
+	@media only screen and (max-width: 768px) {
+		font-size: 17px;
+		margin-bottom: 12px;
 	}
 	@media only screen and (max-width: 480px) {
 		font-size: 15px;
@@ -616,14 +644,17 @@ body {
 }
 
 .bullet-list > ul > li {
-	@media only screen and (max-width: 480px) {
+	@media only screen and (max-width: 1024px) {
 		margin-bottom: 6px;
 	}
 }
 
 .bullet-list-margin {
-	@media only screen and (min-width: 481px) {
+	@media only screen and (min-width: 769px) {
 		margin-right: 80px;
+	}
+	@media only screen and (max-width: 768px) {
+		margin-right: 14px;
 	}
 	@media only screen and (max-width: 480px) {
 		margin-right: 0;
@@ -633,9 +664,19 @@ body {
 .services-image {
 	border-radius: 5px;
 	box-shadow: 0 12px 24px 0 rgba(0, 0, 0, 0.15);
-	@media only screen and (min-width: 481px) {
+	@media only screen and (min-width: 1025px) {
 		width: 280px;
 		height: 280px;
+		margin-right: 33px;
+	}
+	@media only screen and (max-width: 1024px) {
+		width: 179.9px;
+		height: 179.9px;
+		margin-right: 33px;
+	}
+	@media only screen and (max-width: 768px) {
+		width: 135.9px;
+		height: 135.9px;
 		margin-right: 33px;
 	}
 	@media only screen and (max-width: 480px) {
@@ -647,7 +688,13 @@ body {
 
 .featured-blog-image {
 	border-radius: 5px;
-	@media only screen and (min-width: 481px) {
+	@media only screen and (min-width: 769px) {
+		width: 380px;
+		height: 380px;
+	}
+	@media only screen and (max-width: 768px) {
+		width: 310px;
+		height: 310px;
 	}
 	@media only screen and (max-width: 480px) {
 		width: auto;
@@ -657,24 +704,31 @@ body {
 
 .featured-blog-icon {
 	z-index: 1;
-	@media only screen and (min-width: 769px) {
+	@media only screen and (min-width: 1025px) {
 		position: relative;
 		width: 117.8px;
 		height: 123.4px;
 		top: 10%;
 		left: 90%;
 	}
-	@media only screen and (min-width: 768px) {
+	@media only screen and (max-width: 1024px) {
 		position: relative;
-		width: 117.8px;
-		height: 123.4px;
+		width: 56.6px;
+  		height: 59.3px;
+		top: 8%;
+		left: 85%;
+	}
+	@media only screen and (max-width: 768px) {
+		position: relative;
+		width: 56.6px;
+  		height: 59.3px;
 		top: 10%;
-		left: 80%;
+		left: 90%;
 	}
 	@media only screen and (max-width: 480px) {
 		position: relative;
-		width: 73px;
-		height: 76.5px;
+		width: 56.6px;
+  		height: 59.3px;
 		top: 40px;
 		left: 30px;
 	}
@@ -689,19 +743,29 @@ body {
 	letter-spacing: 0.45px;
 	text-align: left;
 	color: hsl(247, 69%, 15%);
+	margin: 0;
+	@media only screen and (max-width: 768px) {
+		font-size: 18px;
+	}
+	@media only screen and (max-width: 480px) {
+		display: none;
+	}
 }
 
 .featured-excerpt {
+	font-weight: 300;
+	font-stretch: normal;
+	font-style: normal;
+	line-height: 1.5;
+	letter-spacing: 0.3px;
+	text-align: left;
+	color: hsl(250, 49%, 33%);
+	margin: 1rem 0;
 	@media only screen and (min-width: 481px) {
 		font-size: 20px;
-		font-weight: 300;
-		font-stretch: normal;
-		font-style: normal;
-		line-height: 1.5;
-		letter-spacing: 0.3px;
-		text-align: left;
-		color: hsl(250, 49%, 33%);
-		margin: 1rem 0;
+	}
+	@media only screen and (max-width: 768px) {
+		font-size: 14px;
 	}
 	@media only screen and (max-width: 480px) {
 		display: none;
