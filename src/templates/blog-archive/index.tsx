@@ -5,6 +5,7 @@ import styled from '@emotion/styled'
 import BlogPreview from '../../components/blog-preview'
 import blog_icon from '../../images/blog_icon.png'
 import { slice, concat } from 'lodash'
+import Category from './category'
 
 const BlogWrapper = styled.div`
   /* margin-bottom: 10%; */
@@ -24,6 +25,15 @@ const BlogOverviewHeaderContainer = styled.div`
   }
 `
 
+const OptionsContainer = styled.div`
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 2rem;
+  @media only screen and (max-width: 767px) {
+    display: none;
+  }
+`
+
 const BlogOverviewHeaderInner = styled.div`
   padding: 3rem 7.375rem 15rem;
   @media only screen and (max-width: 480px) {
@@ -35,7 +45,7 @@ const BlogContainer = styled.div`
   max-width: 990px;
   margin: 0 auto;
   display: grid;
-place-items: center;
+  place-items: center;
   @media only screen and (max-width: 480px) {
     margin: 0 2rem;
   }
@@ -82,25 +92,58 @@ const BlogArchive = (props) => {
     pageContext: {
       page: { blogOverviewACF },
       allPosts,
+      categories,
     },
   } = props
 
-  const LENGTH = allPosts.length + 1
   const DATA = [...allPosts]
   const LIMIT = 6
+  const START_CAT = 'Alles'
+  const NO_BLOGS_FOUND = 'Geen gerelateerde blogs gevonden.'
 
   const [showMore, setShowMore] = React.useState(true)
-  const [list, setList] = React.useState(slice(DATA, 0, LIMIT))
+  const [filteredList, setFilteredList] = React.useState(DATA)
+  const [baseList, setBaseList] = React.useState(slice(DATA, 0, LIMIT))
   const [index, setIndex] = React.useState(LIMIT)
+  // const [selectedCat, setSelectedCat] = React.useState(START_CAT)
+  const [selected, setSelected] = React.useState(START_CAT)
 
   const loadMore = () => {
     const newIndex = index + LIMIT
-    const newShowMore = newIndex < LENGTH - 1
-    const newList = concat(list, slice(DATA, index, newIndex))
+    const newShowMore = newIndex < filteredList.length + 1 - 1
+    const newList = concat(baseList, slice(filteredList, index, newIndex))
     setIndex(newIndex)
-    setList(newList)
+    setBaseList(newList)
     setShowMore(newShowMore)
   }
+
+  const filterCategory = (category) => {
+    const filterBlogs = DATA.filter((blog) =>
+      blog.categories.nodes.map((category) => category.id).includes(category.id)
+    )
+    const newShowMore = LIMIT < filterBlogs.length + 1 - 1
+    setIndex(LIMIT)
+    setBaseList(slice(filterBlogs, 0, LIMIT))
+    setFilteredList(filterBlogs)
+    setShowMore(newShowMore)
+  }
+
+  const filteredCategories = props.pageContext?.categories.nodes.filter(
+    (data) => data.name != 'Featured' && data.name != 'Geen categorie'
+  )
+
+  const sortedCategories = filteredCategories.sort((a, b) => {
+    let fa = a.name.toLowerCase(),
+      fb = b.name.toLowerCase()
+
+    if (fa < fb) {
+      return -1
+    }
+    if (fa > fb) {
+      return 1
+    }
+    return 0
+  })
 
   return (
     <Layout>
@@ -110,14 +153,28 @@ const BlogArchive = (props) => {
             {/* <img src={blog_icon} alt="blog-icon" className="related-blog-icon" /> */}
             <BlogOverviewHeaderInner>
               <h1 className="blog-overview-header">{parse(blogOverviewACF.blogOverviewHeader)}</h1>
+              <OptionsContainer>
+                {sortedCategories &&
+                  sortedCategories.map((category) => (
+                    <div key={category.id} onClick={() => filterCategory(category)}>
+                      <div onClick={() => setSelected(category.name)}>
+                        <Category catData={category} selected={selected} />
+                      </div>
+                    </div>
+                  ))}
+              </OptionsContainer>
             </BlogOverviewHeaderInner>
           </BlogOverviewHeaderContainer>
           <BlogContainer>
             <BlogInnerContainer>
               {allPosts !== undefined || null ? (
-                list.map((post) => <BlogPreview post={post} />)
+                baseList.length > 0 ? (
+                  baseList.map((post) => <BlogPreview key={post.id} post={post} />)
+                ) : (
+                  <pre style={{ color: 'white' }}>{NO_BLOGS_FOUND}</pre>
+                )
               ) : (
-                <pre style={{ color: 'white' }}>No related blog items found.</pre>
+                <pre style={{ color: 'white' }}>{NO_BLOGS_FOUND}</pre>
               )}
             </BlogInnerContainer>
             <ButtonContainer>
@@ -132,7 +189,7 @@ const BlogArchive = (props) => {
           </BlogContainer>
         </BlogWrapper>
       ) : (
-        <div>Something went wrong</div>
+        <div>{NO_BLOGS_FOUND}</div>
       )}
     </Layout>
   )

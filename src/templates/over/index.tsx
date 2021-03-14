@@ -156,11 +156,11 @@ const Over = (props) => {
                 <HeroMobileContainer>
                   {overHeroImage?.img && (
                     <GatsbyImage
-                    image={overHeroImage.img}
-                    alt={overHeroImage.alt}
-                    className="over-hero-image"
+                      image={overHeroImage.img}
+                      alt={overHeroImage.alt}
+                      className="over-hero-image"
                     />
-                    )}
+                  )}
                 </HeroMobileContainer>
                 <h1 className="over-page-header">{parse(overACF.overHeroHeader)}</h1>
                 <p className="over-page-subtext">{parse(overACF.overHeroBody)}</p>

@@ -36,6 +36,17 @@ query GET_BLOG_PAGE {
           }
         }
       }
+      categories {
+        nodes {
+          id
+        }
+      }
+    }
+  }
+  categories: allWpCategory {
+    nodes {
+      name
+      id
     }
   }
 }
@@ -51,27 +62,28 @@ module.exports = async ( { actions, graphql } ) => {
 		return await graphql( GET_BLOG_PAGE )
 			.then(({ data }) => {
 				
-                const { page, posts } = data;
+        const { page, posts, categories } = data;
 
 				let allThePosts = [];
 				posts && posts.nodes.map( post => {
 				
 					allThePosts.push(post);
 				} );
-				return { page: page, allPosts: allThePosts };
+				return { page: page, allPosts: allThePosts, categories: categories };
 			} );
 
 
 	};
 
 	// When the above fetchPosts is resolved, then create page and pass the data as pageContext to the page template.
-	await fetchPosts().then( ( { page, allPosts } ) => {
+	await fetchPosts().then( ( { page, allPosts, categories } ) => {
 		createPage( {
 			path: `/blog/`,
 			component: slash( blogArchiveTemplate ),
 			context: {
 				page,
-				allPosts
+        allPosts,
+        categories,
 			},
 		},
 		);

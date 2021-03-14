@@ -866,6 +866,24 @@ body {
   }
 }
 
+.category_option {
+  color: white;
+  margin-right: 8px;
+  font-size: 20px;
+  cursor: pointer;
+  -webkit-transition: ease-in 0.2s;
+  transition: ease-in 0.2s;
+  text-transform: lowercase;
+}
+
+.category_option:active {
+  font-weight: bold;
+}
+
+.option--selected {
+  font-weight: bold;
+}
+
 @media only screen and (min-width: 481px) {
   .blog-preview-image {
     width: 310px;

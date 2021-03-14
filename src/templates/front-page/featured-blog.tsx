@@ -6,9 +6,9 @@ import blog_icon from '../../images/blog_icon.png'
 import { GatsbyImage, StaticImage } from 'gatsby-plugin-image'
 
 const BlogInnerWrapper = styled.div`
- @media only screen and (max-width: 480px) {
-   height: 375px;
- }
+  @media only screen and (max-width: 480px) {
+    height: 375px;
+  }
   @media only screen and (min-width: 481px) {
     display: flex;
     flex-flow: column;
@@ -73,19 +73,19 @@ const FeaturedBlog = () => {
           <BlogInnerContainer>
             <div>
               <img src={blog_icon} alt="blog-icon" className="featured-blog-icon" />
-            {featuredImage.img !== undefined || null ? (
-              <GatsbyImage
-                image={featuredImage.img}
-                alt={featuredImage.alt}
-                className="featured-blog-image"
-              />
-            ) : (
-              <StaticImage
-                src="../../images/featured_blog_placeholder.png"
-                alt="placeholder"
-                className="featured-blog-image"
-              />
-            )}
+              {featuredImage.img !== undefined || null ? (
+                <GatsbyImage
+                  image={featuredImage.img}
+                  alt={featuredImage.alt}
+                  className="featured-blog-image"
+                />
+              ) : (
+                <StaticImage
+                  src="../../images/featured_blog_placeholder.png"
+                  alt="placeholder"
+                  className="featured-blog-image"
+                />
+              )}
             </div>
             <BlogItem>
               <div className="featured-title">{parse(wpPost.title)}</div>
