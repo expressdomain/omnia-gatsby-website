@@ -110,17 +110,17 @@ const Homepage = (props) => {
                   <HeroMobileContainer>
                     {gMapsImage.img !== undefined || null ? (
                       <GatsbyImage
-                      image={gMapsImage.img}
-                      alt={gMapsImage.alt}
-                      className="contact-location-image"
+                        image={gMapsImage.img}
+                        alt={gMapsImage.alt}
+                        className="contact-location-image"
                       />
-                      ) : (
-                        <StaticImage
+                    ) : (
+                      <StaticImage
                         src="../../images/featured_blog_placeholder.png"
                         alt="placeholder"
                         className="contact-location-image"
-                        />
-                        )}
+                      />
+                    )}
                   </HeroMobileContainer>
                   <h1 className="contact-header">{parse(contactACF.contactHeader)}</h1>
                   <p className="contact-body-text">{parse(content)}</p>

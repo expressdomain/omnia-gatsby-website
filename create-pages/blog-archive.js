@@ -63,8 +63,6 @@ module.exports = async ( { actions, graphql } ) => {
 			.then(({ data }) => {
 				
         const { page, posts, categories } = data;
-        
-        console.log(data)
 
 				let allThePosts = [];
 				posts && posts.nodes.map( post => {
