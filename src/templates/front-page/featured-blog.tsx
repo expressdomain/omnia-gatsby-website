@@ -96,12 +96,10 @@ const FeaturedBlog = () => {
                   <pre>No Preview found.</pre>
                 </div>
               )}
-              <Link to={`/blog${ wpPost.uri }`}>
-              <button className="lees-verder-button">
-                <span className="lees-verder-link">
-                  Lees verder
-                </span>
-              </button>
+              <Link to={`/blog${wpPost.uri}`}>
+                <button className="lees-verder-button">
+                  <span className="lees-verder-link">Lees verder</span>
+                </button>
               </Link>
             </BlogItem>
           </BlogInnerContainer>

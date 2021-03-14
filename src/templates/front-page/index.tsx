@@ -19,11 +19,18 @@ const MobileWrapper = styled.div`
 `
 
 const HeroContainer = styled.div`
-  @media only screen and (min-width: 481px) {
+  display: flex;
+  @media only screen and (min-width: 1025px) {
     margin-bottom: 130px;
     margin-left: -230px;
-    display: flex;
     flex-flow: row;
+  }
+  @media only screen and (max-width: 1024px) {
+    margin-bottom: 130px;
+    flex-flow: row;
+  }
+  @media only screen and (max-width: 768px) {
+    flex-flow: column-reverse;
   }
   @media only screen and (max-width: 480px) {
   }
@@ -32,17 +39,25 @@ const HeroContainer = styled.div`
 const HeroInnerContainer = styled.div`
   padding: 0 4rem;
   background-color: hsl(247, 69%, 15%);
+  @media only screen and (max-width: 768px) {
+    padding: 0 7.8rem;
+  }
 `
 
 const HeroHeader = styled.div`
   font-weight: bold;
   font-stretch: normal;
   font-style: normal;
-  text-align: left;
-  @media only screen and (min-width: 481px) {
+  /* text-align: left; */
+  @media only screen and (min-width: 1025px) {
     margin-bottom: 45px;
     padding-top: 146px;
     width: 685px;
+  }
+  @media only screen and (max-width: 1024px) {
+    margin-bottom: 1.6rem;
+    padding-top: 5rem;
+    /* width: 685px; */
   }
   @media only screen and (max-width: 480px) {
     background-color: hsl(241, 64%, 15%);
@@ -55,18 +70,23 @@ const HeroHeader = styled.div`
 
 const HeroSubTextContainer = styled.div`
   display: flex;
-  justify-content: flex-end;
+  @media only screen and (min-width: 1025px) {
+    justify-content: flex-end;
+  }
+  @media only screen and (max-width: 1024px) {
+    justify-content: flex-start;
+  }
 `
 
 const HeroButtonContainer = styled.div`
-  @media only screen and (min-width: 481px) {
+  @media only screen and (min-width: 1025px) {
     position: relative;
     top: 95px;
     left: 713px;
     width: fit-content;
     z-index: 1;
   }
-  @media only screen and (max-width: 480px) {
+  @media only screen and (max-width: 1024px) {
     display: none;
   }
 `
@@ -225,9 +245,7 @@ const Homepage = (props) => {
                     </ServicesContent>
                     <ServicesButton to={'/diensten/'}>
                       <button className="lees-verder-button">
-                        <span className="lees-verder-link">
-                          Lees verder
-                        </span>
+                        <span className="lees-verder-link">Lees verder</span>
                       </button>
                     </ServicesButton>
                   </ServicesTextContainer>

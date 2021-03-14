@@ -434,8 +434,19 @@ body {
 
 //Homepage styles
 .hero-image {
-	@media only screen and (min-width: 481px) {
+	// min-width: 950px;
+	@media only screen and (min-width: 1025px) {
 		min-width: 950px;
+	}
+	@media only screen and (max-width: 1024px) {
+		width: 567px;
+		height: auto;
+		overflow-x: hidden;
+	}
+	@media only screen and (max-width: 768px) {
+		width: auto;
+		height: auto;
+		border-radius: 5px;
 	}
 	@media only screen and (max-width: 480px) {
 		width: auto;
@@ -447,10 +458,20 @@ body {
 .hero-small {
 	margin-bottom: 0;
 	margin-top: 0;
-	@media only screen and (min-width: 481px) {
+	@media only screen and (min-width: 1025px) {
 		font-size: 35px;
 		color: var(--color-heading-white);
 		text-align: right;
+	}
+	@media only screen and (max-width: 1024px) {
+		font-size: 17px;
+		color: var(--color-heading-white);
+		text-align: right;
+	}
+	@media only screen and (max-width: 768px) {
+		font-size: 21px;
+		color: var(--color-heading-white);
+		text-align: left;
 	}
 	@media only screen and (max-width: 480px) {
 		font-size: 14px;
@@ -467,9 +488,18 @@ body {
 		color: #fd9c00;
 		font-style: italic;
 	}
-	@media only screen and (min-width: 481px) {
+	@media only screen and (min-width: 1025px) {
 		font-size: 52px;
 		text-align: right;
+	}
+	@media only screen and (max-width: 1024px) {
+		font-size: 26px;
+		text-align: right;
+		width: 340px;
+	}
+	@media only screen and (max-width: 768px) {
+		font-size: 32px;
+		text-align: left;
 	}
 	@media only screen and (max-width: 480px) {
 		font-size: 21px;
@@ -485,10 +515,25 @@ body {
 	letter-spacing: 0.3px;
 	text-align: left;
 	color: white;
-	@media only screen and (min-width: 481px) {
+	@media only screen and (min-width: 1025px) {
 		font-size: 20px;
 		width: 520px;
 		text-align: right;
+	}
+	@media only screen and (max-width: 1024px) {
+		font-size: 18px;
+		width: 330px;
+		text-align: right;
+		line-height: 1.11;
+  		letter-spacing: 0.27px;
+	}
+	@media only screen and (max-width: 768px) {
+		font-size: 18px;
+		text-align: left;
+		line-height: 1.11;
+		letter-spacing: 0.27px;
+		width: auto;
+		padding-bottom: 5rem;
 	}
 	@media only screen and (max-width: 480px) {
 		padding: 1rem 0;

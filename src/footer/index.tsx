@@ -149,10 +149,7 @@ const Footer = () => {
                   </a>
                 </p>
                 <p>
-                  <a
-                    className="footer-link"
-                    href={`mailto:${ wpFooterMenu.page.contactACF?.email}`}
-                  >
+                  <a className="footer-link" href={`mailto:${wpFooterMenu.page.contactACF?.email}`}>
                     {parse(wpFooterMenu.page.contactACF?.email)}
                   </a>
                 </p>
@@ -179,7 +176,7 @@ const Footer = () => {
             <img src={logo} width={119} />
           </Link>
           <MobileInner>
-            <a className="footer-link" href={`${ wpFooterMenu.page.contactACF?.linkedin }`}>
+            <a className="footer-link" href={`${wpFooterMenu.page.contactACF?.linkedin}`}>
               <FaLinkedin style={{ marginTop: '0.5rem' }} size={26} />
             </a>
             <MobileContactWrapper>
@@ -188,7 +185,7 @@ const Footer = () => {
                   <p>
                     <a
                       className="footer-link"
-                      href={`tel:${ wpFooterMenu.page.contactACF?.telephone }`}
+                      href={`tel:${wpFooterMenu.page.contactACF?.telephone}`}
                     >
                       {parse(wpFooterMenu.page.contactACF?.telephone)}
                     </a>
@@ -196,7 +193,7 @@ const Footer = () => {
                   <p>
                     <a
                       className="footer-link"
-                      href={`mailto:${ wpFooterMenu.page.contactACF?.email }`}
+                      href={`mailto:${wpFooterMenu.page.contactACF?.email}`}
                     >
                       {parse(wpFooterMenu.page.contactACF?.email)}
                     </a>
