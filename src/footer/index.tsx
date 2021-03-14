@@ -83,11 +83,11 @@ const FooterMenu = styled.div`
     text-transform: lowercase;
     font-size: 20px;
   }
-`
 
-// const Logo = styled.img`
-//   margin-right: 13rem;
-// `
+  a:hover {
+    color: #d1dce5;
+  }
+`
 
 const NO_DETAILS = 'No details loaded.'
 
@@ -135,22 +135,29 @@ const Footer = () => {
                 <p>{parse(wpFooterMenu.page.contactACF?.personName)}</p>
                 <p>{parse(wpFooterMenu.page.contactACF?.street)}</p>
                 <p>{parse(wpFooterMenu.page.contactACF?.zipCity)}</p>
-                <a style={{ color: 'white' }} href={wpFooterMenu.page.contactACF?.linkedIn}>
+                <a className="footer-link" href={`${wpFooterMenu.page.contactACF?.linkedin}`}>
                   <FaLinkedin style={{ marginTop: '0.5rem' }} size={26} />
                 </a>
               </FooterLeft>
               <FooterRight className="footer-left">
                 <p>
                   <a
-                    style={{ color: 'white', textDecoration: 'none' }}
+                    className="footer-link"
                     href={`tel:${wpFooterMenu.page.contactACF?.telephone}`}
                   >
                     {parse(wpFooterMenu.page.contactACF?.telephone)}
                   </a>
                 </p>
-                <p>{parse(wpFooterMenu.page.contactACF?.email)}</p>
-                <p>{wpFooterMenu.page.contactACF?.CoC}</p>
-                <p>{wpFooterMenu.page.contactACF?.Vat}</p>
+                <p>
+                  <a
+                    className="footer-link"
+                    href={`mailto:${ wpFooterMenu.page.contactACF?.email}`}
+                  >
+                    {parse(wpFooterMenu.page.contactACF?.email)}
+                  </a>
+                </p>
+                <p>{wpFooterMenu.page.contactACF?.kamerVanKoophandel}</p>
+                <p>{wpFooterMenu.page.contactACF?.btwNummer}</p>
               </FooterRight>
             </>
           ) : (
@@ -172,7 +179,7 @@ const Footer = () => {
             <img src={logo} width={119} />
           </Link>
           <MobileInner>
-            <a style={{ color: 'white' }} href={wpFooterMenu.page.contactACF?.linkedIn}>
+            <a className="footer-link" href={`${ wpFooterMenu.page.contactACF?.linkedin }`}>
               <FaLinkedin style={{ marginTop: '0.5rem' }} size={26} />
             </a>
             <MobileContactWrapper>
@@ -180,13 +187,20 @@ const Footer = () => {
                 <>
                   <p>
                     <a
-                      style={{ color: 'white', textDecoration: 'none' }}
-                      href={wpFooterMenu.page.contactACF.telephone}
+                      className="footer-link"
+                      href={`tel:${ wpFooterMenu.page.contactACF?.telephone }`}
                     >
                       {parse(wpFooterMenu.page.contactACF?.telephone)}
                     </a>
                   </p>
-                  <p>{parse(wpFooterMenu.page.contactACF?.email)}</p>
+                  <p>
+                    <a
+                      className="footer-link"
+                      href={`mailto:${ wpFooterMenu.page.contactACF?.email }`}
+                    >
+                      {parse(wpFooterMenu.page.contactACF?.email)}
+                    </a>
+                  </p>
                 </>
               ) : (
                 <pre>{NO_DETAILS}</pre>

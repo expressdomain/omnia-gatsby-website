@@ -360,6 +360,8 @@ body {
   -webkit-box-shadow: 0 12px 24px 0 rgba(0, 0, 0, 0.15);
           box-shadow: 0 12px 24px 0 rgba(0, 0, 0, 0.15);
   cursor: pointer;
+  -webkit-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
 }
 
 @media only screen and (min-width: 481px) {
@@ -378,6 +380,10 @@ body {
     padding: 10px 14px 10.4px;
     margin-top: 1rem;
   }
+}
+
+.lees-verder-button:hover {
+  background-color: #2f276d;
 }
 
 .lees-verder-link {
@@ -408,6 +414,13 @@ body {
   color: #120c41;
   text-decoration: none;
   text-transform: lowercase;
+  -webkit-transition: ease-in-out 0.2s;
+  transition: ease-in-out 0.2s;
+}
+
+.menu-item:hover {
+  color: #2f276d;
+  font-weight: bold;
 }
 
 @media only screen and (min-width: 481px) {
@@ -744,6 +757,15 @@ body {
   }
 }
 
+.footer-link {
+  color: white;
+  text-decoration: none;
+}
+
+.footer-link:hover {
+  color: #d1dce5;
+}
+
 .blog-detail-header {
   font-size: 59px;
   font-weight: 300;
@@ -876,6 +898,10 @@ body {
   text-transform: lowercase;
 }
 
+.category_option:hover {
+  color: #d1dce5;
+}
+
 .category_option:active {
   font-weight: bold;
 }
@@ -979,6 +1005,10 @@ body {
   .lees-verder-chevron {
     margin-top: 1rem;
   }
+}
+
+.lees-verder-chevron:hover {
+  color: #2f276d;
 }
 
 .services-detail-header h1 {

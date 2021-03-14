@@ -384,6 +384,7 @@ body {
 	border: none;
 	box-shadow: 0 12px 24px 0 hsla(0, 0%, 0%, 0.15);
 	cursor: pointer;
+	transition: 0.3s ease-in-out;
 	@media only screen and (min-width: 481px) {
 		background-color: hsl(247, 69%, 15%);
 		max-width: max-content;
@@ -394,6 +395,10 @@ body {
 		padding: 10px 14px 10.4px;
 		margin-top: 1rem;
 	}
+}
+
+.lees-verder-button:hover {
+	background-color: hsl(247, 47%, 29%);
 }
 
 .lees-verder-link {
@@ -419,6 +424,12 @@ body {
 	color: hsl(247, 69%, 15%);
 	text-decoration: none;
 	text-transform: lowercase;
+	transition: ease-in-out 0.2s;
+}
+
+.menu-item:hover {
+	color: hsl(247, 47%, 29%);
+	font-weight: bold;
 }
 
 //Homepage styles
@@ -675,6 +686,15 @@ body {
 	}
 }
 
+.footer-link {
+	color: white;
+	text-decoration: none;
+}
+
+.footer-link:hover {
+	color: #d1dce5;
+}
+
 // Blog detail
 
 .blog-detail-header {
@@ -789,6 +809,10 @@ body {
 	text-transform: lowercase;
 }
 
+.category_option:hover {
+	color: #d1dce5;
+}
+
 .category_option:active {
 	font-weight: bold;
 }
@@ -875,6 +899,10 @@ body {
 	@media only screen and (max-width: 480px) {
 		margin-top: 1rem;
 	}
+}
+
+.lees-verder-chevron:hover {
+	color: hsl(247, 47%, 29%)
 }
 
 // Diensten styles
