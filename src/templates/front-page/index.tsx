@@ -121,7 +121,7 @@ const ServicesContent = styled.div`
   }
 `
 
-const ServicesButton = styled.div`
+const ServicesButton = styled(Link)`
   position: relative;
 
   @media only screen and (min-width: 481px) {
@@ -223,11 +223,11 @@ const Homepage = (props) => {
                         {parse(homepageACF.servicesContent1)}
                       </div>
                     </ServicesContent>
-                    <ServicesButton>
+                    <ServicesButton to={'/diensten/'}>
                       <button className="lees-verder-button">
-                        <Link className="lees-verder-link" to={'/diensten/'}>
+                        <span className="lees-verder-link">
                           Lees verder
-                        </Link>
+                        </span>
                       </button>
                     </ServicesButton>
                   </ServicesTextContainer>

@@ -58,7 +58,7 @@ const Menu = ({ items, toggleMenu }) => {
                 }
               >
                 <Link
-                  style={{ color: '#120C42', textDecoration: 'none', textTransform: 'lowercase' }}
+                  className="menu-item"
                   to={path}
                   activeClassName={'current-menu-item current_page_item small-letters'}
                 >
