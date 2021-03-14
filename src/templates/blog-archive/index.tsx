@@ -57,7 +57,6 @@ const BlogInnerContainer = styled.div`
     grid-template-columns: repeat(3, 310px);
     grid-column-gap: 2rem;
     grid-row-gap: 3.75rem;
-    min-height: calc(100vh - 100px);
     transform: translateY(-180px);
     max-width: 100%;
   }
@@ -65,7 +64,6 @@ const BlogInnerContainer = styled.div`
     grid-template-columns: repeat(2, 310px);
     grid-column-gap: 2rem;
     grid-row-gap: 3.75rem;
-    min-height: calc(100vh - 100px);
     transform: translateY(-180px);
     max-width: 100%;
   }
@@ -101,11 +99,10 @@ const BlogArchive = (props) => {
   const START_CAT = 'Alles'
   const NO_BLOGS_FOUND = 'Geen gerelateerde blogs gevonden.'
 
-  const [showMore, setShowMore] = React.useState(true)
+  const [showMore, setShowMore] = React.useState(DATA.length > 6 ? true : false)
   const [filteredList, setFilteredList] = React.useState(DATA)
   const [baseList, setBaseList] = React.useState(slice(DATA, 0, LIMIT))
   const [index, setIndex] = React.useState(LIMIT)
-  // const [selectedCat, setSelectedCat] = React.useState(START_CAT)
   const [selected, setSelected] = React.useState(START_CAT)
 
   const loadMore = () => {
