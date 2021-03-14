@@ -7,14 +7,19 @@ import { GatsbyImage, StaticImage } from 'gatsby-plugin-image'
 const BlogWrapper = styled.div`
   border-radius: 5px;
   box-shadow: 0 12px 24px 0 hsla(0, 0%, 0%, 0.15);
-  background-color: hsl(0, 0%, 100%);
   height: 290px;
+`
+
+const BlogMobileOverlay = styled.div`
+    background: rgba(255, 255, 255, 0.33);
+    overflow: hidden;
+    height: 292px;
 `
 
 const BlogText = styled.div`
   padding: 0 2rem 2rem 2rem;
   position: relative;
-  top: -245px;
+  top: -225px;
 `
 
 const BlogPreview = ({ post }) => {
@@ -25,6 +30,7 @@ const BlogPreview = ({ post }) => {
 
   return (
     <BlogWrapper>
+      <BlogMobileOverlay>
       {featuredImageSrc.img !== undefined || null ? (
         <GatsbyImage
           image={featuredImageSrc.img}
@@ -37,7 +43,8 @@ const BlogPreview = ({ post }) => {
           alt="placeholder"
           className="blog-preview-image"
         />
-      )}
+        )}
+      </BlogMobileOverlay>
       <BlogText>
         <h3 className="featured-title" style={{ margin: '0' }}>
           {parse(post.title)}

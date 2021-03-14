@@ -33,6 +33,8 @@ const HeroContainer = styled.div`
     flex-flow: column-reverse;
   }
   @media only screen and (max-width: 480px) {
+    flex-flow: column;
+    margin-bottom: 0;
   }
 `
 
@@ -125,7 +127,8 @@ const UspServicesContainer = styled.div`
     padding: 2.125rem 0 0 2rem;
   }
   @media only screen and (max-width: 480px) {
-    padding: 2.75rem 2rem 1rem;
+    background-color: transparent;
+    padding: 2.75rem 2rem 4rem;
     display: flex;
     place-content: center;
   }
@@ -143,6 +146,9 @@ const UspServicesInnerContainer = styled.div`
   }
   @media only screen and (max-width: 768px) {
     padding-top: 2.5rem;
+  }
+  @media only screen and (max-width: 480px) {
+    padding-top: 0;
   }
 `
 
@@ -168,6 +174,11 @@ const ServicesTextContainer = styled.div`
     height: 130px;
   }
   @media only screen and (max-width: 480px) {
+    padding: 0;
+    border-radius: 5px;
+    box-shadow: none;
+    background-color: transparent;
+    height: auto;
   }
 `
 

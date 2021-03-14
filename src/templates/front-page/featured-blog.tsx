@@ -7,12 +7,20 @@ import { GatsbyImage, StaticImage } from 'gatsby-plugin-image'
 
 const BlogInnerWrapper = styled.div`
   @media only screen and (max-width: 480px) {
-    height: 375px;
+    height: 358px;
   }
   @media only screen and (min-width: 481px) {
     display: flex;
     flex-flow: column;
   }
+`
+
+const BlogMobileOverlay = styled.div`
+    @media only screen and (max-width: 480px) {
+      background: rgba(255, 255, 255, 0.33);
+      overflow: hidden;
+      height: 292px;
+    }
 `
 
 const BlogInnerContainer = styled.div`
@@ -74,6 +82,7 @@ const FeaturedBlog = () => {
           <BlogInnerContainer>
             <div>
               <img src={blog_icon} alt="blog-icon" className="featured-blog-icon" />
+              <BlogMobileOverlay>
               {featuredImage.img !== undefined || null ? (
                 <GatsbyImage
                   image={featuredImage.img}
@@ -86,7 +95,8 @@ const FeaturedBlog = () => {
                   alt="placeholder"
                   className="featured-blog-image"
                 />
-              )}
+                )}
+              </BlogMobileOverlay>
             </div>
             <BlogItem>
               <h3 className="featured-title">{parse(wpPost.title)}</h3>

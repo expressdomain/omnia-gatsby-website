@@ -801,6 +801,7 @@ body {
   .featured-blog-image {
     width: auto;
     height: 293px;
+    z-index: -1;
   }
 }
 
@@ -868,7 +869,7 @@ body {
 
 @media only screen and (max-width: 480px) {
   .featured-title {
-    display: none;
+    font-size: 20px;
   }
 }
 
@@ -1105,8 +1106,9 @@ body {
 
 @media only screen and (max-width: 480px) {
   .blog-preview-image {
-    width: 100%;
+    width: auto;
     max-height: 292px;
+    z-index: -1;
   }
 }
 

@@ -699,6 +699,7 @@ body {
 	@media only screen and (max-width: 480px) {
 		width: auto;
 		height: 293px;
+		z-index: -1;
 	}
 }
 
@@ -748,7 +749,7 @@ body {
 		font-size: 18px;
 	}
 	@media only screen and (max-width: 480px) {
-		display: none;
+		font-size: 20px;
 	}
 }
 
@@ -939,8 +940,9 @@ body {
 		border-top-right-radius: 5px;
 	}
 	@media only screen and (max-width: 480px) {
-		width: 100%;
+		width: auto;
 		max-height: 292px;
+		z-index: -1;
 	}
 }
 
