@@ -114,7 +114,7 @@ const RelatedBlogs = ({ currentBlog }) => {
               <div style={{ display: 'flex', justifyContent: 'center' }}>
                 <BlogInnerContainer>
                   {latestThreePosts !== undefined || null ? (
-                    latestThreePosts.map((post) => <BlogPreview post={post} />)
+                    latestThreePosts.map((post) => <BlogPreview key={post.id} post={post} />)
                   ) : (
                     <pre style={{ color: 'white' }}>No related blog items found.</pre>
                   )}

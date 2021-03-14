@@ -38,21 +38,6 @@ const BlogItem = styled.div`
   }
 `
 
-const BlogButton = styled(Link)`
-  /* position: relative;
-
-  @media only screen and (min-width: 481px) {
-    top: 26px;
-    left: 230px;
-    max-width: 138.55px;
-  }
-  @media only screen and (max-width: 480px) {
-    max-width: 94.73px;
-    top: 10px;
-    left: -60px;
-  } */
-`
-
 const FeaturedBlog = () => {
   const { wpPost } = useStaticQuery(graphql`
     query FeaturedBlogQuery {
@@ -111,13 +96,13 @@ const FeaturedBlog = () => {
                   <pre>No Preview found.</pre>
                 </div>
               )}
-              <BlogButton to={`/blog${ wpPost.uri }`}>
+              <Link to={`/blog${ wpPost.uri }`}>
               <button className="lees-verder-button">
                 <span className="lees-verder-link">
                   Lees verder
                 </span>
               </button>
-              </BlogButton>
+              </Link>
             </BlogItem>
           </BlogInnerContainer>
         </BlogInnerWrapper>
