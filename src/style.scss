@@ -94,9 +94,19 @@ body {
 }
 
 main {
-	margin: 0 auto;
-	max-width: 1230px;
+	// margin: 0 auto;
+    // max-width: 1230px;
+	display: grid;
+  	grid-template-columns:
+    1fr
+    min(70%, 100%)
+    1fr;
 }
+
+main > * {
+	grid-column: 2;
+}
+
 
 footer {
 	padding: var(--spacing-6) var(--spacing-0);
@@ -260,11 +270,14 @@ a:focus {
 	// margin: var(--spacing-0) auto;
 	// max-width: var(--maxWidth-wrapper);
 	// padding: var(--spacing-10) var(--spacing-5);
+
 }
 
-// .global-wrapper[data-is-root-path='true'] .bio {
-// 	margin-bottom: var(--spacing-20);
-// }
+.full-bleed {
+	width: 100%;
+	grid-column: 1 / 4;
+}
+
 
 .global-header {
 	margin-bottom: var(--spacing-12);
@@ -385,10 +398,14 @@ body {
 	box-shadow: 0 12px 24px 0 hsla(0, 0%, 0%, 0.15);
 	cursor: pointer;
 	transition: 0.3s ease-in-out;
-	@media only screen and (min-width: 481px) {
-		background-color: hsl(247, 69%, 15%);
+	background-color: hsl(247, 69%, 15%);
+	@media only screen and (min-width: 769px) {
 		max-width: max-content;
 		padding: 16px 20px 16.4px;
+	}
+	@media only screen and (max-width: 768px) {
+		max-width: max-content;
+		padding: 8px 13px 8.4px;
 	}
 	@media only screen and (max-width: 480px) {
 		background-color: hsl(264, 71%, 43%);
@@ -407,8 +424,11 @@ body {
 	text-align: left;
 	color: hsl(0, 0%, 100%);
 	text-decoration: none;
-	@media only screen and (min-width: 481px) {
+	@media only screen and (min-width: 769px) {
 		font-size: 18px;
+	}
+	@media only screen and (max-width: 768px) {
+		font-size: 12px;
 	}
 	@media only screen and (max-width: 480px) {
 		font-size: 12px;
@@ -434,8 +454,19 @@ body {
 
 //Homepage styles
 .hero-image {
-	@media only screen and (min-width: 481px) {
-		min-width: 950px;
+	// min-width: 950px;
+	// @media only screen and (min-width: 1025px) {
+	// 	min-width: 950px;
+	// }
+	@media only screen and (max-width: 1024px) {
+		width: 567px;
+		height: auto;
+		overflow-x: hidden;
+	}
+	@media only screen and (max-width: 768px) {
+		width: auto;
+		height: auto;
+		border-radius: 5px;
 	}
 	@media only screen and (max-width: 480px) {
 		width: auto;
@@ -447,10 +478,20 @@ body {
 .hero-small {
 	margin-bottom: 0;
 	margin-top: 0;
-	@media only screen and (min-width: 481px) {
+	@media only screen and (min-width: 1025px) {
 		font-size: 35px;
 		color: var(--color-heading-white);
 		text-align: right;
+	}
+	@media only screen and (max-width: 1024px) {
+		font-size: 17px;
+		color: var(--color-heading-white);
+		text-align: right;
+	}
+	@media only screen and (max-width: 768px) {
+		font-size: 21px;
+		color: var(--color-heading-white);
+		text-align: left;
 	}
 	@media only screen and (max-width: 480px) {
 		font-size: 14px;
@@ -467,9 +508,18 @@ body {
 		color: #fd9c00;
 		font-style: italic;
 	}
-	@media only screen and (min-width: 481px) {
+	@media only screen and (min-width: 1025px) {
 		font-size: 52px;
 		text-align: right;
+	}
+	@media only screen and (max-width: 1024px) {
+		font-size: 26px;
+		text-align: right;
+		width: 340px;
+	}
+	@media only screen and (max-width: 768px) {
+		font-size: 32px;
+		text-align: left;
 	}
 	@media only screen and (max-width: 480px) {
 		font-size: 21px;
@@ -485,10 +535,25 @@ body {
 	letter-spacing: 0.3px;
 	text-align: left;
 	color: white;
-	@media only screen and (min-width: 481px) {
+	@media only screen and (min-width: 1025px) {
 		font-size: 20px;
 		width: 520px;
 		text-align: right;
+	}
+	@media only screen and (max-width: 1024px) {
+		font-size: 18px;
+		width: 330px;
+		text-align: right;
+		line-height: 1.11;
+  		letter-spacing: 0.27px;
+	}
+	@media only screen and (max-width: 768px) {
+		font-size: 18px;
+		text-align: left;
+		line-height: 1.11;
+		letter-spacing: 0.27px;
+		width: auto;
+		padding-bottom: 5rem;
 	}
 	@media only screen and (max-width: 480px) {
 		padding: 1rem 0;
@@ -522,9 +587,22 @@ body {
 	span {
 		font-weight: bold;
 	}
-	@media only screen and (min-width: 481px) {
+	@media only screen and (min-width: 1025px) {
 		font-size: 48px;
-		width: 840px;
+		max-width: 840px;
+	}
+	@media only screen and (max-width: 1024px) {
+		font-size: 29px;
+		width: 580px;
+		line-height: 1.14;
+  		letter-spacing: 0.44px;
+		margin-left: 3rem;
+	}
+	@media only screen and (max-width: 768px) {
+		font-size: 22px;
+		width: 460px;
+		line-height: 1.14;
+		letter-spacing: 0.33px;
 	}
 	@media only screen and (max-width: 480px) {
 		display: none;
@@ -541,9 +619,17 @@ body {
 	color: hsl(0, 0%, 100%);
 	margin-top: 0;
 
-	@media only screen and (min-width: 481px) {
+	@media only screen and (min-width: 1025px) {
 		font-size: 40px;
 		margin-bottom: 30px;
+	}
+	@media only screen and (max-width: 1024px) {
+		font-size: 22px;
+		margin-bottom: 20px;
+	}
+	@media only screen and (max-width: 768px) {
+		font-size: 17px;
+		margin-bottom: 12px;
 	}
 	@media only screen and (max-width: 480px) {
 		font-size: 15px;
@@ -571,14 +657,17 @@ body {
 }
 
 .bullet-list > ul > li {
-	@media only screen and (max-width: 480px) {
+	@media only screen and (max-width: 1024px) {
 		margin-bottom: 6px;
 	}
 }
 
 .bullet-list-margin {
-	@media only screen and (min-width: 481px) {
+	@media only screen and (min-width: 769px) {
 		margin-right: 80px;
+	}
+	@media only screen and (max-width: 768px) {
+		margin-right: 14px;
 	}
 	@media only screen and (max-width: 480px) {
 		margin-right: 0;
@@ -588,9 +677,19 @@ body {
 .services-image {
 	border-radius: 5px;
 	box-shadow: 0 12px 24px 0 rgba(0, 0, 0, 0.15);
-	@media only screen and (min-width: 481px) {
+	@media only screen and (min-width: 1025px) {
 		width: 280px;
 		height: 280px;
+		margin-right: 33px;
+	}
+	@media only screen and (max-width: 1024px) {
+		width: 179.9px;
+		height: 179.9px;
+		margin-right: 33px;
+	}
+	@media only screen and (max-width: 768px) {
+		width: 135.9px;
+		height: 135.9px;
 		margin-right: 33px;
 	}
 	@media only screen and (max-width: 480px) {
@@ -602,34 +701,54 @@ body {
 
 .featured-blog-image {
 	border-radius: 5px;
-	@media only screen and (min-width: 481px) {
+	@media only screen and (min-width: 1025px) {
+		max-width: 663px;
+		max-height: 663px;
+		width: 40vw;
+		height: 40vw;
+	}
+	@media only screen and (max-width: 1024px) {
+		width: 380px;
+		height: 380px;
+	}
+	@media only screen and (max-width: 768px) {
+		width: 310px;
+		height: 310px;
 	}
 	@media only screen and (max-width: 480px) {
 		width: auto;
 		height: 293px;
+		z-index: -1;
 	}
 }
 
 .featured-blog-icon {
 	z-index: 1;
-	@media only screen and (min-width: 769px) {
+	@media only screen and (min-width: 1025px) {
 		position: relative;
 		width: 117.8px;
 		height: 123.4px;
 		top: 10%;
 		left: 90%;
 	}
-	@media only screen and (min-width: 768px) {
+	@media only screen and (max-width: 1024px) {
 		position: relative;
-		width: 117.8px;
-		height: 123.4px;
+		width: 56.6px;
+  		height: 59.3px;
+		top: 8%;
+		left: 85%;
+	}
+	@media only screen and (max-width: 768px) {
+		position: relative;
+		width: 56.6px;
+  		height: 59.3px;
 		top: 10%;
-		left: 80%;
+		left: 90%;
 	}
 	@media only screen and (max-width: 480px) {
 		position: relative;
-		width: 73px;
-		height: 76.5px;
+		width: 56.6px;
+  		height: 59.3px;
 		top: 40px;
 		left: 30px;
 	}
@@ -644,19 +763,35 @@ body {
 	letter-spacing: 0.45px;
 	text-align: left;
 	color: hsl(247, 69%, 15%);
+	margin: 0;
+	@media only screen and (max-width: 1024px) {
+		font-size: 24px;
+	}
+	@media only screen and (max-width: 768px) {
+		font-size: 18px;
+	}
+	@media only screen and (max-width: 480px) {
+		font-size: 20px;
+	}
 }
 
 .featured-excerpt {
-	@media only screen and (min-width: 481px) {
+	font-weight: 300;
+	font-stretch: normal;
+	font-style: normal;
+	line-height: 1.5;
+	letter-spacing: 0.3px;
+	text-align: left;
+	color: hsl(250, 49%, 33%);
+	margin: 1rem 0;
+	@media only screen and (min-width: 1025px) {
 		font-size: 20px;
-		font-weight: 300;
-		font-stretch: normal;
-		font-style: normal;
-		line-height: 1.5;
-		letter-spacing: 0.3px;
-		text-align: left;
-		color: hsl(250, 49%, 33%);
-		margin: 1rem 0;
+	}
+	@media only screen and (max-width: 1024px) {
+		font-size: 16px;
+	}
+	@media only screen and (max-width: 768px) {
+		font-size: 14px;
 	}
 	@media only screen and (max-width: 480px) {
 		display: none;
@@ -669,20 +804,6 @@ body {
 	background-color: hsl(247, 69%, 15%);
 	@media only screen and (min-width: 481px) {
 		border-radius: 5px;
-	}
-}
-
-.section-inner {
-	margin: 0 auto;
-	display: flex;
-	@media only screen and (min-width: 481px) {
-		max-width: 1230px;
-		flex-flow: row;
-		padding: 4rem 0;
-	}
-	@media only screen and (max-width: 480px) {
-		flex-flow: column;
-		justify-content: center;
 	}
 }
 
@@ -706,6 +827,12 @@ body {
 	letter-spacing: 0.89px;
 	text-align: left;
 	color: hsl(0, 0%, 100%);
+	@media only screen and (max-width: 1024px) {
+		font-size: 50px;
+	}
+	@media only screen and (max-width: 768px) {
+		font-size: 45px;
+	}
 	@media only screen and (max-width: 480px) {
 		font-size: 20px;
 		font-weight: bold;
@@ -718,10 +845,15 @@ body {
 .blog-detail-image {
 	box-shadow: 0 3px 6px 0 hsla(0, 0%, 0%, 0.15);
 	margin-right: 3.3rem;
-	@media only screen and (min-width: 481px) {
+	@media only screen and (min-width: 769px) {
 		min-width: 343px;
 		max-width: 343px;
 		height: 344px;
+	}
+	@media only screen and (max-width: 768px) {
+		min-width: 278px;
+		max-width: 278px;
+		height: 279px;
 	}
 	@media only screen and (max-width: 480px) {
 		max-width: 100%;
@@ -762,19 +894,36 @@ body {
 
 .related-blog-icon {
 	z-index: 1;
-	@media only screen and (min-width: 481px) {
+	position: relative;
+	@media only screen and (min-width: 1550px) {
 		width: 117.8px;
 		height: 123.4px;
-		position: relative;
 		top: -250px;
+		// left: 1050px;
 		left: 1050px;
+	}
+	@media only screen and (max-width: 1549px) {
+		width: 117.8px;
+		height: 123.4px;
+		top: -250px;
+		left: 140%;
+	}
+	@media only screen and (max-width: 1024px) {
+		width: 117.8px;
+		height: 123.4px;
+		top: -250px;
+		left: 787px;
+	}
+	@media only screen and (max-width: 768px) {
+		top: -250px;
+		left: 620px;
 	}
 	@media only screen and (max-width: 480px) {
 		width: 73px;
 		height: 76.5px;
-		position: relative;
 		top: 50px;
 		padding-left: 10%;
+		left: 0;
 	}
 }
 
@@ -830,8 +979,9 @@ body {
 		border-top-right-radius: 5px;
 	}
 	@media only screen and (max-width: 480px) {
-		width: 100%;
+		width: auto;
 		max-height: 292px;
+		z-index: -1;
 	}
 }
 

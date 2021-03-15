@@ -5,7 +5,13 @@ import styled from '@emotion/styled'
 import { GatsbyImage, StaticImage } from 'gatsby-plugin-image'
 
 const ContactWrapper = styled.div`
-  margin-bottom: 10%;
+  margin-bottom: 5%;
+  max-width: 1240px;
+  justify-self: center;
+  @media only screen and (max-width: 1024px) {
+    width: 100%;
+    grid-column: 1 / 4;
+  }
   @media only screen and (max-width: 480px) {
     margin-bottom: 0;
     background-color: hsl(247, 69%, 15%);
@@ -96,7 +102,7 @@ const Homepage = (props) => {
                       className="contact-location-image"
                     />
                   )}
-                  <p className="contact-body-text">{parse(content)}</p>
+                  <div className="contact-body-text">{parse(content)}</div>
                 </ContactHeaderInner>
               </ContactHeaderContent>
             </ContactHeaderContainer>
@@ -123,7 +129,7 @@ const Homepage = (props) => {
                     )}
                   </HeroMobileContainer>
                   <h1 className="contact-header">{parse(contactACF.contactHeader)}</h1>
-                  <p className="contact-body-text">{parse(content)}</p>
+                  <div className="contact-body-text">{parse(content)}</div>
                 </ContactHeaderInner>
               </ContactHeaderContent>
             </ContactHeaderContainer>

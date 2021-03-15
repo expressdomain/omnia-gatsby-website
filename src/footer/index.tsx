@@ -12,6 +12,7 @@ const DesktopWrapper = styled.div`
     grid-template-columns: repeat(4, auto);
     grid-column-gap: 2rem;
     margin: 0 auto;
+    width: 100%;
   }
   @media only screen and (max-width: 480px) {
     display: none;
@@ -27,6 +28,24 @@ const MobileWrapper = styled.div`
     flex-flow: column;
     overflow-x: hidden;
   }
+`
+
+const SectionInner = styled.div`
+	margin: 0 auto;
+	display: flex;
+	@media only screen and (min-width: 1025px) {
+		max-width: 1230px;
+		flex-flow: row;
+		padding: 4rem 0;
+	}
+	@media only screen and (max-width: 1024px) {
+		padding: 4rem 2rem;
+	}
+	@media only screen and (max-width: 480px) {
+		flex-flow: column;
+		justify-content: center;
+    padding: 0;
+	}
 `
 
 const MobileInner = styled.div`
@@ -45,6 +64,12 @@ const MobileContactWrapper = styled.div`
     margin: 0;
     font-size: 9px;
   }
+`
+
+const Logo = styled(Link)`
+	@media only screen and (max-width: 1024px) {
+		display: none;
+	}
 `
 
 const FooterLeft = styled.div`
@@ -82,6 +107,9 @@ const FooterMenu = styled.div`
     line-height: 2;
     text-transform: lowercase;
     font-size: 20px;
+    @media only screen and (max-width: 768px) {
+      font-size: 16px;
+	  }
   }
 
   a:hover {
@@ -123,11 +151,11 @@ const Footer = () => {
 
   return (
     <footer id="site-footer" role="contentinfo" className="footer">
-      <div className="section-inner">
+      <SectionInner>
         <DesktopWrapper>
-          <Link to="/">
+          <Logo to="/">
             <img src={logo} width={158} />
-          </Link>
+          </Logo>
           {wpFooterMenu.page.contactACF != null || undefined ? (
             <>
               <FooterLeft className="footer-left">
@@ -149,10 +177,7 @@ const Footer = () => {
                   </a>
                 </p>
                 <p>
-                  <a
-                    className="footer-link"
-                    href={`mailto:${ wpFooterMenu.page.contactACF?.email}`}
-                  >
+                  <a className="footer-link" href={`mailto:${wpFooterMenu.page.contactACF?.email}`}>
                     {parse(wpFooterMenu.page.contactACF?.email)}
                   </a>
                 </p>
@@ -179,7 +204,7 @@ const Footer = () => {
             <img src={logo} width={119} />
           </Link>
           <MobileInner>
-            <a className="footer-link" href={`${ wpFooterMenu.page.contactACF?.linkedin }`}>
+            <a className="footer-link" href={`${wpFooterMenu.page.contactACF?.linkedin}`}>
               <FaLinkedin style={{ marginTop: '0.5rem' }} size={26} />
             </a>
             <MobileContactWrapper>
@@ -188,7 +213,7 @@ const Footer = () => {
                   <p>
                     <a
                       className="footer-link"
-                      href={`tel:${ wpFooterMenu.page.contactACF?.telephone }`}
+                      href={`tel:${wpFooterMenu.page.contactACF?.telephone}`}
                     >
                       {parse(wpFooterMenu.page.contactACF?.telephone)}
                     </a>
@@ -196,7 +221,7 @@ const Footer = () => {
                   <p>
                     <a
                       className="footer-link"
-                      href={`mailto:${ wpFooterMenu.page.contactACF?.email }`}
+                      href={`mailto:${wpFooterMenu.page.contactACF?.email}`}
                     >
                       {parse(wpFooterMenu.page.contactACF?.email)}
                     </a>
@@ -208,7 +233,7 @@ const Footer = () => {
             </MobileContactWrapper>
           </MobileInner>
         </MobileWrapper>
-      </div>
+      </SectionInner>
     </footer>
   )
 }

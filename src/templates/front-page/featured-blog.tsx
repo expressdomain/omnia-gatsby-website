@@ -6,26 +6,52 @@ import blog_icon from '../../images/blog_icon.png'
 import { GatsbyImage, StaticImage } from 'gatsby-plugin-image'
 
 const BlogInnerWrapper = styled.div`
-  @media only screen and (max-width: 480px) {
-    height: 375px;
-  }
   @media only screen and (min-width: 481px) {
     display: flex;
     flex-flow: column;
   }
+  @media only screen and (max-width: 480px) {
+    height: 358px;
+  }
+`
+
+const BlogMobileOverlay = styled.div`
+    @media only screen and (max-width: 480px) {
+      background: rgba(255, 255, 255, 0.33);
+      overflow: hidden;
+      height: 292px;
+    }
 `
 
 const BlogInnerContainer = styled.div`
-  @media only screen and (min-width: 481px) {
+  max-width: 1000px;
+  @media only screen and (min-width: 1025px) {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-column-gap: 4%;
+    padding: 0 5rem;
+  }
+  @media only screen and (max-width: 1024px) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 4%;
+    padding: 0;
+  }
+  @media only screen and (max-width: 768px) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 4%;
+    padding: 5%;
+  }
+  @media only screen and (max-width: 480px) {
+    display: initial;
+    padding: 0;
   }
 `
 
 const BlogItem = styled.div`
   @media only screen and (min-width: 481px) {
-    margin-left: 48px;
+    /* margin-left: 48px; */
     margin-top: 20%;
     display: flex;
     flex-flow: column;
@@ -73,6 +99,7 @@ const FeaturedBlog = () => {
           <BlogInnerContainer>
             <div>
               <img src={blog_icon} alt="blog-icon" className="featured-blog-icon" />
+              <BlogMobileOverlay>
               {featuredImage.img !== undefined || null ? (
                 <GatsbyImage
                   image={featuredImage.img}
@@ -85,23 +112,22 @@ const FeaturedBlog = () => {
                   alt="placeholder"
                   className="featured-blog-image"
                 />
-              )}
+                )}
+              </BlogMobileOverlay>
             </div>
             <BlogItem>
-              <div className="featured-title">{parse(wpPost.title)}</div>
+              <h3 className="featured-title">{parse(wpPost.title)}</h3>
               {wpPost.blogPreview.blogPreview !== null ? (
-                <div className="featured-excerpt">{parse(wpPost.blogPreview.blogPreview)}</div>
+                <p className="featured-excerpt">{parse(wpPost.blogPreview.blogPreview)}</p>
               ) : (
                 <div className="featured-excerpt">
                   <pre>No Preview found.</pre>
                 </div>
               )}
-              <Link to={`/blog${ wpPost.uri }`}>
-              <button className="lees-verder-button">
-                <span className="lees-verder-link">
-                  Lees verder
-                </span>
-              </button>
+              <Link to={`/blog${wpPost.uri}`}>
+                <button className="lees-verder-button">
+                  <span className="lees-verder-link">Lees verder</span>
+                </button>
               </Link>
             </BlogItem>
           </BlogInnerContainer>

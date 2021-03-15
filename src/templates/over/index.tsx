@@ -7,6 +7,12 @@ import { GatsbyImage } from 'gatsby-plugin-image'
 
 const OverWrapper = styled.div`
   margin-bottom: 10%;
+  max-width: 1240px;
+  justify-self: center;
+  @media only screen and (max-width: 1024px) {
+    width: 100%;
+    grid-column: 1 / 4;
+  }
 `
 
 const DesktopWrapper = styled.div`
@@ -24,7 +30,7 @@ const MobileWrapper = styled.div`
 const OverHeaderWrapper = styled.div`
   @media only screen and (min-width: 481px) {
     border-radius: 5px;
-    margin-top: 10%;
+    margin-top: 5%;
   }
   @media only screen and (min-width: 481px) {
     background-color: hsl(247, 69%, 15%);
@@ -50,6 +56,9 @@ const OverHeader = styled.div`
 const OverInnerHeader = styled.div`
   margin-left: 2.3rem;
   max-width: 540px;
+  @media only screen and (max-width: 1024px) {
+    max-width: 360px;
+  }
   @media only screen and (max-width: 480px) {
     margin: 1rem 3rem;
   }
@@ -71,8 +80,10 @@ const OverContentInnerContainer = styled.div`
   grid-column-gap: 2rem;
   grid-row-gap: 2rem;
   margin-top: 10%;
-  @media only screen and (max-width: 480px) {
+  @media only screen and (max-width: 1024px) {
     margin: 5% 5%;
+  }
+  @media only screen and (max-width: 480px) {
     grid-template-columns: 1fr;
   }
 `
