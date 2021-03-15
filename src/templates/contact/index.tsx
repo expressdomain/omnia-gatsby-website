@@ -3,6 +3,7 @@ import Layout from '../../components/layout'
 import parse from 'html-react-parser'
 import styled from '@emotion/styled'
 import { GatsbyImage, StaticImage } from 'gatsby-plugin-image'
+import AutoHelmet from '../../components/helmet'
 
 const ContactWrapper = styled.div`
   margin-bottom: 5%;
@@ -82,38 +83,14 @@ const Homepage = (props) => {
   return (
     <Layout>
       {props.pageContext ? (
-        <ContactWrapper>
-          {/* Desktop setup */}
-          <DesktopWrapper>
-            <ContactHeaderContainer>
-              <ContactHeaderContent>
-                <h1 className="contact-header">{parse(contactACF.contactHeader)}</h1>
-                <ContactHeaderInner>
-                  {gMapsImage.img !== undefined || null ? (
-                    <GatsbyImage
-                      image={gMapsImage.img}
-                      alt={gMapsImage.alt}
-                      className="contact-location-image"
-                    />
-                  ) : (
-                    <StaticImage
-                      src="../../images/featured_blog_placeholder.png"
-                      alt="placeholder"
-                      className="contact-location-image"
-                    />
-                  )}
-                  <div className="contact-body-text">{parse(content)}</div>
-                </ContactHeaderInner>
-              </ContactHeaderContent>
-            </ContactHeaderContainer>
-          </DesktopWrapper>
-
-          {/* Mobile setup   */}
-          <MobileWrapper>
-            <ContactHeaderContainer>
-              <ContactHeaderContent>
-                <ContactHeaderInner>
-                  <HeroMobileContainer>
+        <>
+          <AutoHelmet title={title} />
+          <ContactWrapper>
+            <DesktopWrapper>
+              <ContactHeaderContainer>
+                <ContactHeaderContent>
+                  <h1 className="contact-header">{parse(contactACF.contactHeader)}</h1>
+                  <ContactHeaderInner>
                     {gMapsImage.img !== undefined || null ? (
                       <GatsbyImage
                         image={gMapsImage.img}
@@ -127,14 +104,39 @@ const Homepage = (props) => {
                         className="contact-location-image"
                       />
                     )}
-                  </HeroMobileContainer>
-                  <h1 className="contact-header">{parse(contactACF.contactHeader)}</h1>
-                  <div className="contact-body-text">{parse(content)}</div>
-                </ContactHeaderInner>
-              </ContactHeaderContent>
-            </ContactHeaderContainer>
-          </MobileWrapper>
-        </ContactWrapper>
+                    <div className="contact-body-text">{parse(content)}</div>
+                  </ContactHeaderInner>
+                </ContactHeaderContent>
+              </ContactHeaderContainer>
+            </DesktopWrapper>
+
+            <MobileWrapper>
+              <ContactHeaderContainer>
+                <ContactHeaderContent>
+                  <ContactHeaderInner>
+                    <HeroMobileContainer>
+                      {gMapsImage.img !== undefined || null ? (
+                        <GatsbyImage
+                          image={gMapsImage.img}
+                          alt={gMapsImage.alt}
+                          className="contact-location-image"
+                        />
+                      ) : (
+                        <StaticImage
+                          src="../../images/featured_blog_placeholder.png"
+                          alt="placeholder"
+                          className="contact-location-image"
+                        />
+                      )}
+                    </HeroMobileContainer>
+                    <h1 className="contact-header">{parse(contactACF.contactHeader)}</h1>
+                    <div className="contact-body-text">{parse(content)}</div>
+                  </ContactHeaderInner>
+                </ContactHeaderContent>
+              </ContactHeaderContainer>
+            </MobileWrapper>
+          </ContactWrapper>
+        </>
       ) : (
         <div>Something went wrong</div>
       )}

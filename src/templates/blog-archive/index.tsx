@@ -6,6 +6,7 @@ import BlogPreview from '../../components/blog-preview'
 import blog_icon from '../../images/blog_icon.png'
 import { slice, concat } from 'lodash'
 import Category from './category'
+import AutoHelmet from '../../components/helmet'
 
 const BlogWrapper = styled.div`
   margin-top: 5%;
@@ -15,8 +16,8 @@ const BlogWrapper = styled.div`
     justify-self: center;
   }
   @media only screen and (max-width: 1024px) {
-   	width: 100%;
-	  grid-column: 1 / 4;
+    width: 100%;
+    grid-column: 1 / 4;
   }
 `
 
@@ -25,7 +26,7 @@ const BlogOverviewHeaderContainer = styled.div`
   border-radius: 5px;
   max-width: 1400px;
   @media only screen and (min-width: 1025px) {
-     margin: 0 -40px;
+    margin: 0 -40px;
   }
   @media only screen and (max-width: 1024px) {
     margin: 0;
@@ -109,7 +110,7 @@ const ButtonContainer = styled.div`
 const BlogArchive = (props) => {
   const {
     pageContext: {
-      page: { blogOverviewACF },
+      page: { title, blogOverviewACF },
       allPosts,
       categories,
     },
@@ -166,46 +167,51 @@ const BlogArchive = (props) => {
   return (
     <Layout>
       {props.pageContext ? (
-        <BlogWrapper>
-          <BlogOverviewHeaderContainer>
-            {/* <img src={blog_icon} alt="blog-icon" className="related-blog-icon" /> */}
-            <BlogOverviewHeaderInner>
-              <h1 className="blog-overview-header">{parse(blogOverviewACF.blogOverviewHeader)}</h1>
-              <OptionsContainer>
-                {sortedCategories &&
-                  sortedCategories.map((category) => (
-                    <div key={category.id} onClick={() => filterCategory(category)}>
-                      <div onClick={() => setSelected(category.name)}>
-                        <Category catData={category} selected={selected} />
+        <>
+          <AutoHelmet title={title} />
+          <BlogWrapper>
+            <BlogOverviewHeaderContainer>
+              {/* <img src={blog_icon} alt="blog-icon" className="related-blog-icon" /> */}
+              <BlogOverviewHeaderInner>
+                <h1 className="blog-overview-header">
+                  {parse(blogOverviewACF.blogOverviewHeader)}
+                </h1>
+                <OptionsContainer>
+                  {sortedCategories &&
+                    sortedCategories.map((category) => (
+                      <div key={category.id} onClick={() => filterCategory(category)}>
+                        <div onClick={() => setSelected(category.name)}>
+                          <Category catData={category} selected={selected} />
+                        </div>
                       </div>
-                    </div>
-                  ))}
-              </OptionsContainer>
-            </BlogOverviewHeaderInner>
-          </BlogOverviewHeaderContainer>
-          <BlogContainer>
-            <BlogInnerContainer>
-              {allPosts !== undefined || null ? (
-                baseList.length > 0 ? (
-                  baseList.map((post) => <BlogPreview key={post.id} post={post} />)
+                    ))}
+                </OptionsContainer>
+              </BlogOverviewHeaderInner>
+            </BlogOverviewHeaderContainer>
+            <BlogContainer>
+              <BlogInnerContainer>
+                {allPosts !== undefined || null ? (
+                  baseList.length > 0 ? (
+                    baseList.map((post) => <BlogPreview key={post.id} post={post} />)
+                  ) : (
+                    <pre style={{ color: 'white' }}>{NO_BLOGS_FOUND}</pre>
+                  )
                 ) : (
                   <pre style={{ color: 'white' }}>{NO_BLOGS_FOUND}</pre>
-                )
-              ) : (
-                <pre style={{ color: 'white' }}>{NO_BLOGS_FOUND}</pre>
-              )}
-            </BlogInnerContainer>
-            <ButtonContainer>
-              {showMore && (
-                <div className="lees-verder-button" onClick={loadMore}>
-                  <span style={{ cursor: 'pointer' }} className="lees-verder-link">
-                    Laad meer
-                  </span>
-                </div>
-              )}
-            </ButtonContainer>
-          </BlogContainer>
-        </BlogWrapper>
+                )}
+              </BlogInnerContainer>
+              <ButtonContainer>
+                {showMore && (
+                  <div className="lees-verder-button" onClick={loadMore}>
+                    <span style={{ cursor: 'pointer' }} className="lees-verder-link">
+                      Laad meer
+                    </span>
+                  </div>
+                )}
+              </ButtonContainer>
+            </BlogContainer>
+          </BlogWrapper>
+        </>
       ) : (
         <div>{NO_BLOGS_FOUND}</div>
       )}

@@ -5,6 +5,7 @@ import styled from '@emotion/styled'
 import { Link } from 'gatsby'
 import parse from 'html-react-parser'
 import { GatsbyImage } from 'gatsby-plugin-image'
+import AutoHelmet from '../../components/helmet'
 
 const DesktopWrapper = styled.div`
   grid-column: 1/4;
@@ -91,16 +92,7 @@ const HeroSubTextContainer = styled.div`
 `
 
 const HeroButtonContainer = styled.div`
-  /* @media only screen and (min-width: 1025px) {
-    position: relative;
-    top: 95px;
-    left: 713px;
-    width: fit-content;
-    z-index: 1;
-  } */
-  /* @media only screen and (max-width: 1024px) { */
-    display: none;
-  /* } */
+  display: none;
 `
 
 const UspServicesWrapper = styled.div`
@@ -120,14 +112,7 @@ const UspServicesContainer = styled.div`
     height: 400px;
     max-width: 1230px;
     padding: 60px 50px 0 45px;
-    /* max-width: 52%; */
   }
-  /* @media only screen and (max-width: 1200px) {
-    background-color: #120c42;
-    height: 400px;
-    width: 1230px;
-    padding: 80px 0 0 125px;
-  } */
   @media only screen and (max-width: 1024px) {
     background-color: #120c42;
     height: 220px;
@@ -281,77 +266,78 @@ const Homepage = (props) => {
     <Layout>
       {props.pageContext ? (
         <>
+          <AutoHelmet title={title} />
           {/* <div id="primary" className="content-area"> */}
-            {/* <main id="main" className="site-main"> */}
-              <MobileWrapper>
-                <HeroContainer>
-                  {heroImage?.img && (
-                    <GatsbyImage image={heroImage.img} alt={heroImage.alt} className="hero-image" />
-                  )}
-                  <HeroHeader>
-                    <p className="hero-small">{parse(homepageACF.heroSubHeader)}</p>
-                    <h1 className="hero-big">{parse(homepageACF.heroHeader)}</h1>
-                    <p className="hero-subtext">{parse(homepageACF.heroSubtext)}</p>
-                  </HeroHeader>
-                </HeroContainer>
-              </MobileWrapper>
+          {/* <main id="main" className="site-main"> */}
+          <MobileWrapper>
+            <HeroContainer>
+              {heroImage?.img && (
+                <GatsbyImage image={heroImage.img} alt={heroImage.alt} className="hero-image" />
+              )}
+              <HeroHeader>
+                <p className="hero-small">{parse(homepageACF.heroSubHeader)}</p>
+                <h1 className="hero-big">{parse(homepageACF.heroHeader)}</h1>
+                <p className="hero-subtext">{parse(homepageACF.heroSubtext)}</p>
+              </HeroHeader>
+            </HeroContainer>
+          </MobileWrapper>
 
-              <DesktopWrapper>
-                <HeroContainer>
-                  <HeroInnerContainer>
-                    <HeroHeader>
-                      <p className="hero-small">{parse(homepageACF.heroSubHeader)}</p>
-                      <h1 className="hero-big">{parse(homepageACF.heroHeader)}</h1>
-                    </HeroHeader>
-                    <HeroSubTextContainer>
-                      <p className="hero-subtext">{parse(homepageACF.heroSubtext)}</p>
-                    </HeroSubTextContainer>
-                    <HeroButtonContainer>
-                      <div className="hero-button-square">
-                        <div className="hero-button-triangle"></div>
-                      </div>
-                    </HeroButtonContainer>
-                  </HeroInnerContainer>
-                  {heroImage?.img && (
-                    <GatsbyImage image={heroImage.img} alt={heroImage.alt} className="hero-image" />
-                  )}
-                </HeroContainer>
-              </DesktopWrapper>
+          <DesktopWrapper>
+            <HeroContainer>
+              <HeroInnerContainer>
+                <HeroHeader>
+                  <p className="hero-small">{parse(homepageACF.heroSubHeader)}</p>
+                  <h1 className="hero-big">{parse(homepageACF.heroHeader)}</h1>
+                </HeroHeader>
+                <HeroSubTextContainer>
+                  <p className="hero-subtext">{parse(homepageACF.heroSubtext)}</p>
+                </HeroSubTextContainer>
+                <HeroButtonContainer>
+                  <div className="hero-button-square">
+                    <div className="hero-button-triangle"></div>
+                  </div>
+                </HeroButtonContainer>
+              </HeroInnerContainer>
+              {heroImage?.img && (
+                <GatsbyImage image={heroImage.img} alt={heroImage.alt} className="hero-image" />
+              )}
+            </HeroContainer>
+          </DesktopWrapper>
 
-              <UspServicesWrapper>
-              <UspServicesContainer>
-                <h2 className="usp-header">{parse(homepageACF.uspHeader)}</h2>
-                <UspServicesInnerContainer>
-                  {servicesImage?.img && (
-                    <GatsbyImage
-                      image={servicesImage.img}
-                      alt={servicesImage.alt}
-                      className="services-image"
-                    />
-                  )}
-                  <ServicesTextContainer>
-                    <h3 className="services-header">{parse(homepageACF.servicesHeader)}</h3>
-                    <ServicesContent>
-                      <div className="bullet-list bullet-list-margin">
-                        {parse(homepageACF.servicesContent)}
-                      </div>
-                      <div className="bullet-list bullet-list-margin">
-                        {parse(homepageACF.servicesContent1)}
-                      </div>
-                    </ServicesContent>
-                    <ServicesButton to={'/diensten/'}>
-                      <button className="lees-verder-button">
-                        <span className="lees-verder-link">Lees verder</span>
-                      </button>
-                    </ServicesButton>
-                  </ServicesTextContainer>
-                </UspServicesInnerContainer>
-                </UspServicesContainer>
-              </UspServicesWrapper>
-              <BlogWrapper className="Blog-Wrapper">
-                <FeaturedBlog />
-              </BlogWrapper>
-            {/* </main> */}
+          <UspServicesWrapper>
+            <UspServicesContainer>
+              <h2 className="usp-header">{parse(homepageACF.uspHeader)}</h2>
+              <UspServicesInnerContainer>
+                {servicesImage?.img && (
+                  <GatsbyImage
+                    image={servicesImage.img}
+                    alt={servicesImage.alt}
+                    className="services-image"
+                  />
+                )}
+                <ServicesTextContainer>
+                  <h3 className="services-header">{parse(homepageACF.servicesHeader)}</h3>
+                  <ServicesContent>
+                    <div className="bullet-list bullet-list-margin">
+                      {parse(homepageACF.servicesContent)}
+                    </div>
+                    <div className="bullet-list bullet-list-margin">
+                      {parse(homepageACF.servicesContent1)}
+                    </div>
+                  </ServicesContent>
+                  <ServicesButton to={'/diensten/'}>
+                    <button className="lees-verder-button">
+                      <span className="lees-verder-link">Lees verder</span>
+                    </button>
+                  </ServicesButton>
+                </ServicesTextContainer>
+              </UspServicesInnerContainer>
+            </UspServicesContainer>
+          </UspServicesWrapper>
+          <BlogWrapper className="Blog-Wrapper">
+            <FeaturedBlog />
+          </BlogWrapper>
+          {/* </main> */}
           {/* </div> */}
         </>
       ) : (

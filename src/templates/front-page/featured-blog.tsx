@@ -16,11 +16,11 @@ const BlogInnerWrapper = styled.div`
 `
 
 const BlogMobileOverlay = styled.div`
-    @media only screen and (max-width: 480px) {
-      background: rgba(255, 255, 255, 0.33);
-      overflow: hidden;
-      height: 292px;
-    }
+  @media only screen and (max-width: 480px) {
+    background: rgba(255, 255, 255, 0.33);
+    overflow: hidden;
+    height: 292px;
+  }
 `
 
 const BlogInnerContainer = styled.div`
@@ -100,18 +100,18 @@ const FeaturedBlog = () => {
             <div>
               <img src={blog_icon} alt="blog-icon" className="featured-blog-icon" />
               <BlogMobileOverlay>
-              {featuredImage.img !== undefined || null ? (
-                <GatsbyImage
-                  image={featuredImage.img}
-                  alt={featuredImage.alt}
-                  className="featured-blog-image"
-                />
-              ) : (
-                <StaticImage
-                  src="../../images/featured_blog_placeholder.png"
-                  alt="placeholder"
-                  className="featured-blog-image"
-                />
+                {featuredImage.img !== undefined || null ? (
+                  <GatsbyImage
+                    image={featuredImage.img}
+                    alt={featuredImage.alt}
+                    className="featured-blog-image"
+                  />
+                ) : (
+                  <StaticImage
+                    src="../../images/featured_blog_placeholder.png"
+                    alt="placeholder"
+                    className="featured-blog-image"
+                  />
                 )}
               </BlogMobileOverlay>
             </div>

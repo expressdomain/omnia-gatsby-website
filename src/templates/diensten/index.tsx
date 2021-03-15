@@ -4,6 +4,7 @@ import parse from 'html-react-parser'
 import styled from '@emotion/styled'
 import FeaturedBlog from '../front-page/featured-blog'
 import { GatsbyImage } from 'gatsby-plugin-image'
+import AutoHelmet from '../../components/helmet'
 
 const ServicesWrapper = styled.div`
   margin-top: 5%;
@@ -131,7 +132,7 @@ const BlogWrapper = styled.div`
 const Diensten = (props) => {
   const {
     pageContext: {
-      page: { content, dienstenACF },
+      page: { title, content, dienstenACF },
     },
   } = props
 
@@ -143,83 +144,88 @@ const Diensten = (props) => {
   return (
     <Layout>
       {props.pageContext ? (
-        <ServicesWrapper>
-          <ServicesHeaderWrapper>
-            <ServicesHeader>
-              <div className="services-detail-header">{parse(content)}</div>
-            </ServicesHeader>
-          </ServicesHeaderWrapper>
-          <ServicesContentContainer>
-            <ServicesContentInnerContainer>
-              <ServicesContentItem>
-                <h2 className="services-item-header primary">{parse(dienstenACF.adviesHeader)}</h2>
-                <p className="services-item-body primary">{parse(dienstenACF.adviesBody)}</p>
-              </ServicesContentItem>
-              <ServicesContentItem>
-                <h2 className="services-item-header primary">{parse(dienstenACF.visieHeader)}</h2>
-                <p className="services-item-body primary">{parse(dienstenACF.visieBody)}</p>
-              </ServicesContentItem>
-              <ServicesContentItem>
-                <h2 className="services-item-header primary">
-                  {parse(dienstenACF.beleidsplanningHeader)}
-                </h2>
-                <p className="services-item-body primary">
-                  {parse(dienstenACF.beleidsplanningBody)}
-                </p>
-              </ServicesContentItem>
-              <ServicesContentItem>
-                <h2 className="services-item-header primary">
-                  {parse(dienstenACF.aanbestedingenHeader)}
-                </h2>
-                <p className="services-item-body primary">
-                  {parse(dienstenACF.aanbestedingenBody)}
-                </p>
-              </ServicesContentItem>
-              <ServicesContentImage>
-                {image?.img && (
-                  <GatsbyImage
-                    image={image.img}
-                    alt={image.alt}
-                    className="services-detail-image"
-                  />
-                )}
-              </ServicesContentImage>
-              <ServicesContentItem>
-                <h2 className="services-item-header primary">
-                  {parse(dienstenACF.procesmanagementHeader)}
-                </h2>
-                <p className="services-item-body primary">
-                  {parse(dienstenACF.procesmanagementBody)}
-                </p>
-              </ServicesContentItem>
-              <ServicesContentItem>
-                <h2 className="services-item-header primary">
-                  {parse(dienstenACF.projectmanagementHeader)}
-                </h2>
-                <p className="services-item-body primary">
-                  {parse(dienstenACF.projectmanagementBody)}
-                </p>
-              </ServicesContentItem>
-              <ServicesContentItem>
-                <h2 className="services-item-header primary">
-                  {parse(dienstenACF.sparringHeader)}
-                </h2>
-                <p className="services-item-body primary">{parse(dienstenACF.sparringBody)}</p>
-              </ServicesContentItem>
-              <ServicesContentItemSecondary>
-                <h2 className="services-item-header secondary">
-                  {parse(dienstenACF.andereUitdagingHeader)}
-                </h2>
-                <p className="services-item-body secondary">
-                  {parse(dienstenACF.andereUitdagingBody)}
-                </p>
-              </ServicesContentItemSecondary>
-            </ServicesContentInnerContainer>
-          </ServicesContentContainer>
-          <BlogWrapper className="Blog-Wrapper">
-            <FeaturedBlog />
-          </BlogWrapper>
-        </ServicesWrapper>
+        <>
+          <AutoHelmet title={title} />
+          <ServicesWrapper>
+            <ServicesHeaderWrapper>
+              <ServicesHeader>
+                <div className="services-detail-header">{parse(content)}</div>
+              </ServicesHeader>
+            </ServicesHeaderWrapper>
+            <ServicesContentContainer>
+              <ServicesContentInnerContainer>
+                <ServicesContentItem>
+                  <h2 className="services-item-header primary">
+                    {parse(dienstenACF.adviesHeader)}
+                  </h2>
+                  <p className="services-item-body primary">{parse(dienstenACF.adviesBody)}</p>
+                </ServicesContentItem>
+                <ServicesContentItem>
+                  <h2 className="services-item-header primary">{parse(dienstenACF.visieHeader)}</h2>
+                  <p className="services-item-body primary">{parse(dienstenACF.visieBody)}</p>
+                </ServicesContentItem>
+                <ServicesContentItem>
+                  <h2 className="services-item-header primary">
+                    {parse(dienstenACF.beleidsplanningHeader)}
+                  </h2>
+                  <p className="services-item-body primary">
+                    {parse(dienstenACF.beleidsplanningBody)}
+                  </p>
+                </ServicesContentItem>
+                <ServicesContentItem>
+                  <h2 className="services-item-header primary">
+                    {parse(dienstenACF.aanbestedingenHeader)}
+                  </h2>
+                  <p className="services-item-body primary">
+                    {parse(dienstenACF.aanbestedingenBody)}
+                  </p>
+                </ServicesContentItem>
+                <ServicesContentImage>
+                  {image?.img && (
+                    <GatsbyImage
+                      image={image.img}
+                      alt={image.alt}
+                      className="services-detail-image"
+                    />
+                  )}
+                </ServicesContentImage>
+                <ServicesContentItem>
+                  <h2 className="services-item-header primary">
+                    {parse(dienstenACF.procesmanagementHeader)}
+                  </h2>
+                  <p className="services-item-body primary">
+                    {parse(dienstenACF.procesmanagementBody)}
+                  </p>
+                </ServicesContentItem>
+                <ServicesContentItem>
+                  <h2 className="services-item-header primary">
+                    {parse(dienstenACF.projectmanagementHeader)}
+                  </h2>
+                  <p className="services-item-body primary">
+                    {parse(dienstenACF.projectmanagementBody)}
+                  </p>
+                </ServicesContentItem>
+                <ServicesContentItem>
+                  <h2 className="services-item-header primary">
+                    {parse(dienstenACF.sparringHeader)}
+                  </h2>
+                  <p className="services-item-body primary">{parse(dienstenACF.sparringBody)}</p>
+                </ServicesContentItem>
+                <ServicesContentItemSecondary>
+                  <h2 className="services-item-header secondary">
+                    {parse(dienstenACF.andereUitdagingHeader)}
+                  </h2>
+                  <p className="services-item-body secondary">
+                    {parse(dienstenACF.andereUitdagingBody)}
+                  </p>
+                </ServicesContentItemSecondary>
+              </ServicesContentInnerContainer>
+            </ServicesContentContainer>
+            <BlogWrapper className="Blog-Wrapper">
+              <FeaturedBlog />
+            </BlogWrapper>
+          </ServicesWrapper>
+        </>
       ) : (
         <div>Something went wrong</div>
       )}

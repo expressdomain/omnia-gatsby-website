@@ -31,21 +31,21 @@ const MobileWrapper = styled.div`
 `
 
 const SectionInner = styled.div`
-	margin: 0 auto;
-	display: flex;
-	@media only screen and (min-width: 1025px) {
-		max-width: 1230px;
-		flex-flow: row;
-		padding: 4rem 0;
-	}
-	@media only screen and (max-width: 1024px) {
-		padding: 4rem 2rem;
-	}
-	@media only screen and (max-width: 480px) {
-		flex-flow: column;
-		justify-content: center;
+  margin: 0 auto;
+  display: flex;
+  @media only screen and (min-width: 1025px) {
+    max-width: 1230px;
+    flex-flow: row;
+    padding: 4rem 0;
+  }
+  @media only screen and (max-width: 1024px) {
+    padding: 4rem 2rem;
+  }
+  @media only screen and (max-width: 480px) {
+    flex-flow: column;
+    justify-content: center;
     padding: 0;
-	}
+  }
 `
 
 const MobileInner = styled.div`
@@ -67,9 +67,9 @@ const MobileContactWrapper = styled.div`
 `
 
 const Logo = styled(Link)`
-	@media only screen and (max-width: 1024px) {
-		display: none;
-	}
+  @media only screen and (max-width: 1024px) {
+    display: none;
+  }
 `
 
 const FooterLeft = styled.div`
@@ -109,7 +109,7 @@ const FooterMenu = styled.div`
     font-size: 20px;
     @media only screen and (max-width: 768px) {
       font-size: 16px;
-	  }
+    }
   }
 
   a:hover {
