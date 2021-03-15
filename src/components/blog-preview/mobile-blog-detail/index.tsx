@@ -11,9 +11,9 @@ const BlogWrapper = styled.div`
 `
 
 const BlogMobileOverlay = styled.div`
-    background: rgba(255, 255, 255, 0.33);
-    overflow: hidden;
-    height: 292px;
+  background: rgba(255, 255, 255, 0.33);
+  overflow: hidden;
+  height: 292px;
 `
 
 const BlogText = styled.div`
@@ -31,18 +31,18 @@ const BlogPreview = ({ post }) => {
   return (
     <BlogWrapper>
       <BlogMobileOverlay>
-      {featuredImageSrc.img !== undefined || null ? (
-        <GatsbyImage
-          image={featuredImageSrc.img}
-          alt={featuredImageSrc.alt}
-          className="blog-preview-image"
-        />
-      ) : (
-        <StaticImage
-          src="../../images/featured_blog_placeholder.png"
-          alt="placeholder"
-          className="blog-preview-image"
-        />
+        {featuredImageSrc.img !== undefined || null ? (
+          <GatsbyImage
+            image={featuredImageSrc.img}
+            alt={featuredImageSrc.alt}
+            className="blog-preview-image"
+          />
+        ) : (
+          <StaticImage
+            src="../../images/featured_blog_placeholder.png"
+            alt="placeholder"
+            className="blog-preview-image"
+          />
         )}
       </BlogMobileOverlay>
       <BlogText>

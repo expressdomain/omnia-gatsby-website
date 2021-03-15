@@ -47,7 +47,7 @@ const RelatedBlogInnerHeader = styled.div`
   padding: 3rem 7.375rem 10rem;
 
   @media only screen and (max-width: 768px) {
-    padding:  3rem 1.375rem 10rem;
+    padding: 3rem 1.375rem 10rem;
   }
 `
 

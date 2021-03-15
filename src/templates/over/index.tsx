@@ -4,6 +4,7 @@ import parse from 'html-react-parser'
 import styled from '@emotion/styled'
 import FeaturedBlog from '../front-page/featured-blog'
 import { GatsbyImage } from 'gatsby-plugin-image'
+import AutoHelmet from '../../components/helmet'
 
 const OverWrapper = styled.div`
   margin-bottom: 10%;
@@ -103,7 +104,7 @@ const OverInnerContent = styled.div`
 const Over = (props) => {
   const {
     pageContext: {
-      page: { title, content, uri, overACF },
+      page: { title, overACF },
     },
   } = props
 
@@ -140,31 +141,12 @@ const Over = (props) => {
   return (
     <Layout>
       {props.pageContext ? (
-        <OverWrapper className="over-wrapper">
-          <DesktopWrapper className="desktop-wrapper">
-            {/* Desktop setup */}
-            <OverHeaderWrapper className="over-header-wrapper">
-              <OverHeader className="over-header">
-                {overHeroImage?.img && (
-                  <GatsbyImage
-                    image={overHeroImage.img}
-                    alt={overHeroImage.alt}
-                    className="over-hero-image"
-                  />
-                )}
-                <OverInnerHeader className="over-inner-header">
-                  <h1 className="over-page-header">{parse(overACF.overHeroHeader)}</h1>
-                  <p className="over-page-subtext">{parse(overACF.overHeroBody)}</p>
-                </OverInnerHeader>
-              </OverHeader>
-            </OverHeaderWrapper>
-          </DesktopWrapper>
-
-          {/* Mobile setup */}
-          <MobileWrapper>
-            <OverHeaderWrapper>
-              <OverHeader>
-                <HeroMobileContainer>
+        <>
+          <AutoHelmet title={title} />
+          <OverWrapper className="over-wrapper">
+            <DesktopWrapper className="desktop-wrapper">
+              <OverHeaderWrapper className="over-header-wrapper">
+                <OverHeader className="over-header">
                   {overHeroImage?.img && (
                     <GatsbyImage
                       image={overHeroImage.img}
@@ -172,85 +154,107 @@ const Over = (props) => {
                       className="over-hero-image"
                     />
                   )}
-                </HeroMobileContainer>
-                <h1 className="over-page-header">{parse(overACF.overHeroHeader)}</h1>
-                <p className="over-page-subtext">{parse(overACF.overHeroBody)}</p>
-              </OverHeader>
-            </OverHeaderWrapper>
-          </MobileWrapper>
+                  <OverInnerHeader className="over-inner-header">
+                    <h1 className="over-page-header">{parse(overACF.overHeroHeader)}</h1>
+                    <p className="over-page-subtext">{parse(overACF.overHeroBody)}</p>
+                  </OverInnerHeader>
+                </OverHeader>
+              </OverHeaderWrapper>
+            </DesktopWrapper>
 
-          <OverContentContainer className="over-content-container">
-            <OverContentInnerContainer className="over-content-inner-container">
-              <OverContentItem className="over-content-item">
-                {gbImage?.img && (
-                  <GatsbyImage
-                    image={gbImage.img}
-                    alt={gbImage.alt}
-                    className="over-detail-image"
-                  />
-                )}
-                <OverInnerContent className="over-inner-content">
-                  <h2 className="over-item-header">{parse(overACF.gbHeader)}</h2>
-                  <p className="over-item-body">{parse(overACF.gbBody)}</p>
-                </OverInnerContent>
-              </OverContentItem>
-              <OverContentItem className="over-content-item">
-                {kennisProjectervaringImage?.img && (
-                  <GatsbyImage
-                    image={kennisProjectervaringImage.img}
-                    alt={kennisProjectervaringImage.alt}
-                    className="over-detail-image"
-                  />
-                )}
-                <OverInnerContent className="over-inner-content">
-                  <h2 className="over-item-header">{parse(overACF.kennisProjectervaringHeader)}</h2>
-                  <p className="over-item-body">{parse(overACF.kennisProjectervaringBody)}</p>
-                </OverInnerContent>
-              </OverContentItem>
-              <OverContentItem className="over-content-item">
-                {dnaImage?.img && (
-                  <GatsbyImage
-                    image={dnaImage.img}
-                    alt={dnaImage.alt}
-                    className="over-detail-image"
-                  />
-                )}
-                <OverInnerContent className="over-inner-content">
-                  <h2 className="over-item-header">{parse(overACF.dnaHeader)}</h2>
-                  <p className="over-item-body">{parse(overACF.dnaBody)}</p>
-                </OverInnerContent>
-              </OverContentItem>
-              <OverContentItem className="over-content-item">
-                {bierImage?.img && (
-                  <GatsbyImage
-                    image={bierImage.img}
-                    alt={bierImage.alt}
-                    className="over-detail-image"
-                  />
-                )}
-                <OverInnerContent className="over-inner-content">
-                  <h2 className="over-item-header">{parse(overACF.bierHeader)}</h2>
-                  <p className="over-item-body">{parse(overACF.bierBody)}</p>
-                </OverInnerContent>
-              </OverContentItem>
-              <OverContentItem className="over-content-item">
-                {werkgeversWerkervaringImage?.img && (
-                  <GatsbyImage
-                    image={werkgeversWerkervaringImage.img}
-                    alt={werkgeversWerkervaringImage.alt}
-                    className="over-detail-image"
-                  />
-                )}
-                <OverInnerContent className="over-inner-content">
-                  <h2 className="over-item-header">
-                    {parse(overACF.werkgeversWerkervaringHeader)}
-                  </h2>
-                  <p className="over-item-body">{parse(overACF.werkgeversWerkervaringBody)}</p>
-                </OverInnerContent>
-              </OverContentItem>
-            </OverContentInnerContainer>
-          </OverContentContainer>
-        </OverWrapper>
+            <MobileWrapper>
+              <OverHeaderWrapper>
+                <OverHeader>
+                  <HeroMobileContainer>
+                    {overHeroImage?.img && (
+                      <GatsbyImage
+                        image={overHeroImage.img}
+                        alt={overHeroImage.alt}
+                        className="over-hero-image"
+                      />
+                    )}
+                  </HeroMobileContainer>
+                  <h1 className="over-page-header">{parse(overACF.overHeroHeader)}</h1>
+                  <p className="over-page-subtext">{parse(overACF.overHeroBody)}</p>
+                </OverHeader>
+              </OverHeaderWrapper>
+            </MobileWrapper>
+
+            <OverContentContainer className="over-content-container">
+              <OverContentInnerContainer className="over-content-inner-container">
+                <OverContentItem className="over-content-item">
+                  {gbImage?.img && (
+                    <GatsbyImage
+                      image={gbImage.img}
+                      alt={gbImage.alt}
+                      className="over-detail-image"
+                    />
+                  )}
+                  <OverInnerContent className="over-inner-content">
+                    <h2 className="over-item-header">{parse(overACF.gbHeader)}</h2>
+                    <p className="over-item-body">{parse(overACF.gbBody)}</p>
+                  </OverInnerContent>
+                </OverContentItem>
+                <OverContentItem className="over-content-item">
+                  {kennisProjectervaringImage?.img && (
+                    <GatsbyImage
+                      image={kennisProjectervaringImage.img}
+                      alt={kennisProjectervaringImage.alt}
+                      className="over-detail-image"
+                    />
+                  )}
+                  <OverInnerContent className="over-inner-content">
+                    <h2 className="over-item-header">
+                      {parse(overACF.kennisProjectervaringHeader)}
+                    </h2>
+                    <p className="over-item-body">{parse(overACF.kennisProjectervaringBody)}</p>
+                  </OverInnerContent>
+                </OverContentItem>
+                <OverContentItem className="over-content-item">
+                  {dnaImage?.img && (
+                    <GatsbyImage
+                      image={dnaImage.img}
+                      alt={dnaImage.alt}
+                      className="over-detail-image"
+                    />
+                  )}
+                  <OverInnerContent className="over-inner-content">
+                    <h2 className="over-item-header">{parse(overACF.dnaHeader)}</h2>
+                    <p className="over-item-body">{parse(overACF.dnaBody)}</p>
+                  </OverInnerContent>
+                </OverContentItem>
+                <OverContentItem className="over-content-item">
+                  {bierImage?.img && (
+                    <GatsbyImage
+                      image={bierImage.img}
+                      alt={bierImage.alt}
+                      className="over-detail-image"
+                    />
+                  )}
+                  <OverInnerContent className="over-inner-content">
+                    <h2 className="over-item-header">{parse(overACF.bierHeader)}</h2>
+                    <p className="over-item-body">{parse(overACF.bierBody)}</p>
+                  </OverInnerContent>
+                </OverContentItem>
+                <OverContentItem className="over-content-item">
+                  {werkgeversWerkervaringImage?.img && (
+                    <GatsbyImage
+                      image={werkgeversWerkervaringImage.img}
+                      alt={werkgeversWerkervaringImage.alt}
+                      className="over-detail-image"
+                    />
+                  )}
+                  <OverInnerContent className="over-inner-content">
+                    <h2 className="over-item-header">
+                      {parse(overACF.werkgeversWerkervaringHeader)}
+                    </h2>
+                    <p className="over-item-body">{parse(overACF.werkgeversWerkervaringBody)}</p>
+                  </OverInnerContent>
+                </OverContentItem>
+              </OverContentInnerContainer>
+            </OverContentContainer>
+          </OverWrapper>
+        </>
       ) : (
         <div>Something went wrong</div>
       )}

@@ -4,6 +4,7 @@ import parse from 'html-react-parser'
 import styled from '@emotion/styled'
 import RelatedBlogs from './related-blogs'
 import { GatsbyImage, StaticImage } from 'gatsby-plugin-image'
+import AutoHelmet from '../../components/helmet'
 
 const BlogWrapper = styled.div`
   max-width: 1240px;
@@ -11,12 +12,12 @@ const BlogWrapper = styled.div`
   @media only screen and (max-width: 1024px) {
     max-width: 1024px;
     width: 100%;
-	  grid-column: 1 / 4;
+    grid-column: 1 / 4;
   }
   @media only screen and (max-width: 768px) {
     max-width: 768px;
     width: 100%;
-	  grid-column: 1 / 4;
+    grid-column: 1 / 4;
   }
   @media only screen and (max-width: 480px) {
     padding: 1rem 0;
@@ -89,39 +90,42 @@ const SinglePostTemplate = (props) => {
   return (
     <Layout>
       {props.pageContext ? (
-        <BlogWrapper>
-          <BlogHeaderWrapper>
-            <BlogHeader>
-              <h2 className="blog-detail-header">{parse(title)}</h2>
-              <BlogInnerHeader className="blog-inner-header">
-                {featuredImageSrc !== undefined || null ? (
-                  <GatsbyImage
-                    image={featuredImageSrc.img}
-                    alt={featuredImageSrc.alt}
-                    className="blog-detail-image"
-                  />
-                ) : (
-                  <StaticImage
-                    src="../../images/featured_blog_placeholder.png"
-                    alt="placeholder"
-                    className="blog-detail-image"
-                  />
-                )}
-                {blogPreview.blogPreview !== null ? (
-                  <BlogText>
-                    <p className="blog-detail-toptext">{parse(blogPreview.blogPreview)}</p>
-                  </BlogText>
-                ) : (
-                  <pre>No body found</pre>
-                )}
-              </BlogInnerHeader>
-            </BlogHeader>
-          </BlogHeaderWrapper>
-          <BlogContentContainer>
-            {content !== null ? <div>{parse(content)}</div> : <pre>No body found</pre>}
-          </BlogContentContainer>
-          <RelatedBlogs currentBlog={id} />
-        </BlogWrapper>
+        <>
+          <AutoHelmet title={title} />
+          <BlogWrapper>
+            <BlogHeaderWrapper>
+              <BlogHeader>
+                <h2 className="blog-detail-header">{parse(title)}</h2>
+                <BlogInnerHeader className="blog-inner-header">
+                  {featuredImageSrc !== undefined || null ? (
+                    <GatsbyImage
+                      image={featuredImageSrc.img}
+                      alt={featuredImageSrc.alt}
+                      className="blog-detail-image"
+                    />
+                  ) : (
+                    <StaticImage
+                      src="../../images/featured_blog_placeholder.png"
+                      alt="placeholder"
+                      className="blog-detail-image"
+                    />
+                  )}
+                  {blogPreview.blogPreview !== null ? (
+                    <BlogText>
+                      <p className="blog-detail-toptext">{parse(blogPreview.blogPreview)}</p>
+                    </BlogText>
+                  ) : (
+                    <pre>No body found</pre>
+                  )}
+                </BlogInnerHeader>
+              </BlogHeader>
+            </BlogHeaderWrapper>
+            <BlogContentContainer>
+              {content !== null ? <div>{parse(content)}</div> : <pre>No body found</pre>}
+            </BlogContentContainer>
+            <RelatedBlogs currentBlog={id} />
+          </BlogWrapper>
+        </>
       ) : (
         <div>Something went wrong</div>
       )}
