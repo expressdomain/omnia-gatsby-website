@@ -5,7 +5,9 @@ import styled from '@emotion/styled'
 import { GatsbyImage, StaticImage } from 'gatsby-plugin-image'
 
 const ContactWrapper = styled.div`
-  margin-bottom: 10%;
+  margin-bottom: 5%;
+  max-width: 1240px;
+  justify-self: center;
   @media only screen and (max-width: 1024px) {
     width: 100%;
     grid-column: 1 / 4;
