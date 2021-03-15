@@ -23,6 +23,7 @@ const BlogWrapper = styled.div`
 const BlogOverviewHeaderContainer = styled.div`
   background-color: hsl(247, 69%, 15%);
   border-radius: 5px;
+  max-width: 1400px;
   @media only screen and (min-width: 1025px) {
      margin: 0 -40px;
   }
@@ -59,9 +60,13 @@ const BlogOverviewHeaderInner = styled.div`
 
 const BlogContainer = styled.div`
   max-width: 990px;
-  margin: 0 auto;
+  /* margin: 0 auto; */
   display: grid;
   place-items: center;
+  margin: 0 5rem;
+  @media only screen and (max-width: 1024px) {
+    margin: 0 1rem;
+  }
   @media only screen and (max-width: 480px) {
     margin: 0 2rem;
   }
