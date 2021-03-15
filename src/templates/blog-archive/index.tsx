@@ -8,13 +8,27 @@ import { slice, concat } from 'lodash'
 import Category from './category'
 
 const BlogWrapper = styled.div`
-  /* margin-bottom: 10%; */
+  margin-top: 5%;
+  @media only screen and (min-width: 1025px) {
+    display: flex;
+    flex-flow: column;
+    justify-self: center;
+  }
+  @media only screen and (max-width: 1024px) {
+   	width: 100%;
+	  grid-column: 1 / 4;
+  }
 `
 
 const BlogOverviewHeaderContainer = styled.div`
   background-color: hsl(247, 69%, 15%);
   border-radius: 5px;
-  margin-top: 10%;
+  @media only screen and (min-width: 1025px) {
+     margin: 0 -40px;
+  }
+  @media only screen and (max-width: 1024px) {
+    margin: 0;
+  }
   @media only screen and (max-width: 480px) {
     margin-top: 0;
     margin-bottom: 2rem;
@@ -35,7 +49,9 @@ const OptionsContainer = styled.div`
 `
 
 const BlogOverviewHeaderInner = styled.div`
-  padding: 3rem 7.375rem 15rem;
+  /* padding: 3rem 7.375rem 15rem; */
+  max-width: 920px;
+  padding: 3rem 4rem 15rem;
   @media only screen and (max-width: 480px) {
     padding: 1.125rem 3.062rem;
   }

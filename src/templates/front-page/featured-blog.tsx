@@ -6,12 +6,12 @@ import blog_icon from '../../images/blog_icon.png'
 import { GatsbyImage, StaticImage } from 'gatsby-plugin-image'
 
 const BlogInnerWrapper = styled.div`
-  @media only screen and (max-width: 480px) {
-    height: 358px;
-  }
   @media only screen and (min-width: 481px) {
     display: flex;
     flex-flow: column;
+  }
+  @media only screen and (max-width: 480px) {
+    height: 358px;
   }
 `
 
@@ -24,11 +24,28 @@ const BlogMobileOverlay = styled.div`
 `
 
 const BlogInnerContainer = styled.div`
-  @media only screen and (min-width: 481px) {
+  max-width: 1000px;
+  @media only screen and (min-width: 1025px) {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-column-gap: 4%;
     padding: 0 5rem;
+  }
+  @media only screen and (max-width: 1024px) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 4%;
+    padding: 0;
+  }
+  @media only screen and (max-width: 768px) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 4%;
+    padding: 5%;
+  }
+  @media only screen and (max-width: 480px) {
+    display: initial;
+    padding: 0;
   }
 `
 

@@ -6,20 +6,31 @@ import FeaturedBlog from '../front-page/featured-blog'
 import { GatsbyImage } from 'gatsby-plugin-image'
 
 const ServicesWrapper = styled.div`
+  margin-top: 5%;
   @media only screen and (min-width: 1025px) {
-    margin-top: 10%;
+    display: flex;
+    flex-flow: column;
+    justify-self: center;
   }
   @media only screen and (max-width: 1024px) {
-    margin-top: 5%;
+    width: 100%;
+    grid-column: 1 / 4;
   }
 `
 
 const ServicesHeaderWrapper = styled.div`
-  @media only screen and (min-width: 481px) {
-    background-color: hsl(247, 69%, 15%);
-    border-radius: 5px;
+  max-width: 1400px;
+  background-color: hsl(247, 69%, 15%);
+  border-radius: 5px;
+  @media only screen and (min-width: 1025px) {
+    margin: 0 -40px;
+  }
+  @media only screen and (max-width: 1024px) {
+    margin: 0;
   }
   @media only screen and (max-width: 480px) {
+    background-color: transparent;
+    margin: 0;
   }
 `
 
@@ -27,7 +38,6 @@ const ServicesHeader = styled.div`
   color: white;
   @media only screen and (min-width: 481px) {
     max-width: 920px;
-    /* margin: 0 auto; */
     padding: 3rem 4rem 15rem;
   }
   @media only screen and (max-width: 480px) {
@@ -48,23 +58,32 @@ const ServicesContentContainer = styled.div`
 
 const ServicesContentInnerContainer = styled.div`
   display: grid;
-  @media only screen and (max-width: 480px) {
-    grid-template-columns: 1fr;
-    grid-row-gap: 1.5rem;
-  }
-  @media only screen and (min-width: 481px) {
-    grid-template-columns: repeat(2, 1fr);
-    grid-column-gap: 2rem;
-    grid-row-gap: 2rem;
-    transform: translateY(-180px);
-    max-width: 100%;
-  }
   @media only screen and (min-width: 1025px) {
     grid-template-columns: repeat(3, 1fr);
     grid-column-gap: 2rem;
     grid-row-gap: 2rem;
     transform: translateY(-180px);
     max-width: 100%;
+  }
+  @media only screen and (max-width: 1024px) {
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 2rem;
+    grid-row-gap: 2rem;
+    transform: translateY(-180px);
+    max-width: 100%;
+  }
+  @media only screen and (max-width: 768px) {
+    grid-template-columns: 1fr;
+    grid-column-gap: 2rem;
+    grid-row-gap: 2rem;
+    transform: translateY(-180px);
+    max-width: 100%;
+  }
+  @media only screen and (max-width: 480px) {
+    grid-template-columns: 1fr;
+    grid-row-gap: 1.5rem;
+    transform: none;
+    grid-column-gap: 0;
   }
 `
 

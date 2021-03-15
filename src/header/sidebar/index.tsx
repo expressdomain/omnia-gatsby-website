@@ -20,7 +20,7 @@ const MenuWrapper = styled.nav`
   display: flex;
   justify-content: end;
   align-items: center;
-  @media only screen and (min-width: 481px) {
+  @media only screen and (min-width: 767px) {
     display: none;
   }
 `

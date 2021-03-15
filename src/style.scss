@@ -94,9 +94,19 @@ body {
 }
 
 main {
-	margin: 0 auto;
-	max-width: 1230px;
+	// margin: 0 auto;
+    // max-width: 1230px;
+	display: grid;
+  	grid-template-columns:
+    1fr
+    min(70%, 100%)
+    1fr;
 }
+
+main > * {
+	grid-column: 2;
+}
+
 
 footer {
 	padding: var(--spacing-6) var(--spacing-0);
@@ -260,11 +270,14 @@ a:focus {
 	// margin: var(--spacing-0) auto;
 	// max-width: var(--maxWidth-wrapper);
 	// padding: var(--spacing-10) var(--spacing-5);
+
 }
 
-// .global-wrapper[data-is-root-path='true'] .bio {
-// 	margin-bottom: var(--spacing-20);
-// }
+.full-bleed {
+	width: 100%;
+	grid-column: 1 / 4;
+}
+
 
 .global-header {
 	margin-bottom: var(--spacing-12);
@@ -442,9 +455,9 @@ body {
 //Homepage styles
 .hero-image {
 	// min-width: 950px;
-	@media only screen and (min-width: 1025px) {
-		min-width: 950px;
-	}
+	// @media only screen and (min-width: 1025px) {
+	// 	min-width: 950px;
+	// }
 	@media only screen and (max-width: 1024px) {
 		width: 567px;
 		height: auto;
@@ -576,7 +589,7 @@ body {
 	}
 	@media only screen and (min-width: 1025px) {
 		font-size: 48px;
-		width: 840px;
+		max-width: 840px;
 	}
 	@media only screen and (max-width: 1024px) {
 		font-size: 29px;
@@ -688,7 +701,13 @@ body {
 
 .featured-blog-image {
 	border-radius: 5px;
-	@media only screen and (min-width: 769px) {
+	@media only screen and (min-width: 1025px) {
+		max-width: 663px;
+		max-height: 663px;
+		width: 40vw;
+		height: 40vw;
+	}
+	@media only screen and (max-width: 1024px) {
 		width: 380px;
 		height: 380px;
 	}
@@ -745,6 +764,9 @@ body {
 	text-align: left;
 	color: hsl(247, 69%, 15%);
 	margin: 0;
+	@media only screen and (max-width: 1024px) {
+		font-size: 24px;
+	}
 	@media only screen and (max-width: 768px) {
 		font-size: 18px;
 	}
@@ -762,8 +784,11 @@ body {
 	text-align: left;
 	color: hsl(250, 49%, 33%);
 	margin: 1rem 0;
-	@media only screen and (min-width: 481px) {
+	@media only screen and (min-width: 1025px) {
 		font-size: 20px;
+	}
+	@media only screen and (max-width: 1024px) {
+		font-size: 16px;
 	}
 	@media only screen and (max-width: 768px) {
 		font-size: 14px;

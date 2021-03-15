@@ -7,6 +7,8 @@ import parse from 'html-react-parser'
 import { GatsbyImage } from 'gatsby-plugin-image'
 
 const DesktopWrapper = styled.div`
+  grid-column: 1/4;
+  width: 100%;
   @media only screen and (max-width: 480px) {
     display: none;
   }
@@ -16,13 +18,18 @@ const MobileWrapper = styled.div`
   @media only screen and (min-width: 481px) {
     display: none;
   }
+  @media only screen and (max-width: 480px) {
+    width: 100%;
+    grid-column: 1/4;
+  }
 `
 
 const HeroContainer = styled.div`
   display: flex;
   @media only screen and (min-width: 1025px) {
     margin-bottom: 130px;
-    margin-left: -230px;
+    /* margin-left: -230px; */
+    justify-content: center;
     flex-flow: row;
   }
   @media only screen and (max-width: 1024px) {
@@ -40,6 +47,9 @@ const HeroContainer = styled.div`
 
 const HeroInnerContainer = styled.div`
   padding: 0 4rem;
+  justify-content: center;
+  display: flex;
+  flex-flow: column;
   background-color: hsl(247, 69%, 15%);
   @media only screen and (max-width: 768px) {
     padding: 0 7.8rem;
@@ -53,8 +63,8 @@ const HeroHeader = styled.div`
   /* text-align: left; */
   @media only screen and (min-width: 1025px) {
     margin-bottom: 45px;
-    padding-top: 146px;
-    width: 685px;
+    /* padding-top: 146px; */
+    max-width: 685px;
   }
   @media only screen and (max-width: 1024px) {
     margin-bottom: 1.6rem;
@@ -81,39 +91,43 @@ const HeroSubTextContainer = styled.div`
 `
 
 const HeroButtonContainer = styled.div`
-  @media only screen and (min-width: 1025px) {
+  /* @media only screen and (min-width: 1025px) {
     position: relative;
     top: 95px;
     left: 713px;
     width: fit-content;
     z-index: 1;
-  }
-  @media only screen and (max-width: 1024px) {
+  } */
+  /* @media only screen and (max-width: 1024px) { */
     display: none;
-  }
+  /* } */
 `
 
 const UspServicesWrapper = styled.div`
+  display: grid;
+  justify-content: center;
   @media only screen and (max-width: 1024px) {
     display: flex;
-    justify-content: center;
+    width: 100%;
+    grid-column: 1/4;
   }
 `
 
 const UspServicesContainer = styled.div`
   border-radius: 5px;
-  @media only screen and (min-width: 1400px) {
+  @media only screen and (min-width: 1025px) {
+    background-color: #120c42;
+    height: 400px;
+    max-width: 1230px;
+    padding: 60px 50px 0 45px;
+    /* max-width: 52%; */
+  }
+  /* @media only screen and (max-width: 1200px) {
     background-color: #120c42;
     height: 400px;
     width: 1230px;
     padding: 80px 0 0 125px;
-  }
-  @media only screen and (max-width: 1200px) {
-    background-color: #120c42;
-    height: 400px;
-    width: 1230px;
-    padding: 80px 0 0 125px;
-  }
+  } */
   @media only screen and (max-width: 1024px) {
     background-color: #120c42;
     height: 220px;
@@ -220,17 +234,29 @@ const ServicesButton = styled(Link)`
 `
 
 const BlogWrapper = styled.div`
+  @media only screen and (min-width: 1025px) {
+    margin-top: 100px;
+    margin-bottom: 100px;
+    display: flex;
+    place-content: center;
+  }
   @media only screen and (max-width: 1024px) {
     margin-top: 100px;
     margin-bottom: 100px;
     display: flex;
     place-content: center;
   }
-  @media only screen and (max-width: 480px) {
-    margin-top: 0;
+  @media only screen and (max-width: 768px) {
+    margin-top: 15%;
     margin-bottom: 0;
     display: flex;
     place-content: center;
+    width: 100%;
+    grid-column: 1/4;
+  }
+  @media only screen and (max-width: 480px) {
+    margin-top: 0;
+    margin-bottom: 0;
   }
 `
 
@@ -255,8 +281,8 @@ const Homepage = (props) => {
     <Layout>
       {props.pageContext ? (
         <>
-          <div id="primary" className="content-area">
-            <main id="main" className="site-main">
+          {/* <div id="primary" className="content-area"> */}
+            {/* <main id="main" className="site-main"> */}
               <MobileWrapper>
                 <HeroContainer>
                   {heroImage?.img && (
@@ -325,8 +351,8 @@ const Homepage = (props) => {
               <BlogWrapper className="Blog-Wrapper">
                 <FeaturedBlog />
               </BlogWrapper>
-            </main>
-          </div>
+            {/* </main> */}
+          {/* </div> */}
         </>
       ) : (
         <div>Something went wrong</div>
