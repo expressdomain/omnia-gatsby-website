@@ -7,7 +7,7 @@ import { GatsbyImage, StaticImage } from 'gatsby-plugin-image'
 const BlogWrapper = styled.div`
   border-radius: 5px;
   box-shadow: 0 12px 24px 0 hsla(0, 0%, 0%, 0.15);
-  height: 290px;
+  height: 275px;
 `
 
 const BlogMobileOverlay = styled.div`

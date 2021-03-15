@@ -827,6 +827,12 @@ body {
 	letter-spacing: 0.89px;
 	text-align: left;
 	color: hsl(0, 0%, 100%);
+	@media only screen and (max-width: 1024px) {
+		font-size: 50px;
+	}
+	@media only screen and (max-width: 768px) {
+		font-size: 45px;
+	}
 	@media only screen and (max-width: 480px) {
 		font-size: 20px;
 		font-weight: bold;
@@ -839,10 +845,15 @@ body {
 .blog-detail-image {
 	box-shadow: 0 3px 6px 0 hsla(0, 0%, 0%, 0.15);
 	margin-right: 3.3rem;
-	@media only screen and (min-width: 481px) {
+	@media only screen and (min-width: 769px) {
 		min-width: 343px;
 		max-width: 343px;
 		height: 344px;
+	}
+	@media only screen and (max-width: 768px) {
+		min-width: 278px;
+		max-width: 278px;
+		height: 279px;
 	}
 	@media only screen and (max-width: 480px) {
 		max-width: 100%;
@@ -883,19 +894,36 @@ body {
 
 .related-blog-icon {
 	z-index: 1;
-	@media only screen and (min-width: 481px) {
+	position: relative;
+	@media only screen and (min-width: 1550px) {
 		width: 117.8px;
 		height: 123.4px;
-		position: relative;
 		top: -250px;
+		// left: 1050px;
 		left: 1050px;
+	}
+	@media only screen and (max-width: 1549px) {
+		width: 117.8px;
+		height: 123.4px;
+		top: -250px;
+		left: 140%;
+	}
+	@media only screen and (max-width: 1024px) {
+		width: 117.8px;
+		height: 123.4px;
+		top: -250px;
+		left: 787px;
+	}
+	@media only screen and (max-width: 768px) {
+		top: -250px;
+		left: 620px;
 	}
 	@media only screen and (max-width: 480px) {
 		width: 73px;
 		height: 76.5px;
-		position: relative;
 		top: 50px;
 		padding-left: 10%;
+		left: 0;
 	}
 }
 

@@ -16,6 +16,15 @@ const RelatedBlogWrapper = styled.div`
 `
 
 const DesktopWrapper = styled.div`
+  @media only screen and (max-width: 1026px) {
+    display: none;
+  }
+`
+
+const TabletWrapper = styled.div`
+  @media only screen and (min-width: 1025px) {
+    display: none;
+  }
   @media only screen and (max-width: 480px) {
     display: none;
   }
@@ -36,6 +45,10 @@ const RelatedBlogHeaderContainer = styled.div`
 
 const RelatedBlogInnerHeader = styled.div`
   padding: 3rem 7.375rem 10rem;
+
+  @media only screen and (max-width: 768px) {
+    padding:  3rem 1.375rem 10rem;
+  }
 `
 
 const RelatedBlogInner = styled.div`
@@ -52,12 +65,22 @@ const BlogContainer = styled.div`
 `
 
 const BlogInnerContainer = styled.div`
-  @media only screen and (min-width: 481px) {
+  @media only screen and (min-width: 1025px) {
     display: grid;
     grid-template-columns: repeat(3, 310px);
     grid-column-gap: 2rem;
     transform: translateY(-230px);
     max-width: 100%;
+  }
+  @media only screen and (max-width: 1024px) {
+    display: grid;
+    grid-template-columns: repeat(2, 310px);
+    grid-column-gap: 2rem;
+    transform: translateY(-230px);
+    max-width: 100%;
+  }
+  @media only screen and (max-width: 481px) {
+    display: initial;
   }
 `
 
@@ -95,6 +118,7 @@ const RelatedBlogs = ({ currentBlog }) => {
 
   const otherRelatedPosts = allWpPost.nodes.filter((post) => post.id !== currentBlog)
   const latestThreePosts = otherRelatedPosts.slice(-3)
+  const latestTwoPosts = otherRelatedPosts.slice(-2)
   const latestPost = otherRelatedPosts.slice(-1)
 
   return (
@@ -122,6 +146,28 @@ const RelatedBlogs = ({ currentBlog }) => {
               </div>
             </BlogContainer>
           </DesktopWrapper>
+
+          <TabletWrapper>
+            <BlogContainer>
+              <RelatedBlogHeaderContainer>
+                <RelatedBlogInnerHeader>
+                  <h2 className="related-blog-header">
+                    Dit vindt je misschien <br /> ook interessant
+                  </h2>
+                  <img src={blog_icon} alt="blog-icon" className="related-blog-icon" />
+                </RelatedBlogInnerHeader>
+              </RelatedBlogHeaderContainer>
+              <div style={{ display: 'flex', justifyContent: 'center' }}>
+                <BlogInnerContainer>
+                  {latestTwoPosts !== undefined || null ? (
+                    latestTwoPosts.map((post) => <BlogPreview key={post.id} post={post} />)
+                  ) : (
+                    <pre style={{ color: 'white' }}>No related blog items found.</pre>
+                  )}
+                </BlogInnerContainer>
+              </div>
+            </BlogContainer>
+          </TabletWrapper>
 
           <MobileWrapper>
             <>

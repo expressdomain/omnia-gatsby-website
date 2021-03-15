@@ -6,8 +6,21 @@ import RelatedBlogs from './related-blogs'
 import { GatsbyImage, StaticImage } from 'gatsby-plugin-image'
 
 const BlogWrapper = styled.div`
-  /* margin: 0 auto;
-  max-width: 1060px; */
+  max-width: 1240px;
+  justify-self: center;
+  @media only screen and (max-width: 1024px) {
+    max-width: 1024px;
+    width: 100%;
+	  grid-column: 1 / 4;
+  }
+  @media only screen and (max-width: 768px) {
+    max-width: 768px;
+    width: 100%;
+	  grid-column: 1 / 4;
+  }
+  @media only screen and (max-width: 480px) {
+    padding: 1rem 0;
+  }
 `
 
 const BlogHeaderWrapper = styled.div`
@@ -46,7 +59,7 @@ const BlogContentContainer = styled.div`
   margin-left: auto;
   margin-right: auto;
   @media only screen and (min-width: 481px) {
-    margin-top: 12.5rem;
+    margin-top: 10%;
     max-width: 60%;
     margin-bottom: 10%;
   }
