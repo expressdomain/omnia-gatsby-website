@@ -1,12 +1,3 @@
-// @font-face {
-// 	font-family: 'Karla';
-// 	font-style: normal;
-// 	font-weight: 400;
-// 	src: local(''), url('./fonts/Karla-Regular.woff2') format('woff2'),
-// 		/* Chrome 26+, Opera 23+, Firefox 39+ */ url('./fonts/Karla-Regular.woff')
-// 			format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-// }
-
 /* CSS Custom Properties Definitions */
 
 :root {
@@ -94,8 +85,6 @@ body {
 }
 
 main {
-	// margin: 0 auto;
-    // max-width: 1230px;
 	display: grid;
   	grid-template-columns:
     1fr
@@ -270,7 +259,6 @@ a:focus {
 	// margin: var(--spacing-0) auto;
 	// max-width: var(--maxWidth-wrapper);
 	// padding: var(--spacing-10) var(--spacing-5);
-
 }
 
 .full-bleed {
@@ -286,67 +274,6 @@ a:focus {
 .main-heading {
 	font-size: var(--fontSize-7);
 	margin: 0;
-}
-
-.post-list-item {
-	margin-bottom: var(--spacing-8);
-	margin-top: var(--spacing-8);
-}
-
-.post-list-item p {
-	margin-bottom: var(--spacing-0);
-}
-
-.post-list-item h2 {
-	font-size: var(--fontSize-4);
-	color: var(--color-primary);
-	margin-bottom: var(--spacing-2);
-	margin-top: var(--spacing-0);
-}
-
-.post-list-item header {
-	margin-bottom: var(--spacing-4);
-}
-
-.header-link-home {
-	font-weight: var(--fontWeight-bold);
-	font-family: var(--font-heading);
-	text-decoration: none;
-	font-size: var(--fontSize-2);
-}
-
-.bio {
-	display: flex;
-	margin-bottom: var(--spacing-16);
-}
-
-.bio p {
-	margin-bottom: var(--spacing-0);
-}
-
-.bio-avatar {
-	margin-right: var(--spacing-4);
-	margin-bottom: var(--spacing-0);
-	max-width: 80px;
-	height: auto;
-	border-radius: 100%;
-}
-
-.blog-post header h1 {
-	margin: var(--spacing-0) var(--spacing-0) var(--spacing-4) var(--spacing-0);
-}
-
-.blog-post header p {
-	font-size: var(--fontSize-2);
-	font-family: var(--font-heading);
-}
-
-.blog-post-nav ul {
-	margin: var(--spacing-0);
-}
-
-.gatsby-highlight {
-	margin-bottom: var(--spacing-8);
 }
 
 /* Media queries */
@@ -371,25 +298,6 @@ body {
 
 .flex {
 	display: flex;
-}
-
-.f-column {
-	flex-flow: column;
-}
-
-.f-row {
-	flex-flow: row;
-}
-
-.pt-7 {
-	padding-top: 70px;
-}
-.pt-8 {
-	padding-top: 80px;
-}
-
-.mr-8 {
-	margin-right: 80px;
 }
 
 .lees-verder-button {
@@ -433,6 +341,13 @@ body {
 	@media only screen and (max-width: 480px) {
 		font-size: 12px;
 	}
+}
+
+.hover-image {
+	transition: ease-in-out 0.2s;
+}
+.hover-image:hover {
+	opacity: 0.9;
 }
 
 //Header styles
@@ -1202,8 +1117,6 @@ body {
 	@media only screen and (max-width: 480px) {
 		width: 230.5px;
 		height: 230.5px;
-		// display: inline-flex;
-		// place-self: center;
 	}
 }
 
