@@ -117,6 +117,27 @@ const FooterMenu = styled.div`
   }
 `
 
+const PoweredByFooter = styled.div`
+  width: 100%;
+  font-size: 0.7rem;
+  display: flex;
+  justify-content: space-evenly;
+  
+  a {
+    color: white;
+    text-decoration: none
+  }
+
+  a:hover {
+    color: #d1dce5;
+  }
+
+  @media only screen and (max-width: 600px) {
+    margin-top: 0.5rem;
+    font-size: 0.5rem;
+  }
+`
+
 const NO_DETAILS = 'No details loaded.'
 
 const Footer = () => {
@@ -234,6 +255,12 @@ const Footer = () => {
           </MobileInner>
         </MobileWrapper>
       </SectionInner>
+
+      <PoweredByFooter>
+        <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/robberttuerlings">Code by Robbert Tuerlings</a>
+        <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/ruth-mollema-218083ba/">Design by Ruth Mollema</a>
+        <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/iris-bender/">Illustrations by Iris Bender</a>
+      </PoweredByFooter>
     </footer>
   )
 }
