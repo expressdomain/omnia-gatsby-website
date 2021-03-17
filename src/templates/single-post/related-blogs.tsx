@@ -130,7 +130,7 @@ const RelatedBlogs = ({ currentBlog }) => {
               <RelatedBlogHeaderContainer>
                 <RelatedBlogInnerHeader>
                   <h2 className="related-blog-header">
-                    Dit vindt je misschien <br /> ook interessant
+                    Dit vind je misschien <br /> ook interessant
                   </h2>
                   <img src={blog_icon} alt="blog-icon" className="related-blog-icon" />
                 </RelatedBlogInnerHeader>
@@ -152,7 +152,7 @@ const RelatedBlogs = ({ currentBlog }) => {
               <RelatedBlogHeaderContainer>
                 <RelatedBlogInnerHeader>
                   <h2 className="related-blog-header">
-                    Dit vindt je misschien <br /> ook interessant
+                    Dit vind je misschien <br /> ook interessant
                   </h2>
                   <img src={blog_icon} alt="blog-icon" className="related-blog-icon" />
                 </RelatedBlogInnerHeader>

@@ -38,6 +38,7 @@ const BlogPreview = ({ post }) => {
 
   return (
     <BlogWrapper>
+      <Link to={`/blog${ post.uri }`}>
       {featuredImageSrc.img !== undefined || null ? (
         <GatsbyImage
           image={featuredImageSrc.img}
@@ -50,7 +51,8 @@ const BlogPreview = ({ post }) => {
           alt="placeholder"
           className="blog-preview-image hide-on-mobile"
         />
-      )}
+        )}
+      </Link>
 
       <BlogText>
         <h3 className="blog-preview-title">{parse(post.title)}</h3>
