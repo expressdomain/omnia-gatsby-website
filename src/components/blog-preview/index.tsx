@@ -23,7 +23,6 @@ const BlogWrapper = styled.div`
   background-color: hsl(0, 0%, 100%);
   max-height: 700px;
   max-width: 310px;
-}
 `
 
 const BlogText = styled.div`
@@ -38,7 +37,7 @@ const BlogPreview = ({ post }) => {
 
   return (
     <BlogWrapper>
-      <Link to={`/blog${ post.uri }`}>
+      <Link className="hover-image" to={`/blog${ post.uri }`}>
       {featuredImageSrc.img !== undefined || null ? (
         <GatsbyImage
           image={featuredImageSrc.img}

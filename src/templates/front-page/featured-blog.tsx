@@ -100,6 +100,7 @@ const FeaturedBlog = () => {
             <div>
               <img src={blog_icon} alt="blog-icon" className="featured-blog-icon" />
               <BlogMobileOverlay>
+                <Link className="hover-image" to={`/blog${ wpPost.uri }`}>
                 {featuredImage.img !== undefined || null ? (
                   <GatsbyImage
                     image={featuredImage.img}
@@ -112,7 +113,8 @@ const FeaturedBlog = () => {
                     alt="placeholder"
                     className="featured-blog-image"
                   />
-                )}
+                  )}
+                  </Link>
               </BlogMobileOverlay>
             </div>
             <BlogItem>
