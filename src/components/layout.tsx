@@ -7,6 +7,9 @@ import Header from './header/header'
 import styled from '@emotion/styled'
 
 const GlobalWrapper = styled.div`
+  height: 100%;
+  display: flex;
+  flex-flow: column nowrap;
   @media only screen and (max-width: 480px) {
     overflow-y: hidden;
   }
