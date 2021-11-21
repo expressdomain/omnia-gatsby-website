@@ -23,7 +23,7 @@ const BlogPreview = ({ post }) => {
           />
         ) : (
           <StaticImage
-            src="../../images/featured_blog_placeholder.png"
+            src="../../../images/featured_blog_placeholder.png"
             alt="placeholder"
             className="blog-preview-image"
           />
