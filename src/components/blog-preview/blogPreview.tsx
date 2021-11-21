@@ -16,39 +16,39 @@ const BlogPreview = ({ post }) => {
 
   return (
     <S.BlogWrapper>
-    <S.LinkWrapper to={`/blog${ post.uri }`}>
-      {featuredImageSrc.img ? (
-        <GatsbyImage
-          image={featuredImageSrc.img}
-          alt={featuredImageSrc.alt}
-          className="blog-preview-image hide-on-mobile"
-        />
-      ) : (
-        <StaticImage
-          src="../../images/featured_blog_placeholder.png"
-          alt="placeholder"
-          className="blog-preview-image hide-on-mobile"
-        />
-        )}
-
-      <S.BlogText>
-        <h3 className="blog-preview-title">{parse(post.title)}</h3>
-        {post.blogPreview.blogPreview !== null ? (
-          <div className="blog-preview-container">
-            <p className="blog-preview-text">{parse(post.blogPreview.blogPreview)}</p>
-          </div>
+      <S.LinkWrapper to={`/blog${ post.uri }`}>
+        {featuredImageSrc.img ? (
+          <GatsbyImage
+            image={featuredImageSrc.img}
+            alt={featuredImageSrc.alt}
+            className="blog-preview-image hide-on-mobile"
+          />
         ) : (
-          <pre>{NO_PREVIEW}</pre>
-        )}
-        <div className="lees-verder-chevron">
-          <div className="lees-verder-chevron-inner">
-            <Link className="blog-link-detail" to={`/blog${post.uri}`}>
-              {LEES_VERDER}
-            </Link>
-            <FiChevronRight />
+          <StaticImage
+            src="../../images/featured_blog_placeholder.png"
+            alt="placeholder"
+            className="blog-preview-image hide-on-mobile"
+          />
+          )}
+
+        <S.BlogText>
+          <h3 className="blog-preview-title">{parse(post.title)}</h3>
+          {post.blogPreview.blogPreview !== null ? (
+            <div className="blog-preview-container">
+              <p className="blog-preview-text">{parse(post.blogPreview.blogPreview)}</p>
+            </div>
+          ) : (
+            <pre>{NO_PREVIEW}</pre>
+          )}
+          <div className="lees-verder-chevron">
+            <div className="lees-verder-chevron-inner">
+              <Link className="blog-link-detail" to={`/blog${post.uri}`}>
+                {LEES_VERDER}
+              </Link>
+              <FiChevronRight />
+            </div>
           </div>
-        </div>
-      </S.BlogText>
+        </S.BlogText>
       </S.LinkWrapper>
     </S.BlogWrapper>
   )

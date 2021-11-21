@@ -354,20 +354,16 @@ body {
 	color: hsl(247, 69%, 15%);
 	text-decoration: none;
 	text-transform: lowercase;
-	transition: ease-in-out 0.2s;
+	font-weight: bold;
 }
 
 .menu-item:hover {
 	color: hsl(247, 47%, 29%);
-	font-weight: bold;
+	border-bottom: 1px solid #2f276d;
 }
 
 //Homepage styles
 .hero-image {
-	// min-width: 950px;
-	// @media only screen and (min-width: 1025px) {
-	// 	min-width: 950px;
-	// }
 	@media only screen and (max-width: 1024px) {
 		width: 567px;
 		height: auto;
