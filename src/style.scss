@@ -953,11 +953,18 @@ body {
 .lees-verder-chevron {
 	display: flex;
 	flex-flow: row;
-	align-items: center;
-	color: hsl(250, 49%, 33%);
+	flex: 1;
+	align-items: flex-end;
 	@media only screen and (max-width: 480px) {
-		margin-top: 1rem;
+		align-items: center;
 	}
+}
+
+.lees-verder-chevron-inner {
+	display: flex;
+	align-items: center;
+	flex-flow: row;
+	color: hsl(250, 49%, 33%);
 }
 
 .lees-verder-chevron:hover {
