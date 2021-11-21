@@ -1,7 +1,5 @@
-const { slash }         = require( `gatsby-core-utils` );
-const overTemplate = require.resolve( `../src/templates/over/index.tsx` );
-// const { SeoFragment } = require('./fragments/seo/index.js');
-// const { ImageFragment } = require('./fragments/image/index.js');
+const { slash } = require( `gatsby-core-utils` );
+const overTemplate = require.resolve( `../src/templates/over/over.tsx` );
 
 // Get all the about page data.
 const GET_OVER_PAGE = `

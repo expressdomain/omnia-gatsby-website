@@ -1,7 +1,5 @@
 const { slash }         = require( `gatsby-core-utils` );
-const contactTemplate = require.resolve(`../src/templates/contact/index.tsx`);
-// const { ImageFragment } = require('./fragments/image/index.js');
-// const { SeoFragment } = require('./fragments/seo/index.js');
+const contactTemplate = require.resolve(`../src/templates/contact/contact.tsx`);
 
 // Get all the contact page data.
 const GET_CONTACT_PAGE = `
