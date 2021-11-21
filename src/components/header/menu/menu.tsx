@@ -24,14 +24,10 @@ const Menu = ({ items, toggleMenu }) => {
               <S.MenuItem
                 id={itemId}
                 key={i + menuItem.url}
-                className={
-                  'menu-item menu-item-type-custom menu-item-object-custom menu-item-home ' + itemId
-                }
               >
                 <Link
                   className="menu-item"
                   to={path}
-                  activeClassName={'current-menu-item current_page_item small-letters'}
                 >
                   {menuItem.label}
                 </Link>

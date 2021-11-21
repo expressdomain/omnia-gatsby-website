@@ -26,13 +26,9 @@ const Sidebar = ({ showMenu, toggleMenu, items }) => {
               <S.MenuItem
                 id={itemId}
                 key={i + menuItem.url}
-                className={
-                  'menu-item menu-item-type-custom menu-item-object-custom menu-item-home ' + itemId
-                }
               >
                 <S.MenuLink
                   to={path}
-                  activeClassName={'current-menu-item current_page_item small-letters'}
                 >
                   {menuItem.label}
                 </S.MenuLink>
