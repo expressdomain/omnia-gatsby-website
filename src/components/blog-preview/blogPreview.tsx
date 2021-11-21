@@ -16,8 +16,8 @@ const BlogPreview = ({ post }) => {
 
   return (
     <S.BlogWrapper>
-      <Link className="hover-image" to={`/blog${ post.uri }`}>
-      {featuredImageSrc.img !== undefined || null ? (
+    <S.LinkWrapper to={`/blog${ post.uri }`}>
+      {featuredImageSrc.img ? (
         <GatsbyImage
           image={featuredImageSrc.img}
           alt={featuredImageSrc.alt}
@@ -30,7 +30,6 @@ const BlogPreview = ({ post }) => {
           className="blog-preview-image hide-on-mobile"
         />
         )}
-      </Link>
 
       <S.BlogText>
         <h3 className="blog-preview-title">{parse(post.title)}</h3>
@@ -42,12 +41,15 @@ const BlogPreview = ({ post }) => {
           <pre>{NO_PREVIEW}</pre>
         )}
         <div className="lees-verder-chevron">
-          <Link className="blog-link-detail" to={`/blog${post.uri}`}>
-            {LEES_VERDER}
-          </Link>
-          <FiChevronRight />
+          <div className="lees-verder-chevron-inner">
+            <Link className="blog-link-detail" to={`/blog${post.uri}`}>
+              {LEES_VERDER}
+            </Link>
+            <FiChevronRight />
+          </div>
         </div>
       </S.BlogText>
+      </S.LinkWrapper>
     </S.BlogWrapper>
   )
 }
