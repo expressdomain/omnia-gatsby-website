@@ -6,9 +6,7 @@ import parse from 'html-react-parser'
 import { GatsbyImage } from 'gatsby-plugin-image'
 import AutoHelmet from '../../components/helmet'
 import * as S from './frontPageStyles'
-
-const LEES_VERDER = 'Lees verder'
-const SOMETHING_WRONG = 'Er is iets fout gegaan'
+import * as global from '../../constants/globalConstants'
 
 const Homepage = (props) => {
   const {
@@ -90,7 +88,7 @@ const Homepage = (props) => {
                   </S.ServicesContent>
                   <S.ServicesButton to={'/diensten/'}>
                     <button className="lees-verder-button">
-                      <span className="lees-verder-link">{LEES_VERDER}</span>
+                      <span className="lees-verder-link">{global.LEES_VERDER}</span>
                     </button>
                   </S.ServicesButton>
                 </S.ServicesTextContainer>
@@ -102,7 +100,7 @@ const Homepage = (props) => {
           </S.BlogWrapper>
         </>
       ) : (
-        <div>{SOMETHING_WRONG}</div>
+        <div>{global.SOMETHING_WRONG}</div>
       )}
     </Layout>
   )

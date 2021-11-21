@@ -1,7 +1,5 @@
 const { slash }         = require( `gatsby-core-utils` );
-const dienstenTemplate = require.resolve(`../src/templates/diensten/index.tsx`);
-// const { ImageFragment } = require('./fragments/image/index.js');
-// const { SeoFragment } = require('./fragments/seo/index.js');
+const dienstenTemplate = require.resolve(`../src/templates/diensten/diensten.tsx`);
 
 // Get all the services page data.
 const GET_DIENSTEN_PAGE = `
