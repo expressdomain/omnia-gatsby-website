@@ -2,8 +2,8 @@ import React from 'react'
 import { Link, useStaticQuery, graphql } from 'gatsby'
 import parse from 'html-react-parser'
 import { SEOContext } from 'gatsby-plugin-wpgraphql-seo'
-import Footer from '../footer'
-import Header from '../header'
+import Footer from './footer/footer'
+import Header from './header/header'
 import styled from '@emotion/styled'
 
 const GlobalWrapper = styled.div`

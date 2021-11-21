@@ -1,33 +1,14 @@
 require('dotenv').config({
   path: `.env`,
 });
-/**
- * 👋 Hey there!
- * This file is the starting point for your new WordPress/Gatsby site! 🚀
- * For more information about what this file is and does, see
- * https://www.gatsbyjs.com/docs/gatsby-config/
- *
- */
 
 module.exports = {
   plugins: [
-    `gatsby-plugin-typescript`,
     `gatsby-plugin-image`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-emotion`,
-    {
-        resolve: `gatsby-plugin-google-fonts-v2`,
-        options: {
-          fonts: [
-            {
-              family: 'Karla',
-              variable: true,
-              weights: ['200..800']
-            }
-          ]
-        }
-      },
+    `gatsby-plugin-sass`,
 
     {
       resolve: `gatsby-source-wordpress`,
@@ -41,7 +22,6 @@ module.exports = {
     },
 
     {
-      // See https://www.gatsbyjs.com/plugins/gatsby-plugin-manifest/?=gatsby-plugin-manifest
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: `Omnia Consultancy`,
@@ -54,10 +34,5 @@ module.exports = {
       },
     },
     `gatsby-plugin-react-helmet`,
-    /**
-     * this (optional) plugin enables Progressive Web App + Offline functionality
-     * To learn more, visit: https://gatsby.dev/offline
-     */
-    // `gatsby-plugin-offline`,
   ],
 };

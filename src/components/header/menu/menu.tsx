@@ -1,56 +1,27 @@
 import React from 'react'
 import { useStaticQuery, graphql, Link } from 'gatsby'
-// import UniversalLink from './UniversalLink'
-import styled from '@emotion/styled'
 import { FiMenu, FiX } from 'react-icons/fi'
 import Sidebar from '../sidebar'
-
-const DesktopWrapper = styled.div`
-  @media only screen and (max-width: 767px) {
-    display: none;
-  }
-`
-
-const OpenIcon = styled.div`
-  @media only screen and (min-width: 768px) {
-    display: none;
-  }
-`
-
-const MenuWrapper = styled.nav`
-  display: flex;
-  justify-content: end;
-  align-items: center;
-`
-
-const PrimaryMenu = styled.ul`
-  display: flex;
-  flex-flow: row;
-  list-style: none;
-`
-
-const MenuItem = styled.li`
-  margin: 0 2.5rem;
-`
+import * as S from './menuStyles'
 
 const Menu = ({ items, toggleMenu }) => {
   if (items === 0) return null
 
   return (
-    <MenuWrapper className="menu-wrapper">
-      <OpenIcon onClick={toggleMenu}>
+    <S.MenuWrapper className="menu-wrapper">
+      <S.OpenIcon onClick={toggleMenu}>
         <FiMenu size={34} style={{ color: '#0F0E40', marginRight: '1rem' }} />
-      </OpenIcon>
+      </S.OpenIcon>
 
-      <DesktopWrapper>
-        <PrimaryMenu>
+      <S.DesktopWrapper>
+        <S.PrimaryMenu>
           {items.map((menuItem, i) => {
             const path = menuItem?.connectedNode?.node?.uri ?? menuItem.url
 
             const itemId = 'menu-item-' + menuItem.databaseId
 
             return (
-              <MenuItem
+              <S.MenuItem
                 id={itemId}
                 key={i + menuItem.url}
                 className={
@@ -64,12 +35,12 @@ const Menu = ({ items, toggleMenu }) => {
                 >
                   {menuItem.label}
                 </Link>
-              </MenuItem>
+              </S.MenuItem>
             )
           })}
-        </PrimaryMenu>
-      </DesktopWrapper>
-    </MenuWrapper>
+        </S.PrimaryMenu>
+      </S.DesktopWrapper>
+    </S.MenuWrapper>
   )
 }
 
