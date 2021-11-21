@@ -1,26 +1,10 @@
 import React from 'react'
-import styled from '@emotion/styled'
 import parse from 'html-react-parser'
 import { Link } from 'gatsby'
 import { GatsbyImage, StaticImage } from 'gatsby-plugin-image'
+import * as S from './mobileBlogDetailStyles'
 
-const BlogWrapper = styled.div`
-  border-radius: 5px;
-  box-shadow: 0 12px 24px 0 hsla(0, 0%, 0%, 0.15);
-  height: 275px;
-`
-
-const BlogMobileOverlay = styled.div`
-  background: rgba(255, 255, 255, 0.33);
-  overflow: hidden;
-  height: 292px;
-`
-
-const BlogText = styled.div`
-  padding: 0 2rem 2rem 2rem;
-  position: relative;
-  top: -225px;
-`
+const LEES_VERDER = 'Lees verder'
 
 const BlogPreview = ({ post }) => {
   const featuredImageSrc = {
@@ -29,8 +13,8 @@ const BlogPreview = ({ post }) => {
   }
 
   return (
-    <BlogWrapper>
-      <BlogMobileOverlay>
+    <S.BlogWrapper>
+      <S.BlogMobileOverlay>
         {featuredImageSrc.img !== undefined || null ? (
           <GatsbyImage
             image={featuredImageSrc.img}
@@ -39,23 +23,23 @@ const BlogPreview = ({ post }) => {
           />
         ) : (
           <StaticImage
-            src="../../images/featured_blog_placeholder.png"
+            src="../../../images/featured_blog_placeholder.png"
             alt="placeholder"
             className="blog-preview-image"
           />
         )}
-      </BlogMobileOverlay>
-      <BlogText>
+      </S.BlogMobileOverlay>
+      <S.BlogText>
         <h3 className="featured-title" style={{ margin: '0' }}>
           {parse(post.title)}
         </h3>
-        <button className="lees-verder-button">
+        <button className="lees-verder-button" type="button">
           <Link className="lees-verder-link" to={`/blog${post.uri}`}>
-            Lees verder
+            {LEES_VERDER}
           </Link>
         </button>
-      </BlogText>
-    </BlogWrapper>
+      </S.BlogText>
+    </S.BlogWrapper>
   )
 }
 

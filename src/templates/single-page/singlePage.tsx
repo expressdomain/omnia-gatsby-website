@@ -3,6 +3,7 @@ import Layout from '../../components/layout'
 import parse from 'html-react-parser'
 import styled from '@emotion/styled'
 import AutoHelmet from '../../components/helmet'
+import * as global from '../../constants/globalConstants'
 
 const PageTemplate = (props) => {
   const {
@@ -20,7 +21,7 @@ const PageTemplate = (props) => {
           <p>{parse(content)}</p>
         </>
       ) : (
-        <div>Something went wrong</div>
+        <div>{global.SOMETHING_WRONG}</div>
       )}
     </Layout>
   )

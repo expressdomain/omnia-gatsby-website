@@ -1,13 +1,7 @@
-import React from 'react'
-import Layout from '../../components/layout'
-import FeaturedBlog from './featured-blog'
 import styled from '@emotion/styled'
 import { Link } from 'gatsby'
-import parse from 'html-react-parser'
-import { GatsbyImage } from 'gatsby-plugin-image'
-import AutoHelmet from '../../components/helmet'
 
-const DesktopWrapper = styled.div`
+export const DesktopWrapper = styled.div`
   grid-column: 1/4;
   width: 100%;
   @media only screen and (max-width: 480px) {
@@ -15,7 +9,7 @@ const DesktopWrapper = styled.div`
   }
 `
 
-const MobileWrapper = styled.div`
+export const MobileWrapper = styled.div`
   @media only screen and (min-width: 481px) {
     display: none;
   }
@@ -25,7 +19,7 @@ const MobileWrapper = styled.div`
   }
 `
 
-const HeroContainer = styled.div`
+export const HeroContainer = styled.div`
   display: flex;
   @media only screen and (min-width: 1025px) {
     margin-bottom: 130px;
@@ -46,7 +40,7 @@ const HeroContainer = styled.div`
   }
 `
 
-const HeroInnerContainer = styled.div`
+export const HeroInnerContainer = styled.div`
   padding: 0 4rem;
   justify-content: center;
   display: flex;
@@ -57,7 +51,7 @@ const HeroInnerContainer = styled.div`
   }
 `
 
-const HeroHeader = styled.div`
+export const HeroHeader = styled.div`
   font-weight: bold;
   font-stretch: normal;
   font-style: normal;
@@ -81,7 +75,7 @@ const HeroHeader = styled.div`
   }
 `
 
-const HeroSubTextContainer = styled.div`
+export const HeroSubTextContainer = styled.div`
   display: flex;
   @media only screen and (min-width: 1025px) {
     justify-content: flex-end;
@@ -91,11 +85,11 @@ const HeroSubTextContainer = styled.div`
   }
 `
 
-const HeroButtonContainer = styled.div`
+export const HeroButtonContainer = styled.div`
   display: none;
 `
 
-const UspServicesWrapper = styled.div`
+export const UspServicesWrapper = styled.div`
   display: grid;
   justify-content: center;
   @media only screen and (max-width: 1024px) {
@@ -105,7 +99,7 @@ const UspServicesWrapper = styled.div`
   }
 `
 
-const UspServicesContainer = styled.div`
+export const UspServicesContainer = styled.div`
   border-radius: 5px;
   @media only screen and (min-width: 1025px) {
     background-color: #120c42;
@@ -133,7 +127,7 @@ const UspServicesContainer = styled.div`
   }
 `
 
-const UspServicesInnerContainer = styled.div`
+export const UspServicesInnerContainer = styled.div`
   border-radius: 5px;
   flex-flow: row;
   display: flex;
@@ -151,7 +145,7 @@ const UspServicesInnerContainer = styled.div`
   }
 `
 
-const ServicesTextContainer = styled.div`
+export const ServicesTextContainer = styled.div`
   @media only screen and (min-width: 1025px) {
     padding: 37px 55px 0 56px;
     border-radius: 5px;
@@ -181,7 +175,7 @@ const ServicesTextContainer = styled.div`
   }
 `
 
-const ServicesContent = styled.div`
+export const ServicesContent = styled.div`
   font-size: 16px;
   font-weight: 300;
   font-stretch: normal;
@@ -198,7 +192,7 @@ const ServicesContent = styled.div`
   }
 `
 
-const ServicesButton = styled(Link)`
+export const ServicesButton = styled(Link)`
   position: relative;
   @media only screen and (min-width: 1025px) {
     top: 26px;
@@ -218,7 +212,7 @@ const ServicesButton = styled(Link)`
   }
 `
 
-const BlogWrapper = styled.div`
+export const BlogWrapper = styled.div`
   @media only screen and (min-width: 1025px) {
     margin-top: 100px;
     margin-bottom: 100px;
@@ -244,107 +238,3 @@ const BlogWrapper = styled.div`
     margin-bottom: 0;
   }
 `
-
-const Homepage = (props) => {
-  const {
-    pageContext: {
-      page: { title, uri, homepageACF },
-    },
-  } = props
-
-  const heroImage = {
-    img: homepageACF.heroImage?.localFile?.childImageSharp?.gatsbyImageData,
-    alt: homepageACF.heroImage?.altText || ``,
-  }
-
-  const servicesImage = {
-    img: homepageACF.servicesImage?.localFile?.childImageSharp?.gatsbyImageData,
-    alt: homepageACF.servicesImage?.altText || ``,
-  }
-
-  return (
-    <Layout>
-      {props.pageContext ? (
-        <>
-          <AutoHelmet title={title} />
-          {/* <div id="primary" className="content-area"> */}
-          {/* <main id="main" className="site-main"> */}
-          <MobileWrapper>
-            <HeroContainer>
-              {heroImage?.img && (
-                <GatsbyImage image={heroImage.img} alt={heroImage.alt} className="hero-image" />
-              )}
-              <HeroHeader>
-                <p className="hero-small">{parse(homepageACF.heroSubHeader)}</p>
-                <h1 className="hero-big">{parse(homepageACF.heroHeader)}</h1>
-                <p className="hero-subtext">{parse(homepageACF.heroSubtext)}</p>
-              </HeroHeader>
-            </HeroContainer>
-          </MobileWrapper>
-
-          <DesktopWrapper>
-            <HeroContainer>
-              <HeroInnerContainer>
-                <HeroHeader>
-                  <p className="hero-small">{parse(homepageACF.heroSubHeader)}</p>
-                  <h1 className="hero-big">{parse(homepageACF.heroHeader)}</h1>
-                </HeroHeader>
-                <HeroSubTextContainer>
-                  <p className="hero-subtext">{parse(homepageACF.heroSubtext)}</p>
-                </HeroSubTextContainer>
-                <HeroButtonContainer>
-                  <div className="hero-button-square">
-                    <div className="hero-button-triangle"></div>
-                  </div>
-                </HeroButtonContainer>
-              </HeroInnerContainer>
-              {heroImage?.img && (
-                <GatsbyImage image={heroImage.img} alt={heroImage.alt} className="hero-image" />
-              )}
-            </HeroContainer>
-          </DesktopWrapper>
-
-          <UspServicesWrapper>
-            <UspServicesContainer>
-              <h2 className="usp-header">{parse(homepageACF.uspHeader)}</h2>
-              <UspServicesInnerContainer>
-                {servicesImage?.img && (
-                  <GatsbyImage
-                    image={servicesImage.img}
-                    alt={servicesImage.alt}
-                    className="services-image"
-                  />
-                )}
-                <ServicesTextContainer>
-                  <h3 className="services-header">{parse(homepageACF.servicesHeader)}</h3>
-                  <ServicesContent>
-                    <div className="bullet-list bullet-list-margin">
-                      {parse(homepageACF.servicesContent)}
-                    </div>
-                    <div className="bullet-list bullet-list-margin">
-                      {parse(homepageACF.servicesContent1)}
-                    </div>
-                  </ServicesContent>
-                  <ServicesButton to={'/diensten/'}>
-                    <button className="lees-verder-button">
-                      <span className="lees-verder-link">Lees verder</span>
-                    </button>
-                  </ServicesButton>
-                </ServicesTextContainer>
-              </UspServicesInnerContainer>
-            </UspServicesContainer>
-          </UspServicesWrapper>
-          <BlogWrapper className="Blog-Wrapper">
-            <FeaturedBlog />
-          </BlogWrapper>
-          {/* </main> */}
-          {/* </div> */}
-        </>
-      ) : (
-        <div>Something went wrong</div>
-      )}
-    </Layout>
-  )
-}
-
-export default Homepage

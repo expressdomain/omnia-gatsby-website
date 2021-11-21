@@ -1,4 +1,9 @@
-/* CSS Custom Properties Definitions */
+@font-face {
+	font-family: 'Karla Variable';
+	src: url('./fonts/Karla-VariableFont_wght.ttf') format('truetype');
+	font-weight: 100 1000;
+	font-stretch: 25% 151%;
+}
 
 :root {
 	--maxWidth-none: 'none';
@@ -27,12 +32,11 @@
 	--spacing-20: 5rem;
 	--spacing-24: 6rem;
 	--spacing-32: 8rem;
-	--fontFamily-sans: 'Karla', system-ui, -apple-system, BlinkMacSystemFont,
-		'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif,
-		'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
-	--fontFamily-serif: 'Merriweather', 'Georgia', Cambria, 'Times New Roman',
-		Times, serif;
-	// --font-body: var(--fontFamily-serif);
+	--fontFamily-sans: 'Karla Variable', system-ui, -apple-system,
+		BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans',
+		sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
+		'Noto Color Emoji';
+	--fontFamily-serif: serif;
 	--font-body: var(--fontFamily-sans);
 	--font-heading: var(--fontFamily-sans);
 	--fontWeight-normal: 400;
@@ -65,12 +69,6 @@
 
 /* HTML elements */
 
-// *,
-// :after,
-// :before {
-//   box-sizing: border-box;
-// }
-
 html {
 	line-height: var(--lineHeight-normal);
 	font-size: var(--fontSize-root);
@@ -86,16 +84,15 @@ body {
 
 main {
 	display: grid;
-  	grid-template-columns:
-    1fr
-    min(70%, 100%)
-    1fr;
+	grid-template-columns:
+		1fr
+		min(70%, 100%)
+		1fr;
 }
 
 main > * {
 	grid-column: 2;
 }
-
 
 footer {
 	padding: var(--spacing-6) var(--spacing-0);
@@ -266,7 +263,6 @@ a:focus {
 	grid-column: 1 / 4;
 }
 
-
 .global-header {
 	margin-bottom: var(--spacing-12);
 }
@@ -293,7 +289,6 @@ a:focus {
 body {
 	font-size: 16px;
 	font-family: var(--fontFamily-sans);
-	// font-family: Karla;
 }
 
 .flex {
@@ -460,7 +455,7 @@ body {
 		width: 330px;
 		text-align: right;
 		line-height: 1.11;
-  		letter-spacing: 0.27px;
+		letter-spacing: 0.27px;
 	}
 	@media only screen and (max-width: 768px) {
 		font-size: 18px;
@@ -510,7 +505,7 @@ body {
 		font-size: 29px;
 		width: 580px;
 		line-height: 1.14;
-  		letter-spacing: 0.44px;
+		letter-spacing: 0.44px;
 		margin-left: 3rem;
 	}
 	@media only screen and (max-width: 768px) {
@@ -649,21 +644,21 @@ body {
 	@media only screen and (max-width: 1024px) {
 		position: relative;
 		width: 56.6px;
-  		height: 59.3px;
+		height: 59.3px;
 		top: 8%;
 		left: 85%;
 	}
 	@media only screen and (max-width: 768px) {
 		position: relative;
 		width: 56.6px;
-  		height: 59.3px;
+		height: 59.3px;
 		top: 10%;
 		left: 90%;
 	}
 	@media only screen and (max-width: 480px) {
 		position: relative;
 		width: 56.6px;
-  		height: 59.3px;
+		height: 59.3px;
 		top: 40px;
 		left: 30px;
 	}
@@ -966,7 +961,7 @@ body {
 }
 
 .lees-verder-chevron:hover {
-	color: hsl(247, 47%, 29%)
+	color: hsl(247, 47%, 29%);
 }
 
 // Diensten styles

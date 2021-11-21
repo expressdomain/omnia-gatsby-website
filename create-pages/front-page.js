@@ -1,5 +1,5 @@
 const { slash }         = require( `gatsby-core-utils` );
-const frontPageTemplate = require.resolve( `../src/templates/front-page/index.tsx` );
+const frontPageTemplate = require.resolve( `../src/templates/front-page/frontPage.tsx` );
 // const { ImageFragment } = require('./fragments/image/index.js');
 // const { SeoFragment } = require('./fragments/seo/index.js');
 

@@ -1,144 +1,27 @@
 import React from 'react'
 import { useStaticQuery, graphql, Link } from 'gatsby'
-import styled from '@emotion/styled'
-import logo from '../images/Logo_white.png'
+import logo from '../../images/Logo_white.png'
 import { FaLinkedin } from 'react-icons/fa'
 import parse from 'html-react-parser'
-import contact from '../../create-pages/contact'
-
-const DesktopWrapper = styled.div`
-  @media only screen and (min-width: 481px) {
-    display: grid;
-    grid-template-columns: repeat(4, auto);
-    grid-column-gap: 2rem;
-    margin: 0 auto;
-    width: 100%;
-  }
-  @media only screen and (max-width: 480px) {
-    display: none;
-  }
-`
-const MobileWrapper = styled.div`
-  @media only screen and (min-width: 481px) {
-    display: none;
-  }
-  @media only screen and (max-width: 480px) {
-    display: flex;
-    place-items: center;
-    flex-flow: column;
-    overflow-x: hidden;
-  }
-`
-
-const SectionInner = styled.div`
-  margin: 0 auto;
-  display: flex;
-  @media only screen and (min-width: 1025px) {
-    max-width: 1230px;
-    flex-flow: row;
-    padding: 4rem 0;
-  }
-  @media only screen and (max-width: 1024px) {
-    padding: 4rem 2rem;
-  }
-  @media only screen and (max-width: 480px) {
-    flex-flow: column;
-    justify-content: center;
-    padding: 0;
-  }
-`
-
-const MobileInner = styled.div`
-  display: flex;
-  flex-flow: row;
-  align-items: center;
-`
-
-const MobileContactWrapper = styled.div`
-  display: flex;
-  flex-flow: column;
-  color: white;
-  margin-left: 0.8rem;
-
-  p {
-    margin: 0;
-    font-size: 9px;
-  }
-`
-
-const Logo = styled(Link)`
-  @media only screen and (max-width: 1024px) {
-    display: none;
-  }
-`
-
-const FooterLeft = styled.div`
-  color: white;
-  text-align: right;
-
-  p {
-    margin-bottom: 0;
-    font-size: 15px;
-    font-weight: bold;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: 1.2;
-    letter-spacing: normal;
-  }
-`
-
-const FooterRight = styled.div`
-  color: white;
-  margin-left: 2rem;
-
-  p {
-    margin-bottom: 0;
-  }
-`
-
-const FooterMenu = styled.div`
-  display: flex;
-  flex-flow: column;
-
-  a {
-    margin-bottom: 0;
-    color: white;
-    text-decoration: none;
-    line-height: 2;
-    text-transform: lowercase;
-    font-size: 20px;
-    @media only screen and (max-width: 768px) {
-      font-size: 16px;
-    }
-  }
-
-  a:hover {
-    color: #d1dce5;
-  }
-`
-
-const PoweredByFooter = styled.div`
-  width: 100%;
-  font-size: 0.7rem;
-  display: flex;
-  justify-content: space-evenly;
-  
-  a {
-    color: white;
-    text-decoration: none
-  }
-
-  a:hover {
-    color: #d1dce5;
-  }
-
-  @media only screen and (max-width: 600px) {
-    margin-top: 0.5rem;
-    font-size: 0.5rem;
-  }
-`
+import contact from '../../../create-pages/contact'
+import * as S from './footerStyles'
 
 const NO_DETAILS = 'No details loaded.'
+
+const CONTRIBUTERS_DETAILS = [
+  {text: "Code by Robbert Tuerlings", link: "https://www.linkedin.com/in/robberttuerlings"},
+  {text: "Design by Ruth Mollema", link: "https://www.linkedin.com/in/ruth-mollema-218083ba/"},
+  {text: "Illustrations by Iris Bender", link: "https://www.linkedin.com/in/iris-bender/"},
+]
+
+const MappedContacts = () => (
+  <S.PoweredByFooter>
+    {CONTRIBUTERS_DETAILS.map((item, index) => 
+       <a target="_blank" rel="noopener noreferrer" key={index} href={item.link}>{item.text}</a>
+    )}
+  </S.PoweredByFooter>
+  )
+
 
 const Footer = () => {
   const wpFooterMenu = useStaticQuery(graphql`
@@ -172,14 +55,14 @@ const Footer = () => {
 
   return (
     <footer id="site-footer" role="contentinfo" className="footer">
-      <SectionInner>
-        <DesktopWrapper>
-          <Logo to="/">
+      <S.SectionInner>
+        <S.DesktopWrapper>
+          <S.Logo to="/">
             <img src={logo} width={158} />
-          </Logo>
+          </S.Logo>
           {wpFooterMenu.page.contactACF != null || undefined ? (
             <>
-              <FooterLeft className="footer-left">
+              <S.FooterLeft className="footer-left">
                 <p>{parse(wpFooterMenu.page.contactACF?.companyName)}</p>
                 <p>{parse(wpFooterMenu.page.contactACF?.personName)}</p>
                 <p>{parse(wpFooterMenu.page.contactACF?.street)}</p>
@@ -187,8 +70,8 @@ const Footer = () => {
                 <a className="footer-link" href={`${wpFooterMenu.page.contactACF?.linkedin}`}>
                   <FaLinkedin style={{ marginTop: '0.5rem' }} size={26} />
                 </a>
-              </FooterLeft>
-              <FooterRight className="footer-left">
+              </S.FooterLeft>
+              <S.FooterRight className="footer-left">
                 <p>
                   <a
                     className="footer-link"
@@ -204,12 +87,12 @@ const Footer = () => {
                 </p>
                 <p>{wpFooterMenu.page.contactACF?.kamerVanKoophandel}</p>
                 <p>{wpFooterMenu.page.contactACF?.btwNummer}</p>
-              </FooterRight>
+              </S.FooterRight>
             </>
           ) : (
             <pre>{NO_DETAILS}</pre>
           )}
-          <FooterMenu>
+          <S.FooterMenu>
             {wpFooterMenu !== null || undefined
               ? wpFooterMenu.wpMenu.menuItems.nodes.map((item) => (
                   <Link key={item.id} to={`${item.url}`}>
@@ -217,18 +100,18 @@ const Footer = () => {
                   </Link>
                 ))
               : null}
-          </FooterMenu>
-        </DesktopWrapper>
+          </S.FooterMenu>
+        </S.DesktopWrapper>
 
-        <MobileWrapper>
+        <S.MobileWrapper>
           <Link to="/" style={{ maxWidth: `119px` }}>
             <img src={logo} width={119} />
           </Link>
-          <MobileInner>
+          <S.MobileInner>
             <a className="footer-link" href={`${wpFooterMenu.page.contactACF?.linkedin}`}>
               <FaLinkedin style={{ marginTop: '0.5rem' }} size={26} />
             </a>
-            <MobileContactWrapper>
+            <S.MobileContactWrapper>
               {wpFooterMenu.page.contactACF != null || undefined ? (
                 <>
                   <p>
@@ -251,16 +134,13 @@ const Footer = () => {
               ) : (
                 <pre>{NO_DETAILS}</pre>
               )}
-            </MobileContactWrapper>
-          </MobileInner>
-        </MobileWrapper>
-      </SectionInner>
+            </S.MobileContactWrapper>
+          </S.MobileInner>
+        </S.MobileWrapper>
+      </S.SectionInner>
 
-      <PoweredByFooter>
-        <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/robberttuerlings">Code by Robbert Tuerlings</a>
-        <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/ruth-mollema-218083ba/">Design by Ruth Mollema</a>
-        <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/iris-bender/">Illustrations by Iris Bender</a>
-      </PoweredByFooter>
+      <MappedContacts />
+      
     </footer>
   )
 }

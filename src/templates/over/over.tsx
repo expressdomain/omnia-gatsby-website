@@ -1,105 +1,11 @@
 import React from 'react'
 import Layout from '../../components/layout'
 import parse from 'html-react-parser'
-import styled from '@emotion/styled'
 import FeaturedBlog from '../front-page/featured-blog'
 import { GatsbyImage } from 'gatsby-plugin-image'
 import AutoHelmet from '../../components/helmet'
-
-const OverWrapper = styled.div`
-  margin-bottom: 10%;
-  max-width: 1240px;
-  justify-self: center;
-  @media only screen and (max-width: 1024px) {
-    width: 100%;
-    grid-column: 1 / 4;
-  }
-`
-
-const DesktopWrapper = styled.div`
-  @media only screen and (max-width: 480px) {
-    display: none;
-  }
-`
-
-const MobileWrapper = styled.div`
-  @media only screen and (min-width: 481px) {
-    display: none;
-  }
-`
-
-const OverHeaderWrapper = styled.div`
-  @media only screen and (min-width: 481px) {
-    border-radius: 5px;
-    margin-top: 5%;
-  }
-  @media only screen and (min-width: 481px) {
-    background-color: hsl(247, 69%, 15%);
-  }
-`
-
-const OverHeader = styled.div`
-  color: white;
-  /* max-width: 920px; */
-  margin: 0 auto;
-  /* padding: 1rem; */
-  display: flex;
-  flex-flow: row;
-  padding-top: 2rem;
-  @media only screen and (max-width: 480px) {
-    flex-flow: column;
-    padding: 1rem 3rem;
-    background-color: hsl(247, 69%, 15%);
-    border-radius: 5px;
-  }
-`
-
-const OverInnerHeader = styled.div`
-  margin-left: 2.3rem;
-  max-width: 540px;
-  @media only screen and (max-width: 1024px) {
-    max-width: 360px;
-  }
-  @media only screen and (max-width: 480px) {
-    margin: 1rem 3rem;
-  }
-`
-
-const HeroMobileContainer = styled.div`
-  display: flex;
-  place-content: center;
-`
-
-const OverContentContainer = styled.div`
-  display: flex;
-  place-content: center;
-`
-
-const OverContentInnerContainer = styled.div`
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-column-gap: 2rem;
-  grid-row-gap: 2rem;
-  margin-top: 10%;
-  @media only screen and (max-width: 1024px) {
-    margin: 5% 5%;
-  }
-  @media only screen and (max-width: 480px) {
-    grid-template-columns: 1fr;
-  }
-`
-
-const OverContentItem = styled.div`
-  display: flex;
-  flex-flow: row;
-  align-items: center;
-`
-
-const OverInnerContent = styled.div`
-  display: flex;
-  flex-flow: column;
-  margin-left: 1.5rem;
-`
+import * as S from './overStyles'
+import * as global from '../../constants/globalConstants'
 
 const Over = (props) => {
   const {
@@ -143,10 +49,10 @@ const Over = (props) => {
       {props.pageContext ? (
         <>
           <AutoHelmet title={title} />
-          <OverWrapper className="over-wrapper">
-            <DesktopWrapper className="desktop-wrapper">
-              <OverHeaderWrapper className="over-header-wrapper">
-                <OverHeader className="over-header">
+          <S.OverWrapper className="over-wrapper">
+            <S.DesktopWrapper className="desktop-wrapper">
+              <S.OverHeaderWrapper className="over-header-wrapper">
+                <S.OverHeader className="over-header">
                   {overHeroImage?.img && (
                     <GatsbyImage
                       image={overHeroImage.img}
@@ -154,18 +60,18 @@ const Over = (props) => {
                       className="over-hero-image"
                     />
                   )}
-                  <OverInnerHeader className="over-inner-header">
+                  <S.OverInnerHeader className="over-inner-header">
                     <h1 className="over-page-header">{parse(overACF.overHeroHeader)}</h1>
                     <p className="over-page-subtext">{parse(overACF.overHeroBody)}</p>
-                  </OverInnerHeader>
-                </OverHeader>
-              </OverHeaderWrapper>
-            </DesktopWrapper>
+                  </S.OverInnerHeader>
+                </S.OverHeader>
+              </S.OverHeaderWrapper>
+            </S.DesktopWrapper>
 
-            <MobileWrapper>
-              <OverHeaderWrapper>
-                <OverHeader>
-                  <HeroMobileContainer>
+            <S.MobileWrapper>
+              <S.OverHeaderWrapper>
+                <S.OverHeader>
+                  <S.HeroMobileContainer>
                     {overHeroImage?.img && (
                       <GatsbyImage
                         image={overHeroImage.img}
@@ -173,16 +79,16 @@ const Over = (props) => {
                         className="over-hero-image"
                       />
                     )}
-                  </HeroMobileContainer>
+                  </S.HeroMobileContainer>
                   <h1 className="over-page-header">{parse(overACF.overHeroHeader)}</h1>
                   <p className="over-page-subtext">{parse(overACF.overHeroBody)}</p>
-                </OverHeader>
-              </OverHeaderWrapper>
-            </MobileWrapper>
+                </S.OverHeader>
+              </S.OverHeaderWrapper>
+            </S.MobileWrapper>
 
-            <OverContentContainer className="over-content-container">
-              <OverContentInnerContainer className="over-content-inner-container">
-                <OverContentItem className="over-content-item">
+            <S.OverContentContainer className="over-content-container">
+              <S.OverContentInnerContainer className="over-content-inner-container">
+                <S.OverContentItem className="over-content-item">
                   {gbImage?.img && (
                     <GatsbyImage
                       image={gbImage.img}
@@ -190,12 +96,12 @@ const Over = (props) => {
                       className="over-detail-image"
                     />
                   )}
-                  <OverInnerContent className="over-inner-content">
+                  <S.OverInnerContent className="over-inner-content">
                     <h2 className="over-item-header">{parse(overACF.gbHeader)}</h2>
                     <p className="over-item-body">{parse(overACF.gbBody)}</p>
-                  </OverInnerContent>
-                </OverContentItem>
-                <OverContentItem className="over-content-item">
+                  </S.OverInnerContent>
+                </S.OverContentItem>
+                <S.OverContentItem className="over-content-item">
                   {kennisProjectervaringImage?.img && (
                     <GatsbyImage
                       image={kennisProjectervaringImage.img}
@@ -203,14 +109,14 @@ const Over = (props) => {
                       className="over-detail-image"
                     />
                   )}
-                  <OverInnerContent className="over-inner-content">
+                  <S.OverInnerContent className="over-inner-content">
                     <h2 className="over-item-header">
                       {parse(overACF.kennisProjectervaringHeader)}
                     </h2>
                     <p className="over-item-body">{parse(overACF.kennisProjectervaringBody)}</p>
-                  </OverInnerContent>
-                </OverContentItem>
-                <OverContentItem className="over-content-item">
+                  </S.OverInnerContent>
+                </S.OverContentItem>
+                <S.OverContentItem className="over-content-item">
                   {dnaImage?.img && (
                     <GatsbyImage
                       image={dnaImage.img}
@@ -218,12 +124,12 @@ const Over = (props) => {
                       className="over-detail-image"
                     />
                   )}
-                  <OverInnerContent className="over-inner-content">
+                  <S.OverInnerContent className="over-inner-content">
                     <h2 className="over-item-header">{parse(overACF.dnaHeader)}</h2>
                     <p className="over-item-body">{parse(overACF.dnaBody)}</p>
-                  </OverInnerContent>
-                </OverContentItem>
-                <OverContentItem className="over-content-item">
+                  </S.OverInnerContent>
+                </S.OverContentItem>
+                <S.OverContentItem className="over-content-item">
                   {bierImage?.img && (
                     <GatsbyImage
                       image={bierImage.img}
@@ -231,12 +137,12 @@ const Over = (props) => {
                       className="over-detail-image"
                     />
                   )}
-                  <OverInnerContent className="over-inner-content">
+                  <S.OverInnerContent className="over-inner-content">
                     <h2 className="over-item-header">{parse(overACF.bierHeader)}</h2>
                     <p className="over-item-body">{parse(overACF.bierBody)}</p>
-                  </OverInnerContent>
-                </OverContentItem>
-                <OverContentItem className="over-content-item">
+                  </S.OverInnerContent>
+                </S.OverContentItem>
+                <S.OverContentItem className="over-content-item">
                   {werkgeversWerkervaringImage?.img && (
                     <GatsbyImage
                       image={werkgeversWerkervaringImage.img}
@@ -244,19 +150,19 @@ const Over = (props) => {
                       className="over-detail-image"
                     />
                   )}
-                  <OverInnerContent className="over-inner-content">
+                  <S.OverInnerContent className="over-inner-content">
                     <h2 className="over-item-header">
                       {parse(overACF.werkgeversWerkervaringHeader)}
                     </h2>
                     <p className="over-item-body">{parse(overACF.werkgeversWerkervaringBody)}</p>
-                  </OverInnerContent>
-                </OverContentItem>
-              </OverContentInnerContainer>
-            </OverContentContainer>
-          </OverWrapper>
+                  </S.OverInnerContent>
+                </S.OverContentItem>
+              </S.OverContentInnerContainer>
+            </S.OverContentContainer>
+          </S.OverWrapper>
         </>
       ) : (
-        <div>Something went wrong</div>
+        <div>{global.SOMETHING_WRONG}</div>
       )}
     </Layout>
   )

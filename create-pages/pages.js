@@ -1,9 +1,7 @@
 const { slash } = require( `gatsby-core-utils` );
 const customTemplatesUris = [ '/'  ];
 const customTemplateSlugs = [ 'blog', 'contact', 'diensten', 'over-omnia' ];
-const singlePageTemplate = require.resolve(`../src/templates/single-page/index.tsx`);
-// const { ImageFragment } = require('./fragments/image/index');
-// const { SeoFragment } = require('./fragments/seo/index.js');
+const singlePageTemplate = require.resolve(`../src/templates/single-page/singlePage.tsx`);
 
 // Get all the pages.
 const GET_PAGES = `
@@ -21,28 +19,6 @@ query GET_PAGES {
 }
 `;
 
-// ${ ImageFragment }
-// ${ SeoFragment }
-// query GET_PAGES {
-//   pages: allWpPage(limit: 5000) {
-//     nodes {
-//       id
-//       title
-//       content
-//       date
-//       uri
-//       slug
-//       seo {
-//         ...SeoFragment
-//       }
-//       featuredImage {
-//         node {
-// 		  ...ImageFragment
-//         }
-//       }
-//     }
-//   }
-// }
 
 module.exports = async ( { actions, graphql } ) => {
 

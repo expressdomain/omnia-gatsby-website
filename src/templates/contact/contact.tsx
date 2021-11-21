@@ -1,72 +1,10 @@
 import React from 'react'
 import Layout from '../../components/layout'
 import parse from 'html-react-parser'
-import styled from '@emotion/styled'
 import { GatsbyImage, StaticImage } from 'gatsby-plugin-image'
 import AutoHelmet from '../../components/helmet'
-
-const ContactWrapper = styled.div`
-  margin-bottom: 5%;
-  max-width: 1240px;
-  justify-self: center;
-  @media only screen and (max-width: 1024px) {
-    width: 100%;
-    grid-column: 1 / 4;
-  }
-  @media only screen and (max-width: 480px) {
-    margin-bottom: 0;
-    background-color: hsl(247, 69%, 15%);
-  }
-`
-
-const DesktopWrapper = styled.div`
-  @media only screen and (max-width: 480px) {
-    display: none;
-  }
-`
-
-const MobileWrapper = styled.div`
-  @media only screen and (min-width: 481px) {
-    display: none;
-  }
-`
-
-const ContactHeaderContainer = styled.div`
-  background-color: hsl(247, 69%, 15%);
-  border-radius: 5px;
-  margin-top: 10%;
-  @media only screen and (max-width: 480px) {
-    background-color: transparent;
-    margin-top: 0;
-  }
-`
-
-const ContactHeaderInner = styled.div`
-  display: flex;
-  flex-flow: row;
-  @media only screen and (max-width: 480px) {
-    flex-flow: column;
-  }
-`
-
-const HeroMobileContainer = styled.div`
-  margin: 2rem 0;
-  display: flex;
-  place-content: center;
-  background-color: inherit;
-`
-
-const ContactHeaderContent = styled.div`
-  @media only screen and (min-width: 481px) {
-    height: 425px;
-    max-width: 920px;
-    padding: 3rem 4rem 1rem;
-  }
-  @media only screen and (min-width: 1025px) {
-    margin: 0 auto;
-    padding: 2rem 13rem;
-  }
-`
+import * as S from './contactStyles'
+import * as global from '../../constants/globalConstants'
 
 const Homepage = (props) => {
   const {
@@ -85,12 +23,12 @@ const Homepage = (props) => {
       {props.pageContext ? (
         <>
           <AutoHelmet title={title} />
-          <ContactWrapper>
-            <DesktopWrapper>
-              <ContactHeaderContainer>
-                <ContactHeaderContent>
+          <S.ContactWrapper>
+            <S.DesktopWrapper>
+              <S.ContactHeaderContainer>
+                <S.ContactHeaderContent>
                   <h1 className="contact-header">{parse(contactACF.contactHeader)}</h1>
-                  <ContactHeaderInner>
+                  <S.ContactHeaderInner>
                     {gMapsImage.img !== undefined || null ? (
                       <GatsbyImage
                         image={gMapsImage.img}
@@ -105,16 +43,16 @@ const Homepage = (props) => {
                       />
                     )}
                     <div className="contact-body-text">{parse(content)}</div>
-                  </ContactHeaderInner>
-                </ContactHeaderContent>
-              </ContactHeaderContainer>
-            </DesktopWrapper>
+                  </S.ContactHeaderInner>
+                </S.ContactHeaderContent>
+              </S.ContactHeaderContainer>
+            </S.DesktopWrapper>
 
-            <MobileWrapper>
-              <ContactHeaderContainer>
-                <ContactHeaderContent>
-                  <ContactHeaderInner>
-                    <HeroMobileContainer>
+            <S.MobileWrapper>
+              <S.ContactHeaderContainer>
+                <S.ContactHeaderContent>
+                  <S.ContactHeaderInner>
+                    <S.HeroMobileContainer>
                       {gMapsImage.img !== undefined || null ? (
                         <GatsbyImage
                           image={gMapsImage.img}
@@ -128,17 +66,17 @@ const Homepage = (props) => {
                           className="contact-location-image"
                         />
                       )}
-                    </HeroMobileContainer>
+                    </S.HeroMobileContainer>
                     <h1 className="contact-header">{parse(contactACF.contactHeader)}</h1>
                     <div className="contact-body-text">{parse(content)}</div>
-                  </ContactHeaderInner>
-                </ContactHeaderContent>
-              </ContactHeaderContainer>
-            </MobileWrapper>
-          </ContactWrapper>
+                  </S.ContactHeaderInner>
+                </S.ContactHeaderContent>
+              </S.ContactHeaderContainer>
+            </S.MobileWrapper>
+          </S.ContactWrapper>
         </>
       ) : (
-        <div>Something went wrong</div>
+        <div>{global.SOMETHING_WRONG}</div>
       )}
     </Layout>
   )
