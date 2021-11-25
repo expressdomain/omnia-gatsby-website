@@ -15,8 +15,9 @@ module.exports = {
       options: {
         url: process.env.WPGRAPHQL_URL,
         schema: {
-          requestConcurrency: 5,
-          previewRequestConcurrency: 2,
+          perPage: 20, // currently set to 100
+          requestConcurrency: 5, // currently set to 5
+          previewRequestConcurrency: 2, // currently set to 2
         },
       },
     },
