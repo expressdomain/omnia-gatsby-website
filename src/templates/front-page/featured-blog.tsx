@@ -65,20 +65,24 @@ const BlogItem = styled.div`
 `
 
 const FeaturedBlog = () => {
-  const { wpPost } = useStaticQuery(graphql`
+  const { allWpPost: {edges} } = useStaticQuery(graphql`
     query FeaturedBlogQuery {
-      wpPost(categories: { nodes: { elemMatch: { name: { eq: "Featured" } } } }) {
-        uri
-        slug
-        title
-        blogPreview {
-          blogPreview
-        }
-        featuredImage {
+      allWpPost(sort: {order: DESC, fields: date}, limit: 1) {
+        edges {
           node {
-            localFile {
-              childImageSharp {
-                gatsbyImageData
+            uri
+            slug
+            title
+            blogPreview {
+              blogPreview
+            }
+            featuredImage {
+              node {
+                localFile {
+                  childImageSharp {
+                    gatsbyImageData
+                  }
+                }
               }
             }
           }
@@ -88,19 +92,19 @@ const FeaturedBlog = () => {
   `)
 
   const featuredImage = {
-    img: wpPost.featuredImage?.node?.localFile?.childImageSharp?.gatsbyImageData,
-    alt: wpPost.servicesImage?.node?.altText || `featured-image`,
+    img: edges[0].node.featuredImage?.node?.localFile?.childImageSharp?.gatsbyImageData,
+    alt: edges[0].node.servicesImage?.node?.altText || `featured-image`,
   }
 
   return (
     <>
-      {wpPost !== null ? (
+      {edges[0].node !== null ? (
         <BlogInnerWrapper>
           <BlogInnerContainer>
             <div>
               <img src={blog_icon} alt="blog-icon" className="featured-blog-icon" />
               <BlogMobileOverlay>
-                <Link className="hover-image" to={`/blog${ wpPost.uri }`}>
+                <Link className="hover-image" to={`/blog${ edges[0].node.uri }`}>
                 {featuredImage.img !== undefined || null ? (
                   <GatsbyImage
                     image={featuredImage.img}
@@ -118,15 +122,15 @@ const FeaturedBlog = () => {
               </BlogMobileOverlay>
             </div>
             <BlogItem>
-              <h3 className="featured-title">{parse(wpPost.title)}</h3>
-              {wpPost.blogPreview.blogPreview !== null ? (
-                <p className="featured-excerpt">{parse(wpPost.blogPreview.blogPreview)}</p>
+              <h3 className="featured-title">{parse(edges[0].node.title)}</h3>
+              {edges[0].node.blogPreview.blogPreview !== null ? (
+                <p className="featured-excerpt">{parse(edges[0].node.blogPreview.blogPreview)}</p>
               ) : (
                 <div className="featured-excerpt">
                   <pre>No Preview found.</pre>
                 </div>
               )}
-              <Link to={`/blog${wpPost.uri}`}>
+              <Link to={`/blog${ edges[0].node.uri}`}>
                 <button className="lees-verder-button">
                   <span className="lees-verder-link">Lees verder</span>
                 </button>
