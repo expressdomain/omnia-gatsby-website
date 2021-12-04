@@ -13,7 +13,7 @@
     "@wordpress/block-library": "^6.0.11",
     "dompurify": "^2.3.3",
     "dotenv": "^10.0.0",
-    "gatsby": "^4.2.0",
+    "gatsby": "^4.3.0",
     "gatsby-image": "^3.11.0",
     "gatsby-plugin-emotion": "^7.3.0",
     "gatsby-plugin-image": "^0.7.0-next.0",
