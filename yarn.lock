@@ -4620,10 +4620,10 @@ eslint-config-airbnb@^18.2.0:
     object.assign "^4.1.2"
     object.entries "^1.1.2"
 
-eslint-config-ashhitch@0.0.3:
-  version "0.0.3"
-  resolved "https://registry.npmjs.org/eslint-config-ashhitch/-/eslint-config-ashhitch-0.0.3.tgz#aa21c2cb07bd84d3878d4f40b58968ccaee1a1f7"
-  integrity sha512-zTXEl9EKIqkMYUMa8uvKVd4+4At7Li/3PqaNQ5kmX+BOUbVrIIQ17vq+CEwKKmy2vGSA+9VNGoxFR62/BmDppg==
+eslint-config-ashhitch@0.1.8:
+  version "0.1.8"
+  resolved "https://registry.yarnpkg.com/eslint-config-ashhitch/-/eslint-config-ashhitch-0.1.8.tgz#329ab3f60434a3a3a3932bb6bc621bbe48863735"
+  integrity sha512-v/wYJ29KHWPjlFZQSaeY6wb9mcAgkmRe+0h3ZKDYuls4Q/nsb6wfaR0MsVpA6GSgn4OMvmRyxcSw62+fC4Qd/g==
 
 eslint-config-prettier@^6.15.0:
   version "6.15.0"
