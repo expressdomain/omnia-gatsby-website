@@ -5753,10 +5753,10 @@ gatsby-plugin-utils@^3.0.0:
     "@babel/runtime" "^7.15.4"
     joi "^17.4.2"
 
-gatsby-plugin-wpgraphql-seo@^1.4.0:
-  version "1.4.0"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-wpgraphql-seo/-/gatsby-plugin-wpgraphql-seo-1.4.0.tgz#bfed3ba9438b8aa35d27efd0779329059b5a8972"
-  integrity sha512-olUarcG8HqX8QCZGGSW1nW0u2UkIAIi7mjmxcZmfZ7qZDW8qgCx8Y+3bI+Zd9Bs0LZOWAVbs7fkizNRsbvehlA==
+gatsby-plugin-wpgraphql-seo@1.4.1:
+  version "1.4.1"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-wpgraphql-seo/-/gatsby-plugin-wpgraphql-seo-1.4.1.tgz#089a32cdabeeaf0fc4d078392c43c83058f71ba1"
+  integrity sha512-uD6H4xSZFuCjFNMQ6zuEDfEPV46Y35OaIaMcOVebOHXza1gv1OmLKc6qmG22Q0yTvDkLc8kyUiTpQI31ytitpA==
   dependencies:
     "@types/react-helmet" "^6.1.0"
     gatsby-plugin-image "^1.5.0"
